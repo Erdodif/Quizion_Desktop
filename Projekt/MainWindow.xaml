@@ -1,0 +1,18 @@
+﻿<Window x:Class="Projekt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid RenderTransformOrigin="0.485,0.501">
+        <Label x:Name="lbl_nev" Content="Név: " HorizontalAlignment="Left" Margin="94,123,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="btn_login" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="260,337,0,0" VerticalAlignment="Center" Width="285" FontSize="24" Click="btn_login_Click" FontStyle="Italic"/>
+        <Label x:Name="lbl_jelszo" Content="Jelszó: " HorizontalAlignment="Left" Margin="94,227,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.412,-0.124" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="tbx_00" Height="23" Margin="353,139,0,0" TextWrapping="Wrap" Width="192" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbx_01" HorizontalAlignment="Left" Height="23" Margin="353,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
+        <TextBlock x:Name="tbl_hibak" HorizontalAlignment="Left" Margin="399,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
