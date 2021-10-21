@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Projekt
 {
@@ -30,12 +32,17 @@ namespace Projekt
             if (tbx_00.Text == "" || tbx_01.Text == "")
             {
                 tbl_hibak.Text = "Minden mező megadása kötelező!";
+                
 
 
             }
             else if (tbx_00.Text.Length < 5)
             {
                 tbl_hibak.Text = "Túl rövid a név!";
+            }
+            else if (tbx_01.Text.Contains("@"))
+            {
+                tbl_hibak.Text = "Érvénytelen jelszó!";
             }
             else if (tbx_00.Text.ToLower() == "admin")
             {
@@ -45,7 +52,7 @@ namespace Projekt
             {
                 tbl_hibak.Text = "Túl rövid a jelszó!";
             }
-            else if (tbx_01.Text == "password")
+            else if (tbx_01.Text.ToLower() == "password")
             {
                 tbl_hibak.Text = "Nem megfelelő jelszó!";
             }
@@ -61,7 +68,8 @@ namespace Projekt
         private void keres()
         {
             // Create the http request
-            const string Url = "http://localhost/quizion/index.php?method=read&table=quiz";
+           
+            const string Url = "http://10.147.20.1/adatok/index.php?method=read&table=quiz";
             var webRequest = WebRequest.Create(Url);
 
             // Send the http request and wait for the response
@@ -73,13 +81,31 @@ namespace Projekt
                 using (var streamReader = new StreamReader(responseStream))
                 {
                     // Return next available character or -1 if there are no characters to be read
-                    lbl_keres.Text= streamReader.Peek().ToString() + " ";
+                    lbl_keres.Text = streamReader.Peek().ToString() + " ";
                     while (streamReader.Peek() > -1)
                     {
-                        lbl_keres.Text += streamReader.ReadLine();
+                        string visszaad = streamReader.ReadLine();
+                        //lbl_keres.Text += visszaad;
+                        JsonSerializer.Create();
+                        JObject tartalom = JObject.Parse(visszaad);
+                        IList<JToken> results = tartalom["data"].Children().ToList();
+                        string osszegyujt = "";
+                        /*List<Quiz> kvizek = new List<Quiz>();
+                        foreach (JToken result in visszaad)
+                        {
+                            kvizek.Add(result.ToObject<Quiz>());
+                        }
+                        foreach (Quiz kviz in kvizek)
+                        {
+                            osszegyujt += kviz + "\n";
+                        }
+                        */
+                        lbl_keres.Text = tartalom["data"][1]["header"].ToString();
+
                     }
                 }
             }
+
 
             
         }
