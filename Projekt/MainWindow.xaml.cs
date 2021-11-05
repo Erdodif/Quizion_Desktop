@@ -74,7 +74,8 @@ namespace Projekt
 
             // Send the http request and wait for the response
             var responseStream = webRequest.GetResponse().GetResponseStream();
-
+            webRequest.Method = "POST";
+            
             // Displays the response stream text
             if (responseStream != null)
             {
@@ -100,13 +101,30 @@ namespace Projekt
                             osszegyujt += kviz + "\n";
                         }
                         */
+                        Olvasas(results);
                         lbl_keres.Text = tartalom["data"][1]["header"].ToString();
+                        lbl_keres.Text += tartalom["data"][1]["description"].ToString();
+                        if (webRequest.Method == "POST")
+                        {
+                            MessageBox.Show("Sikeres", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sikeres", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
 
                     }
                 }
             }
 
 
+            
+        }
+
+        private void Olvasas(IList<JToken> jtoken)
+        {
+
+            lbl_keres.Text = jtoken[0].ToString();
             
         }
     }
