@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:Projekt"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style x:Key="MontserratFont">
+            <Setter Property="TextElement.FontFamily"
+                    Value="/Fonts/#Montserrat">
+                
+            </Setter>
+        </Style>
          
     </Application.Resources>
 </Application>
