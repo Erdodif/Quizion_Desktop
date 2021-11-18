@@ -105,6 +105,8 @@ namespace Projekt
                         //lbl_keres.Text = tartalom["data"][1]["header"].ToString();
                         //lbl_keres.Text += tartalom["data"][1]["description"].ToString();
                         Kiiratas(results);
+
+                        
                         if (webRequest.Method == "POST")
                         {
                             MessageBox.Show("Sikeres", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
