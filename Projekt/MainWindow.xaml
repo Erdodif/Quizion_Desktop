@@ -11,7 +11,7 @@
             <ColumnDefinition Width="779*"/>
             <ColumnDefinition Width="14*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lbl_nev"  Style="{StaticResource MontserratFont}" Content="Név: " HorizontalAlignment="Left" Margin="94,10,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <Label x:Name="lbl_nev"  Style="{StaticResource MontserratFont}"  Content="Név: " HorizontalAlignment="Left" Margin="94,10,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
         <Button x:Name="btn_login" Style="{StaticResource MontserratFont}" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="260,367,0,41" VerticalAlignment="Center" Width="285" FontSize="24" Click="btn_login_Click" FontStyle="Italic"/>
         <Label x:Name="lbl_jelszo" Style="{StaticResource MontserratFont}" Content="Jelszó: " HorizontalAlignment="Left" Margin="94,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.412,-0.124" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="tbx_00" Height="23" Margin="353,10,0,0" Style="{StaticResource MontserratFont}" TextWrapping="Wrap" Width="192" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -32,4 +32,6 @@
         <Label x:Name="lbl_lista" Content="Lista" HorizontalAlignment="Left" Margin="28,260,0,0" VerticalAlignment="Top" Width="82" FontSize="18" FontWeight="Bold"/>
 
     </Grid>
+
+    
 </Window>

@@ -24,8 +24,19 @@ namespace Projekt
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-     
+        //Color primary = (Color)ColorConverter.ConvertFromString("#50508E");
+        //Color primaryVariant = (Color)ColorConverter.ConvertFromString("#211A52");
+        //Color secondary = (Color)ColorConverter.ConvertFromString("#7985C1");
+        //Color secondaryVariant = (Color)ColorConverter.ConvertFromString("#5B6AB0");
+        //Color onSecondary = (Color)ColorConverter.ConvertFromString("#4053A0");
+        //Color onPrimary = (Color)ColorConverter.ConvertFromString("#E8E7F5");
+        //Color warning = (Color)ColorConverter.ConvertFromString("#BA0100");
+        //Color alert = (Color)ColorConverter.ConvertFromString("#BAA100");
+        //Color fine = (Color)ColorConverter.ConvertFromString("#1CBA00");
+        //Color black = (Color)ColorConverter.ConvertFromString("#FF000000");
+        //Color white = (Color)ColorConverter.ConvertFromString("#FFFFFFFF");
+
+
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
             
@@ -105,7 +116,6 @@ namespace Projekt
                         //lbl_keres.Text = tartalom["data"][1]["header"].ToString();
                         //lbl_keres.Text += tartalom["data"][1]["description"].ToString();
                         Kiiratas(results);
-
                         
                         if (webRequest.Method == "POST")
                         {
