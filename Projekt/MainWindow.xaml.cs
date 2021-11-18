@@ -102,8 +102,9 @@ namespace Projekt
                         }
                         */
                         Olvasas(results);
-                        lbl_keres.Text = tartalom["data"][1]["header"].ToString();
-                        lbl_keres.Text += tartalom["data"][1]["description"].ToString();
+                        //lbl_keres.Text = tartalom["data"][1]["header"].ToString();
+                        //lbl_keres.Text += tartalom["data"][1]["description"].ToString();
+                        Kiiratas(results);
                         if (webRequest.Method == "POST")
                         {
                             MessageBox.Show("Sikeres", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -123,9 +124,18 @@ namespace Projekt
 
         private void Olvasas(IList<JToken> jtoken)
         {
-
-            lbl_keres.Text = jtoken[0].ToString();
             
+            lbl_keres.Text = jtoken[0].ToString();
+         
+        }
+
+
+        private void Kiiratas(IList<JToken> jtoken)
+        {
+            for (int i = 0; i < jtoken.Count; i++)
+            {
+                lbl_listaz.Text += jtoken[i];
+            }
         }
     }
 }
