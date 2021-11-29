@@ -106,6 +106,7 @@ namespace Projekt
         {
 
             lbl_keres.Text = jtoken[0].ToString();
+            lbl_keres.Foreground = Color.Add
 
         }
 

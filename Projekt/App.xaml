@@ -21,6 +21,7 @@
         <Color x:Key="fine">#1CBA00</Color>
         <Color x:Key="black">#FF000000</Color>
         <Color x:Key="white">#FFFFFFFF</Color>
+        <SolidColorBrush x:Key="white2">#FFFFFFFF</SolidColorBrush>
 
 
     </Application.Resources>
