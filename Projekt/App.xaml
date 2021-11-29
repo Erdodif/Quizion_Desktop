@@ -7,22 +7,9 @@
         <Style x:Key="MontserratFont">
             <Setter Property="TextElement.FontFamily"
                     Value="/Fonts/#Montserrat">
-                
+
             </Setter>
         </Style>
-        <Color x:Key="primary"> #50508E</Color>
-        <Color x:Key="primary_variant">#211A52</Color>
-        <Color x:Key="secondary">#7985C1</Color>
-        <Color x:Key="secondary_variant">#5B6AB0</Color>
-        <Color x:Key="on_secondary">#4053A0</Color>
-        <Color x:Key="on_primary">#E8E7F5</Color>
-        <Color x:Key="warning">#BA0100</Color>
-        <Color x:Key="alert">#BAA100</Color>
-        <Color x:Key="fine">#1CBA00</Color>
-        <Color x:Key="black">#FF000000</Color>
-        <Color x:Key="white">#FFFFFFFF</Color>
-        <SolidColorBrush x:Key="white2">#FFFFFFFF</SolidColorBrush>
-
-
+        
     </Application.Resources>
 </Application>

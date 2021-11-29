@@ -26,6 +26,7 @@ namespace Projekt
         public Window1()
         {
             InitializeComponent();
+           
             //Color primary = (Color)ColorConverter.ConvertFromString("#50508E");
             //Color primaryVariant = (Color)ColorConverter.ConvertFromString("#211A52");
             //Color secondary = (Color)ColorConverter.ConvertFromString("#7985C1");
@@ -47,6 +48,40 @@ namespace Projekt
         private void keres()
         {
             // Create the http request
+
+            SolidColorBrush primary = new SolidColorBrush();
+            primary = (SolidColorBrush) new BrushConverter().ConvertFrom("#50508E");
+
+
+            SolidColorBrush primaryVariant = new SolidColorBrush();
+            primaryVariant = (SolidColorBrush) new BrushConverter().ConvertFrom("#211A52");
+
+            SolidColorBrush secondary = new SolidColorBrush();
+            secondary = (SolidColorBrush) new BrushConverter().ConvertFrom("#7985C1");
+
+            SolidColorBrush secondaryVariant = new SolidColorBrush();
+            secondaryVariant = (SolidColorBrush) new BrushConverter().ConvertFrom("#5B6AB0");
+
+            SolidColorBrush onSecondary = new SolidColorBrush();
+            onSecondary = (SolidColorBrush)new BrushConverter().ConvertFrom("#4053A0");
+
+            SolidColorBrush onPrimary = new SolidColorBrush();
+            onPrimary = (SolidColorBrush)new BrushConverter().ConvertFrom("#E8E7F5");
+
+            SolidColorBrush warning = new SolidColorBrush();
+            warning = (SolidColorBrush)new BrushConverter().ConvertFrom("#BA0100");
+
+            SolidColorBrush alert = new SolidColorBrush();
+            alert = (SolidColorBrush)new BrushConverter().ConvertFrom("#BAA100");
+
+            SolidColorBrush fine = new SolidColorBrush();
+            fine = (SolidColorBrush)new BrushConverter().ConvertFrom("#1CBA00");
+
+            SolidColorBrush white = new SolidColorBrush();
+            white = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF000000");
+
+            SolidColorBrush black = new SolidColorBrush();
+            black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
 
             const string Url = "http://10.147.20.1/adatok/index.php?method=read&table=quiz";
             var webRequest = WebRequest.Create(Url);
@@ -83,6 +118,8 @@ namespace Projekt
                         Olvasas(results);
                         //lbl_keres.Text = tartalom["data"][1]["header"].ToString();
                         //lbl_keres.Text += tartalom["data"][1]["description"].ToString();
+                        lbl_keres.Foreground = primary;
+                        lbl_listaz.Background = secondaryVariant;
                         Kiiratas(results);
 
                         if (webRequest.Method == "POST")
@@ -106,7 +143,7 @@ namespace Projekt
         {
 
             lbl_keres.Text = jtoken[0].ToString();
-            lbl_keres.Foreground = Color.Add
+        
 
         }
 
@@ -118,5 +155,12 @@ namespace Projekt
                 lbl_listaz.Text += jtoken[i];
             }
         }
+        /*
+        public SolidColorBrush SzinekHexaKodbol(string hexaSzinKod)
+        {
+            return (SolidColorBrush)(new BrushConverter().ConvertFrom(hexaSzinKod));
+        }
+        */
+
     }
 }
