@@ -43,8 +43,8 @@ namespace Projekt
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             keres();
-        }
 
+        }
         private void keres()
         {
             // Create the http request
