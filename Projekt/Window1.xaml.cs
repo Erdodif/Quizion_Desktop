@@ -84,6 +84,7 @@ namespace Projekt
             black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
 
             const string Url = "http://10.147.20.1/adatok/index.php?method=read&table=quiz";
+            //const string Url = "http://10.147.20.1/api/quizes";
             var webRequest = WebRequest.Create(Url);
 
             // Send the http request and wait for the response
