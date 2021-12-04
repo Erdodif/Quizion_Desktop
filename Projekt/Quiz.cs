@@ -36,6 +36,12 @@ namespace Projekt
 
 
         }
-       
+
+
+        public override string ToString()
+        {
+            return $"{id,4} {content,-20} {rightAnswers,-20} {point}";
+        }
+
     }
 }

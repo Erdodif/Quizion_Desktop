@@ -24,10 +24,11 @@ namespace Projekt
     /// </summary>
     public partial class Window1 : Window
     {
-        static string Url = "http://quizion.hu/api/quizes/";
+        static string Url = "http://quizion.hu/api/quizes";
         public Window1()
         {
             InitializeComponent();
+            
            
             //Color primary = (Color)ColorConverter.ConvertFromString("#50508E");
             //Color primaryVariant = (Color)ColorConverter.ConvertFromString("#211A52");
@@ -45,22 +46,25 @@ namespace Projekt
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //keres();
-            kereses();
+            listazas("http://quizion.hu/api/quizes");
+            
 
         }
 
-        private async Task kereses()
+        private async Task listazas(String url)
 
         {
             using (var client = new HttpClient())
             {
-                string data = await client.GetStringAsync(Url);
-                //JsonConvert.DeserializeObject(data);
-                lbl_listaz.Text = data;
+                string answer = await client.GetStringAsync(url);
+                lbl_listaz.Text = answer;
+                
+                
             }
             
             
         }
+
 
         private void keres()
         {
@@ -172,7 +176,7 @@ namespace Projekt
         {
             for (int i = 0; i < jtoken.Count; i++)
             {
-                lbl_listaz.Text += jtoken[i];
+                //lbl_listaz.Text += jtoken[i];
             }
         }
         /*
