@@ -25,6 +25,7 @@ namespace Projekt
     public partial class Window1 : Window
     {
         static string Url = "http://quizion.hu/api/quizes";
+        static List<JObject> lista = new List<JObject>();
         public Window1()
         {
             InitializeComponent();
@@ -59,11 +60,13 @@ namespace Projekt
                 string answer = await client.GetStringAsync(url);
                 lbl_listaz.Text = answer;
                 
-                
+              
+                  
             }
             
             
         }
+
 
 
         private void keres()
