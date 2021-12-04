@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,7 @@ namespace Projekt
     /// </summary>
     public partial class Window1 : Window
     {
+        static string Url = "http://quizion.hu/api/quizes/";
         public Window1()
         {
             InitializeComponent();
@@ -42,9 +44,24 @@ namespace Projekt
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            keres();
+            //keres();
+            kereses();
 
         }
+
+        private async Task kereses()
+
+        {
+            using (var client = new HttpClient())
+            {
+                string data = await client.GetStringAsync(Url);
+                //JsonConvert.DeserializeObject(data);
+                lbl_listaz.Text = data;
+            }
+            
+            
+        }
+
         private void keres()
         {
             // Create the http request
@@ -83,13 +100,15 @@ namespace Projekt
             SolidColorBrush black = new SolidColorBrush();
             black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
 
-            const string Url = "http://10.147.20.1/adatok/index.php?method=read&table=quiz";
-            //const string Url = "http://10.147.20.1/api/quizes";
+            //const string Url = "http://10.147.20.1/adatok/index.php?method=read&table=quiz";
+            const string Url = "http://quizion.hu/api/?vegpont";
+
             var webRequest = WebRequest.Create(Url);
 
             // Send the http request and wait for the response
             var responseStream = webRequest.GetResponse().GetResponseStream();
             webRequest.Method = "POST";
+
 
             // Displays the response stream text
             if (responseStream != null)
