@@ -25,7 +25,7 @@ namespace Projekt
     public partial class Window1 : Window
     {
         static string Url = "http://quizion.hu/api/quizes";
-        static List<JObject> lista = new List<JObject>();
+        static List<string> lista = new List<string>();
         public Window1()
         {
             InitializeComponent();
@@ -57,14 +57,31 @@ namespace Projekt
         {
             using (var client = new HttpClient())
             {
+                /*
+                Encoding enc = Encoding.ASCII;
+                string json = JsonConvert.SerializeObject(url);
+                var adat = new StringContent(json, Encoding.UTF8, "application/json");
+                //lbl_listaz.Text = json;
+                lbl_listaz.Text = url;
+
+                */
+                //var adata = new StringContent(answer, Encoding.ASCII, "application/json");
+
+
+                // működik de nem magyar kódolás
                 string answer = await client.GetStringAsync(url);
-                lbl_listaz.Text = answer;
-                
-              
-                  
+                lbl_listaz.Text = answer[0].ToString();
+                lista.Add(answer);
+                lbl_listaz.Text = lista[0];
+
+
+
+
+
+
             }
-            
-            
+
+
         }
 
 
@@ -108,7 +125,7 @@ namespace Projekt
             black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
 
             //const string Url = "http://10.147.20.1/adatok/index.php?method=read&table=quiz";
-            const string Url = "http://quizion.hu/api/?vegpont";
+            const string Url = "http://quizion.hu/api/quizes";
 
             var webRequest = WebRequest.Create(Url);
 
@@ -130,7 +147,7 @@ namespace Projekt
                         //lbl_keres.Text += visszaad;
                         JsonSerializer.Create();
                         JObject tartalom = JObject.Parse(visszaad);
-                        IList<JToken> results = tartalom["data"].Children().ToList();
+                        IList<JToken> results = tartalom.Children().ToList();
                         string osszegyujt = "";
                         /*List<Quiz> kvizek = new List<Quiz>();
                         foreach (JToken result in visszaad)
@@ -179,7 +196,7 @@ namespace Projekt
         {
             for (int i = 0; i < jtoken.Count; i++)
             {
-                //lbl_listaz.Text += jtoken[i];
+                lbl_listaz.Text += jtoken[i];
             }
         }
         /*

@@ -13,7 +13,7 @@
             <TextBlock x:Name="lbl_keres" Style="{StaticResource MontserratFont}" Text="Ellenőrzés" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="227,307,0,0" VerticalAlignment="Top" Width="355"/>
         </ScrollViewer>
         <ScrollViewer HorizontalAlignment="Left" Height="100" Margin="69,236,0,0" VerticalAlignment="Top" Width="668">
-            <TextBlock x:Name="lbl_listaz" Style="{StaticResource MontserratFont}" Text="Kilistázás" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="227,307,0,0" VerticalAlignment="Top" Width="355"/>
+            <TextBlock x:Name="lbl_listaz" Style="{StaticResource MontserratFont}" Text="Kilistázás" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="227,307,0,0" VerticalAlignment="Top" Width="355" />
         </ScrollViewer>
 
         <Label x:Name="lbl_ell" Content="Ellenőrzés" Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="125" FontSize="16" FontWeight="Bold"/>
