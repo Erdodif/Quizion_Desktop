@@ -29,44 +29,48 @@ namespace Projekt
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (tbx_00.Text == "" || tbx_01.Text == "")
-            {
-                tbl_hibak.Text = "Minden mező megadása kötelező!";
-            }
-            else if (tbx_00.Text.Length < 5)
-            {
-                tbl_hibak.Text = "Túl rövid a név!";
-            }
-            else if (tbx_01.Text.Contains("@"))
-            {
-                tbl_hibak.Text = "Érvénytelen jelszó!";
-            }
-            else if (tbx_00.Text.ToLower() == "admin")
-            {
-                tbl_hibak.Text = "Nem megfelelő név!";
-            }
-            else if (tbx_01.Text.Length < 8)
-            {
-                tbl_hibak.Text = "Túl rövid a jelszó!";
-            }
-            else if (tbx_01.Text.ToLower() == "password")
-            {
-                tbl_hibak.Text = "Nem megfelelő jelszó!";
-            }
-            else
-            {
-                tbl_hibak.Text = "";
-                MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
-                Window1 ellenorzoAblak = new Window1();
-                this.Visibility = Visibility.Hidden;
-                this.Close();
-                ellenorzoAblak.Show();
-                
-                
-            }
-            
-           
+            /* 
+             if (tbx_00.Text == "" || tbx_01.Text == "")
+             {
+                 tbl_hibak.Text = "Minden mező megadása kötelező!";
+             }
+             else if (tbx_00.Text.Length < 5)
+             {
+                 tbl_hibak.Text = "Túl rövid a név!";
+             }
+             else if (tbx_01.Text.Contains("@"))
+             {
+                 tbl_hibak.Text = "Érvénytelen jelszó!";
+             }
+             else if (tbx_00.Text.ToLower() == "admin")
+             {
+                 tbl_hibak.Text = "Nem megfelelő név!";
+             }
+             else if (tbx_01.Text.Length < 8)
+             {
+                 tbl_hibak.Text = "Túl rövid a jelszó!";
+             }
+             else if (tbx_01.Text.ToLower() == "password")
+             {
+                 tbl_hibak.Text = "Nem megfelelő jelszó!";
+             }
+             else
+             {
+
+
+
+
+             }
+            */
+
+            tbl_hibak.Text = "";
+            MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
+            Window1 ellenorzoAblak = new Window1();
+            this.Visibility = Visibility.Hidden;
+            this.Close();
+            ellenorzoAblak.Show();
+
+
         }
 
        
