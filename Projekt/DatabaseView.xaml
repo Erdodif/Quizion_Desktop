@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Adatbázis nézet" Height="450" Width="800" Background="#7985C1">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="52" Margin="10,10,0,0" VerticalAlignment="Top" Width="421">
+        <Image Source="quizion_logo.png" Margin="651.714,10,0,371.706" UseLayoutRounding="False" HorizontalAlignment="Left" Width="131.886" />
+        <Grid HorizontalAlignment="Left" Height="52" Margin="10,10,-0.4,0" VerticalAlignment="Top" Width="784">
             <Button Content="Quiz" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" Background="{x:Null}" BorderThickness="1" Height="30"/>
             <Button Content="Question" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Width="100" Background="{x:Null}" RenderTransformOrigin="0.243,0.529" Height="30"/>
             <Button Content="Answer" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.442,-1.436" Background="{x:Null}" Height="30"/>
