@@ -8,13 +8,13 @@
         Title="Adatbázis nézet" Height="450" Width="800" Background="#7985C1">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="52" Margin="10,10,0,0" VerticalAlignment="Top" Width="774">
-            <Button Content="Quiz" HorizontalAlignment="Left" Margin="29,21,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}"/>
-            <Button Content="Question" HorizontalAlignment="Left" Margin="131,21,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" RenderTransformOrigin="0.243,0.529"/>
-            <Button Content="Answer" HorizontalAlignment="Left" Margin="229,21,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.442,-1.436" Background="{x:Null}"/>
-            <Button Content="Admin" HorizontalAlignment="Left" Margin="331,21,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.442,-1.436" Background="{x:Null}"/>
+            <Button Content="Quiz" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" Background="{x:Null}" BorderThickness="1" Height="30"/>
+            <Button Content="Question" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" Width="100" Background="{x:Null}" RenderTransformOrigin="0.243,0.529" Height="30"/>
+            <Button Content="Answer" HorizontalAlignment="Left" Margin="213,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.442,-1.436" Background="{x:Null}" Height="30"/>
+            <Button Content="Admin" HorizontalAlignment="Left" Margin="318,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.442,-1.436" Background="{x:Null}" Height="30"/>
         </Grid>
         <DataGrid HorizontalAlignment="Left" Height="246" Margin="109,107,0,0" VerticalAlignment="Top" Width="538"/>
-        <Button Content="Módosítáa" HorizontalAlignment="Left" Margin="207,334,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Módosítás" HorizontalAlignment="Left" Margin="207,334,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Törlés" HorizontalAlignment="Left" Margin="347,334,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Adminná választás" HorizontalAlignment="Left" Margin="477,334,0,0" VerticalAlignment="Top" Width="134"/>
 
