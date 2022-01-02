@@ -169,6 +169,10 @@ namespace Projekt
                         if (webRequest.Method == "POST")
                         {
                             MessageBox.Show("Sikeres", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
+                            DatabaseView adatbazisNezet = new DatabaseView();
+                            this.Visibility = Visibility.Hidden;
+                            this.Close();
+                            adatbazisNezet.Show();
                         }
                         else
                         {

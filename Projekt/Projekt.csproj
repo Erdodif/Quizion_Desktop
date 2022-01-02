@@ -59,9 +59,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApiAnswer.cs" />
+    <Compile Include="DatabaseView.xaml.cs">
+      <DependentUpon>DatabaseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Page Include="DatabaseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
