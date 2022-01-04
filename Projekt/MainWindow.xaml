@@ -17,7 +17,7 @@
         <Button x:Name="btn_login" Style="{StaticResource MontserratFont}" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="450,325,0,113" VerticalAlignment="Center" Width="285" FontSize="24" Click="btn_login_Click" FontStyle="Italic" Grid.ColumnSpan="2"/>
         <Label x:Name="lbl_jelszo" Style="{StaticResource MontserratFont}" Content="Jelszó: " HorizontalAlignment="Left" Margin="376,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.412,-0.124" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="tbx_00" Height="23" Margin="65.347,64,0,0" Style="{StaticResource MontserratFont}" TextWrapping="Wrap" Width="217" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox x:Name="tbx_01" HorizontalAlignment="Left" Height="23" Margin="65.347,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Grid.Column="1"/>
+        <TextBox x:Name="tbx_01"   Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Height="23" Margin="65.347,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Grid.Column="1"/>
 
 
 
