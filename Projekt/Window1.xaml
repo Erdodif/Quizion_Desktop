@@ -8,7 +8,7 @@
         Title="Ellenőrzés" Height="450" Width="800" Background="#7985C1">
     <Grid>
         <Image Source="quizion_logo.png" Margin="651.714,10,0,371.706" UseLayoutRounding="False" HorizontalAlignment="Left" Width="131.886" />
-        <ScrollViewer HorizontalAlignment="Left" Height="100" Margin="69,67,0,0" VerticalAlignment="Top" Width="674">
+        <ScrollViewer HorizontalAlignment="Left" Height="100" Margin="63,68,0,0" VerticalAlignment="Top" Width="674">
 
             <TextBlock x:Name="lbl_keres" Style="{StaticResource MontserratFont}" Text="Ellenőrzés" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="227,307,0,0" VerticalAlignment="Top" Width="355"/>
         </ScrollViewer>
@@ -18,7 +18,7 @@
 
         <Label x:Name="lbl_ell" Content="Ellenőrzés" Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="125" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="lbl_lista" Content="Lista" Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Width="82" FontSize="18" FontWeight="Bold"/>
-        <Button x:Name="btn_ellenorzo" Content="Ellenőrzés"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="296,369,0,0" VerticalAlignment="Top" Width="193" Click="Button_Click"/>
+        <Button x:Name="btn_ellenorzo" Content="Ellenőrzés"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="293,374,0,0" VerticalAlignment="Top" Width="193" Click="Button_Click"/>
 
     </Grid>
 </Window>
