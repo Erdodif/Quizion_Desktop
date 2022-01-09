@@ -23,7 +23,7 @@
                     <Button  x:Name="btn_answer" Content="Answer"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.442,-1.436" Background="{x:Null}" Height="30" Click="AnswerClick"/>
                     <Button  x:Name="btn_admin" Content="Admin"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.442,-1.436" Background="{x:Null}" Height="30" Click="AdminClick"/>
                 </Grid>
-                <ScrollViewer Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="327,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="18"/>
+                <ScrollViewer Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="282.8,74.2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="18"/>
                 <ListBox x:Name="lista"  HorizontalAlignment="Left" Height="230" Margin="10,10.2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="451"/>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80"/>
