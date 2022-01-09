@@ -79,6 +79,7 @@ namespace Projekt
 
                 // működik de nem magyar kódolás
                 string answer = await client.GetStringAsync(url);
+               
                 //lbl_listaz.Text = answer[0].ToString();
                 //lista.Add(answer);
                 //lbl_listaz.Text = lista[0];
@@ -93,9 +94,6 @@ namespace Projekt
 
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+      
     }
 }
