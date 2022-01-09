@@ -9,6 +9,7 @@ namespace Projekt
     class Admin:User
     {
         private Int64 id;
+        //User.id => userId
 
       
         public long Id1 { get => id; set => id = value; }
