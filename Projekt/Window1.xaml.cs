@@ -165,19 +165,26 @@ namespace Projekt
                         lbl_keres.Foreground = primary;
                         lbl_listaz.Background = secondaryVariant;
                         Kiiratas(results);
+                        /*
+                            if (webRequest.Method == "POST")
+                            {
+                                MessageBox.Show("Sikeres", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
+                                DatabaseView adatbazisNezet = new DatabaseView();
+                                this.Visibility = Visibility.Hidden;
+                                this.Close();
+                                adatbazisNezet.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sikertelen", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        */
 
-                        if (webRequest.Method == "POST")
-                        {
-                            MessageBox.Show("Sikeres", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
-                            DatabaseView adatbazisNezet = new DatabaseView();
-                            this.Visibility = Visibility.Hidden;
-                            this.Close();
-                            adatbazisNezet.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Sikertelen", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
+                        MessageBox.Show("Sikeres", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
+                        DatabaseView adatbazisNezet = new DatabaseView();
+                        this.Visibility = Visibility.Hidden;
+                        this.Close();
+                        adatbazisNezet.Show();
 
                     }
                 }
