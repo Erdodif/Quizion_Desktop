@@ -47,8 +47,13 @@ namespace Projekt
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //keres();
-            listazas("http://quizion.hu/api/quizes");
-            
+            //listazas("http://quizion.hu/api/quizes");
+            MessageBox.Show("Sikeres", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
+            DatabaseView adatbazisNezet = new DatabaseView();
+            this.Visibility = Visibility.Hidden;
+            this.Close();
+            adatbazisNezet.Show();
+
 
         }
 
@@ -180,11 +185,7 @@ namespace Projekt
                             }
                         */
 
-                        MessageBox.Show("Sikeres", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
-                        DatabaseView adatbazisNezet = new DatabaseView();
-                        this.Visibility = Visibility.Hidden;
-                        this.Close();
-                        adatbazisNezet.Show();
+                       
 
                     }
                 }
