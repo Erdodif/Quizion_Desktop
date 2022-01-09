@@ -30,6 +30,40 @@ namespace Projekt
         private async Task listazas(String url)
 
         {
+            SolidColorBrush primary = new SolidColorBrush();
+            primary = (SolidColorBrush)new BrushConverter().ConvertFrom("#50508E");
+
+
+            SolidColorBrush primaryVariant = new SolidColorBrush();
+            primaryVariant = (SolidColorBrush)new BrushConverter().ConvertFrom("#211A52");
+
+            SolidColorBrush secondary = new SolidColorBrush();
+            secondary = (SolidColorBrush)new BrushConverter().ConvertFrom("#7985C1");
+
+            SolidColorBrush secondaryVariant = new SolidColorBrush();
+            secondaryVariant = (SolidColorBrush)new BrushConverter().ConvertFrom("#5B6AB0");
+
+            SolidColorBrush onSecondary = new SolidColorBrush();
+            onSecondary = (SolidColorBrush)new BrushConverter().ConvertFrom("#4053A0");
+
+            SolidColorBrush onPrimary = new SolidColorBrush();
+            onPrimary = (SolidColorBrush)new BrushConverter().ConvertFrom("#E8E7F5");
+
+            SolidColorBrush warning = new SolidColorBrush();
+            warning = (SolidColorBrush)new BrushConverter().ConvertFrom("#BA0100");
+
+            SolidColorBrush alert = new SolidColorBrush();
+            alert = (SolidColorBrush)new BrushConverter().ConvertFrom("#BAA100");
+
+            SolidColorBrush fine = new SolidColorBrush();
+            fine = (SolidColorBrush)new BrushConverter().ConvertFrom("#1CBA00");
+
+            SolidColorBrush white = new SolidColorBrush();
+            white = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF000000");
+
+            SolidColorBrush black = new SolidColorBrush();
+            black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
+
             using (var client = new HttpClient())
             {
                 /*
@@ -45,9 +79,9 @@ namespace Projekt
 
                 // működik de nem magyar kódolás
                 string answer = await client.GetStringAsync(url);
-                lbl_listaz.Text = answer[0].ToString();
-                lista.Add(answer);
-                lbl_listaz.Text = lista[0];
+                //lbl_listaz.Text = answer[0].ToString();
+                //lista.Add(answer);
+                //lbl_listaz.Text = lista[0];
 
 
 
