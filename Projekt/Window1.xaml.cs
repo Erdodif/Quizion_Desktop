@@ -29,8 +29,42 @@ namespace Projekt
         public Window1()
         {
             InitializeComponent();
-            
-           
+
+             SolidColorBrush primary = new SolidColorBrush();
+            primary = (SolidColorBrush)new BrushConverter().ConvertFrom("#50508E");
+
+
+            SolidColorBrush primaryVariant = new SolidColorBrush();
+            primaryVariant = (SolidColorBrush)new BrushConverter().ConvertFrom("#211A52");
+
+            SolidColorBrush secondary = new SolidColorBrush();
+            secondary = (SolidColorBrush)new BrushConverter().ConvertFrom("#7985C1");
+
+            SolidColorBrush secondaryVariant = new SolidColorBrush();
+            secondaryVariant = (SolidColorBrush)new BrushConverter().ConvertFrom("#5B6AB0");
+
+            SolidColorBrush onSecondary = new SolidColorBrush();
+            onSecondary = (SolidColorBrush)new BrushConverter().ConvertFrom("#4053A0");
+
+            SolidColorBrush onPrimary = new SolidColorBrush();
+            onPrimary = (SolidColorBrush)new BrushConverter().ConvertFrom("#E8E7F5");
+
+            SolidColorBrush warning = new SolidColorBrush();
+            warning = (SolidColorBrush)new BrushConverter().ConvertFrom("#BA0100");
+
+            SolidColorBrush alert = new SolidColorBrush();
+            alert = (SolidColorBrush)new BrushConverter().ConvertFrom("#BAA100");
+
+            SolidColorBrush fine = new SolidColorBrush();
+            fine = (SolidColorBrush)new BrushConverter().ConvertFrom("#1CBA00");
+
+            SolidColorBrush white = new SolidColorBrush();
+            white = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF000000");
+
+            SolidColorBrush black = new SolidColorBrush();
+            black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
+
+
             //Color primary = (Color)ColorConverter.ConvertFromString("#50508E");
             //Color primaryVariant = (Color)ColorConverter.ConvertFromString("#211A52");
             //Color secondary = (Color)ColorConverter.ConvertFromString("#7985C1");
@@ -46,9 +80,44 @@ namespace Projekt
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            SolidColorBrush primary = new SolidColorBrush();
+            primary = (SolidColorBrush)new BrushConverter().ConvertFrom("#50508E");
+
+
+            SolidColorBrush primaryVariant = new SolidColorBrush();
+            primaryVariant = (SolidColorBrush)new BrushConverter().ConvertFrom("#211A52");
+
+            SolidColorBrush secondary = new SolidColorBrush();
+            secondary = (SolidColorBrush)new BrushConverter().ConvertFrom("#7985C1");
+
+            SolidColorBrush secondaryVariant = new SolidColorBrush();
+            secondaryVariant = (SolidColorBrush)new BrushConverter().ConvertFrom("#5B6AB0");
+
+            SolidColorBrush onSecondary = new SolidColorBrush();
+            onSecondary = (SolidColorBrush)new BrushConverter().ConvertFrom("#4053A0");
+
+            SolidColorBrush onPrimary = new SolidColorBrush();
+            onPrimary = (SolidColorBrush)new BrushConverter().ConvertFrom("#E8E7F5");
+
+            SolidColorBrush warning = new SolidColorBrush();
+            warning = (SolidColorBrush)new BrushConverter().ConvertFrom("#BA0100");
+
+            SolidColorBrush alert = new SolidColorBrush();
+            alert = (SolidColorBrush)new BrushConverter().ConvertFrom("#BAA100");
+
+            SolidColorBrush fine = new SolidColorBrush();
+            fine = (SolidColorBrush)new BrushConverter().ConvertFrom("#1CBA00");
+
+            SolidColorBrush white = new SolidColorBrush();
+            white = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF000000");
+
+            SolidColorBrush black = new SolidColorBrush();
+            black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
+
             //keres();
             //listazas("http://quizion.hu/api/quizes");
-            MessageBox.Show("Sikeres", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
+            btn_ellenorzo.Background = alert;
+            MessageBox.Show("Sikeres ellenőrzés", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
             DatabaseView adatbazisNezet = new DatabaseView();
             this.Visibility = Visibility.Hidden;
             this.Close();
@@ -96,17 +165,17 @@ namespace Projekt
             // Create the http request
 
             SolidColorBrush primary = new SolidColorBrush();
-            primary = (SolidColorBrush) new BrushConverter().ConvertFrom("#50508E");
+            primary = (SolidColorBrush)new BrushConverter().ConvertFrom("#50508E");
 
 
             SolidColorBrush primaryVariant = new SolidColorBrush();
-            primaryVariant = (SolidColorBrush) new BrushConverter().ConvertFrom("#211A52");
+            primaryVariant = (SolidColorBrush)new BrushConverter().ConvertFrom("#211A52");
 
             SolidColorBrush secondary = new SolidColorBrush();
-            secondary = (SolidColorBrush) new BrushConverter().ConvertFrom("#7985C1");
+            secondary = (SolidColorBrush)new BrushConverter().ConvertFrom("#7985C1");
 
             SolidColorBrush secondaryVariant = new SolidColorBrush();
-            secondaryVariant = (SolidColorBrush) new BrushConverter().ConvertFrom("#5B6AB0");
+            secondaryVariant = (SolidColorBrush)new BrushConverter().ConvertFrom("#5B6AB0");
 
             SolidColorBrush onSecondary = new SolidColorBrush();
             onSecondary = (SolidColorBrush)new BrushConverter().ConvertFrom("#4053A0");
@@ -128,6 +197,7 @@ namespace Projekt
 
             SolidColorBrush black = new SolidColorBrush();
             black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
+
 
             //const string Url = "http://10.147.20.1/adatok/index.php?method=read&table=quiz";
             const string Url = "http://quizion.hu/api/quizes";
