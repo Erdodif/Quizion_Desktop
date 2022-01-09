@@ -147,5 +147,10 @@ namespace Projekt
         {
             Valaszlistazas("http://quizion.hu/api/answers").GetAwaiter().GetResult();
         }
+
+        private void AdminClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
