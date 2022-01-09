@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace Projekt
 {
@@ -20,16 +21,11 @@ namespace Projekt
     /// </summary>
     public partial class DatabaseView : Window
     {
-        static string Url = "http://quizion.hu/api/quizes";
+        static string Url = "";
         public DatabaseView()
         {
             
             InitializeComponent();
-        }
-
-        private async Task listazas(String url)
-
-        {
             SolidColorBrush primary = new SolidColorBrush();
             primary = (SolidColorBrush)new BrushConverter().ConvertFrom("#50508E");
 
@@ -64,26 +60,22 @@ namespace Projekt
             SolidColorBrush black = new SolidColorBrush();
             black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
 
+           
+        }
+
+        private async Task Kvizlistazas(String url)
+
+        {
+
+
             using (var client = new HttpClient())
             {
-                /*
-                Encoding enc = Encoding.ASCII;
-                string json = JsonConvert.SerializeObject(url);
-                var adat = new StringContent(json, Encoding.UTF8, "application/json");
-                //lbl_listaz.Text = json;
-                lbl_listaz.Text = url;
-
-                */
-                //var adata = new StringContent(answer, Encoding.ASCII, "application/json");
-
-
-                // működik de nem magyar kódolás
-                string answer = await client.GetStringAsync(url);
-               
-                //lbl_listaz.Text = answer[0].ToString();
-                //lista.Add(answer);
-                //lbl_listaz.Text = lista[0];
-
+                string valasz = await client.GetStringAsync(url);
+                ApiAnswer<Quiz> data = JsonConvert.DeserializeObject<ApiAnswer<Quiz>>(valasz);
+                foreach (var kviz in data.Adatok)
+                {
+                    lista.Items.Add(kviz);
+                }
 
 
 
@@ -94,6 +86,66 @@ namespace Projekt
 
         }
 
-      
+
+        private async Task Kerdeslistazas(String url)
+
+        {
+
+
+            using (var client = new HttpClient())
+            {
+                string valasz = await client.GetStringAsync(url);
+                ApiAnswer<Question> data = JsonConvert.DeserializeObject<ApiAnswer<Question>>(valasz);
+                foreach (var kerdes in data.Adatok)
+                {
+                    lista.Items.Add(kerdes);
+                }
+
+
+
+
+
+            }
+
+
+        }
+
+        private async Task Valaszlistazas(String url)
+
+        {
+
+
+            using (var client = new HttpClient())
+            {
+                string valasz = await client.GetStringAsync(url);
+                ApiAnswer<Answer> data = JsonConvert.DeserializeObject<ApiAnswer<Answer>>(valasz);
+                foreach (var valasza in data.Adatok)
+                {
+                    lista.Items.Add(valasza);
+                }
+
+
+
+
+
+            }
+
+
+        }
+
+        private void QuizClick(object sender, RoutedEventArgs e)
+        {
+            Kvizlistazas("http://quizion.hu/api/quizes").GetAwaiter().GetResult();
+        }
+
+        private void QuestionClick(object sender, RoutedEventArgs e)
+        {
+            Kerdeslistazas("http://quizion.hu/api/questions").GetAwaiter().GetResult();
+        }
+
+        private void AnswerClick(object sender, RoutedEventArgs e)
+        {
+            Valaszlistazas("http://quizion.hu/api/answers").GetAwaiter().GetResult();
+        }
     }
 }
