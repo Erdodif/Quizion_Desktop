@@ -13,7 +13,6 @@ namespace Projekt
         private Int64 id;
         private Int64 quizId;
         private string content;
-        private bool noRightAnswers;
         private Int64 point;
 
         public long Id { get => id; set => id = value; }
@@ -21,14 +20,13 @@ namespace Projekt
         public string Content { get => content; set => content = value; }
        
         public long Point { get => point; set => point = value; }
-        public bool NoRightAnswers { get => noRightAnswers; set => noRightAnswers = value; }
+       
 
-        public Question(int id, int quizId, string content, bool noRightAnswers, int point)
+        public Question(int id, int quizId, string content, int point)
         {
             this.id = id;
             this.quizId = quizId;
             this.content = content;
-            this.noRightAnswers = noRightAnswers;
             this.point = point;
         }
 
@@ -37,6 +35,11 @@ namespace Projekt
             JsonSerializer.Create();
             JObject tartalom = JObject.Parse(q);
             IList<JToken> results = tartalom["data"].Children().ToList();
+        }
+
+        public override string ToString()
+        {
+            return $"{id,4} {quizId,4} , {content,-20} {point}";
         }
     }
 }
