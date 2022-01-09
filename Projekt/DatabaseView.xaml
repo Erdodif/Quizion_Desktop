@@ -12,7 +12,7 @@
             <ColumnDefinition Width="133*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
-            <Image Source="quizion_logo.png" Margin="650.114,29.273,0,352.433" UseLayoutRounding="False" HorizontalAlignment="Left" Width="131.886" />
+            <Image Source="quizion_logo.png" Margin="651.914,42.473,0,339.233" UseLayoutRounding="False" HorizontalAlignment="Left" Width="131.886" />
             <Button Content="Módosítás"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="100"/>
             <Button Content="Törlés"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="124,380,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.348,0.793"/>
             <Button Content="Adminná választás"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="248,380,0,0" VerticalAlignment="Top" Width="150"/>
