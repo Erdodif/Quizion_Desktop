@@ -60,6 +60,7 @@
     </ApplicationDefinition>
     <Compile Include="Admin.cs" />
     <Compile Include="ApiAnswer.cs" />
+    <Compile Include="Data.cs" />
     <Compile Include="DatabaseView.xaml.cs">
       <DependentUpon>DatabaseView.xaml</DependentUpon>
     </Compile>

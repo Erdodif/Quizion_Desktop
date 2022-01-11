@@ -115,13 +115,14 @@ namespace Projekt
             black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
 
             //keres();
-            //listazas("http://quizion.hu/api/quizes");
+            listazas("http://127.0.0.1:8000/api/quizes");
+
             btn_ellenorzo.Background = alert;
-            MessageBox.Show("Sikeres ellenőrzés", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
-            DatabaseView adatbazisNezet = new DatabaseView();
-            this.Visibility = Visibility.Hidden;
-            this.Close();
-            adatbazisNezet.Show();
+            //MessageBox.Show("Sikeres ellenőrzés", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
+            //DatabaseView adatbazisNezet = new DatabaseView();
+            //this.Visibility = Visibility.Hidden;
+            //this.Close();
+            //adatbazisNezet.Show();
 
 
         }
@@ -142,7 +143,8 @@ namespace Projekt
                 //var adata = new StringContent(answer, Encoding.ASCII, "application/json");
 
 
-                // működik de nem magyar kódolás
+                // működik de nem magyar kódolá
+                client.DefaultRequestHeaders.Add("charset", "utf8");
                 string answer = await client.GetStringAsync(url);
                 lbl_listaz.Text = answer[0].ToString();
                 lista.Add(answer);
