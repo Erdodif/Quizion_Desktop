@@ -130,5 +130,8 @@
   <ItemGroup>
     <AdditionalFiles Include="Projekt_ml.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fejlec.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
