@@ -26,7 +26,7 @@ namespace Projekt
                 handler(content);
             }
         }
-        
+        //NAGYON FONTOS!!!
         static void init()
         {
             Func<String, bool> handler = str => {
