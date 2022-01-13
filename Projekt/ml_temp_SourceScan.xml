@@ -40,75 +40,75 @@
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>3</SourceScanID>
-    <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>31</LineNumber>
-    <ColumnNumber>74</ColumnNumber>
-    <OriginalText>#50508E</OriginalText>
+    <ModuleName>Data.cs</ModuleName>
+    <LineNumber>26</LineNumber>
+    <ColumnNumber>51</ColumnNumber>
+    <OriginalText>charset</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>31</StartOfStatement>
-    <EndOfStatement>31</EndOfStatement>
+    <StartOfStatement>26</StartOfStatement>
+    <EndOfStatement>26</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>31</RelativeLineNumber>
+    <CodeElement>Call</CodeElement>
+    <RelativeLineNumber>4</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.DatabaseView</ClassName>
+    <ClassName>Projekt.Data</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>4</SourceScanID>
-    <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>35</LineNumber>
-    <ColumnNumber>81</ColumnNumber>
-    <OriginalText>#211A52</OriginalText>
+    <ModuleName>Data.cs</ModuleName>
+    <LineNumber>26</LineNumber>
+    <ColumnNumber>62</ColumnNumber>
+    <OriginalText>utf8</OriginalText>
     <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>35</StartOfStatement>
-    <EndOfStatement>35</EndOfStatement>
+    <IndexOnLine>1</IndexOnLine>
+    <StartOfStatement>26</StartOfStatement>
+    <EndOfStatement>26</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>35</RelativeLineNumber>
+    <CodeElement>Call</CodeElement>
+    <RelativeLineNumber>4</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.DatabaseView</ClassName>
+    <ClassName>Projekt.Data</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>5</SourceScanID>
-    <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>38</LineNumber>
-    <ColumnNumber>76</ColumnNumber>
-    <OriginalText>#7985C1</OriginalText>
+    <ModuleName>Data.cs</ModuleName>
+    <LineNumber>48</LineNumber>
+    <ColumnNumber>19</ColumnNumber>
+    <OriginalText>link</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>38</StartOfStatement>
-    <EndOfStatement>38</EndOfStatement>
+    <StartOfStatement>48</StartOfStatement>
+    <EndOfStatement>48</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>38</RelativeLineNumber>
+    <CodeElement>init</CodeElement>
+    <RelativeLineNumber>6</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.DatabaseView</ClassName>
+    <ClassName>Projekt.Data</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>6</SourceScanID>
     <ModuleName>DatabaseView.xaml.cs</ModuleName>
     <LineNumber>41</LineNumber>
-    <ColumnNumber>83</ColumnNumber>
-    <OriginalText>#5B6AB0</OriginalText>
+    <ColumnNumber>39</ColumnNumber>
+    <OriginalText>Jó</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
     <StartOfStatement>41</StartOfStatement>
     <EndOfStatement>41</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>41</RelativeLineNumber>
+    <CodeElement>Kvizlistazas</CodeElement>
+    <RelativeLineNumber>3</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
     <ClassName>Projekt.DatabaseView</ClassName>
@@ -117,18 +117,18 @@
   <SourceScanResults>
     <SourceScanID>7</SourceScanID>
     <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>44</LineNumber>
-    <ColumnNumber>78</ColumnNumber>
-    <OriginalText>#4053A0</OriginalText>
+    <LineNumber>124</LineNumber>
+    <ColumnNumber>41</ColumnNumber>
+    <OriginalText>http://quizion.hu/api/quizes</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>44</StartOfStatement>
-    <EndOfStatement>44</EndOfStatement>
+    <StartOfStatement>124</StartOfStatement>
+    <EndOfStatement>124</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>44</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
+    <CodeElement>QuizClick</CodeElement>
+    <RelativeLineNumber>2</RelativeLineNumber>
+    <IsHiddenString>true</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
     <ClassName>Projekt.DatabaseView</ClassName>
     <IsController>false</IsController>
@@ -136,18 +136,18 @@
   <SourceScanResults>
     <SourceScanID>8</SourceScanID>
     <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>47</LineNumber>
-    <ColumnNumber>76</ColumnNumber>
-    <OriginalText>#E8E7F5</OriginalText>
+    <LineNumber>129</LineNumber>
+    <ColumnNumber>43</ColumnNumber>
+    <OriginalText>http://quizion.hu/api/questions</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>47</StartOfStatement>
-    <EndOfStatement>47</EndOfStatement>
+    <StartOfStatement>129</StartOfStatement>
+    <EndOfStatement>129</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>47</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
+    <CodeElement>QuestionClick</CodeElement>
+    <RelativeLineNumber>2</RelativeLineNumber>
+    <IsHiddenString>true</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
     <ClassName>Projekt.DatabaseView</ClassName>
     <IsController>false</IsController>
@@ -155,184 +155,184 @@
   <SourceScanResults>
     <SourceScanID>9</SourceScanID>
     <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>50</LineNumber>
-    <ColumnNumber>74</ColumnNumber>
-    <OriginalText>#BA0100</OriginalText>
+    <LineNumber>134</LineNumber>
+    <ColumnNumber>43</ColumnNumber>
+    <OriginalText>http://quizion.hu/api/answers</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>50</StartOfStatement>
-    <EndOfStatement>50</EndOfStatement>
+    <StartOfStatement>134</StartOfStatement>
+    <EndOfStatement>134</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>50</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
+    <CodeElement>AnswerClick</CodeElement>
+    <RelativeLineNumber>2</RelativeLineNumber>
+    <IsHiddenString>true</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
     <ClassName>Projekt.DatabaseView</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>10</SourceScanID>
-    <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>53</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
-    <OriginalText>#BAA100</OriginalText>
+    <ModuleName>EllenorzesWindow.xaml.cs</ModuleName>
+    <LineNumber>27</LineNumber>
+    <ColumnNumber>30</ColumnNumber>
+    <OriginalText>http://quizion.hu/api/quizes</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>53</StartOfStatement>
-    <EndOfStatement>53</EndOfStatement>
+    <StartOfStatement>27</StartOfStatement>
+    <EndOfStatement>27</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement />
-    <RelativeLineNumber>53</RelativeLineNumber>
+    <RelativeLineNumber>27</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.DatabaseView</ClassName>
+    <ClassName>Projekt.EllenorzesWindow</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>11</SourceScanID>
-    <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>56</LineNumber>
-    <ColumnNumber>71</ColumnNumber>
-    <OriginalText>#1CBA00</OriginalText>
+    <ModuleName>EllenorzesWindow.xaml.cs</ModuleName>
+    <LineNumber>39</LineNumber>
+    <ColumnNumber>23</ColumnNumber>
+    <OriginalText>http://quizion.hu/api/quizes</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>56</StartOfStatement>
-    <EndOfStatement>56</EndOfStatement>
+    <StartOfStatement>39</StartOfStatement>
+    <EndOfStatement>39</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>56</RelativeLineNumber>
+    <CodeElement>Button_Click</CodeElement>
+    <RelativeLineNumber>5</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.DatabaseView</ClassName>
+    <ClassName>Projekt.EllenorzesWindow</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>12</SourceScanID>
-    <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>59</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
-    <OriginalText>#FF000000</OriginalText>
+    <ModuleName>EllenorzesWindow.xaml.cs</ModuleName>
+    <LineNumber>42</LineNumber>
+    <ColumnNumber>30</ColumnNumber>
+    <OriginalText>Sikeres ellenőrzés</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>59</StartOfStatement>
-    <EndOfStatement>59</EndOfStatement>
+    <StartOfStatement>42</StartOfStatement>
+    <EndOfStatement>42</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>59</RelativeLineNumber>
+    <CodeElement>Button_Click</CodeElement>
+    <RelativeLineNumber>8</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.DatabaseView</ClassName>
+    <ClassName>Projekt.EllenorzesWindow</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>13</SourceScanID>
-    <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>62</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
-    <OriginalText>#FFFFFFFF</OriginalText>
+    <ModuleName>EllenorzesWindow.xaml.cs</ModuleName>
+    <LineNumber>42</LineNumber>
+    <ColumnNumber>52</ColumnNumber>
+    <OriginalText>Üzenet</OriginalText>
     <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>62</StartOfStatement>
-    <EndOfStatement>62</EndOfStatement>
+    <IndexOnLine>1</IndexOnLine>
+    <StartOfStatement>42</StartOfStatement>
+    <EndOfStatement>42</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>62</RelativeLineNumber>
+    <CodeElement>Button_Click</CodeElement>
+    <RelativeLineNumber>8</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.DatabaseView</ClassName>
+    <ClassName>Projekt.EllenorzesWindow</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>14</SourceScanID>
-    <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>139</LineNumber>
-    <ColumnNumber>27</ColumnNumber>
-    <OriginalText>http://quizion.hu/api/quizes</OriginalText>
+    <ModuleName>EllenorzesWindow.xaml.cs</ModuleName>
+    <LineNumber>74</LineNumber>
+    <ColumnNumber>51</ColumnNumber>
+    <OriginalText>charset</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>139</StartOfStatement>
-    <EndOfStatement>139</EndOfStatement>
+    <StartOfStatement>74</StartOfStatement>
+    <EndOfStatement>74</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>QuizClick</CodeElement>
-    <RelativeLineNumber>2</RelativeLineNumber>
+    <CodeElement>Listazas</CodeElement>
+    <RelativeLineNumber>22</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.DatabaseView</ClassName>
+    <ClassName>Projekt.EllenorzesWindow</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>15</SourceScanID>
-    <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>144</LineNumber>
-    <ColumnNumber>29</ColumnNumber>
-    <OriginalText>http://quizion.hu/api/questions</OriginalText>
+    <ModuleName>EllenorzesWindow.xaml.cs</ModuleName>
+    <LineNumber>74</LineNumber>
+    <ColumnNumber>62</ColumnNumber>
+    <OriginalText>utf8</OriginalText>
     <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>144</StartOfStatement>
-    <EndOfStatement>144</EndOfStatement>
+    <IndexOnLine>1</IndexOnLine>
+    <StartOfStatement>74</StartOfStatement>
+    <EndOfStatement>74</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>QuestionClick</CodeElement>
-    <RelativeLineNumber>2</RelativeLineNumber>
+    <CodeElement>Listazas</CodeElement>
+    <RelativeLineNumber>22</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.DatabaseView</ClassName>
+    <ClassName>Projekt.EllenorzesWindow</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>16</SourceScanID>
-    <ModuleName>DatabaseView.xaml.cs</ModuleName>
-    <LineNumber>149</LineNumber>
-    <ColumnNumber>29</ColumnNumber>
-    <OriginalText>http://quizion.hu/api/answers</OriginalText>
+    <ModuleName>EllenorzesWindow.xaml.cs</ModuleName>
+    <LineNumber>101</LineNumber>
+    <ColumnNumber>33</ColumnNumber>
+    <OriginalText>http://quizion.hu/api/quizes</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>149</StartOfStatement>
-    <EndOfStatement>149</EndOfStatement>
+    <StartOfStatement>101</StartOfStatement>
+    <EndOfStatement>101</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>AnswerClick</CodeElement>
-    <RelativeLineNumber>2</RelativeLineNumber>
+    <CodeElement>keres</CodeElement>
+    <RelativeLineNumber>8</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.DatabaseView</ClassName>
+    <ClassName>Projekt.EllenorzesWindow</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>17</SourceScanID>
-    <ModuleName>MainWindow.xaml.cs</ModuleName>
-    <LineNumber>67</LineNumber>
-    <ColumnNumber>30</ColumnNumber>
-    <OriginalText>Sikeres belépés!</OriginalText>
+    <ModuleName>EllenorzesWindow.xaml.cs</ModuleName>
+    <LineNumber>107</LineNumber>
+    <ColumnNumber>34</ColumnNumber>
+    <OriginalText>POST</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>67</StartOfStatement>
-    <EndOfStatement>67</EndOfStatement>
+    <StartOfStatement>107</StartOfStatement>
+    <EndOfStatement>107</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>btn_login_Click</CodeElement>
-    <RelativeLineNumber>37</RelativeLineNumber>
+    <CodeElement>keres</CodeElement>
+    <RelativeLineNumber>14</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.MainWindow</ClassName>
+    <ClassName>Projekt.EllenorzesWindow</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>18</SourceScanID>
     <ModuleName>MainWindow.xaml.cs</ModuleName>
-    <LineNumber>67</LineNumber>
-    <ColumnNumber>50</ColumnNumber>
-    <OriginalText>Üzenet</OriginalText>
+    <LineNumber>68</LineNumber>
+    <ColumnNumber>30</ColumnNumber>
+    <OriginalText>Sikeres belépés!</OriginalText>
     <IsHidden>false</IsHidden>
-    <IndexOnLine>1</IndexOnLine>
-    <StartOfStatement>67</StartOfStatement>
-    <EndOfStatement>67</EndOfStatement>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>68</StartOfStatement>
+    <EndOfStatement>68</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>btn_login_Click</CodeElement>
@@ -344,6 +344,196 @@
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>19</SourceScanID>
+    <ModuleName>MainWindow.xaml.cs</ModuleName>
+    <LineNumber>68</LineNumber>
+    <ColumnNumber>50</ColumnNumber>
+    <OriginalText>Üzenet</OriginalText>
+    <IsHidden>false</IsHidden>
+    <IndexOnLine>1</IndexOnLine>
+    <StartOfStatement>68</StartOfStatement>
+    <EndOfStatement>68</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement>btn_login_Click</CodeElement>
+    <RelativeLineNumber>37</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>Projekt.MainWindow</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>20</SourceScanID>
+    <ModuleName>MLExtension.cs</ModuleName>
+    <LineNumber>38</LineNumber>
+    <ColumnNumber>44</ColumnNumber>
+    <OriginalText>Projekt</OriginalText>
+    <IsHidden>true</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>38</StartOfStatement>
+    <EndOfStatement>38</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>38</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>MultiLanguageMarkup.LangExtension</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>21</SourceScanID>
+    <ModuleName>MLExtension.cs</ModuleName>
+    <LineNumber>42</LineNumber>
+    <ColumnNumber>85</ColumnNumber>
+    <OriginalText>.Properties.Resources</OriginalText>
+    <IsHidden>false</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>42</StartOfStatement>
+    <EndOfStatement>42</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>42</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>MultiLanguageMarkup.LangExtension</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>22</SourceScanID>
+    <ModuleName>MLExtension.cs</ModuleName>
+    <LineNumber>123</LineNumber>
+    <ColumnNumber>62</ColumnNumber>
+    <OriginalText>System.Windows.SharedDp</OriginalText>
+    <IsHidden>false</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>123</StartOfStatement>
+    <EndOfStatement>123</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement>ProvideValue</CodeElement>
+    <RelativeLineNumber>38</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>MultiLanguageMarkup.LangExtension</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>23</SourceScanID>
+    <ModuleName>MLExtension.cs</ModuleName>
+    <LineNumber>271</LineNumber>
+    <ColumnNumber>48</ColumnNumber>
+    <OriginalText>Culture</OriginalText>
+    <IsHidden>false</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>271</StartOfStatement>
+    <EndOfStatement>271</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>271</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>MultiLanguageMarkup.Design</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>24</SourceScanID>
+    <ModuleName>MlString.cs</ModuleName>
+    <LineNumber>11</LineNumber>
+    <ColumnNumber>55</ColumnNumber>
+    <OriginalText>en</OriginalText>
+    <IsHidden>true</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>11</StartOfStatement>
+    <EndOfStatement>11</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>11</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>MultiLang.ml</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>25</SourceScanID>
+    <ModuleName>MlString.cs</ModuleName>
+    <LineNumber>11</LineNumber>
+    <ColumnNumber>61</ColumnNumber>
+    <OriginalText>hu</OriginalText>
+    <IsHidden>true</IsHidden>
+    <IndexOnLine>1</IndexOnLine>
+    <StartOfStatement>11</StartOfStatement>
+    <EndOfStatement>11</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>11</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>MultiLang.ml</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>26</SourceScanID>
+    <ModuleName>MlString.cs</ModuleName>
+    <LineNumber>12</LineNumber>
+    <ColumnNumber>48</ColumnNumber>
+    <OriginalText>Projekt</OriginalText>
+    <IsHidden>true</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>12</StartOfStatement>
+    <EndOfStatement>12</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>12</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>MultiLang.ml</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>27</SourceScanID>
+    <ModuleName>MlString.cs</ModuleName>
+    <LineNumber>19</LineNumber>
+    <ColumnNumber>57</ColumnNumber>
+    <OriginalText>.MultiLang</OriginalText>
+    <IsHidden>true</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>19</StartOfStatement>
+    <EndOfStatement>19</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>19</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>MultiLang.ml</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>28</SourceScanID>
+    <ModuleName>MlString.cs</ModuleName>
+    <LineNumber>21</LineNumber>
+    <ColumnNumber>41</ColumnNumber>
+    <OriginalText>MultiLang</OriginalText>
+    <IsHidden>true</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>21</StartOfStatement>
+    <EndOfStatement>21</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>21</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>MultiLang.ml</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>29</SourceScanID>
     <ModuleName>Question.cs</ModuleName>
     <LineNumber>37</LineNumber>
     <ColumnNumber>47</ColumnNumber>
@@ -362,7 +552,7 @@
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
-    <SourceScanID>20</SourceScanID>
+    <SourceScanID>30</SourceScanID>
     <ModuleName>Question.cs</ModuleName>
     <LineNumber>42</LineNumber>
     <ColumnNumber>22</ColumnNumber>
@@ -381,7 +571,7 @@
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
-    <SourceScanID>21</SourceScanID>
+    <SourceScanID>31</SourceScanID>
     <ModuleName>Quiz.cs</ModuleName>
     <LineNumber>38</LineNumber>
     <ColumnNumber>47</ColumnNumber>
@@ -400,7 +590,7 @@
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
-    <SourceScanID>22</SourceScanID>
+    <SourceScanID>32</SourceScanID>
     <ModuleName>Quiz.cs</ModuleName>
     <LineNumber>46</LineNumber>
     <ColumnNumber>22</ColumnNumber>
@@ -419,11 +609,30 @@
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
-    <SourceScanID>23</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
+    <SourceScanID>33</SourceScanID>
+    <ModuleName>Szinek.cs</ModuleName>
+    <LineNumber>26</LineNumber>
+    <ColumnNumber>79</ColumnNumber>
+    <OriginalText>#50508E</OriginalText>
+    <IsHidden>false</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>26</StartOfStatement>
+    <EndOfStatement>26</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>26</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>Projekt.Szinek</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>34</SourceScanID>
+    <ModuleName>Szinek.cs</ModuleName>
     <LineNumber>27</LineNumber>
-    <ColumnNumber>30</ColumnNumber>
-    <OriginalText>http://quizion.hu/api/quizes</OriginalText>
+    <ColumnNumber>86</ColumnNumber>
+    <OriginalText>#211A52</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
     <StartOfStatement>27</StartOfStatement>
@@ -434,15 +643,129 @@
     <RelativeLineNumber>27</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
+    <ClassName>Projekt.Szinek</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
-    <SourceScanID>24</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
+    <SourceScanID>35</SourceScanID>
+    <ModuleName>Szinek.cs</ModuleName>
+    <LineNumber>28</LineNumber>
+    <ColumnNumber>81</ColumnNumber>
+    <OriginalText>#7985C1</OriginalText>
+    <IsHidden>false</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>28</StartOfStatement>
+    <EndOfStatement>28</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>28</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>Projekt.Szinek</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>36</SourceScanID>
+    <ModuleName>Szinek.cs</ModuleName>
+    <LineNumber>29</LineNumber>
+    <ColumnNumber>88</ColumnNumber>
+    <OriginalText>#5B6AB0</OriginalText>
+    <IsHidden>false</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>29</StartOfStatement>
+    <EndOfStatement>29</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>29</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>Projekt.Szinek</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>37</SourceScanID>
+    <ModuleName>Szinek.cs</ModuleName>
+    <LineNumber>30</LineNumber>
+    <ColumnNumber>83</ColumnNumber>
+    <OriginalText>#4053A0</OriginalText>
+    <IsHidden>false</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>30</StartOfStatement>
+    <EndOfStatement>30</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>30</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>Projekt.Szinek</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>38</SourceScanID>
+    <ModuleName>Szinek.cs</ModuleName>
+    <LineNumber>31</LineNumber>
+    <ColumnNumber>81</ColumnNumber>
+    <OriginalText>#E8E7F5</OriginalText>
+    <IsHidden>false</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>31</StartOfStatement>
+    <EndOfStatement>31</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>31</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>Projekt.Szinek</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>39</SourceScanID>
+    <ModuleName>Szinek.cs</ModuleName>
+    <LineNumber>32</LineNumber>
+    <ColumnNumber>79</ColumnNumber>
+    <OriginalText>#BA0100</OriginalText>
+    <IsHidden>false</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>32</StartOfStatement>
+    <EndOfStatement>32</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>32</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>Projekt.Szinek</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>40</SourceScanID>
+    <ModuleName>Szinek.cs</ModuleName>
+    <LineNumber>33</LineNumber>
+    <ColumnNumber>77</ColumnNumber>
+    <OriginalText>#BAA100</OriginalText>
+    <IsHidden>false</IsHidden>
+    <IndexOnLine>0</IndexOnLine>
+    <StartOfStatement>33</StartOfStatement>
+    <EndOfStatement>33</EndOfStatement>
+    <IsVerbatim>false</IsVerbatim>
+    <IsHiddenBlock>false</IsHiddenBlock>
+    <CodeElement />
+    <RelativeLineNumber>33</RelativeLineNumber>
+    <IsHiddenString>false</IsHiddenString>
+    <IsInterpolatedString>false</IsInterpolatedString>
+    <ClassName>Projekt.Szinek</ClassName>
+    <IsController>false</IsController>
+  </SourceScanResults>
+  <SourceScanResults>
+    <SourceScanID>41</SourceScanID>
+    <ModuleName>Szinek.cs</ModuleName>
     <LineNumber>34</LineNumber>
-    <ColumnNumber>74</ColumnNumber>
-    <OriginalText>#50508E</OriginalText>
+    <ColumnNumber>76</ColumnNumber>
+    <OriginalText>#1CBA00</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
     <StartOfStatement>34</StartOfStatement>
@@ -453,691 +776,45 @@
     <RelativeLineNumber>34</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>25</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>38</LineNumber>
-    <ColumnNumber>81</ColumnNumber>
-    <OriginalText>#211A52</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>38</StartOfStatement>
-    <EndOfStatement>38</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>38</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>26</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>41</LineNumber>
-    <ColumnNumber>76</ColumnNumber>
-    <OriginalText>#7985C1</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>41</StartOfStatement>
-    <EndOfStatement>41</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>41</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>27</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>44</LineNumber>
-    <ColumnNumber>83</ColumnNumber>
-    <OriginalText>#5B6AB0</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>44</StartOfStatement>
-    <EndOfStatement>44</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>44</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>28</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>47</LineNumber>
-    <ColumnNumber>78</ColumnNumber>
-    <OriginalText>#4053A0</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>47</StartOfStatement>
-    <EndOfStatement>47</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>47</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>29</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>50</LineNumber>
-    <ColumnNumber>76</ColumnNumber>
-    <OriginalText>#E8E7F5</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>50</StartOfStatement>
-    <EndOfStatement>50</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>50</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>30</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>53</LineNumber>
-    <ColumnNumber>74</ColumnNumber>
-    <OriginalText>#BA0100</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>53</StartOfStatement>
-    <EndOfStatement>53</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>53</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>31</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>56</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
-    <OriginalText>#BAA100</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>56</StartOfStatement>
-    <EndOfStatement>56</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>56</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>32</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>59</LineNumber>
-    <ColumnNumber>71</ColumnNumber>
-    <OriginalText>#1CBA00</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>59</StartOfStatement>
-    <EndOfStatement>59</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>59</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>33</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>62</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
-    <OriginalText>#FF000000</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>62</StartOfStatement>
-    <EndOfStatement>62</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>62</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>34</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>65</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
-    <OriginalText>#FFFFFFFF</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>65</StartOfStatement>
-    <EndOfStatement>65</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement />
-    <RelativeLineNumber>65</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>35</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>84</LineNumber>
-    <ColumnNumber>74</ColumnNumber>
-    <OriginalText>#50508E</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>84</StartOfStatement>
-    <EndOfStatement>84</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>3</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>36</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>88</LineNumber>
-    <ColumnNumber>81</ColumnNumber>
-    <OriginalText>#211A52</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>88</StartOfStatement>
-    <EndOfStatement>88</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>7</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>37</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>91</LineNumber>
-    <ColumnNumber>76</ColumnNumber>
-    <OriginalText>#7985C1</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>91</StartOfStatement>
-    <EndOfStatement>91</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>10</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>38</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>94</LineNumber>
-    <ColumnNumber>83</ColumnNumber>
-    <OriginalText>#5B6AB0</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>94</StartOfStatement>
-    <EndOfStatement>94</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>13</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>39</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>97</LineNumber>
-    <ColumnNumber>78</ColumnNumber>
-    <OriginalText>#4053A0</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>97</StartOfStatement>
-    <EndOfStatement>97</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>16</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>40</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>100</LineNumber>
-    <ColumnNumber>76</ColumnNumber>
-    <OriginalText>#E8E7F5</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>100</StartOfStatement>
-    <EndOfStatement>100</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>19</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>41</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>103</LineNumber>
-    <ColumnNumber>74</ColumnNumber>
-    <OriginalText>#BA0100</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>103</StartOfStatement>
-    <EndOfStatement>103</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>22</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
+    <ClassName>Projekt.Szinek</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>42</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>106</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
-    <OriginalText>#BAA100</OriginalText>
+    <ModuleName>Szinek.cs</ModuleName>
+    <LineNumber>35</LineNumber>
+    <ColumnNumber>77</ColumnNumber>
+    <OriginalText>#FF000000</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>106</StartOfStatement>
-    <EndOfStatement>106</EndOfStatement>
+    <StartOfStatement>35</StartOfStatement>
+    <EndOfStatement>35</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>25</RelativeLineNumber>
+    <CodeElement />
+    <RelativeLineNumber>35</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
+    <ClassName>Projekt.Szinek</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
   <SourceScanResults>
     <SourceScanID>43</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>109</LineNumber>
-    <ColumnNumber>71</ColumnNumber>
-    <OriginalText>#1CBA00</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>109</StartOfStatement>
-    <EndOfStatement>109</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>28</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>44</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>112</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
-    <OriginalText>#FF000000</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>112</StartOfStatement>
-    <EndOfStatement>112</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>31</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>45</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>115</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
+    <ModuleName>Szinek.cs</ModuleName>
+    <LineNumber>36</LineNumber>
+    <ColumnNumber>77</ColumnNumber>
     <OriginalText>#FFFFFFFF</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>115</StartOfStatement>
-    <EndOfStatement>115</EndOfStatement>
+    <StartOfStatement>36</StartOfStatement>
+    <EndOfStatement>36</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>34</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>46</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>120</LineNumber>
-    <ColumnNumber>30</ColumnNumber>
-    <OriginalText>Sikeres ellenőrzés</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>120</StartOfStatement>
-    <EndOfStatement>120</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>39</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>47</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>120</LineNumber>
-    <ColumnNumber>52</ColumnNumber>
-    <OriginalText>Üzenet</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>1</IndexOnLine>
-    <StartOfStatement>120</StartOfStatement>
-    <EndOfStatement>120</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>Button_Click</CodeElement>
-    <RelativeLineNumber>39</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>48</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>168</LineNumber>
-    <ColumnNumber>74</ColumnNumber>
-    <OriginalText>#50508E</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>168</StartOfStatement>
-    <EndOfStatement>168</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>5</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>49</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>172</LineNumber>
-    <ColumnNumber>81</ColumnNumber>
-    <OriginalText>#211A52</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>172</StartOfStatement>
-    <EndOfStatement>172</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>9</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>50</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>175</LineNumber>
-    <ColumnNumber>76</ColumnNumber>
-    <OriginalText>#7985C1</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>175</StartOfStatement>
-    <EndOfStatement>175</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>12</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>51</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>178</LineNumber>
-    <ColumnNumber>83</ColumnNumber>
-    <OriginalText>#5B6AB0</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>178</StartOfStatement>
-    <EndOfStatement>178</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>15</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>52</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>181</LineNumber>
-    <ColumnNumber>78</ColumnNumber>
-    <OriginalText>#4053A0</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>181</StartOfStatement>
-    <EndOfStatement>181</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>18</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>53</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>184</LineNumber>
-    <ColumnNumber>76</ColumnNumber>
-    <OriginalText>#E8E7F5</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>184</StartOfStatement>
-    <EndOfStatement>184</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>21</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>54</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>187</LineNumber>
-    <ColumnNumber>74</ColumnNumber>
-    <OriginalText>#BA0100</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>187</StartOfStatement>
-    <EndOfStatement>187</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>24</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>55</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>190</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
-    <OriginalText>#BAA100</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>190</StartOfStatement>
-    <EndOfStatement>190</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>27</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>56</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>193</LineNumber>
-    <ColumnNumber>71</ColumnNumber>
-    <OriginalText>#1CBA00</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>193</StartOfStatement>
-    <EndOfStatement>193</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>30</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>57</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>196</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
-    <OriginalText>#FF000000</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>196</StartOfStatement>
-    <EndOfStatement>196</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>33</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>58</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>199</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
-    <OriginalText>#FFFFFFFF</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>199</StartOfStatement>
-    <EndOfStatement>199</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
+    <CodeElement />
     <RelativeLineNumber>36</RelativeLineNumber>
     <IsHiddenString>false</IsHiddenString>
     <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>59</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>203</LineNumber>
-    <ColumnNumber>33</ColumnNumber>
-    <OriginalText>http://quizion.hu/api/quizes</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>203</StartOfStatement>
-    <EndOfStatement>203</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>40</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
-    <IsController>false</IsController>
-  </SourceScanResults>
-  <SourceScanResults>
-    <SourceScanID>60</SourceScanID>
-    <ModuleName>Window1.xaml.cs</ModuleName>
-    <LineNumber>209</LineNumber>
-    <ColumnNumber>34</ColumnNumber>
-    <OriginalText>POST</OriginalText>
-    <IsHidden>false</IsHidden>
-    <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>209</StartOfStatement>
-    <EndOfStatement>209</EndOfStatement>
-    <IsVerbatim>false</IsVerbatim>
-    <IsHiddenBlock>false</IsHiddenBlock>
-    <CodeElement>keres</CodeElement>
-    <RelativeLineNumber>46</RelativeLineNumber>
-    <IsHiddenString>false</IsHiddenString>
-    <IsInterpolatedString>false</IsInterpolatedString>
-    <ClassName>Projekt.Window1</ClassName>
+    <ClassName>Projekt.Szinek</ClassName>
     <IsController>false</IsController>
   </SourceScanResults>
 </SourceScanResultsCache>
