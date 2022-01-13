@@ -79,11 +79,11 @@ namespace Projekt
                 // működik de nem magyar kódolás
                 
                 
-                    client.DefaultRequestHeaders.Add("charset", "utf8");
-                    string answer = await client.GetStringAsync(url);
-                    lbl_listaz.Text = answer[0].ToString();
-                    lista.Add(answer);
-                    lbl_listaz.Text = lista[0];
+                client.DefaultRequestHeaders.Add("charset", "utf8");
+                string answer = await client.GetStringAsync(url);
+                lbl_listaz.Text = answer[0].ToString();
+                lista.Add(answer);
+                lbl_listaz.Text = lista[0];
                 
 
 
