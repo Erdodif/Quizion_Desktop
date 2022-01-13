@@ -58,9 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Admin.cs" />
-    <Compile Include="ApiAnswer.cs" />
-    <Compile Include="Data.cs" />
+    <Compile Include="Classes\Admin.cs" />
+    <Compile Include="Classes\ApiAnswer.cs" />
+    <Compile Include="Classes\Data.cs" />
     <Compile Include="DatabaseView.xaml.cs">
       <DependentUpon>DatabaseView.xaml</DependentUpon>
     </Compile>
@@ -68,8 +68,8 @@
       <DependentUpon>EllenorzesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MLExtension.cs" />
-    <Compile Include="Szinek.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Classes\Szinek.cs" />
+    <Compile Include="Classes\User.cs" />
     <Page Include="DatabaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -82,13 +82,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Answer.cs" />
+    <Compile Include="Classes\Answer.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Question.cs" />
-    <Compile Include="Quiz.cs" />
+    <Compile Include="Classes\Question.cs" />
+    <Compile Include="Classes\Quiz.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
