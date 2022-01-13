@@ -24,6 +24,7 @@ namespace Projekt
     /// </summary>
     public partial class MainWindow : Window
     {
+        static Szinek szinek = new Szinek();
       
 
 
@@ -65,10 +66,11 @@ namespace Projekt
 
             tbl_hibak.Text = "";
             MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
-            Window1 ellenorzoAblak = new Window1();
+            EllenorzoWindow ellenorzoAblak = new EllenorzoWindow();
             this.Visibility = Visibility.Hidden;
             this.Close();
             ellenorzoAblak.Show();
+            
 
 
         }

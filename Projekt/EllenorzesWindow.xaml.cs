@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Net;
+using System.Net.Http;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -17,31 +17,23 @@ using System.Windows.Shapes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-
 namespace Projekt
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for EllenorzesWindow.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class EllenorzesWindow : Window
     {
         static string Url = "http://quizion.hu/api/quizes";
         static Szinek szinek = new Szinek();
         static List<string> lista = new List<string>();
-        public Window1()
-
+        public EllenorzesWindow()
         {
-
-            
             InitializeComponent();
-            
-            
-           
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-        
+
 
             //keres();
             Listazas("http://quizion.hu/api/quizes");
@@ -52,17 +44,17 @@ namespace Projekt
             this.Visibility = Visibility.Hidden;
             this.Close();
             adatbazisNezet.Show();
-            
-            
+
+
 
         }
 
         private async Task Listazas(String url)
 
         {
-            
+
             Data.Call(url);
-            
+
             using (var client = new HttpClient())
             {
                 /*
@@ -77,14 +69,14 @@ namespace Projekt
 
 
                 // működik de nem magyar kódolás
-                
-                
+
+
                 client.DefaultRequestHeaders.Add("charset", "utf8");
                 string answer = await client.GetStringAsync(url);
                 lbl_listaz.Text = answer[0].ToString();
                 lista.Add(answer);
                 lbl_listaz.Text = lista[0];
-                
+
 
 
 
@@ -102,7 +94,7 @@ namespace Projekt
         {
             // Create the http request
 
-          
+
 
 
             //const string Url = "http://10.147.20.1/adatok/index.php?method=read&table=quiz";
@@ -161,7 +153,7 @@ namespace Projekt
                             }
                         */
 
-                       
+
 
                     }
                 }
@@ -175,7 +167,7 @@ namespace Projekt
         {
 
             lbl_keres.Text = jtoken[0].ToString();
-        
+
 
         }
 
@@ -187,7 +179,8 @@ namespace Projekt
                 lbl_listaz.Text += jtoken[i];
             }
         }
-        
+
 
     }
 }
+
