@@ -18,7 +18,18 @@ namespace Projekt
             this.code = code;
             this.content = content;
         }
-        async static void Call(String url, Func<String,bool> handler) {
+
+        public static async void Call(string url)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("charset", "utf8");
+                string content = await client.GetStringAsync(url);
+               
+            }
+        }
+        /*
+        public static async void Call(string url, Func<String,bool> handler) {
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("charset", "utf8");
@@ -26,6 +37,7 @@ namespace Projekt
                 handler(content);
             }
         }
+        */
         //NAGYON FONTOS!!!
         static void init()
         {
@@ -33,7 +45,7 @@ namespace Projekt
                 Answer valasz = new Answer(str);
                 return true;
             };
-            Call("link", handler);
+            Call("link");
         }
     }
 }

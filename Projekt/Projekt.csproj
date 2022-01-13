@@ -65,6 +65,7 @@
       <DependentUpon>DatabaseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MLExtension.cs" />
+    <Compile Include="Szinek.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
