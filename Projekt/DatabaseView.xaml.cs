@@ -29,22 +29,27 @@ namespace Projekt
         static Szinek szinek = new Szinek();
         public DatabaseView()
         {
-            
+
             InitializeComponent();
-           
-           
+
+
         }
 
         private async Task Kvizlistazas(string url)
 
         {
+            string valasz = await client.GetStringAsync(url);
+            var adat = JsonConvert.DeserializeObject(valasz);
+            var formazott = JsonConvert.SerializeObject(adat, Formatting.Indented);
+            listam.Add(formazott);
+            lista.Items.Add(listam[0]);
             //client.DefaultRequestHeaders.Accept.Clear();
             //client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            string valasz = await client.GetStringAsync(url);
-            valasz.Trim();
-            lista.Text = valasz[0].ToString();
-            listam.Add(valasz);
-            lista.Text = listam[0];
+            //string valasz = await client.GetStringAsync(url);
+            //valasz.Trim();
+            //lista.Text = valasz[0].ToString();
+            //listam.Add(valasz);
+            //lista.Text = listam[0];
             //List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
             //ApiAnswer<Quiz> data = JsonConvert.DeserializeObject<ApiAnswer<Quiz>>(valasz);
             /*foreach (Quiz item in quiz)
@@ -60,7 +65,7 @@ namespace Projekt
             */
 
 
-            
+
 
 
         }
@@ -70,12 +75,29 @@ namespace Projekt
 
         {
 
-            listam.Clear();
+            
             string valasz = await client.GetStringAsync(url);
-            valasz.Trim();
-            lista.Text = valasz[0].ToString();
-            listam.Add(valasz);
-            lista.Text = listam[0];
+            var adat = JsonConvert.DeserializeObject(valasz);
+            var formazott = JsonConvert.SerializeObject(adat, Formatting.Indented);
+            listam.Add(formazott);
+            lista.Items.Add(listam[0]);
+           // List<Question> questionLista = JsonConvert.DeserializeObject<List<Question>>(valasz);
+            //lista.Items.Add(questionLista.Count);
+            //lista.ItemsSource = JsonConvert.DeserializeObject<List<Question>>(valasz);
+            /*foreach (var item in lista.ItemsSource)
+            {
+                lista.Items.Add(item);
+            }
+            /*var questionList = JsonConvert.DeserializeObject<IList<Question>>(valasz);
+            foreach (var question in questionList)
+            {
+                lista.Text = $"{question.Id}\t{question.QuizId}\t{question.Content}\t{question.Point}";
+            }
+            */
+            //valasz.Trim()
+            //lista.Items.Add(valasz[0].ToString());
+            //listam.Add(valasz);
+            //lista.Items.Add(listam[0]);
 
             /*string valasz = await client.GetStringAsync(url);
             ApiAnswer<Question> data = JsonConvert.DeserializeObject<ApiAnswer<Question>>(valasz);
@@ -99,12 +121,17 @@ namespace Projekt
         {
 
 
-            listam.Clear();
             string valasz = await client.GetStringAsync(url);
-            valasz.Trim();
-            lista.Text = valasz[0].ToString();
-            listam.Add(valasz);
-            lista.Text = listam[0];
+            var adat = JsonConvert.DeserializeObject(valasz);
+            var formazott = JsonConvert.SerializeObject(adat, Formatting.Indented);
+            listam.Add(formazott);
+            lista.Items.Add(listam[0]);
+            //listam.Clear();
+            //string valasz = await client.GetStringAsync(url);
+            //valasz.Trim();
+            //lista.Text = valasz[0].ToString();
+            //listam.Add(valasz);
+            //lista.Text = listam[0];
             /* string valasz = await client.GetStringAsync(url);
             ApiAnswer<Answer> data = JsonConvert.DeserializeObject<ApiAnswer<Answer>>(valasz);
             foreach (var valasza in data.Adatok)
@@ -142,6 +169,6 @@ namespace Projekt
 
         }
 
-       
+
     }
 }
