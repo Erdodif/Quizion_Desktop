@@ -39,6 +39,7 @@ namespace Projekt
         {
 
             lista.Items.Clear();
+            lista.Items.Add($"{"id",-4}{"header",-10}{"description",35} {"active",8} {"secondsPerQuiz",6}");
             string valasz = await client.GetStringAsync(url);
             List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
             foreach (var item in quiz)
@@ -65,11 +66,6 @@ namespace Projekt
             //listam.Add(valasz);
             //lista.Text = listam[0];
             //List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
-
-            /*foreach (Quiz item in quiz)
-            {
-                lista.Text = $"{item.Id}\t${item.Header}\t{item.Active}\t{item.Description}\t{item.SecondsPerQuiz}\n";
-            }
 
             /*client.DefaultRequestHeaders.Add("charset", "utf8");
             string answer = await client.GetStringAsync(url);
