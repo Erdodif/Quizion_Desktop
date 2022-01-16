@@ -185,12 +185,12 @@ namespace Projekt
 
         private void ModositasClick(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void Torles(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void ToAdmin(object sender, RoutedEventArgs e)
