@@ -31,14 +31,22 @@ namespace Projekt
         {
 
             InitializeComponent();
-            
-
 
         }
 
         private async Task Kvizlistazas(string url)
 
         {
+
+            lista.Items.Clear();
+            string valasz = await client.GetStringAsync(url);
+            List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
+            foreach (var item in quiz)
+            {
+                lista.Items.Add(item);
+            }
+
+
             //FORMÁZOTT JSON
 
             /*
@@ -48,15 +56,6 @@ namespace Projekt
             listam.Add(formazott);
             lista.Items.Add(listam[0]);
             */
-            lista.Items.Clear();
-            string valasz = await client.GetStringAsync(url);
-            List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
-            foreach (var item in quiz)
-            {
-                lista.Items.Add(item);
-            }
-            
-
 
             //client.DefaultRequestHeaders.Accept.Clear();
             //client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -66,7 +65,7 @@ namespace Projekt
             //listam.Add(valasz);
             //lista.Text = listam[0];
             //List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
-           
+
             /*foreach (Quiz item in quiz)
             {
                 lista.Text = $"{item.Id}\t${item.Header}\t{item.Active}\t{item.Description}\t{item.SecondsPerQuiz}\n";
@@ -78,10 +77,6 @@ namespace Projekt
             lista.Add(answer);
             listaz.Text = lista[0];
             */
-
-
-
-
 
         }
 
@@ -115,13 +110,6 @@ namespace Projekt
 
             
 
-
-
-
-
-
-
-
         }
 
         private async Task Valaszlistazas(string url)
@@ -153,14 +141,6 @@ namespace Projekt
             //listam.Add(valasz);
             //lista.Text = listam[0];
             
-
-
-
-
-
-
-
-
         }
 
         private void QuizClick(object sender, RoutedEventArgs e)
@@ -212,7 +192,7 @@ namespace Projekt
         {
             if (tbx_elso.Text == "" || tbx_masodik.Text == "" || tbx_harmadik.Text == "" || tbx_negyedik.Text == "")
             {
-                MessageBox.Show("Minden mező kitöltése kötelező!", "Figyelmezetés", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Minden mező kitöltése kötelező!", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }
