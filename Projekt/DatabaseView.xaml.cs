@@ -190,7 +190,7 @@ namespace Projekt
 
         private void Torles(object sender, RoutedEventArgs e)
         {
-            
+            lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
         }
 
         private void ToAdmin(object sender, RoutedEventArgs e)
