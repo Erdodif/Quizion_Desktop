@@ -44,7 +44,7 @@ namespace Projekt
 
         public override string ToString()
         {
-            return $"{id,4} {header,-20} : {description, 20}\t {active,-20}\t {secondsPerQuiz}";
+            return $"{id,4} {header,15} : {description, 25} {active, 6} {secondsPerQuiz, 4}";
         }
 
     }

@@ -25,7 +25,7 @@ namespace Projekt
     {
         static string url = "";
         static HttpClient client = new HttpClient();
-        static List<string> listam = new List<string>();
+        //static List<string> listam = new List<string>();
         static Szinek szinek = new Szinek();
         public DatabaseView()
         {
@@ -107,30 +107,13 @@ namespace Projekt
             */
 
 
-            // List<Question> questionLista = JsonConvert.DeserializeObject<List<Question>>(valasz);
-            //lista.Items.Add(questionLista.Count);
-            //lista.ItemsSource = JsonConvert.DeserializeObject<List<Question>>(valasz);
-            /*foreach (var item in lista.ItemsSource)
-            {
-                lista.Items.Add(item);
-            }
-            /*var questionList = JsonConvert.DeserializeObject<IList<Question>>(valasz);
-            foreach (var question in questionList)
-            {
-                lista.Text = $"{question.Id}\t{question.QuizId}\t{question.Content}\t{question.Point}";
-            }
-            */
+           
             //valasz.Trim()
             //lista.Items.Add(valasz[0].ToString());
             //listam.Add(valasz);
             //lista.Items.Add(listam[0]);
 
-            /*string valasz = await client.GetStringAsync(url);
-            foreach (var kerdes in data.Adatok)
-            {
-                lista.Items.Add(kerdes);
-            }
-            */
+            
 
 
 
@@ -169,13 +152,7 @@ namespace Projekt
             //lista.Text = valasz[0].ToString();
             //listam.Add(valasz);
             //lista.Text = listam[0];
-            /* string valasz = await client.GetStringAsync(url);
-            ApiAnswer<Answer> data = JsonConvert.DeserializeObject<ApiAnswer<Answer>>(valasz);
-            foreach (var valasza in data.Adatok)
-            {
-                lista.Items.Add(valasza);
-            }
-            */
+            
 
 
 
