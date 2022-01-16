@@ -10,16 +10,16 @@ namespace Projekt
 {
     class Question
     {
-        private Int64 id;
-        private Int64 quizId;
+        private int id;
+        private int quizId;
         private string content;
-        private Int64 point;
+        private int point;
 
-        public long Id { get => id; set => id = value; }
-        public long QuizId { get => quizId; set => quizId = value; }
+        public int Id { get => id; set => id = value; }
+        public int QuizId { get => quizId; set => quizId = value; }
         public string Content { get => content; set => content = value; }
        
-        public long Point { get => point; set => point = value; }
+        public int Point { get => point; set => point = value; }
        
 
         public Question(int id, int quizId, string content, int point)
@@ -30,12 +30,13 @@ namespace Projekt
             this.point = point;
         }
 
-        public Question(string q)
+        /*public Question(string q)
         {
             JsonSerializer.Create();
             JObject tartalom = JObject.Parse(q);
             IList<JToken> results = tartalom["data"].Children().ToList();
         }
+        */
 
         public override string ToString()
         {

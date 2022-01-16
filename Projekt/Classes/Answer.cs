@@ -10,13 +10,13 @@ namespace Projekt
 {
     class Answer
     {
-        private Int64 id;
-        private Int64 questionId;
+        private int id;
+        private int questionId;
         private string content;
         private bool isRight;
 
-        public long Id { get => id; set => id = value; }
-        public long QuestionId { get => questionId; set => questionId = value; }
+        public int Id { get => id; set => id = value; }
+        public int QuestionId { get => questionId; set => questionId = value; }
         public string Content { get => content; set => content = value; }
         public bool IsRight { get => isRight; set => isRight = value; }
 
@@ -29,7 +29,7 @@ namespace Projekt
             this.isRight = isRight;
         }
 
-        public Answer(string q)
+        /*public Answer(string q)
         {
             JsonSerializer.Create();
             JObject tartalom = JObject.Parse(q);
@@ -37,6 +37,7 @@ namespace Projekt
 
 
         }
+        */
 
         public override string ToString()
         {

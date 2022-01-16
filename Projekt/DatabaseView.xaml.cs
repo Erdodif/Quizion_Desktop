@@ -31,6 +31,7 @@ namespace Projekt
         {
 
             InitializeComponent();
+            
 
 
         }
@@ -38,11 +39,25 @@ namespace Projekt
         private async Task Kvizlistazas(string url)
 
         {
+            //FORMÁZOTT JSON
+
+            /*
             string valasz = await client.GetStringAsync(url);
             var adat = JsonConvert.DeserializeObject(valasz);
             var formazott = JsonConvert.SerializeObject(adat, Formatting.Indented);
             listam.Add(formazott);
             lista.Items.Add(listam[0]);
+            */
+            lista.Items.Clear();
+            string valasz = await client.GetStringAsync(url);
+            List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
+            foreach (var item in quiz)
+            {
+                lista.Items.Add(item);
+            }
+            
+
+
             //client.DefaultRequestHeaders.Accept.Clear();
             //client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             //string valasz = await client.GetStringAsync(url);
@@ -51,7 +66,7 @@ namespace Projekt
             //listam.Add(valasz);
             //lista.Text = listam[0];
             //List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
-            //ApiAnswer<Quiz> data = JsonConvert.DeserializeObject<ApiAnswer<Quiz>>(valasz);
+           
             /*foreach (Quiz item in quiz)
             {
                 lista.Text = $"{item.Id}\t${item.Header}\t{item.Active}\t{item.Description}\t{item.SecondsPerQuiz}\n";
@@ -74,14 +89,25 @@ namespace Projekt
         private async Task Kerdeslistazas(string url)
 
         {
+            lista.Items.Clear();
+            string valasz = await client.GetStringAsync(url);
+            List<Question> question = JsonConvert.DeserializeObject<List<Question>>(valasz);
+            foreach (var item in question)
+            {
+                lista.Items.Add(item);
+            }
 
-            
+            //FORMÁZOTT JSON
+            /*
             string valasz = await client.GetStringAsync(url);
             var adat = JsonConvert.DeserializeObject(valasz);
             var formazott = JsonConvert.SerializeObject(adat, Formatting.Indented);
             listam.Add(formazott);
             lista.Items.Add(listam[0]);
-           // List<Question> questionLista = JsonConvert.DeserializeObject<List<Question>>(valasz);
+            */
+
+
+            // List<Question> questionLista = JsonConvert.DeserializeObject<List<Question>>(valasz);
             //lista.Items.Add(questionLista.Count);
             //lista.ItemsSource = JsonConvert.DeserializeObject<List<Question>>(valasz);
             /*foreach (var item in lista.ItemsSource)
@@ -100,7 +126,6 @@ namespace Projekt
             //lista.Items.Add(listam[0]);
 
             /*string valasz = await client.GetStringAsync(url);
-            ApiAnswer<Question> data = JsonConvert.DeserializeObject<ApiAnswer<Question>>(valasz);
             foreach (var kerdes in data.Adatok)
             {
                 lista.Items.Add(kerdes);
@@ -119,13 +144,25 @@ namespace Projekt
         private async Task Valaszlistazas(string url)
 
         {
-
-
+            lista.Items.Clear();
             string valasz = await client.GetStringAsync(url);
+            List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(valasz);
+            foreach (var item in answer)
+            {
+                lista.Items.Add(item);
+            }
+
+            //Formázott json
+            /*string valasz = await client.GetStringAsync(url);
             var adat = JsonConvert.DeserializeObject(valasz);
             var formazott = JsonConvert.SerializeObject(adat, Formatting.Indented);
             listam.Add(formazott);
             lista.Items.Add(listam[0]);
+            */
+
+
+
+
             //listam.Clear();
             //string valasz = await client.GetStringAsync(url);
             //valasz.Trim();

@@ -39,7 +39,7 @@ namespace Projekt
         }
         */
         //NAGYON FONTOS!!!
-        static void init()
+        /*static void init()
         {
             Func<String, bool> handler = str => {
                 Answer valasz = new Answer(str);
@@ -47,5 +47,6 @@ namespace Projekt
             };
             Call("link");
         }
+        */
     }
 }
