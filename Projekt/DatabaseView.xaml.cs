@@ -176,7 +176,7 @@ namespace Projekt
                 MessageBox.Show("A kiválasztott elem sikeresen törölve a listából (nem az adatbázisból)", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
                 lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
             }
-            
+           
         }
 
         private void ToAdmin(object sender, RoutedEventArgs e)
