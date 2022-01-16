@@ -190,7 +190,17 @@ namespace Projekt
 
         private void Torles(object sender, RoutedEventArgs e)
         {
-            lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
+            if (lista.SelectedIndex == -1)
+            {
+                MessageBox.Show("Nincsen kiválasztva elem a listából a törlés előtt", "Érvénytelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            else
+            {
+                MessageBox.Show("A kiválasztott elem törölve a listából", "Törlés", MessageBoxButton.OK, MessageBoxImage.Question);
+                lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
+            }
+            
         }
 
         private void ToAdmin(object sender, RoutedEventArgs e)
