@@ -73,9 +73,12 @@ namespace Projekt
 
                 client.DefaultRequestHeaders.Add("charset", "utf8");
                 string answer = await client.GetStringAsync(url);
-                lbl_listaz.Text = answer[0].ToString();
-                lista.Add(answer);
+                var adat = JsonConvert.DeserializeObject(answer);
+                var formazva = JsonConvert.SerializeObject(adat, Formatting.Indented);
+                lista.Add(formazva);
                 lbl_listaz.Text = lista[0];
+
+                
 
 
 
