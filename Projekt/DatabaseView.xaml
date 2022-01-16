@@ -13,9 +13,9 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <Image Source="quizion_logo.png" Margin="651.914,42.473,0,339.233" UseLayoutRounding="False" HorizontalAlignment="Left" Width="131.886" />
-            <Button Content="Módosítás"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="100"/>
-            <Button Content="Törlés"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="124,380,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.348,0.793"/>
-            <Button Content="Adminná választás"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="248,380,0,0" VerticalAlignment="Top" Width="150"/>
+            <Button Content="Módosítás"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="100" Click="ModositasClick"/>
+            <Button Content="Törlés"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="124,380,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.348,0.793" Click="Torles"/>
+            <Button Content="Adminná választás"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="248,380,0,0" VerticalAlignment="Top" Width="150" Click="ToAdmin"/>
             <Grid x:Name="grid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,13,-106.4,-72">
                 <Grid HorizontalAlignment="Left" Height="46" Margin="10,26,0,0" VerticalAlignment="Top" Width="782" Grid.ColumnSpan="2" Grid.RowSpan="2">
                     <Button x:Name="btn_quiz" Content="Quiz"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" Background="{x:Null}" BorderThickness="1" Height="30" Click="QuizClick"/>
