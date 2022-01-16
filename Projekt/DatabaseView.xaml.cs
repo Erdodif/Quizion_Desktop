@@ -197,7 +197,7 @@ namespace Projekt
             }
             else
             {
-                MessageBox.Show("A kiválasztott elem törölve a listából", "Törlés", MessageBoxButton.OK, MessageBoxImage.Question);
+                MessageBox.Show("A kiválasztott elem sikeresen törölve a listából (nem az adatbázisból)", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
                 lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
             }
             
