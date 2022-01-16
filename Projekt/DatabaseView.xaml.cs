@@ -207,5 +207,10 @@ namespace Projekt
         {
 
         }
+
+        private void Hozzaadas(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
