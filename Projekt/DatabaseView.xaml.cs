@@ -23,9 +23,9 @@ namespace Projekt
     /// </summary>
     public partial class DatabaseView : Window
     {
-        static string Url = "";
+        static string url = "";
         static HttpClient client = new HttpClient();
-        //static List<string> lista = new List<string>();
+        static List<string> listam = new List<string>();
         static Szinek szinek = new Szinek();
         public DatabaseView()
         {
@@ -35,35 +35,30 @@ namespace Projekt
            
         }
 
-        private async Task Kvizlistazas(String url)
+        private async Task Kvizlistazas(string url)
 
         {
-            Data adat = new Data(200,"Jó");
-            
-
-            using (client)
+            //client.DefaultRequestHeaders.Accept.Clear();
+            //client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            string valasz = await client.GetStringAsync(url);
+            valasz.Trim();
+            lista.Text = valasz[0].ToString();
+            listam.Add(valasz);
+            lista.Text = listam[0];
+            //List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
+            //ApiAnswer<Quiz> data = JsonConvert.DeserializeObject<ApiAnswer<Quiz>>(valasz);
+            /*foreach (Quiz item in quiz)
             {
-                
-                string valasz = await client.GetStringAsync(url);
-                ApiAnswer<Quiz> data = JsonConvert.DeserializeObject<ApiAnswer<Quiz>>(valasz);
-                foreach (Quiz kviz in data.Adatok)
-                { 
-                    lista.Items.Add(kviz);
-                }
-
-                /*client.DefaultRequestHeaders.Add("charset", "utf8");
-                string answer = await client.GetStringAsync(url);
-                listaz.Text = answer[0].ToString();
-                lista.Add(answer);
-                listaz.Text = lista[0];
-                */
-
-
-
-
-
-
+                lista.Text = $"{item.Id}\t${item.Header}\t{item.Active}\t{item.Description}\t{item.SecondsPerQuiz}\n";
             }
+
+            /*client.DefaultRequestHeaders.Add("charset", "utf8");
+            string answer = await client.GetStringAsync(url);
+            listaz.Text = answer[0].ToString();
+            lista.Add(answer);
+            listaz.Text = lista[0];
+            */
+
 
             
 
@@ -71,72 +66,82 @@ namespace Projekt
         }
 
 
-        private async Task Kerdeslistazas(String url)
+        private async Task Kerdeslistazas(string url)
 
         {
 
+            listam.Clear();
+            string valasz = await client.GetStringAsync(url);
+            valasz.Trim();
+            lista.Text = valasz[0].ToString();
+            listam.Add(valasz);
+            lista.Text = listam[0];
 
-            using (client)
+            /*string valasz = await client.GetStringAsync(url);
+            ApiAnswer<Question> data = JsonConvert.DeserializeObject<ApiAnswer<Question>>(valasz);
+            foreach (var kerdes in data.Adatok)
             {
-                /*string valasz = await client.GetStringAsync(url);
-                ApiAnswer<Question> data = JsonConvert.DeserializeObject<ApiAnswer<Question>>(valasz);
-                foreach (var kerdes in data.Adatok)
-                {
-                    lista.Items.Add(kerdes);
-                }
-                */
-
-
-
-
-
+                lista.Items.Add(kerdes);
             }
+            */
+
+
+
+
+
+
 
 
         }
 
-        private async Task Valaszlistazas(String url)
+        private async Task Valaszlistazas(string url)
 
         {
-           
 
-            using (client)
+
+            listam.Clear();
+            string valasz = await client.GetStringAsync(url);
+            valasz.Trim();
+            lista.Text = valasz[0].ToString();
+            listam.Add(valasz);
+            lista.Text = listam[0];
+            /* string valasz = await client.GetStringAsync(url);
+            ApiAnswer<Answer> data = JsonConvert.DeserializeObject<ApiAnswer<Answer>>(valasz);
+            foreach (var valasza in data.Adatok)
             {
-               /* string valasz = await client.GetStringAsync(url);
-                ApiAnswer<Answer> data = JsonConvert.DeserializeObject<ApiAnswer<Answer>>(valasz);
-                foreach (var valasza in data.Adatok)
-                {
-                    lista.Items.Add(valasza);
-                }
-               */
-
-
-
-
-
+                lista.Items.Add(valasza);
             }
+            */
+
+
+
+
+
+
 
 
         }
 
         private void QuizClick(object sender, RoutedEventArgs e)
         {
-            Task task = Kvizlistazas((("http://quizion.hu/api/quizes")));
+            Kvizlistazas("http://quizion.hu/api/quizes");
         }
 
         private void QuestionClick(object sender, RoutedEventArgs e)
         {
-            Task task = Kerdeslistazas((("http://quizion.hu/api/questions")));
+            Kerdeslistazas("http://quizion.hu/api/questions");
         }
 
         private void AnswerClick(object sender, RoutedEventArgs e)
         {
-            Task task = Valaszlistazas((("http://quizion.hu/api/answers")));
+            Valaszlistazas("http://quizion.hu/api/answers");
         }
 
         private void AdminClick(object sender, RoutedEventArgs e)
         {
 
         }
+
+       
     }
 }

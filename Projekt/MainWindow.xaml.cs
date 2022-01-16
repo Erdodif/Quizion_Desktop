@@ -66,7 +66,7 @@ namespace Projekt
 
             tbl_hibak.Text = "";
             MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
-            EllenorzoWindow ellenorzoAblak = new EllenorzoWindow();
+            EllenorzesWindow ellenorzoAblak = new EllenorzesWindow();
             this.Visibility = Visibility.Hidden;
             this.Close();
             ellenorzoAblak.Show();

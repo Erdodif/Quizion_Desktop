@@ -36,7 +36,7 @@ namespace Projekt
 
 
             //keres();
-            Listazas("http://quizion.hu/api/quizes");
+            //Listazas("http://quizion.hu/api/quizes");
 
             btn_ellenorzo.Background = szinek.Alert;
             MessageBox.Show("Sikeres ellenőrzés", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
