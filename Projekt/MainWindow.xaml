@@ -12,7 +12,7 @@
             <ColumnDefinition Width="308*"/>
             <ColumnDefinition Width="14*"/>
         </Grid.ColumnDefinitions>
-        <Image Source="fejlec.png" Grid.ColumnSpan="2" Margin="0,-84,0,430"/>
+        <Image Source="fejlec.png" Grid.ColumnSpan="3" Margin="0,-151,-65,405"/>
         <Image Source="quizion_logo.png" Margin="24.43,38.689,0,92.893" UseLayoutRounding="False" HorizontalAlignment="Left" Width="319.375" />
         <Label x:Name="lbl_nev"  Style="{StaticResource MontserratFont}"  Content="Név: " HorizontalAlignment="Left" Margin="400,61,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.622,0.046"/>
         <Button x:Name="btn_login" Style="{StaticResource MontserratFont}" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="450,325,0,113" VerticalAlignment="Center" Width="285" FontSize="24" Click="btn_login_Click" FontStyle="Italic" Grid.ColumnSpan="2"/>

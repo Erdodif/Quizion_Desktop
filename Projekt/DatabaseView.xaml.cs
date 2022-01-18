@@ -98,13 +98,13 @@ namespace Projekt
             */
 
 
-           
+
             //valasz.Trim()
             //lista.Items.Add(valasz[0].ToString());
             //listam.Add(valasz);
             //lista.Items.Add(listam[0]);
 
-            
+
 
         }
 
@@ -136,7 +136,7 @@ namespace Projekt
             //lista.Text = valasz[0].ToString();
             //listam.Add(valasz);
             //lista.Text = listam[0];
-            
+
         }
 
         private void QuizClick(object sender, RoutedEventArgs e)
@@ -180,7 +180,7 @@ namespace Projekt
                 MessageBox.Show("A kiválasztott elem sikeresen törölve a listából (nem az adatbázisból)", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
                 lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
             }
-           
+
         }
 
         private void ToAdmin(object sender, RoutedEventArgs e)
@@ -188,6 +188,6 @@ namespace Projekt
 
         }
 
-       
+
     }
 }
