@@ -141,17 +141,21 @@ namespace Projekt
 
         private void QuizClick(object sender, RoutedEventArgs e)
         {
-            Kvizlistazas("http://quizion.hu/api/quizes");
+            //Kvizlistazas("http://quizion.hu/api/quizes");
+            Kvizlistazas("http://127.0.0.1:8000/api/quizes");
         }
 
         private void QuestionClick(object sender, RoutedEventArgs e)
         {
-            Kerdeslistazas("http://quizion.hu/api/questions");
+            //Kerdeslistazas("http://quizion.hu/api/questions");
+            Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+
         }
 
         private void AnswerClick(object sender, RoutedEventArgs e)
         {
-            Valaszlistazas("http://quizion.hu/api/answers");
+            //Valaszlistazas("http://quizion.hu/api/answers");
+            Valaszlistazas("http://127.0.0.1:8000/api/answers");
         }
 
         private void AdminClick(object sender, RoutedEventArgs e)
