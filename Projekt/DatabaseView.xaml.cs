@@ -188,12 +188,6 @@ namespace Projekt
 
         }
 
-        private void Hozzaadas(object sender, RoutedEventArgs e)
-        {
-            if (tbx_elso.Text == "" || tbx_masodik.Text == "" || tbx_harmadik.Text == "" || tbx_negyedik.Text == "")
-            {
-                MessageBox.Show("Minden mező kitöltése kötelező!", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
+       
     }
 }
