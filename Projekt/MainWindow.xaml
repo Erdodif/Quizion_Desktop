@@ -14,17 +14,17 @@
         </Grid.ColumnDefinitions>
         <Image Source="fejlec.png" Grid.ColumnSpan="3" Margin="0,-151,-65,405"/>
         <Image Source="quizion_logo.png" Margin="24.43,38.689,0,92.893" UseLayoutRounding="False" HorizontalAlignment="Left" Width="319.375" />
-        <Label x:Name="lbl_nev"  Style="{StaticResource MontserratFont}"  Content="Név: " HorizontalAlignment="Left" Margin="400,61,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.622,0.046"/>
-        <Button x:Name="btn_login" Style="{StaticResource MontserratFont}" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="450,325,0,113" VerticalAlignment="Center" Width="285" FontSize="24" Click="btn_login_Click" FontStyle="Italic" Grid.ColumnSpan="2"/>
-        <Label x:Name="lbl_jelszo" Style="{StaticResource MontserratFont}" Content="Jelszó: " HorizontalAlignment="Left" Margin="400,136,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.412,-0.124" FontSize="22" FontWeight="Bold" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbx_00" Height="23" Margin="65.347,64,0,0" Style="{StaticResource MontserratFont}" TextWrapping="Wrap" Width="217" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox x:Name="tbx_01"   Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Height="23" Margin="65.2,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Grid.Column="1"/>
+        <Label x:Name="lbl_nev"  Style="{StaticResource MontserratFont}"  Content="Név: " HorizontalAlignment="Left" Margin="400,147,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.622,0.046"/>
+        <Button x:Name="btn_login" Style="{StaticResource MontserratFont}" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="478,373,0,65" VerticalAlignment="Center" Width="285" FontSize="24" Click="btn_login_Click" FontStyle="Italic" Grid.ColumnSpan="2"/>
+        <Label x:Name="lbl_jelszo" Style="{StaticResource MontserratFont}" Content="Jelszó: " HorizontalAlignment="Left" Margin="400,220,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.412,-0.124" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="tbx_00" Height="23" Margin="54,150,0,0" Style="{StaticResource MontserratFont}" TextWrapping="Wrap" Width="217" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="tbx_01"   Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Height="23" Margin="54,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Grid.Column="1"/>
 
 
 
 
 
-        <TextBlock x:Name="tbl_hibak"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="450,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="35" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="tbl_hibak"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="450,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="35" Grid.ColumnSpan="2"/>
 
 
     </Grid>
