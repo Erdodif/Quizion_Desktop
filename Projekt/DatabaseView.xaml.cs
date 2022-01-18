@@ -39,7 +39,7 @@ namespace Projekt
         {
 
             lista.Items.Clear();
-            lista.Items.Add($"{"id",-4}{"header",-10}{"description",35} {"active",8} {"secondsPerQuiz",6}");
+            lista.Items.Add($"{"id ",-4}{"header ",-10}{"description ",35} {"active ",8} {"secondsPerQuiz ",6}");
             string valasz = await client.GetStringAsync(url);
             List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
             foreach (var item in quiz)
@@ -81,6 +81,7 @@ namespace Projekt
 
         {
             lista.Items.Clear();
+            lista.Items.Add($"{"id ",4} {"quizId ",4}  {"content ",25} {"point",5}");
             string valasz = await client.GetStringAsync(url);
             List<Question> question = JsonConvert.DeserializeObject<List<Question>>(valasz);
             foreach (var item in question)
@@ -112,6 +113,7 @@ namespace Projekt
 
         {
             lista.Items.Clear();
+            lista.Items.Add($"{"id ",3} {"questionId ",4}  {"content ",25} {"isRight ",4}");
             string valasz = await client.GetStringAsync(url);
             List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(valasz);
             foreach (var item in answer)
