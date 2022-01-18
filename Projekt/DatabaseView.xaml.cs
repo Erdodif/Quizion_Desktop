@@ -192,4 +192,8 @@ namespace Projekt
 
 
     }
+
+    // /api/quiz/1/question/1/answer/1
+    // /api/quiz/1/question/1/answers
+    // /api/quiz/1/questions
 }

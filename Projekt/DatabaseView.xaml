@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
-        Title="Adatbázis nézet" Height="450" Width="800" Background="#7985C1" MinHeight="425" MinWidth="700">
+        Title="Adatbázis nézet"  Height="500" Width="1000" Background="#7985C1" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="661*"/>

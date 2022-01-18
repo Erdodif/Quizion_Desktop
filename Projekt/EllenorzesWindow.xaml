@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
-        Title="EllenorzesWindow" Height="450" Width="800" Background="#7985C1">
+        Title="EllenorzesWindow" Height="500" Width="1000" Background="#7985C1">
     <Grid>
         <Image Source="fejlec.png" Margin="-14,-147,-90,356"/>
         <Image Source="quizion_logo.png" Margin="10,0,0,381.706" UseLayoutRounding="False" HorizontalAlignment="Left" Width="131.886" />
