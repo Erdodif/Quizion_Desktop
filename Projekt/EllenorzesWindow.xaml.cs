@@ -24,7 +24,7 @@ namespace Projekt
     /// </summary>
     public partial class EllenorzesWindow : Window
     {
-        static string Url = "http://quizion.hu/api/quizes";
+        static string Url = "http://quizion.hu/api/quizzes";
         static Szinek szinek = new Szinek();
         static List<string> lista = new List<string>();
         public EllenorzesWindow()
@@ -36,7 +36,7 @@ namespace Projekt
 
 
             //keres();
-            //Listazas("http://quizion.hu/api/quizes");
+            //Listazas("http://quizion.hu/api/quizzes");
 
             btn_ellenorzo.Background = szinek.Alert;
             MessageBox.Show("Sikeres ellenőrzés", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
