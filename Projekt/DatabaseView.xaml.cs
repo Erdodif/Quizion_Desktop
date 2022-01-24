@@ -47,6 +47,12 @@ namespace Projekt
                 lista.Items.Add(item);
             }
 
+           /* if (lista.SelectedIndex != -1)
+            {
+                KivalasztottKvizKerdesei("http://quizion.hu/api/quiz/?lista.SelectedIndex");
+            }
+           */
+
 
             //FORMÁZOTT JSON
 
@@ -108,7 +114,17 @@ namespace Projekt
 
 
         }
-
+/*
+        private async Task KivalasztottKvizKerdesei(string url)
+        {
+            string valasz = await client.GetStringAsync(url);
+            List<Question> answer = JsonConvert.DeserializeObject<List<Question>>(valasz);
+            foreach (var item in answer)
+            {
+                kivalasztLista.Items.Add(item);
+            }
+        }
+*/
         private async Task Valaszlistazas(string url)
 
         {
@@ -167,7 +183,7 @@ namespace Projekt
 
         private void ModositasClick(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void Torles(object sender, RoutedEventArgs e)
@@ -189,8 +205,6 @@ namespace Projekt
         {
 
         }
-
-
     }
 
     // /api/quiz/1/question/1/answer/1
