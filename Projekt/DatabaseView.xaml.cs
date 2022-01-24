@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Net.Http;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -188,6 +191,7 @@ namespace Projekt
 
         private void Torles(object sender, RoutedEventArgs e)
         {
+            int item = lista.Items.IndexOf(lista.SelectedItem);
             if (lista.SelectedIndex == -1)
             {
                 MessageBox.Show("Nincsen kiválasztva elem a listából a törlés előtt", "Érvénytelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -195,6 +199,27 @@ namespace Projekt
             }
             else
             {
+                try {
+
+                    using (SqlConnection connection = new SqlConnection())
+                    {
+
+                        using (SqlCommand command = new SqlCommand("DELETE FROM" + item.GetType() + "WHERE id = @id", connection))
+                        {
+                            connection.Open();
+                            command.Parameters.AddWithValue("@id", this.lista.SelectedItem);
+                            command.ExecuteNonQuery();
+                            connection.Close();
+                        }
+
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    ex.Message.ToString();
+                }
+              
                 MessageBox.Show("A kiválasztott elem sikeresen törölve a listából (nem az adatbázisból)", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
                 lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
             }
