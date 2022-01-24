@@ -200,11 +200,11 @@ namespace Projekt
             else
             {
                 try {
-
-                    using (SqlConnection connection = new SqlConnection())
+                    //string connString = "server = localhost; user = root; database = quizion; password =";
+                    using (SqlConnection connection = new SqlConnection(/*connString*/))
                     {
 
-                        using (SqlCommand command = new SqlCommand("DELETE FROM" + item.GetType() + "WHERE id = @id", connection))
+                        using (SqlCommand command = new SqlCommand("DELETE FROM answer WHERE id = @id", connection))
                         {
                             connection.Open();
                             command.Parameters.AddWithValue("@id", this.lista.SelectedItem);
