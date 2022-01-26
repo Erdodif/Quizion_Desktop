@@ -50,11 +50,11 @@ namespace Projekt
                 lista.Items.Add(item);
             }
 
-           /* if (lista.SelectedIndex != -1)
-            {
-                KivalasztottKvizKerdesei("http://quizion.hu/api/quiz/?lista.SelectedIndex");
-            }
-           */
+            /* if (lista.SelectedIndex != -1)
+             {
+                 KivalasztottKvizKerdesei("http://quizion.hu/api/quiz/?lista.SelectedIndex");
+             }
+            */
 
 
             //FORMÁZOTT JSON
@@ -82,6 +82,7 @@ namespace Projekt
             lista.Add(answer);
             listaz.Text = lista[0];
             */
+            
 
         }
 
@@ -113,7 +114,7 @@ namespace Projekt
             //lista.Items.Add(valasz[0].ToString());
             //listam.Add(valasz);
             //lista.Items.Add(listam[0]);
-
+            
 
 
         }
@@ -157,6 +158,7 @@ namespace Projekt
             //lista.Text = valasz[0].ToString();
             //listam.Add(valasz);
             //lista.Text = listam[0];
+            
 
         }
 
@@ -176,12 +178,14 @@ namespace Projekt
         {
             Kvizlistazas("http://quizion.hu/api/quizzes");
             //Kvizlistazas("http://127.0.0.1:8000/api/quizes");
+            btn_adminjog.Visibility = Visibility.Hidden;
         }
 
         private void QuestionClick(object sender, RoutedEventArgs e)
         {
             Kerdeslistazas("http://quizion.hu/api/questions");
             //Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+            btn_adminjog.Visibility = Visibility.Hidden;
 
         }
 
@@ -189,6 +193,7 @@ namespace Projekt
         {
             Valaszlistazas("http://quizion.hu/api/answers");
             //Valaszlistazas("http://127.0.0.1:8000/api/answers");
+            btn_adminjog.Visibility = Visibility.Hidden;
         }
 
         private void AdminClick(object sender, RoutedEventArgs e)
@@ -199,6 +204,7 @@ namespace Projekt
         private void UserClick(object sender, RoutedEventArgs e)
         {
             UserListazas("http://quizion.hu/api/users");
+            btn_adminjog.Visibility = Visibility.Visible;
         }
 
         private void ModositasClick(object sender, RoutedEventArgs e)
