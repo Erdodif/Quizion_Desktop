@@ -222,8 +222,9 @@ namespace Projekt
 
             }
             else
-            { 
-                    
+            {
+                TorlesHivas("http://quizion.hu/api/quiz/id");
+                
                    
               
                 MessageBox.Show("A kiválasztott elem sikeresen törölve a listából (nem az adatbázisból)", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
@@ -234,7 +235,7 @@ namespace Projekt
 
         private async Task TorlesHivas(string url)
         {
-            client.DeleteAsync(url);
+            HttpResponseMessage response = await client.DeleteAsync(url);
         }
         private void ToAdmin(object sender, RoutedEventArgs e)
         {
