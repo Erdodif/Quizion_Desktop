@@ -184,6 +184,11 @@ namespace Projekt
 
         }
 
+        private void UserClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void ModositasClick(object sender, RoutedEventArgs e)
         {
 
@@ -230,6 +235,8 @@ namespace Projekt
         {
 
         }
+
+        
     }
 
     // /api/quiz/1/question/1/answer/1
