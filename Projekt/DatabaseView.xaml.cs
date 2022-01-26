@@ -165,8 +165,8 @@ namespace Projekt
             lista.Items.Clear();
             lista.Items.Add("name : email");
             string valasz = await client.GetStringAsync(url);
-            List<User> answer = JsonConvert.DeserializeObject<List<User>>(valasz);
-            foreach (var item in answer)
+            List<User> user = JsonConvert.DeserializeObject<List<User>>(valasz);
+            foreach (var item in user)
             {
                 lista.Items.Add(item);
             }
@@ -193,12 +193,12 @@ namespace Projekt
 
         private void AdminClick(object sender, RoutedEventArgs e)
         {
-            UserListazas("http://quizion.hu/api/users");
+           
         }
 
         private void UserClick(object sender, RoutedEventArgs e)
         {
-
+            UserListazas("http://quizion.hu/api/users");
         }
 
         private void ModositasClick(object sender, RoutedEventArgs e)
