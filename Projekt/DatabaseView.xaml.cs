@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Net.Http;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -46,6 +49,12 @@ namespace Projekt
             {
                 lista.Items.Add(item);
             }
+
+           /* if (lista.SelectedIndex != -1)
+            {
+                KivalasztottKvizKerdesei("http://quizion.hu/api/quiz/?lista.SelectedIndex");
+            }
+           */
 
 
             //FORMÁZOTT JSON
@@ -108,7 +117,17 @@ namespace Projekt
 
 
         }
-
+/*
+        private async Task KivalasztottKvizKerdesei(string url)
+        {
+            string valasz = await client.GetStringAsync(url);
+            List<Question> answer = JsonConvert.DeserializeObject<List<Question>>(valasz);
+            foreach (var item in answer)
+            {
+                kivalasztLista.Items.Add(item);
+            }
+        }
+*/
         private async Task Valaszlistazas(string url)
 
         {
@@ -143,21 +162,21 @@ namespace Projekt
 
         private void QuizClick(object sender, RoutedEventArgs e)
         {
-            //Kvizlistazas("http://quizion.hu/api/quizes");
-            Kvizlistazas("http://127.0.0.1:8000/api/quizes");
+            Kvizlistazas("http://quizion.hu/api/quizzes");
+            //Kvizlistazas("http://127.0.0.1:8000/api/quizes");
         }
 
         private void QuestionClick(object sender, RoutedEventArgs e)
         {
-            //Kerdeslistazas("http://quizion.hu/api/questions");
-            Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+            Kerdeslistazas("http://quizion.hu/api/questions");
+            //Kerdeslistazas("http://127.0.0.1:8000/api/questions");
 
         }
 
         private void AnswerClick(object sender, RoutedEventArgs e)
         {
-            //Valaszlistazas("http://quizion.hu/api/answers");
-            Valaszlistazas("http://127.0.0.1:8000/api/answers");
+            Valaszlistazas("http://quizion.hu/api/answers");
+            //Valaszlistazas("http://127.0.0.1:8000/api/answers");
         }
 
         private void AdminClick(object sender, RoutedEventArgs e)
@@ -167,11 +186,12 @@ namespace Projekt
 
         private void ModositasClick(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void Torles(object sender, RoutedEventArgs e)
         {
+            int item = lista.Items.IndexOf(lista.SelectedItem);
             if (lista.SelectedIndex == -1)
             {
                 MessageBox.Show("Nincsen kiválasztva elem a listából a törlés előtt", "Érvénytelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -179,6 +199,27 @@ namespace Projekt
             }
             else
             {
+                try {
+                    //string connString = "server = localhost; user = root; database = quizion; password =";
+                    using (SqlConnection connection = new SqlConnection(/*connString*/))
+                    {
+
+                        using (SqlCommand command = new SqlCommand("DELETE FROM answer WHERE id = @id", connection))
+                        {
+                            connection.Open();
+                            command.Parameters.AddWithValue("@id", this.lista.SelectedItem);
+                            command.ExecuteNonQuery();
+                            connection.Close();
+                        }
+
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    ex.Message.ToString();
+                }
+              
                 MessageBox.Show("A kiválasztott elem sikeresen törölve a listából (nem az adatbázisból)", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
                 lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
             }
@@ -189,7 +230,6 @@ namespace Projekt
         {
 
         }
-
     }
 
     // /api/quiz/1/question/1/answer/1
