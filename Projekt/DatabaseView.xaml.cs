@@ -232,6 +232,10 @@ namespace Projekt
 
         }
 
+        private async Task TorlesHivas(string url)
+        {
+            client.DeleteAsync(url);
+        }
         private void ToAdmin(object sender, RoutedEventArgs e)
         {
 
