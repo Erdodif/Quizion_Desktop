@@ -11,7 +11,7 @@ namespace Projekt
         private Int64 id;
         private string name;
         private string email;
-        private string password;
+        private string  password;
         private Int64 xp;
 
         public long Id { get => id; set => id = value; }
@@ -33,6 +33,11 @@ namespace Projekt
         public User(int id)
         {
             this.id = id;
+        }
+
+        public override string ToString()
+        {
+            return ($"{this.name} : {this.email}");
         }
 
 
