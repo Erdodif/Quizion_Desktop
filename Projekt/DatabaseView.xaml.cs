@@ -160,6 +160,17 @@ namespace Projekt
 
         }
 
+        private async Task UserListazas(string url)
+        {
+            lista.Items.Clear();
+            string valasz = await client.GetStringAsync(url);
+            List<User> answer = JsonConvert.DeserializeObject<List<User>>(valasz);
+            foreach (var item in answer)
+            {
+                lista.Items.Add(item);
+            }
+        }
+
         private void QuizClick(object sender, RoutedEventArgs e)
         {
             Kvizlistazas("http://quizion.hu/api/quizzes");
@@ -181,7 +192,7 @@ namespace Projekt
 
         private void AdminClick(object sender, RoutedEventArgs e)
         {
-
+            UserListazas("http://quizion.hu/api/users");
         }
 
         private void UserClick(object sender, RoutedEventArgs e)
