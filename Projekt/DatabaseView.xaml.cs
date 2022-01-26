@@ -34,6 +34,7 @@ namespace Projekt
         {
 
             InitializeComponent();
+            btn_adminjog.Visibility = Visibility.Hidden;
 
         }
 
@@ -198,7 +199,7 @@ namespace Projekt
 
         private void AdminClick(object sender, RoutedEventArgs e)
         {
-           
+            btn_adminjog.Visibility = Visibility.Visible;
         }
 
         private void UserClick(object sender, RoutedEventArgs e)
