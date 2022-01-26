@@ -207,7 +207,7 @@ namespace Projekt
                         using (SqlCommand command = new SqlCommand("DELETE FROM answer WHERE id = @id", connection))
                         {
                             connection.Open();
-                            command.Parameters.AddWithValue("@id", this.lista.SelectedItem);
+                            command.Parameters.AddWithValue("@id", item);
                             command.ExecuteNonQuery();
                             connection.Close();
                         }
