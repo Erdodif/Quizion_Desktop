@@ -222,27 +222,9 @@ namespace Projekt
 
             }
             else
-            {
-                try {
-                    //string connString = "server = localhost; user = root; database = quizion; password =";
-                    using (SqlConnection connection = new SqlConnection(/*connString*/))
-                    {
-
-                        using (SqlCommand command = new SqlCommand("DELETE FROM answer WHERE id = @id", connection))
-                        {
-                            connection.Open();
-                            command.Parameters.AddWithValue("@id", item);
-                            command.ExecuteNonQuery();
-                            connection.Close();
-                        }
-
-                    }
+            { 
                     
-                }
-                catch (Exception ex)
-                {
-                    ex.Message.ToString();
-                }
+                   
               
                 MessageBox.Show("A kiválasztott elem sikeresen törölve a listából (nem az adatbázisból)", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
                 lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
