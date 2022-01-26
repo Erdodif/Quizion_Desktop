@@ -223,7 +223,7 @@ namespace Projekt
             }
             else
             {
-                TorlesHivas("http://quizion.hu/api/quiz/id");
+                //TorlesHivas("http://quizion.hu/api/quiz/id");
                 
                    
               
