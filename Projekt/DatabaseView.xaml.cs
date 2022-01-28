@@ -177,23 +177,23 @@ namespace Projekt
 
         private void QuizClick(object sender, RoutedEventArgs e)
         {
-            //Kvizlistazas("http://quizion.hu/api/quizzes");
-            Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+            Kvizlistazas("http://quizion.hu/api/quizzes");
+            //Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
             btn_adminjog.Visibility = Visibility.Hidden;
         }
 
         private void QuestionClick(object sender, RoutedEventArgs e)
         {
-            //Kerdeslistazas("http://quizion.hu/api/questions");
-            Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+            Kerdeslistazas("http://quizion.hu/api/questions");
+            //Kerdeslistazas("http://127.0.0.1:8000/api/questions");
             btn_adminjog.Visibility = Visibility.Hidden;
 
         }
 
         private void AnswerClick(object sender, RoutedEventArgs e)
         {
-            //Valaszlistazas("http://quizion.hu/api/answers");
-            Valaszlistazas("http://127.0.0.1:8000/api/answers");
+            Valaszlistazas("http://quizion.hu/api/answers");
+            //Valaszlistazas("http://127.0.0.1:8000/api/answers");
             btn_adminjog.Visibility = Visibility.Hidden;
         }
 
@@ -223,9 +223,10 @@ namespace Projekt
             }
             else
             {
-                //TorlesHivas("http://quizion.hu/api/quiz/" + item);
+                string torlo = $"http://quizion.hu/api/quiz/{item}";
+                TorlesHivas(torlo);
 
-                TorlesHivas("http://127.0.0.1:8000/api/quiz/" + item);
+                //TorlesHivas($"http://127.0.0.1:8000/api/quiz/{item}");
                 
 
 
