@@ -32,6 +32,7 @@ namespace Projekt
         static HttpClient client = new HttpClient();
         //static List<string> listam = new List<string>();
         static Szinek szinek = new Szinek();
+        static List<Quiz> quiz;
         public DatabaseView()
         {
 
@@ -47,10 +48,14 @@ namespace Projekt
             lista.Items.Clear();
             lista.Items.Add($"{"id ",-4}{"header ",-10}{"description ",35} {"active ",8} {"secondsPerQuiz ",6}");
             string valasz = await client.GetStringAsync(url);
-            List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
+            quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
             foreach (var item in quiz)
             {
                 lista.Items.Add(item);
+            }
+            if (btn_quiz.IsPressed == true)
+            {
+                TorlesHivasQuiz(lista.Items.IndexOf(lista.SelectedItem));
             }
 
             /* if (lista.SelectedIndex != -1)
@@ -252,6 +257,8 @@ namespace Projekt
                 var responseContent = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();
             }
+            Quiz quize = quiz.Find(q => q.Id == id);
+            quiz.Remove(quize);
            
             
             
