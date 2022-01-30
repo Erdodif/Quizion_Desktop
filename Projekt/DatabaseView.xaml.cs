@@ -226,7 +226,11 @@ namespace Projekt
             else
             {
            
-                TorlesHivas(item);
+                if (lista.SelectedItem is Quiz)
+                {
+                    TorlesHivasQuiz(item);
+                }
+                
 
                 //TorlesHivas($"http://127.0.0.1:8000/api/quiz/{item}");
                 
@@ -239,7 +243,7 @@ namespace Projekt
 
         }
 
-        private async Task TorlesHivas(int id)
+        private async Task TorlesHivasQuiz(int id)
         {
             string url = "http://quizion.hu/api/quiz/";
             int i = lista.Items.IndexOf(lista.SelectedItem);
