@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
@@ -16,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 
 
@@ -223,8 +225,8 @@ namespace Projekt
             }
             else
             {
-                string torlo = $"http://quizion.hu/api/quiz/{item}";
-                TorlesHivas(torlo);
+           
+                TorlesHivas(item);
 
                 //TorlesHivas($"http://127.0.0.1:8000/api/quiz/{item}");
                 
@@ -237,9 +239,18 @@ namespace Projekt
 
         }
 
-        private async Task TorlesHivas(string url)
+        private async Task TorlesHivas(int id)
         {
-            HttpResponseMessage response = await client.DeleteAsync(url);
+            string url = "http://quizion.hu/api/quiz/";
+            int i = lista.Items.IndexOf(lista.SelectedItem);
+            using (HttpResponseMessage response = await client.DeleteAsync($"{url}/{i}"))
+            {
+                var responseContent = response.Content.ReadAsStringAsync().Result;
+                response.EnsureSuccessStatusCode();
+            }
+           
+            
+            
         }
         private void ToAdmin(object sender, RoutedEventArgs e)
         {
