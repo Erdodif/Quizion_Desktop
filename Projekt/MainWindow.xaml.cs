@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,12 +27,23 @@ namespace Projekt
     public partial class MainWindow : Window
     {
         static Szinek szinek = new Szinek();
+        static HttpClient client = new HttpClient();
       
 
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-            /* 
+            string url = "http://quizion.hu/api/user/login";
+            string contente = "userId\npassword";
+            StringContent content = new StringContent(contente);
+            //MultipartContent multi = new MultipartContent();
+            client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse("Bearer");
+
+
+
+
+            client.PostAsync(url, content);
+            
              if (tbx_00.Text == "" || tbx_01.Text == "")
              {
                  tbl_hibak.Text = "Minden mező megadása kötelező!";
@@ -58,18 +71,18 @@ namespace Projekt
              else
              {
 
+                tbl_hibak.Text = "";
+                MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
+                EllenorzesWindow ellenorzoAblak = new EllenorzesWindow();
+                this.Visibility = Visibility.Hidden;
+                this.Close();
+                ellenorzoAblak.Show();
 
 
+            }
+            
 
-             }
-            */
-
-            tbl_hibak.Text = "";
-            MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
-            EllenorzesWindow ellenorzoAblak = new EllenorzesWindow();
-            this.Visibility = Visibility.Hidden;
-            this.Close();
-            ellenorzoAblak.Show();
+            
             
 
 
