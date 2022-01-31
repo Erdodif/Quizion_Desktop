@@ -30,15 +30,26 @@ namespace Projekt
         static HttpClient client = new HttpClient();
       
 
-
-        private void btn_login_Click(object sender, RoutedEventArgs e)
+        private async Task LoginAsync()
         {
             string url = "http://quizion.hu/api/user/login";
-            string content = "userId\npassword";
+            string j = $"{tbx_name.Text}\n{tbx_pass.Text}";
+            string[] sztr = { "userId", "password" };
+            string content = JsonConvert.SerializeObject(sztr);
             StringContent stringContent = new StringContent(content);
+            stringContent.Headers.Add("userId", tbx_name.Text);
+            stringContent.Headers.Add("password", tbx_pass.Text);
             client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse("Bearer");
-            client.PostAsync(url, stringContent);
+            HttpResponseMessage response = await client.PostAsync(url, stringContent);
+            tbl_hibak.Text = response.Content.ReadAsStringAsync().Result;
             
+
+        }
+        private void btn_login_Click(object sender, RoutedEventArgs e)
+        {
+
+            LoginAsync();
+            /*
              if (tbx_name.Text == "" || tbx_pass.Text == "")
              {
                  tbl_hibak.Text = "Minden mező megadása kötelező!";
@@ -75,6 +86,7 @@ namespace Projekt
 
 
             }
+            */
             
 
             
