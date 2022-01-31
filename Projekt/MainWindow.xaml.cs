@@ -34,37 +34,32 @@ namespace Projekt
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
             string url = "http://quizion.hu/api/user/login";
-            string contente = "userId\npassword";
-            StringContent content = new StringContent(contente);
-            //MultipartContent multi = new MultipartContent();
+            string content = "userId\npassword";
+            StringContent stringContent = new StringContent(content);
             client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse("Bearer");
-
-
-
-
-            client.PostAsync(url, content);
+            client.PostAsync(url, stringContent);
             
-             if (tbx_00.Text == "" || tbx_01.Text == "")
+             if (tbx_name.Text == "" || tbx_pass.Text == "")
              {
                  tbl_hibak.Text = "Minden mező megadása kötelező!";
              }
-             else if (tbx_00.Text.Length < 5)
+             else if (tbx_name.Text.Length < 5)
              {
                  tbl_hibak.Text = "Túl rövid a név!";
              }
-             else if (tbx_01.Text.Contains("@"))
+             else if (tbx_pass.Text.Contains("@"))
              {
                  tbl_hibak.Text = "Érvénytelen jelszó!";
              }
-             else if (tbx_00.Text.ToLower() == "admin")
+             else if (tbx_name.Text.ToLower() == "admin")
              {
                  tbl_hibak.Text = "Nem megfelelő név!";
              }
-             else if (tbx_01.Text.Length < 8)
+             else if (tbx_name.Text.Length < 8)
              {
                  tbl_hibak.Text = "Túl rövid a jelszó!";
              }
-             else if (tbx_01.Text.ToLower() == "password")
+             else if (tbx_pass.Text.ToLower() == "password")
              {
                  tbl_hibak.Text = "Nem megfelelő jelszó!";
              }
