@@ -217,12 +217,33 @@ namespace Projekt
 
         private void ModositasClick(object sender, RoutedEventArgs e)
         {
+            
 
+        }
+
+        private async Task ModositasQuiz(int id)
+        {
+            /*string url = "http://quizion.hu/api/quiz";
+            int index = lista.Items.IndexOf(lista.SelectedItem);
+            int elem = index + 1;
+
+            var data = new
+            {
+                header = "Harmadik kvízed",
+                description = "Harmadik kvíz leírásai"
+
+            };
+            using (HttpResponseMessage response = await client.PutAsync($"{url}/{elem}", data))
+            {
+
+            }
+            */
         }
 
         private void Torles(object sender, RoutedEventArgs e)
         {
-            int item = lista.Items.IndexOf(lista.SelectedItem);
+            int index = lista.Items.IndexOf(lista.SelectedItem);
+            int item = index + 1;
             if (lista.SelectedIndex == -1)
             {
                 MessageBox.Show("Nincsen kiválasztva elem a listából a törlés előtt", "Érvénytelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -251,8 +272,9 @@ namespace Projekt
         private async Task TorlesHivasQuiz(int id)
         {
             string url = "http://quizion.hu/api/quiz/";
-            int i = lista.Items.IndexOf(lista.SelectedItem);
-            using (HttpResponseMessage response = await client.DeleteAsync($"{url}/{i}"))
+            int index = lista.Items.IndexOf(lista.SelectedItem);
+            int elem = index + 1;
+            using (HttpResponseMessage response = await client.DeleteAsync($"{url}/{elem}"))
             {
                 var responseContent = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();
