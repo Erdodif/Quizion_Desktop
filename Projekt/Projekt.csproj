@@ -94,6 +94,7 @@
     <Compile Include="Classes\Admin.cs" />
     <Compile Include="Classes\ApiAnswer.cs" />
     <Compile Include="Classes\Data.cs" />
+    <Compile Include="Classes\IdeiglenesU.cs" />
     <Compile Include="DatabaseView.xaml.cs">
       <DependentUpon>DatabaseView.xaml</DependentUpon>
     </Compile>

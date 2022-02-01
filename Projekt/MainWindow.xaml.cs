@@ -28,22 +28,34 @@ namespace Projekt
     {
         static Szinek szinek = new Szinek();
         static HttpClient client = new HttpClient();
-      
+        
+        
+
 
         private async Task LoginAsync()
         {
-            string url = "http://quizion.hu/api/user/login";
-            string j = $"{tbx_name.Text}\n{tbx_pass.Text}";
-            string[] sztr = { "userId", "password" };
-            string content = JsonConvert.SerializeObject(sztr);
-            StringContent stringContent = new StringContent(content);
-            stringContent.Headers.Add("userId", tbx_name.Text);
-            stringContent.Headers.Add("password", tbx_pass.Text);
-            client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse("Bearer");
-            HttpResponseMessage response = await client.PostAsync(url, stringContent);
+            string url = "/api/user/login";
+            client.BaseAddress = new Uri("http://quizion.hu");
+            //string[] u = { "userId", tbx_name.Text };
+            //string[] p = { "password", tbx_pass.Text };
+            JObject jObject = new JObject();
+            jObject.Add("userId", tbx_name.Text);
+            jObject.Add("password", tbx_pass.Text);
+            string content = JsonConvert.SerializeObject(jObject);
+            StringContent stringContent = new StringContent(content,Encoding.UTF8);
+            /*client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse("Bearer");
+            //HttpResponseMessage response = await client.PostAsync(url, stringContent);
             tbl_hibak.Text = response.Content.ReadAsStringAsync().Result;
-            
+            //tbl_hibak.Text = stringContent.Headers.ToString();*/
 
+            var request = new HttpRequestMessage(HttpMethod.Post,"api/user/login");
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            request.Content = new StringContent(content, Encoding.UTF8);
+            request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.SendAsync(request);
+
+            tbl_hibak.Text = response.Content.ReadAsStringAsync().Result;
         }
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
