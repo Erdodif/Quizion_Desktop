@@ -35,15 +35,15 @@ namespace Projekt
         private async Task LoginAsync()
         {
             client = new HttpClient();
-            string url = "/api/user/login";
+            string url = "/api/users/login";
             client.BaseAddress = new Uri("http://quizion.hu");
             JObject jObject = new JObject();
             jObject.Add("userID", tbx_name.Text);
             jObject.Add("password", tbx_pass.Text);
             string content = JsonConvert.SerializeObject(jObject);
-            var stringContent = new StringContent(content, UnicodeEncoding.UTF8, "application/json");
-            //client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse("Bearer");
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(url, stringContent);
+           
             tbl_hibak.Text = response.Content.ReadAsStringAsync().Result;
         }
         private void btn_login_Click(object sender, RoutedEventArgs e)
