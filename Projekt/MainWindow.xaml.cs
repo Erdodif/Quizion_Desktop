@@ -38,10 +38,10 @@ namespace Projekt
             string url = "/api/user/login";
             client.BaseAddress = new Uri("http://quizion.hu");
             JObject jObject = new JObject();
-            jObject.Add("userId", tbx_name.Text);
+            jObject.Add("userID", tbx_name.Text);
             jObject.Add("password", tbx_pass.Text);
             string content = JsonConvert.SerializeObject(jObject);
-            var stringContent = new StringContent(content,UnicodeEncoding.UTF8, "application/json");
+            var stringContent = new StringContent(content, UnicodeEncoding.UTF8, "application/json");
             //client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse("Bearer");
             var response = await client.PostAsync(url, stringContent);
             tbl_hibak.Text = response.Content.ReadAsStringAsync().Result;
