@@ -25,7 +25,7 @@
 
 
         <TextBlock x:Name="tbl_hibak"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="450,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468" Height="262" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn_login_Copy" Style="{StaticResource MontserratFont}" Content="Regisztráció" HorizontalAlignment="Left" Margin="24,594,0,48" VerticalAlignment="Center" Width="285" FontSize="24" Click="RegisClick" FontStyle="Italic"/>
+        <Button x:Name="btn_login_Copy" Style="{StaticResource MontserratFont}" Content="Regisztráció" HorizontalAlignment="Left" Margin="24,594,0,48" VerticalAlignment="Center" Width="285" FontSize="24" Click="RegistrationClick" FontStyle="Italic"/>
 
 
     </Grid>
