@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         Title="EllenorzesWindow" Height="500" Width="900" Background="#7985C1">
     <Grid>
-        <Image Source="fejlec.png" Margin="-14,-147,-90,356" Width="1000" Height="235"/>
-        <Image Source="quizion_logo.png" Margin="10,0,0,381.706" UseLayoutRounding="False" HorizontalAlignment="Left" Width="131.886" />
-        <ScrollViewer HorizontalAlignment="Left" Height="88" Margin="63,93,0,0" VerticalAlignment="Top" Width="674">
+        <Image Source="fejlec.png" Margin="0,-147,-108,381" Width="1000" Height="235"/>
+        <Image Source="quizion_logo.png" Margin="10,0,0,406" UseLayoutRounding="False" HorizontalAlignment="Left" Width="131.886" />
+        <ScrollViewer HorizontalAlignment="Left" Height="88" Margin="121,140,0,0" VerticalAlignment="Top" Width="674">
 
             <TextBlock x:Name="lbl_keres" Style="{StaticResource MontserratFont}" Text="Ellenőrzés" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="227,307,0,0" VerticalAlignment="Top" Width="355"/>
         </ScrollViewer>
-        <ScrollViewer HorizontalAlignment="Left" Height="100" Margin="69,265,0,0" VerticalAlignment="Top" Width="668">
+        <ScrollViewer HorizontalAlignment="Left" Height="100" Margin="121,301,0,0" VerticalAlignment="Top" Width="668">
             <TextBlock x:Name="lbl_listaz" Style="{StaticResource MontserratFont}" Text="Kilistázás" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="227,307,0,0" VerticalAlignment="Top" Width="355" />
         </ScrollViewer>
 
-        <Label x:Name="lbl_ell" Content="Ellenőrzés" Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="125" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="lbl_lista" Content="Lista" Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top" Width="56" FontSize="20" FontWeight="Bold"/>
-        <Button x:Name="btn_ellenorzo" Content="Ellenőrzés"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="344,395,0,0" VerticalAlignment="Top" Width="193" Click="Button_Click" FontSize="16"/>
+        <Label x:Name="lbl_ell" Content="Ellenőrzés" Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="125" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="lbl_lista" Content="Lista" Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top" Width="70" FontSize="20" FontWeight="Bold"/>
+        <Button x:Name="btn_ellenorzo" Content="Ellenőrzés"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="314,426,0,0" VerticalAlignment="Top" Width="285" Click="Button_Click" FontSize="24"/>
     </Grid>
 </Window>
