@@ -96,6 +96,9 @@ namespace Projekt
 
         }
 
-       
+        private void RegisClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
