@@ -29,9 +29,6 @@ namespace Projekt
         static Szinek szinek = new Szinek();
         static HttpClient client = new HttpClient();
         
-        
-
-
         private async Task LoginAsync()
         {
             client = new HttpClient();
@@ -51,30 +48,7 @@ namespace Projekt
 
             LoginAsync();
             /*
-             if (tbx_name.Text == "" || tbx_pass.Text == "")
-             {
-                 tbl_hibak.Text = "Minden mező megadása kötelező!";
-             }
-             else if (tbx_name.Text.Length < 5)
-             {
-                 tbl_hibak.Text = "Túl rövid a név!";
-             }
-             else if (tbx_pass.Text.Contains("@"))
-             {
-                 tbl_hibak.Text = "Érvénytelen jelszó!";
-             }
-             else if (tbx_name.Text.ToLower() == "admin")
-             {
-                 tbl_hibak.Text = "Nem megfelelő név!";
-             }
-             else if (tbx_name.Text.Length < 8)
-             {
-                 tbl_hibak.Text = "Túl rövid a jelszó!";
-             }
-             else if (tbx_pass.Text.ToLower() == "password")
-             {
-                 tbl_hibak.Text = "Nem megfelelő jelszó!";
-             }
+             
              else
              {
 
@@ -84,16 +58,9 @@ namespace Projekt
                 this.Visibility = Visibility.Hidden;
                 this.Close();
                 ellenorzoAblak.Show();
-
-
             }
             */
             
-
-            
-            
-
-
         }
 
         private void RegistrationClick(object sender, RoutedEventArgs e)

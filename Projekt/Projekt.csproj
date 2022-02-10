@@ -97,17 +97,10 @@
     <Compile Include="DatabaseView.xaml.cs">
       <DependentUpon>DatabaseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EllenorzesWindow.xaml.cs">
-      <DependentUpon>EllenorzesWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MLExtension.cs" />
     <Compile Include="Classes\Szinek.cs" />
     <Compile Include="Classes\User.cs" />
     <Page Include="DatabaseView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EllenorzesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
