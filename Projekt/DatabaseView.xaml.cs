@@ -258,7 +258,7 @@ namespace Projekt
                 }
                 
 
-                //TorlesHivas($"http://127.0.0.1:8000/api/quiz/{item}");
+                //TorlesHivas($"http://127.0.0.1:8000/api/quizzes/{item}");
                 
 
 
@@ -271,7 +271,7 @@ namespace Projekt
 
         private async Task TorlesHivasQuiz(int id)
         {
-            string url = "http://quizion.hu/api/quiz/";
+            string url = "http://quizion.hu/api/quizzes/";
             int index = lista.Items.IndexOf(lista.SelectedItem);
             int elem = index + 1;
             using (HttpResponseMessage response = await client.DeleteAsync($"{url}/{elem}"))
