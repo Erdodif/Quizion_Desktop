@@ -54,10 +54,10 @@ namespace Projekt
 
                 tbl_hibak.Text = "";
                 MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
-                EllenorzesWindow ellenorzoAblak = new EllenorzesWindow();
+                DatabaseView adatbazisNezet = new DatabaseWindow();
                 this.Visibility = Visibility.Hidden;
                 this.Close();
-                ellenorzoAblak.Show();
+                adatbazisNezet.Show();
             }
             */
             
