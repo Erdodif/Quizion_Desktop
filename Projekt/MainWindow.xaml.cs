@@ -47,6 +47,7 @@ namespace Projekt
         {
 
             LoginAsync();
+            btn_login.Background = szinek.OnPrimary;
             /*
              
              else
@@ -54,7 +55,7 @@ namespace Projekt
 
                 tbl_hibak.Text = "";
                 MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
-                DatabaseView adatbazisNezet = new DatabaseWindow();
+                DatabaseView adatbazisNezet = new DatabaseView();
                 this.Visibility = Visibility.Hidden;
                 this.Close();
                 adatbazisNezet.Show();
