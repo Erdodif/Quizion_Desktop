@@ -33,6 +33,10 @@ namespace Projekt
         //static List<string> listam = new List<string>();
         static Szinek szinek = new Szinek();
         static List<Quiz> quiz;
+
+        string token;
+
+        public string Token { get => token; set => token = value; }
         public DatabaseView()
         {
 

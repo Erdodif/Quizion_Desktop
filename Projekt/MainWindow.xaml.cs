@@ -28,7 +28,10 @@ namespace Projekt
     {
         static Szinek szinek = new Szinek();
         static HttpClient client = new HttpClient();
-        
+        string token;
+
+        public string Token { get => token; set => token = value; }
+
         private async Task LoginAsync()
         {
             client = new HttpClient();
@@ -40,27 +43,30 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(url, stringContent);
-           
-            tbl_hibak.Text = response.Content.ReadAsStringAsync().Result;
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                tbl_hibak.Text = response.Content.ReadAsStringAsync().Result;
+                token = response.Content.ReadAsStringAsync().Result;
+                MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
+                DatabaseView adatbazisNezet = new DatabaseView();
+                this.Visibility = Visibility.Hidden;
+                this.Close();
+                adatbazisNezet.Token = token;
+                adatbazisNezet.Show();
+            }
+            else
+            {
+                tbl_hibak.Text = response.Content.ReadAsStringAsync().Result;
+                MessageBox.Show("Hiba", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
         }
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
 
             LoginAsync();
             btn_login.Background = szinek.OnPrimary;
-            /*
-             
-             else
-             {
-
-                tbl_hibak.Text = "";
-                MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
-                DatabaseView adatbazisNezet = new DatabaseView();
-                this.Visibility = Visibility.Hidden;
-                this.Close();
-                adatbazisNezet.Show();
-            }
-            */
+            
             
         }
 
