@@ -56,46 +56,13 @@ namespace Projekt
             foreach (var item in quiz)
             {
                 lista.Items.Add(item);
-            }
-            if (btn_quiz.IsPressed == true)
-            {
-                TorlesHivasQuiz(lista.Items.IndexOf(lista.SelectedItem));
-            }
+            } 
 
             /* if (lista.SelectedIndex != -1)
              {
                  KivalasztottKvizKerdesei("http://quizion.hu/api/quiz/?lista.SelectedIndex");
              }
-            */
-
-
-            //FORMÁZOTT JSON
-
-            /*
-            string valasz = await client.GetStringAsync(url);
-            var adat = JsonConvert.DeserializeObject(valasz);
-            var formazott = JsonConvert.SerializeObject(adat, Formatting.Indented);
-            listam.Add(formazott);
-            lista.Items.Add(listam[0]);
-            */
-
-            //client.DefaultRequestHeaders.Accept.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            //string valasz = await client.GetStringAsync(url);
-            //valasz.Trim();
-            //lista.Text = valasz[0].ToString();
-            //listam.Add(valasz);
-            //lista.Text = listam[0];
-            //List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
-
-            /*client.DefaultRequestHeaders.Add("charset", "utf8");
-            string answer = await client.GetStringAsync(url);
-            listaz.Text = answer[0].ToString();
-            lista.Add(answer);
-            listaz.Text = lista[0];
-            */
-            
-
+            */      
         }
 
 
@@ -111,22 +78,6 @@ namespace Projekt
                 lista.Items.Add(item);
             }
 
-            //FORMÁZOTT JSON
-            /*
-            string valasz = await client.GetStringAsync(url);
-            var adat = JsonConvert.DeserializeObject(valasz);
-            var formazott = JsonConvert.SerializeObject(adat, Formatting.Indented);
-            listam.Add(formazott);
-            lista.Items.Add(listam[0]);
-            */
-
-
-
-            //valasz.Trim()
-            //lista.Items.Add(valasz[0].ToString());
-            //listam.Add(valasz);
-            //lista.Items.Add(listam[0]);
-            
 
 
         }
@@ -153,25 +104,7 @@ namespace Projekt
                 lista.Items.Add(item);
             }
 
-            //Formázott json
-            /*string valasz = await client.GetStringAsync(url);
-            var adat = JsonConvert.DeserializeObject(valasz);
-            var formazott = JsonConvert.SerializeObject(adat, Formatting.Indented);
-            listam.Add(formazott);
-            lista.Items.Add(listam[0]);
-            */
-
-
-
-
-            //listam.Clear();
-            //string valasz = await client.GetStringAsync(url);
-            //valasz.Trim();
-            //lista.Text = valasz[0].ToString();
-            //listam.Add(valasz);
-            //lista.Text = listam[0];
-            
-
+           
         }
 
         private async Task UserListazas(string url)
@@ -267,16 +200,7 @@ namespace Projekt
                 {
                     //Nem történik semmi, ha nem szeretnénk törölni!
                 }
-                
-                
-                
-
-                //TorlesHivas($"http://127.0.0.1:8000/api/quizzes/{item}");
-                
-
-
-
-                
+                 
             }
 
         }
