@@ -46,9 +46,7 @@ namespace Projekt
             var response = await client.PostAsync(url, stringContent);
             if (response.StatusCode == HttpStatusCode.Created)
             {
-                //tbl_message.Text = response.Content.ReadAsStringAsync().Result;
                 token = response.Content.ReadAsStringAsync().Result;
-              //MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
                 DatabaseView adatbazisNezet = new DatabaseView();
                 this.Visibility = Visibility.Hidden;
                 this.Close();
