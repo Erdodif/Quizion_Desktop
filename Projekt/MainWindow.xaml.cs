@@ -36,18 +36,19 @@ namespace Projekt
         {
             client = new HttpClient();
             string url = "/api/users/login";
-            client.BaseAddress = new Uri("http://quizion.hu");
+           // client.BaseAddress = new Uri("http://quizion.hu");
+            client.BaseAddress = new Uri("http://127.0.0.1:8000");
             JObject jObject = new JObject();
             jObject.Add("userID", tbx_name.Text);
             jObject.Add("password", tbx_pass.Text);
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(url, stringContent);
-            if (response.StatusCode == HttpStatusCode.OK)
+            if (response.StatusCode == HttpStatusCode.Created)
             {
-                tbl_hibak.Text = response.Content.ReadAsStringAsync().Result;
+                //tbl_message.Text = response.Content.ReadAsStringAsync().Result;
                 token = response.Content.ReadAsStringAsync().Result;
-                MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
+              //MessageBox.Show("Sikeres belépés!", "Üzenet", MessageBoxButton.OK, MessageBoxImage.Information);
                 DatabaseView adatbazisNezet = new DatabaseView();
                 this.Visibility = Visibility.Hidden;
                 this.Close();
@@ -56,23 +57,20 @@ namespace Projekt
             }
             else
             {
-                tbl_hibak.Text = response.Content.ReadAsStringAsync().Result;
-                MessageBox.Show("Hiba", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Error);
+                string hiba = Convert.ToString(response.Content.ReadAsStringAsync().Result);
+                tbl_message.Text = hiba.Replace(hiba, "Invalid userID or password!");
+                tbl_message.Foreground = szinek.Warning;
+
             }
             
         }
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-
             LoginAsync();
             btn_login.Background = szinek.OnPrimary;
             
-            
         }
 
-        private void RegistrationClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
+        
     }
 }
