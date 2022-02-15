@@ -188,23 +188,23 @@ namespace Projekt
 
         private void QuizClick(object sender, RoutedEventArgs e)
         {
-            Kvizlistazas("http://quizion.hu/api/quizzes");
-            //Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+            //Kvizlistazas("http://quizion.hu/api/quizzes");
+            Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
             btn_adminjog.Visibility = Visibility.Hidden;
         }
 
         private void QuestionClick(object sender, RoutedEventArgs e)
         {
-            Kerdeslistazas("http://quizion.hu/api/questions");
-            //Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+            //Kerdeslistazas("http://quizion.hu/api/questions");
+            Kerdeslistazas("http://127.0.0.1:8000/api/questions");
             btn_adminjog.Visibility = Visibility.Hidden;
 
         }
 
         private void AnswerClick(object sender, RoutedEventArgs e)
         {
-            Valaszlistazas("http://quizion.hu/api/answers");
-            //Valaszlistazas("http://127.0.0.1:8000/api/answers");
+            //Valaszlistazas("http://quizion.hu/api/answers");
+            Valaszlistazas("http://127.0.0.1:8000/api/answers");
             btn_adminjog.Visibility = Visibility.Hidden;
         }
 
@@ -215,7 +215,8 @@ namespace Projekt
 
         private void UserClick(object sender, RoutedEventArgs e)
         {
-            UserListazas("http://quizion.hu/api/users");
+            //UserListazas("http://quizion.hu/api/users");
+            UserListazas("http://127.0.0.1:8000/api/users");
             btn_adminjog.Visibility = Visibility.Visible;
         }
 
@@ -255,8 +256,18 @@ namespace Projekt
             }
             else
             {
-           
-                TorlesHivasQuiz(item);
+                MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy törölni szeretnéd az alábbi elemet: {item} ", "Figyelmeztetés", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    TorlesHivasQuiz(item);
+                    MessageBox.Show("A kiválasztott elem sikeresen törölve a listából (nem az adatbázisból)", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
+                    lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
+                }
+                else
+                {
+                    //Nem történik semmi, ha nem szeretnénk törölni!
+                }
+                
                 
                 
 
@@ -265,8 +276,7 @@ namespace Projekt
 
 
 
-                MessageBox.Show("A kiválasztott elem sikeresen törölve a listából (nem az adatbázisból)", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
-                lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
+                
             }
 
         }

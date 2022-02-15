@@ -43,6 +43,7 @@
 
                 </ScrollViewer>
                 <ListBox x:Name="kivalasztLista" Grid.Column="1" HorizontalAlignment="Left" Height="194" Margin="54,22,0,0" Grid.Row="1" VerticalAlignment="Top" Width="284"/>
+                
 
 
 
