@@ -155,27 +155,93 @@ namespace Projekt
 
         private void ModositasClick(object sender, RoutedEventArgs e)
         {
-            
 
+            int index = lista.Items.IndexOf(lista.SelectedItem);
+            if (lista.SelectedIndex == -1)
+            {
+                MessageBox.Show("Nincsen kiválasztva elem a listából a módosítás előtt", "Érvénytelen módosítás", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy módosítani szeretnéd az alábbi elemet: {lista.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+
+                    if (lista.SelectedItem is Quiz)
+                    {
+                        ModositasQuiz(index);
+                        Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+
+                    }
+                    else if (lista.SelectedItem is Question)
+                    {
+                        ModositasQuestion(index);
+                        Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+                    }
+                    else if (lista.SelectedItem is Answer)
+                    {
+                        ModositasAnswer(index);
+                        Valaszlistazas("http://127.0.0.1:8000/api/answers");
+                    }
+                    else
+                    {
+                        tbl_status.Text = "Hiba, nem sikerült a módosítást végrehajtani!";
+                    }
+
+                   
+
+                }
+                else
+                {
+                    //Nem történik semmi, ha nem szeretnénk törölni!
+                }
+            }
         }
 
         private async Task ModositasQuiz(int id)
         {
-            /*string url = "http://quizion.hu/api/quiz";
-            int index = lista.Items.IndexOf(lista.SelectedItem);
-            int elem = index + 1;
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            //string url = "http://quizion.hu/api/quizzes";
+            JObject jObject = new JObject();
+            jObject.Add("header", tbx_01.Text);
+            jObject.Add("description", tbx_02.Text);
+            string content = JsonConvert.SerializeObject(jObject);
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response = await client.PutAsync($"api/quizzes/{id}", stringContent);
+            tbl_status.Text = response.ToString();
+         
+        }
 
-            var data = new
-            {
-                header = "Harmadik kvízed",
-                description = "Harmadik kvíz leírásai"
+        private async Task ModositasQuestion(int id)
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            //string url = "http://quizion.hu/api/questions";
+            JObject jObject = new JObject();
+            jObject.Add("content", tbx_01.Text);
+            jObject.Add("point", tbx_02.Text);
+            string content = JsonConvert.SerializeObject(jObject);
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response = await client.PutAsync($"api/questions/{id}", stringContent);
+            tbl_status.Text = response.ToString();
 
-            };
-            using (HttpResponseMessage response = await client.PutAsync($"{url}/{elem}", data))
-            {
+        }
 
-            }
-            */
+        private async Task ModositasAnswer(int id)
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            //string url = "http://quizion.hu/api/answers";
+            JObject jObject = new JObject();
+            jObject.Add("content", tbx_01.Text);
+            jObject.Add("is_right", tbx_02.Text);
+            string content = JsonConvert.SerializeObject(jObject);
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response = await client.PutAsync($"api/answers/{id}", stringContent);
+            tbl_status.Text = response.ToString();
+
         }
 
         private void Torles(object sender, RoutedEventArgs e)
@@ -195,15 +261,19 @@ namespace Projekt
                     if (lista.SelectedItem is Quiz)
                     {
                         KvizTorlese(index);
-                       
+                        Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+
+
                     }
                     else if (lista.SelectedItem is Question)
                     {
                         KerdesTorlese(index);
+                        Kerdeslistazas("http://127.0.0.1:8000/api/questions");
                     }
                     else if (lista.SelectedItem is Answer)
                     {
                         ValaszTorlese(index);
+                        Valaszlistazas("http://127.0.0.1:8000/api/answers");
                     }
                     else
                     {
