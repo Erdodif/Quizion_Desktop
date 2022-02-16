@@ -43,7 +43,8 @@
 
                 </ScrollViewer>
                 <ListBox x:Name="kivalasztLista" Grid.Column="1" HorizontalAlignment="Left" Height="194" Margin="54,22,0,0" Grid.Row="1" VerticalAlignment="Top" Width="284"/>
-                
+                <TextBlock x:Name="tbl_status" HorizontalAlignment="Left" Margin="350,239,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="-0.918,0" Height="61" Width="163"/>
+
 
 
 

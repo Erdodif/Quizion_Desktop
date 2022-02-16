@@ -181,7 +181,6 @@ namespace Projekt
         private void Torles(object sender, RoutedEventArgs e)
         {
             int index = lista.Items.IndexOf(lista.SelectedItem);
-            int item = index + 1;
             if (lista.SelectedIndex == -1)
             {
                 MessageBox.Show("Nincsen kiválasztva elem a listából a törlés előtt", "Érvénytelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -189,12 +188,31 @@ namespace Projekt
             }
             else
             {
-                MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy törölni szeretnéd az alábbi elemet: {item} ", "Figyelmeztetés", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy törölni szeretnéd az alábbi elemet: {lista.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-                    TorlesHivasQuiz(item);
-                    MessageBox.Show("A kiválasztott elem sikeresen törölve a listából (nem az adatbázisból)", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
+                   
+                    if (lista.SelectedItem is Quiz)
+                    {
+                        KvizTorlese(index);
+                       
+                    }
+                    else if (lista.SelectedItem is Question)
+                    {
+                        KerdesTorlese(index);
+                    }
+                    else if (lista.SelectedItem is Answer)
+                    {
+                        ValaszTorlese(index);
+                    }
+                    else
+                    {
+                        tbl_status.Text = "Hiba, nem sikerült a törlést végrehajtani!";
+                    }
+                    
+                    MessageBox.Show("A kiválasztott elem sikeresen törölve", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
                     lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
+                   
                 }
                 else
                 {
@@ -205,21 +223,36 @@ namespace Projekt
 
         }
 
-        private async Task TorlesHivasQuiz(int id)
+        
+
+        private async Task KvizTorlese(int id)
         {
-            string url = "http://quizion.hu/api/quizzes/";
-            int index = lista.Items.IndexOf(lista.SelectedItem);
-            int elem = index + 1;
-            using (HttpResponseMessage response = await client.DeleteAsync($"{url}/{elem}"))
-            {
-                var responseContent = response.Content.ReadAsStringAsync().Result;
-                response.EnsureSuccessStatusCode();
-            }
-            Quiz quize = quiz.Find(q => q.Id == id);
-            quiz.Remove(quize);
-           
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            //client.BaseAddress = new Uri("http://quizion.hu/");
+            var response = await client.DeleteAsync($"api/quizzes/{id}");
+            tbl_status.Text = response.ToString();
             
-            
+        }
+
+        private async Task KerdesTorlese(int id)
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            //client.BaseAddress = new Uri("http://quizion.hu/");
+            var response = await client.DeleteAsync($"api/questions/{id}");
+            tbl_status.Text = response.ToString();
+
+        }
+
+        private async Task ValaszTorlese(int id)
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            //client.BaseAddress = new Uri("http://quizion.hu/");
+            var response = await client.DeleteAsync($"api/answers/{id}");
+            tbl_status.Text = response.ToString();
+
         }
         private void ToAdmin(object sender, RoutedEventArgs e)
         {
