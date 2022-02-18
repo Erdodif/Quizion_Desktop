@@ -337,6 +337,7 @@ namespace Projekt
             // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             JObject jObject = new JObject();
+            jObject.Add("quiz_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
             jObject.Add("point", tbx_02.Text);
             string content = JsonConvert.SerializeObject(jObject);
@@ -361,16 +362,19 @@ namespace Projekt
         }
         private void HozzaadasClick(object sender, RoutedEventArgs e)
         {
-            KvizHozzaadasa();
+           /* KvizHozzaadasa();
+            Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+            */
             
            
 
 
-           /* KerdesHozzaadasa();
-            Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+           KerdesHozzaadasa();
+           Kerdeslistazas("http://127.0.0.1:8000/api/questions");
 
-            ValaszHozzaadasa();
+            /*ValaszHozzaadasa();
             Valaszlistazas("http://127.0.0.1:8000/api/answers");
+            
             
 
             tbl_status.Text = "Hiba, nem sikerült a hozzáadást végrehajtani!";

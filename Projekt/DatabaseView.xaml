@@ -47,6 +47,7 @@
                 <TextBox x:Name="tbx_01" Grid.Column="1" Margin="82,56,188,211" Grid.Row="1" />
                 <TextBox x:Name="tbx_02" Grid.Column="1" Margin="82,127,188,136" Grid.Row="1" />
                 <Button x:Name="btn_hozzaado" Content="Hozzáadás"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="82,204,0,0" VerticalAlignment="Top" Width="192" Click="HozzaadasClick" FontSize="20" Grid.Row="1" Grid.Column="1"/>
+                <TextBox x:Name="tbx_00" Grid.Column="1" Margin="82,0,188,267" Grid.Row="1" />
 
 
 
