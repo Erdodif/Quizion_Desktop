@@ -329,7 +329,73 @@ namespace Projekt
 
         }
 
-        
+        private async Task KvizHozzaadasa()
+        {
+            client = new HttpClient();
+            string url = "/api/quizzes/";
+            // client.BaseAddress = new Uri("http://quizion.hu");
+            client.BaseAddress = new Uri("http://127.0.0.1:8000");
+            JObject jObject = new JObject();
+            jObject.Add("header", tbx_01.Text);
+            jObject.Add("description", tbx_02.Text);
+            string content = JsonConvert.SerializeObject(jObject);
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(url, stringContent);
+            tbl_status.Text = response.ToString();
+        }
+
+        private async Task KerdesHozzaadasa()
+        {
+            client = new HttpClient();
+            string url = "/api/questions/";
+            // client.BaseAddress = new Uri("http://quizion.hu");
+            client.BaseAddress = new Uri("http://127.0.0.1:8000");
+            JObject jObject = new JObject();
+            jObject.Add("content", tbx_01.Text);
+            jObject.Add("point", tbx_02.Text);
+            string content = JsonConvert.SerializeObject(jObject);
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(url, stringContent);
+            tbl_status.Text = response.ToString();
+        }
+
+        private async Task ValaszHozzaadasa()
+        {
+            client = new HttpClient();
+            string url = "/api/answers/";
+            // client.BaseAddress = new Uri("http://quizion.hu");
+            client.BaseAddress = new Uri("http://127.0.0.1:8000");
+            JObject jObject = new JObject();
+            jObject.Add("content", tbx_01.Text);
+            jObject.Add("is_right", tbx_02.Text);
+            string content = JsonConvert.SerializeObject(jObject);
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(url, stringContent);
+            tbl_status.Text = response.ToString();
+        }
+        private void HozzaadasClick(object sender, RoutedEventArgs e)
+        {
+            if (lista.SelectedItem is Quiz)
+            {
+                KvizHozzaadasa();
+                Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+
+            }
+            else if (lista.SelectedItem is Question)
+            {
+                KerdesHozzaadasa();
+                Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+            }
+            else if (lista.SelectedItem is Answer)
+            {
+                ValaszHozzaadasa();
+                Valaszlistazas("http://127.0.0.1:8000/api/answers");
+            }
+            else
+            {
+                tbl_status.Text = "Hiba, nem sikerült a hozzáadást végrehajtani!";
+            }
+        }
     }
 
     // /api/quiz/1/question/1/answer/1
