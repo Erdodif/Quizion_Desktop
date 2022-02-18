@@ -56,13 +56,9 @@ namespace Projekt
             foreach (var item in quiz)
             {
                 lista.Items.Add(item);
-            } 
+            }
 
-            /* if (lista.SelectedIndex != -1)
-             {
-                 KivalasztottKvizKerdesei("http://quizion.hu/api/quiz/?lista.SelectedIndex");
-             }
-            */      
+
         }
 
 
@@ -81,17 +77,7 @@ namespace Projekt
 
 
         }
-/*
-        private async Task KivalasztottKvizKerdesei(string url)
-        {
-            string valasz = await client.GetStringAsync(url);
-            List<Question> answer = JsonConvert.DeserializeObject<List<Question>>(valasz);
-            foreach (var item in answer)
-            {
-                kivalasztLista.Items.Add(item);
-            }
-        }
-*/
+
         private async Task Valaszlistazas(string url)
 
         {
@@ -104,7 +90,7 @@ namespace Projekt
                 lista.Items.Add(item);
             }
 
-           
+
         }
 
         private async Task UserListazas(string url)
@@ -189,7 +175,7 @@ namespace Projekt
                         tbl_status.Text = "Hiba, nem sikerült a módosítást végrehajtani!";
                     }
 
-                   
+
 
                 }
                 else
@@ -211,7 +197,7 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"api/quizzes/{id}", stringContent);
             tbl_status.Text = response.ToString();
-         
+
         }
 
         private async Task ModositasQuestion(int id)
@@ -257,7 +243,7 @@ namespace Projekt
                 MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy törölni szeretnéd az alábbi elemet: {lista.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-                   
+
                     if (lista.SelectedItem is Quiz)
                     {
                         KvizTorlese(index);
@@ -279,21 +265,21 @@ namespace Projekt
                     {
                         tbl_status.Text = "Hiba, nem sikerült a törlést végrehajtani!";
                     }
-                    
+
                     MessageBox.Show("A kiválasztott elem sikeresen törölve", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
                     lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
-                   
+
                 }
                 else
                 {
                     //Nem történik semmi, ha nem szeretnénk törölni!
                 }
-                 
+
             }
 
         }
 
-        
+
 
         private async Task KvizTorlese(int id)
         {
@@ -302,7 +288,7 @@ namespace Projekt
             //client.BaseAddress = new Uri("http://quizion.hu/");
             var response = await client.DeleteAsync($"api/quizzes/{id}");
             tbl_status.Text = response.ToString();
-            
+
         }
 
         private async Task KerdesTorlese(int id)
@@ -375,26 +361,20 @@ namespace Projekt
         }
         private void HozzaadasClick(object sender, RoutedEventArgs e)
         {
-            if (lista.SelectedItem is Quiz)
-            {
-                KvizHozzaadasa();
-                Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
 
-            }
-            else if (lista.SelectedItem is Question)
-            {
-                KerdesHozzaadasa();
-                Kerdeslistazas("http://127.0.0.1:8000/api/questions");
-            }
-            else if (lista.SelectedItem is Answer)
-            {
-                ValaszHozzaadasa();
-                Valaszlistazas("http://127.0.0.1:8000/api/answers");
-            }
-            else
-            {
-                tbl_status.Text = "Hiba, nem sikerült a hozzáadást végrehajtani!";
-            }
+            KvizHozzaadasa();
+            Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+
+
+            KerdesHozzaadasa();
+            Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+
+            ValaszHozzaadasa();
+            Valaszlistazas("http://127.0.0.1:8000/api/answers");
+
+            tbl_status.Text = "Hiba, nem sikerült a hozzáadást végrehajtani!";
+
+
         }
     }
 
