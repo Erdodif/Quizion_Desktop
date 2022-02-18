@@ -361,18 +361,20 @@ namespace Projekt
         }
         private void HozzaadasClick(object sender, RoutedEventArgs e)
         {
-
             KvizHozzaadasa();
-            Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+            
+           
 
 
-            KerdesHozzaadasa();
+           /* KerdesHozzaadasa();
             Kerdeslistazas("http://127.0.0.1:8000/api/questions");
 
             ValaszHozzaadasa();
             Valaszlistazas("http://127.0.0.1:8000/api/answers");
+            
 
             tbl_status.Text = "Hiba, nem sikerült a hozzáadást végrehajtani!";
+            */
 
 
         }
