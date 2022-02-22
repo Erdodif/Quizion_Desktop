@@ -55,7 +55,6 @@ namespace Projekt
             foreach (var item in quiz)
             {
                 lista.Items.Add(item);
-                Console.WriteLine(item.ToString());
             }
 
 
@@ -72,7 +71,6 @@ namespace Projekt
             foreach (var item in question)
             {
                 lista.Items.Add(item);
-                Console.WriteLine(item.ToString());
             }
 
 
@@ -142,7 +140,6 @@ namespace Projekt
 
         private void ModositasClick(object sender, RoutedEventArgs e)
         {
-
             int index = lista.Items.IndexOf(lista.SelectedItem);
             if (lista.SelectedIndex == -1)
             {
@@ -158,6 +155,8 @@ namespace Projekt
                     if (lista.SelectedItem is Quiz)
                     {
                         tbx_00.IsEnabled = false;
+                       
+                        
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "Nem megfelelő karakter hosszúságú a Quiz headerje!";
