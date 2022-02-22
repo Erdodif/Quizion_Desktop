@@ -109,7 +109,7 @@ namespace Projekt
         private void QuizClick(object sender, RoutedEventArgs e)
         {
             //Kvizlistazas("http://quizion.hu/api/quizzes");
-            Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+            Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
             btn_adminjog.Visibility = Visibility.Hidden;
         }
 
@@ -354,6 +354,7 @@ namespace Projekt
             // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             JObject jObject = new JObject();
+            jObject.Add("question_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
             jObject.Add("is_right", tbx_02.Text);
             string content = JsonConvert.SerializeObject(jObject);
@@ -365,7 +366,7 @@ namespace Projekt
         {
             
             KvizHozzaadasa();
-            Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+            Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
             
             
             
