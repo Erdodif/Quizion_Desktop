@@ -157,19 +157,51 @@ namespace Projekt
 
                     if (lista.SelectedItem is Quiz)
                     {
-                        ModositasQuiz(index);
-                        Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
+                        tbx_00.IsEnabled = false;
+                        if (tbx_01.Text.Length < 3)
+                        {
+                            tbl_status.Text = "Nem megfelelő karakter hosszúságú a Quiz headerje!";
+                        }
+                        else if (tbx_02.Text.Length < 4)
+                        {
+                            tbl_status.Text = "Nem megfelelő karakter hosszúságú a Quiz descriptionje!";
+                        }
+                        else
+                        {
+                            ModositasQuiz(index);
+                            Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
+                        }
+                        
 
                     }
                     else if (lista.SelectedItem is Question)
                     {
-                        ModositasQuestion(index);
-                        Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+                        tbx_00.IsEnabled = true;
+                        if (tbx_01.Text.Length < 3)
+                        {
+                            tbl_status.Text = "Nem megfelelő karakter hosszúságú a Question contente!";
+                        }
+                        else
+                        {
+                            ModositasQuestion(index);
+                            Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+                        }
+                        
                     }
                     else if (lista.SelectedItem is Answer)
                     {
-                        ModositasAnswer(index);
-                        Valaszlistazas("http://127.0.0.1:8000/api/answers");
+                        tbx_00.IsEnabled = true;
+                        if (tbx_01.Text.Length < 3)
+                        {
+                            tbl_status.Text = "Nem megfelelő karakter hosszúságú az Answer contente!";
+                        }
+                       
+                        else
+                        {
+                            ModositasAnswer(index);
+                            Valaszlistazas("http://127.0.0.1:8000/api/answers");
+                        }
+                        
                     }
                     else
                     {
@@ -207,6 +239,7 @@ namespace Projekt
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             //string url = "http://quizion.hu/api/questions";
             JObject jObject = new JObject();
+            jObject.Add("quiz_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
             jObject.Add("point", tbx_02.Text);
             string content = JsonConvert.SerializeObject(jObject);
@@ -222,6 +255,7 @@ namespace Projekt
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             //string url = "http://quizion.hu/api/answers";
             JObject jObject = new JObject();
+            jObject.Add("question_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
             jObject.Add("is_right", tbx_02.Text);
             string content = JsonConvert.SerializeObject(jObject);
@@ -366,20 +400,48 @@ namespace Projekt
         {
             if (cbx.SelectedItem == cbx_quiz)
             {
-                KvizHozzaadasa();
-                Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
+                if (tbx_01.Text.Length < 3)
+                {
+                    tbl_status.Text = "Nem megfelelő karakter hosszúságú a Quiz headerje!";
+                }
+                else if (tbx_02.Text.Length < 4)
+                {
+                    tbl_status.Text = "Nem megfelelő karakter hosszúságú a Quiz descriptionje!";
+                }
+                else
+                {
+                    KvizHozzaadasa();
+                    Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
+                }
+                
             }
 
             else if (cbx.SelectedItem == cbx_question)
             {
-                KerdesHozzaadasa();
-                Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+                if (tbx_01.Text.Length < 3)
+                {
+                    tbl_status.Text = "Nem megfelelő karakter hosszúságú a Question contente!";
+                }
+                else
+                {
+                    KerdesHozzaadasa();
+                    Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+                }
+                
             }
 
             else if (cbx.SelectedItem == cbx_answer)
             {
-                ValaszHozzaadasa();
-                Valaszlistazas("http://127.0.0.1:8000/api/answers");
+                if (tbx_01.Text.Length < 3)
+                {
+                    tbl_status.Text = "Nem megfelelő karakter hosszúságú az Answer contente!";
+                }
+                else
+                {
+                    ValaszHozzaadasa();
+                    Valaszlistazas("http://127.0.0.1:8000/api/answers");
+                }
+                
             }
 
             else
