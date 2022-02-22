@@ -32,7 +32,6 @@ namespace Projekt
         static HttpClient client = new HttpClient();
         //static List<string> listam = new List<string>();
         static Szinek szinek = new Szinek();
-        static List<Quiz> quiz;
 
         string token;
 
@@ -52,10 +51,11 @@ namespace Projekt
             lista.Items.Clear();
             lista.Items.Add($"{"id ",-4}{"header ",-10}{"description ",35} {"active ",8} {"secondsPerQuiz ",6}");
             string valasz = await client.GetStringAsync(url);
-            quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
+            List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
             foreach (var item in quiz)
             {
                 lista.Items.Add(item);
+                Console.WriteLine(item.ToString());
             }
 
 
@@ -72,6 +72,7 @@ namespace Projekt
             foreach (var item in question)
             {
                 lista.Items.Add(item);
+                Console.WriteLine(item.ToString());
             }
 
 
@@ -362,15 +363,18 @@ namespace Projekt
         }
         private void HozzaadasClick(object sender, RoutedEventArgs e)
         {
-           /* KvizHozzaadasa();
+            
+            KvizHozzaadasa();
             Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
-            */
+            
+            
             
            
 
-
+            /*
            KerdesHozzaadasa();
            Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+
 
             /*ValaszHozzaadasa();
             Valaszlistazas("http://127.0.0.1:8000/api/answers");
