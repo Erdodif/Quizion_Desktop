@@ -158,7 +158,7 @@ namespace Projekt
                     if (lista.SelectedItem is Quiz)
                     {
                         ModositasQuiz(index);
-                        Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+                        Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
 
                     }
                     else if (lista.SelectedItem is Question)
@@ -248,7 +248,7 @@ namespace Projekt
                     if (lista.SelectedItem is Quiz)
                     {
                         KvizTorlese(index);
-                        Kvizlistazas("http://127.0.0.1:8000/api/quizzes");
+                        Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
 
 
                     }
@@ -364,28 +364,58 @@ namespace Projekt
         }
         private void HozzaadasClick(object sender, RoutedEventArgs e)
         {
-            
-            KvizHozzaadasa();
-            Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
-            
-            
-            
-           
+            if (cbx.SelectedItem == cbx_quiz)
+            {
+                KvizHozzaadasa();
+                Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
+            }
 
-            /*
-           KerdesHozzaadasa();
-           Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+            else if (cbx.SelectedItem == cbx_question)
+            {
+                KerdesHozzaadasa();
+                Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+            }
 
+            else if (cbx.SelectedItem == cbx_answer)
+            {
+                ValaszHozzaadasa();
+                Valaszlistazas("http://127.0.0.1:8000/api/answers");
+            }
 
-            /*ValaszHozzaadasa();
-            Valaszlistazas("http://127.0.0.1:8000/api/answers");
+            else
+            {
+                tbl_status.Text = "Hiba, nem sikerült a hozzáadást végrehajtani!";
+            }
+
             
             
 
-            tbl_status.Text = "Hiba, nem sikerült a hozzáadást végrehajtani!";
-            */
 
+        }
 
+        private void cbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbx.SelectedItem == cbx_quiz)
+            {
+                tbx_00.IsEnabled = false;
+              
+                
+            }
+
+            else if (cbx.SelectedItem == cbx_question)
+            {
+                
+                tbx_00.IsEnabled = true;
+               
+                
+            }
+
+            else if (cbx.SelectedItem == cbx_answer)
+            {
+               
+                tbx_00.IsEnabled = true;
+               
+            }
         }
     }
 
