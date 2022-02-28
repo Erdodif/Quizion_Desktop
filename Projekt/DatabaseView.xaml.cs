@@ -106,7 +106,7 @@ namespace Projekt
 
         private void QuizClick(object sender, RoutedEventArgs e)
         {
-            //Kvizlistazas("http://quizion.hu/api/quizzes");
+            //Kvizlistazas("http://quizion.hu/api/quizzes/all");
             Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
             btn_adminjog.Visibility = Visibility.Hidden;
         }
@@ -169,6 +169,7 @@ namespace Projekt
                         {
                             ModositasQuiz(index);
                             Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
+                            //Kvizlistazas("http://quizion.hu/api/quizzes/all");
                         }
                         
 
@@ -184,6 +185,7 @@ namespace Projekt
                         {
                             ModositasQuestion(index);
                             Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+                            //Kerdeslistazas("http://quizion.hu/api/questions");
                         }
                         
                     }
@@ -199,6 +201,7 @@ namespace Projekt
                         {
                             ModositasAnswer(index);
                             Valaszlistazas("http://127.0.0.1:8000/api/answers");
+                            //Valaszlistazas("http://quizion.hu/api/answers");
                         }
                         
                     }
@@ -282,6 +285,7 @@ namespace Projekt
                     {
                         KvizTorlese(index);
                         Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
+                        //Kvizlistazas("http://quizion.hu/api/quizzes/all");
 
 
                     }
@@ -289,11 +293,13 @@ namespace Projekt
                     {
                         KerdesTorlese(index);
                         Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+                        //Kerdeslistazas("http://quizion.hu/api/questions");
                     }
                     else if (lista.SelectedItem is Answer)
                     {
                         ValaszTorlese(index);
                         Valaszlistazas("http://127.0.0.1:8000/api/answers");
+                        //Valaszlistazas("http://quizion.hu/api/answers");
                     }
                     else
                     {
@@ -411,6 +417,7 @@ namespace Projekt
                 {
                     KvizHozzaadasa();
                     Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
+                    //Kvizlistazas("http://quizion.hu/api/quizzes/all");
                 }
                 
             }
@@ -425,6 +432,7 @@ namespace Projekt
                 {
                     KerdesHozzaadasa();
                     Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+                    //Kerdeslistazas("http://quizion.hu/api/questions");
                 }
                 
             }
@@ -439,6 +447,7 @@ namespace Projekt
                 {
                     ValaszHozzaadasa();
                     Valaszlistazas("http://127.0.0.1:8000/api/answers");
+                    //Valaszlistazas("http://quizion.hu/api/answers");
                 }
                 
             }
