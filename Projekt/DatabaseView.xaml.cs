@@ -38,7 +38,7 @@ namespace Projekt
         public string Token { get => token; set => token = value; }
         public DatabaseView()
         {
-
+            
             InitializeComponent();
             btn_adminjog.Visibility = Visibility.Hidden;
 
