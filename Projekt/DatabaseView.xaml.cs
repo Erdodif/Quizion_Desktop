@@ -140,7 +140,10 @@ namespace Projekt
 
         private void ModositasClick(object sender, RoutedEventArgs e)
         {
-            int index = lista.Items.IndexOf(lista.SelectedItem);
+            string kijelolt = lista.SelectedItem.ToString();
+            string[] st = kijelolt.Split(';');
+            int index = Int32.Parse(st[0]);
+            //int index = lista.Items.IndexOf(lista.SelectedItem);
             if (lista.SelectedIndex == -1)
             {
                 MessageBox.Show("Nincsen kiválasztva elem a listából a módosítás előtt", "Érvénytelen módosítás", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -271,7 +274,10 @@ namespace Projekt
 
         private void Torles(object sender, RoutedEventArgs e)
         {
-            int index = lista.Items.IndexOf(lista.SelectedItem);
+            string kijelolt = lista.SelectedItem.ToString();
+            string[] st = kijelolt.Split(';');
+
+            int index = Int32.Parse(st[0]);
             if (lista.SelectedIndex == -1)
             {
                 MessageBox.Show("Nincsen kiválasztva elem a listából a törlés előtt", "Érvénytelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -309,7 +315,7 @@ namespace Projekt
                     }
 
                     MessageBox.Show("A kiválasztott elem sikeresen törölve", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
-                    lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
+                    //lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
 
                 }
                 else
