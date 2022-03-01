@@ -33,7 +33,7 @@ namespace Projekt
 
         public override string ToString()
         {
-            return ($"{this.id} : {this.name}, {this.xp}");
+            return ($"{this.id};{this.name};{this.xp}");
         }
 
 

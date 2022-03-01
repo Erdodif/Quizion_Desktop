@@ -281,7 +281,7 @@ namespace Projekt
             string kijelolt = lista.SelectedItem.ToString();
             string[] st = kijelolt.Split(';');
 
-            int index = Int32.Parse(st[0]);
+            int index = Convert.ToInt32(st[0]);
             if (lista.SelectedIndex == -1)
             {
                 MessageBox.Show("Nincsen kiválasztva elem a listából a törlés előtt", "Érvénytelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -312,6 +312,12 @@ namespace Projekt
                         ValaszTorlese(index);
                         Valaszlistazas("http://127.0.0.1:8000/api/answers");
                         //Valaszlistazas("http://quizion.hu/api/answers");
+                    }
+                    else if (lista.SelectedItem is User)
+                    {
+                        UserTorlese(index);
+                        UserListazas("http://127.0.0.1:8000/api/users");
+
                     }
                     else
                     {
