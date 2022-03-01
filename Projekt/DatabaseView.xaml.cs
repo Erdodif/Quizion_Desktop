@@ -148,6 +148,8 @@ namespace Projekt
             }
             else
             {
+                
+
                 MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy módosítani szeretnéd az alábbi elemet: {lista.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -155,8 +157,8 @@ namespace Projekt
                     if (lista.SelectedItem is Quiz)
                     {
                         tbx_00.IsEnabled = false;
-                       
                         
+
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "Nem megfelelő karakter hosszúságú a Quiz headerje!";
@@ -215,7 +217,7 @@ namespace Projekt
                 }
                 else
                 {
-                    //Nem történik semmi, ha nem szeretnénk törölni!
+                    //Nem történik semmi, ha nem szeretnénk módosítani!
                 }
             }
         }
@@ -487,9 +489,48 @@ namespace Projekt
                
             }
         }
+
+        private void lista_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lista.SelectedIndex != -1)
+            {
+                if (lista.SelectedItem is Quiz)
+                {
+                    tbx_00.IsEnabled = false;
+                    string kijelolt = lista.SelectedItem.ToString();
+                    string[] st = kijelolt.Split(';');
+                    tbx_01.Text = st[1];
+                    tbx_02.Text = st[2];
+                }
+
+                else if (lista.SelectedItem is Question)
+                {
+                    tbx_00.IsEnabled = true;
+                    string kijelolt = lista.SelectedItem.ToString();
+                    string[] st = kijelolt.Split(';');
+                    tbx_00.Text = st[1];
+                    tbx_01.Text = st[2];
+                    tbx_02.Text = st[3];
+                }
+
+                else if (lista.SelectedItem is Answer)
+                {
+                    tbx_00.IsEnabled = true;
+                    string kijelolt = lista.SelectedItem.ToString();
+                    string[] st = kijelolt.Split(';');
+                    tbx_00.Text = st[1];
+                    tbx_01.Text = st[2];
+                    tbx_02.Text = st[3];
+                }
+            }
+
+                
+
+            }
+        }
     }
 
     // /api/quiz/1/question/1/answer/1
     // /api/quiz/1/question/1/answers
     // /api/quiz/1/questions
-}
+
