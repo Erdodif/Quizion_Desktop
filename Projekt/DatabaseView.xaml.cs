@@ -95,12 +95,13 @@ namespace Projekt
         private async Task UserListazas(string url)
         {
             lista.Items.Clear();
-            lista.Items.Add("name : email");
+            lista.Items.Add("id : name, xp");
             string valasz = await client.GetStringAsync(url);
             List<User> user = JsonConvert.DeserializeObject<List<User>>(valasz);
             foreach (var item in user)
             {
                 lista.Items.Add(item);
+                Console.WriteLine(item);
             }
         }
 

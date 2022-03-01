@@ -37,7 +37,7 @@ namespace Projekt
 
         public override string ToString()
         {
-            return ($"{this.name} : {this.email}");
+            return ($"{this.id} : {this.name}, {this.xp}");
         }
 
 
