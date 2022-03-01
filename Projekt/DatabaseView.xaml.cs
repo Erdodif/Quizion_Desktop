@@ -100,8 +100,8 @@ namespace Projekt
             foreach (var item in user)
             {
                 lista.Items.Add(item);
-                Console.WriteLine(item);
             }
+            btn_hozzaado.IsEnabled = false;
             
         }
 
@@ -109,6 +109,7 @@ namespace Projekt
         {
             //Kvizlistazas("http://quizion.hu/api/quizzes/all");
             Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
+            btn_hozzaado.IsEnabled = true;
             btn_adminjog.Visibility = Visibility.Hidden;
         }
 
@@ -116,6 +117,7 @@ namespace Projekt
         {
             //Kerdeslistazas("http://quizion.hu/api/questions");
             Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+            btn_hozzaado.IsEnabled = true;
             btn_adminjog.Visibility = Visibility.Hidden;
 
         }
@@ -124,6 +126,7 @@ namespace Projekt
         {
             //Valaszlistazas("http://quizion.hu/api/answers");
             Valaszlistazas("http://127.0.0.1:8000/api/answers");
+            btn_hozzaado.IsEnabled = true;
             btn_adminjog.Visibility = Visibility.Hidden;
         }
 
@@ -359,6 +362,18 @@ namespace Projekt
             tbl_status.Text = response.ToString();
 
         }
+
+        private async Task UserTorlese(int id)
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            //client.BaseAddress = new Uri("http://quizion.hu/");
+            var response = await client.DeleteAsync($"api/users/{id}");
+            tbl_status.Text = response.ToString();
+
+        }
+
+
         private void ToAdmin(object sender, RoutedEventArgs e)
         {
 
