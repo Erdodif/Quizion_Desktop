@@ -30,7 +30,6 @@ namespace Projekt
     {
         static string url = "";
         static HttpClient client = new HttpClient();
-        //static List<string> listam = new List<string>();
         static Szinek szinek = new Szinek();
 
         string token;
@@ -103,6 +102,7 @@ namespace Projekt
                 lista.Items.Add(item);
                 Console.WriteLine(item);
             }
+            
         }
 
         private void QuizClick(object sender, RoutedEventArgs e)

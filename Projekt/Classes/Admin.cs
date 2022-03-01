@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projekt
 {
-    class Admin:User
+    class Admin
     {
         private Int64 id;
         //User.id => userId
@@ -14,7 +14,7 @@ namespace Projekt
       
         public long Id1 { get => id; set => id = value; }
 
-        public Admin(int id) : base(id)
+        public Admin(int id)
         {
             this.id = id;
         
