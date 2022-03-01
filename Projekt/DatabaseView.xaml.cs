@@ -214,6 +214,23 @@ namespace Projekt
                         }
                         
                     }
+
+                    else if (lista.SelectedItem is User)
+                    {
+                        tbx_00.IsEnabled = true;
+                        if (tbx_01.Text.Length < 3)
+                        {
+                            tbl_status.Text = "Nem megfelelő karakter hosszúságú a User neve!";
+                        }
+
+                        else
+                        {
+                            ModositasUser(index);
+                            UserListazas("http://127.0.0.1:8000/api/users");
+                            //UserListazas("http://quizion.hu/api/users");
+                        }
+
+                    }
                     else
                     {
                         tbl_status.Text = "Hiba, nem sikerült a módosítást végrehajtani!";
@@ -276,6 +293,22 @@ namespace Projekt
 
         }
 
+        private async Task ModositasUser(int id)
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            //string url = "http://quizion.hu/api/users";
+            JObject jObject = new JObject();
+            jObject.Add("user_id", tbx_00.Text);
+            jObject.Add("name", tbx_01.Text);
+            jObject.Add("xp", tbx_02.Text);
+            string content = JsonConvert.SerializeObject(jObject);
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response = await client.PutAsync($"api/users/{id}", stringContent);
+            tbl_status.Text = response.ToString();
+
+        }
+
         private void Torles(object sender, RoutedEventArgs e)
         {
             string kijelolt = lista.SelectedItem.ToString();
@@ -317,6 +350,7 @@ namespace Projekt
                     {
                         UserTorlese(index);
                         UserListazas("http://127.0.0.1:8000/api/users");
+                        //UserListazas("http://quizion.hu/api/users");
 
                     }
                     else
@@ -549,6 +583,16 @@ namespace Projekt
                     tbx_00.Text = st[1];
                     tbx_01.Text = st[2];
                     tbx_02.Text = st[3];
+                }
+
+                else if (lista.SelectedItem is User)
+                {
+                    tbx_00.IsEnabled = true;
+                    string kijelolt = lista.SelectedItem.ToString();
+                    string[] st = kijelolt.Split(';');
+                    tbx_00.Text = st[0];
+                    tbx_01.Text = st[1];
+                    tbx_02.Text = st[2];
                 }
             }
 
