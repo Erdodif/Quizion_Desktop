@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
         Title="Login" Height="500" Width="900" Background="#7985C1">
+    <Viewbox Stretch="Uniform">
     <Grid RenderTransformOrigin="0.485,0.501" Margin="0,0,-21.4,-30">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="493*"/>
@@ -19,8 +20,7 @@
         <Label x:Name="lbl_jelszo" Style="{StaticResource MontserratFont}" Content="Jelszó: " HorizontalAlignment="Left" Margin="400,220,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.412,-0.124" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="tbx_name" Height="23" Margin="54,150,0,0" Style="{StaticResource MontserratFont}" TextWrapping="Wrap" Width="220" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
         <TextBox x:Name="tbx_pass"   Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Height="23" Margin="54,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Grid.Column="1"/>
-
-
+    
 
 
 
@@ -29,6 +29,8 @@
 
 
     </Grid>
+    </Viewbox>
+
 
 
 </Window>
