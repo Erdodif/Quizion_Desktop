@@ -47,14 +47,15 @@ namespace Projekt
 
         {
 
-            lista.Items.Clear();
-            lista.Items.Add($"{"id ",-4}{"header ",-10}{"description ",35} {"active ",8} {"secondsPerQuiz ",6}");
+            lista.Columns.Clear();
             string valasz = await client.GetStringAsync(url);
             List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
+            lista.ItemsSource = quiz;
             foreach (var item in quiz)
             {
                 lista.Items.Add(item);
             }
+
 
 
         }
@@ -63,10 +64,10 @@ namespace Projekt
         private async Task Kerdeslistazas(string url)
 
         {
-            lista.Items.Clear();
-            lista.Items.Add($"{"id ",4} {"quizId ",4}  {"content ",25} {"point",5}");
+            lista.Columns.Clear();
             string valasz = await client.GetStringAsync(url);
             List<Question> question = JsonConvert.DeserializeObject<List<Question>>(valasz);
+            lista.ItemsSource = question;
             foreach (var item in question)
             {
                 lista.Items.Add(item);
@@ -79,10 +80,10 @@ namespace Projekt
         private async Task Valaszlistazas(string url)
 
         {
-            lista.Items.Clear();
-            lista.Items.Add($"{"id ",3} {"questionId ",4}  {"content ",25} {"isRight ",4}");
+            lista.Columns.Clear();
             string valasz = await client.GetStringAsync(url);
             List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(valasz);
+            lista.ItemsSource = answer;
             foreach (var item in answer)
             {
                 lista.Items.Add(item);
@@ -93,10 +94,10 @@ namespace Projekt
 
         private async Task UserListazas(string url)
         {
-            lista.Items.Clear();
-            lista.Items.Add("id : name, xp");
+            lista.Columns.Clear();
             string valasz = await client.GetStringAsync(url);
             List<User> user = JsonConvert.DeserializeObject<List<User>>(valasz);
+            lista.ItemsSource = user;
             foreach (var item in user)
             {
                 lista.Items.Add(item);
@@ -329,6 +330,8 @@ namespace Projekt
                     if (lista.SelectedItem is Quiz)
                     {
                         KvizTorlese(index);
+                        tbx_01.Text = "";
+                        tbx_02.Text = "";
                         Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
                         //Kvizlistazas("http://quizion.hu/api/quizzes/all");
 
@@ -337,18 +340,27 @@ namespace Projekt
                     else if (lista.SelectedItem is Question)
                     {
                         KerdesTorlese(index);
+                        tbx_00.Text = "";
+                        tbx_01.Text = "";
+                        tbx_02.Text = "";
                         Kerdeslistazas("http://127.0.0.1:8000/api/questions");
                         //Kerdeslistazas("http://quizion.hu/api/questions");
                     }
                     else if (lista.SelectedItem is Answer)
                     {
                         ValaszTorlese(index);
+                        tbx_00.Text = "";
+                        tbx_01.Text = "";
+                        tbx_02.Text = "";
                         Valaszlistazas("http://127.0.0.1:8000/api/answers");
                         //Valaszlistazas("http://quizion.hu/api/answers");
                     }
                     else if (lista.SelectedItem is User)
                     {
                         UserTorlese(index);
+                        tbx_00.Text = "";
+                        tbx_01.Text = "";
+                        tbx_02.Text = "";
                         UserListazas("http://127.0.0.1:8000/api/users");
                         //UserListazas("http://quizion.hu/api/users");
 

@@ -40,9 +40,12 @@
                 </Grid>
 
                 <ScrollViewer Height="191" Margin="10,22,0,0" VerticalAlignment="Top" Grid.Row="1">
-                    <ListBox x:Name="lista" Style="{StaticResource MontserratFont}"   HorizontalAlignment="Left" VerticalAlignment="Top" Width="437" Height="200" RenderTransformOrigin="0.5,0.5" Grid.Column="0" Grid.Row="1" SelectionChanged="lista_SelectionChanged" />
+                    <!-- <ListBox x:Name="lista" Style="{StaticResource MontserratFont}"   HorizontalAlignment="Left" VerticalAlignment="Top" Width="437" Height="200" RenderTransformOrigin="0.5,0.5" Grid.Column="0" Grid.Row="1" SelectionChanged="lista_SelectionChanged" />
+                       -->
+                        <DataGrid x:Name="lista" ItemsSource="{Binding}" Style="{StaticResource MontserratFont}"   HorizontalAlignment="Left" VerticalAlignment="Top" Width="437" Height="200" RenderTransformOrigin="0.5,0.5" Grid.Column="0" Grid.Row="1" SelectionChanged="lista_SelectionChanged">
+                        </DataGrid>
 
-                </ScrollViewer>
+                    </ScrollViewer>
 
                 <TextBlock x:Name="tbl_status" HorizontalAlignment="Left" Margin="350,239,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="-0.918,0" Height="61" Width="163"/>
                 <TextBox x:Name="tbx_01" Grid.Column="1" Margin="82,56,188,211" Grid.Row="1" />
