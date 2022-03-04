@@ -43,18 +43,23 @@ namespace Projekt
 
         }
 
+       
         private async Task Kvizlistazas(string url)
 
         {
 
             lista.Columns.Clear();
             string valasz = await client.GetStringAsync(url);
+            string[] st = token.Split(',');
+            string[] m = st[1].Split(':');
+            //client.DefaultRequestHeaders.Add("Authorization", "Bearer " + m[1]);
             List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
             lista.ItemsSource = quiz;
             foreach (var item in quiz)
             {
                 lista.Items.Add(item);
             }
+            
 
 
 
@@ -110,6 +115,8 @@ namespace Projekt
         {
             //Kvizlistazas("http://quizion.hu/api/quizzes/all");
             Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
+            string[] st = token.Split(',');
+            Console.WriteLine(st[1]);
             btn_hozzaado.IsEnabled = true;
             btn_adminjog.Visibility = Visibility.Hidden;
         }
