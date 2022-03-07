@@ -63,7 +63,10 @@ namespace Projekt
                 lista.Items.Add(item);
             }
             tbl_status.Text = m[1].Trim();
-            
+
+           
+
+
 
 
 
