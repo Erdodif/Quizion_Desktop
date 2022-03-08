@@ -145,7 +145,7 @@ namespace Projekt
         private void UserClick(object sender, RoutedEventArgs e)
         {
             //UserListazas("http://quizion.hu/api/users");
-            UserListazas("http://127.0.0.1:8000/api/users");
+            UserListazas("http://127.0.0.1:8000/admin/users");
             btn_adminjog.Visibility = Visibility.Visible;
         }
 
@@ -233,8 +233,8 @@ namespace Projekt
                         else
                         {
                             ModositasUser(index);
-                            UserListazas("http://127.0.0.1:8000/api/users");
-                            //UserListazas("http://quizion.hu/api/users");
+                            UserListazas("http://127.0.0.1:8000/admin/users");
+                            //UserListazas("http://quizion.hu/admin/users");
                         }
 
                     }
@@ -304,14 +304,14 @@ namespace Projekt
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            //string url = "http://quizion.hu/api/users";
+            //string url = "http://quizion.hu/admin/users";
             JObject jObject = new JObject();
             jObject.Add("user_id", tbx_00.Text);
             jObject.Add("name", tbx_01.Text);
             jObject.Add("xp", tbx_02.Text);
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
-            var response = await client.PutAsync($"api/users/{id}", stringContent);
+            var response = await client.PutAsync($"admin/users/{id}", stringContent);
             tbl_status.Text = response.ToString();
 
         }
@@ -367,8 +367,8 @@ namespace Projekt
                         tbx_00.Text = "";
                         tbx_01.Text = "";
                         tbx_02.Text = "";
-                        UserListazas("http://127.0.0.1:8000/api/users");
-                        //UserListazas("http://quizion.hu/api/users");
+                        UserListazas("http://127.0.0.1:8000/admin/users");
+                        //UserListazas("http://quizion.hu/admin/users");
 
                     }
                     else
@@ -426,7 +426,7 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             //client.BaseAddress = new Uri("http://quizion.hu/");
-            var response = await client.DeleteAsync($"api/users/{id}");
+            var response = await client.DeleteAsync($"admin/users/{id}");
             tbl_status.Text = response.ToString();
 
         }
