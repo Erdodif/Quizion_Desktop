@@ -47,22 +47,23 @@ namespace Projekt
         private async Task Kvizlistazas(string url)
 
         {
-
-            lista.Columns.Clear();
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Trim());
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("Authorization ", $"Bearer  " + m[1].Replace("\"", ""));
-            //client.DefaultRequestHeaders.Add("Authorization ", $"Bearer {m[1].Replace("\"", "")}");
-            string valasz = await client.GetStringAsync(url);
-            List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
-            lista.ItemsSource = quiz;
-            foreach (var item in quiz)
+            try
             {
-                lista.Items.Add(item);
+                lista.Columns.Clear();
+                string[] st = token.Split(',');
+                string[] m = st[1].Split(':');
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+                string valasz = await client.GetStringAsync(url);
+                List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
+                lista.ItemsSource = quiz;
+                
+                tbl_status.Text = m[1].Trim();
             }
-            tbl_status.Text = m[1].Trim();
+            catch (Exception e) {
+                Console.WriteLine(e.StackTrace);
+            }
+            
 
            
 
@@ -80,10 +81,7 @@ namespace Projekt
             string valasz = await client.GetStringAsync(url);
             List<Question> question = JsonConvert.DeserializeObject<List<Question>>(valasz);
             lista.ItemsSource = question;
-            foreach (var item in question)
-            {
-                lista.Items.Add(item);
-            }
+            
 
 
 
@@ -96,10 +94,7 @@ namespace Projekt
             string valasz = await client.GetStringAsync(url);
             List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(valasz);
             lista.ItemsSource = answer;
-            foreach (var item in answer)
-            {
-                lista.Items.Add(item);
-            }
+            
 
 
         }
@@ -110,29 +105,25 @@ namespace Projekt
             string valasz = await client.GetStringAsync(url);
             List<User> user = JsonConvert.DeserializeObject<List<User>>(valasz);
             lista.ItemsSource = user;
-            foreach (var item in user)
-            {
-                lista.Items.Add(item);
-            }
             btn_hozzaado.IsEnabled = false;
             
         }
 
         private void QuizClick(object sender, RoutedEventArgs e)
         {
-            //Kvizlistazas("http://quizion.hu/api/quizzes/all");
-            Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
+            //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
+            Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
             string[] st = token.Split(',');
             string[] sk = st[1].Split(':');
-            Console.WriteLine(sk[1].Replace('\"', ' '));
+            Console.WriteLine(sk[1].Trim());
             btn_hozzaado.IsEnabled = true;
             btn_adminjog.Visibility = Visibility.Hidden;
         }
 
         private void QuestionClick(object sender, RoutedEventArgs e)
         {
-            //Kerdeslistazas("http://quizion.hu/api/questions");
-            Kerdeslistazas("http://127.0.0.1:8000/api/questions");
+            //Kerdeslistazas("http://quizion.hu/admin/questions");
+            Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
             btn_hozzaado.IsEnabled = true;
             btn_adminjog.Visibility = Visibility.Hidden;
 
@@ -140,8 +131,8 @@ namespace Projekt
 
         private void AnswerClick(object sender, RoutedEventArgs e)
         {
-            //Valaszlistazas("http://quizion.hu/api/answers");
-            Valaszlistazas("http://127.0.0.1:8000/api/answers");
+            //Valaszlistazas("http://quizion.hu/admin/answers");
+            Valaszlistazas("http://127.0.0.1:8000/admin/answers");
             btn_hozzaado.IsEnabled = true;
             btn_adminjog.Visibility = Visibility.Hidden;
         }
@@ -193,8 +184,8 @@ namespace Projekt
                         else
                         {
                             ModositasQuiz(index);
-                            Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
-                            //Kvizlistazas("http://quizion.hu/api/quizzes/all");
+                            Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
+                            //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
                         }
                         
 
@@ -209,8 +200,8 @@ namespace Projekt
                         else
                         {
                             ModositasQuestion(index);
-                            Kerdeslistazas("http://127.0.0.1:8000/api/questions");
-                            //Kerdeslistazas("http://quizion.hu/api/questions");
+                            Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
+                            //Kerdeslistazas("http://quizion.hu/admin/questions");
                         }
                         
                     }
@@ -225,8 +216,8 @@ namespace Projekt
                         else
                         {
                             ModositasAnswer(index);
-                            Valaszlistazas("http://127.0.0.1:8000/api/answers");
-                            //Valaszlistazas("http://quizion.hu/api/answers");
+                            Valaszlistazas("http://127.0.0.1:8000/admin/answers");
+                            //Valaszlistazas("http://quizion.hu/admin/answers");
                         }
                         
                     }
@@ -266,13 +257,13 @@ namespace Projekt
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            //string url = "http://quizion.hu/api/quizzes";
+            //string url = "http://quizion.hu/admin/quizzes";
             JObject jObject = new JObject();
             jObject.Add("header", tbx_01.Text);
             jObject.Add("description", tbx_02.Text);
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
-            var response = await client.PutAsync($"api/quizzes/{id}", stringContent);
+            var response = await client.PutAsync($"admin/quizzes/{id}", stringContent);
             tbl_status.Text = response.ToString();
 
         }
@@ -281,14 +272,14 @@ namespace Projekt
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            //string url = "http://quizion.hu/api/questions";
+            //string url = "http://quizion.hu/admin/questions";
             JObject jObject = new JObject();
             jObject.Add("quiz_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
             jObject.Add("point", tbx_02.Text);
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
-            var response = await client.PutAsync($"api/questions/{id}", stringContent);
+            var response = await client.PutAsync($"admin/questions/{id}", stringContent);
             tbl_status.Text = response.ToString();
 
         }
@@ -297,14 +288,14 @@ namespace Projekt
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            //string url = "http://quizion.hu/api/answers";
+            //string url = "http://quizion.hu/admin/answers";
             JObject jObject = new JObject();
             jObject.Add("question_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
             jObject.Add("is_right", tbx_02.Text);
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
-            var response = await client.PutAsync($"api/answers/{id}", stringContent);
+            var response = await client.PutAsync($"admin/answers/{id}", stringContent);
             tbl_status.Text = response.ToString();
 
         }
@@ -347,8 +338,8 @@ namespace Projekt
                         KvizTorlese(index);
                         tbx_01.Text = "";
                         tbx_02.Text = "";
-                        Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
-                        //Kvizlistazas("http://quizion.hu/api/quizzes/all");
+                        Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
+                        //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
 
 
                     }
@@ -358,8 +349,8 @@ namespace Projekt
                         tbx_00.Text = "";
                         tbx_01.Text = "";
                         tbx_02.Text = "";
-                        Kerdeslistazas("http://127.0.0.1:8000/api/questions");
-                        //Kerdeslistazas("http://quizion.hu/api/questions");
+                        Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
+                        //Kerdeslistazas("http://quizion.hu/admin/questions");
                     }
                     else if (lista.SelectedItem is Answer)
                     {
@@ -367,8 +358,8 @@ namespace Projekt
                         tbx_00.Text = "";
                         tbx_01.Text = "";
                         tbx_02.Text = "";
-                        Valaszlistazas("http://127.0.0.1:8000/api/answers");
-                        //Valaszlistazas("http://quizion.hu/api/answers");
+                        Valaszlistazas("http://127.0.0.1:8000/admin/answers");
+                        //Valaszlistazas("http://quizion.hu/admin/answers");
                     }
                     else if (lista.SelectedItem is User)
                     {
@@ -405,7 +396,7 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             //client.BaseAddress = new Uri("http://quizion.hu/");
-            var response = await client.DeleteAsync($"api/quizzes/{id}");
+            var response = await client.DeleteAsync($"admin/quizzes/{id}");
             tbl_status.Text = response.ToString();
 
         }
@@ -415,7 +406,7 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             //client.BaseAddress = new Uri("http://quizion.hu/");
-            var response = await client.DeleteAsync($"api/questions/{id}");
+            var response = await client.DeleteAsync($"admin/questions/{id}");
             tbl_status.Text = response.ToString();
 
         }
@@ -425,7 +416,7 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             //client.BaseAddress = new Uri("http://quizion.hu/");
-            var response = await client.DeleteAsync($"api/answers/{id}");
+            var response = await client.DeleteAsync($"admin/answers/{id}");
             tbl_status.Text = response.ToString();
 
         }
@@ -449,7 +440,7 @@ namespace Projekt
         private async Task KvizHozzaadasa()
         {
             client = new HttpClient();
-            string url = "/api/quizzes/";
+            string url = "/admin/quizzes/";
             // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             JObject jObject = new JObject();
@@ -464,7 +455,7 @@ namespace Projekt
         private async Task KerdesHozzaadasa()
         {
             client = new HttpClient();
-            string url = "/api/questions/";
+            string url = "/admin/questions/";
             // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             JObject jObject = new JObject();
@@ -480,7 +471,7 @@ namespace Projekt
         private async Task ValaszHozzaadasa()
         {
             client = new HttpClient();
-            string url = "/api/answers/";
+            string url = "/admin/answers/";
             // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             JObject jObject = new JObject();
@@ -507,8 +498,8 @@ namespace Projekt
                 else
                 {
                     KvizHozzaadasa();
-                    Kvizlistazas("http://127.0.0.1:8000/api/quizzes/all");
-                    //Kvizlistazas("http://quizion.hu/api/quizzes/all");
+                    Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/");
+                    //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
                 }
                 
             }
@@ -522,8 +513,8 @@ namespace Projekt
                 else
                 {
                     KerdesHozzaadasa();
-                    Kerdeslistazas("http://127.0.0.1:8000/api/questions");
-                    //Kerdeslistazas("http://quizion.hu/api/questions");
+                    Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
+                    //Kerdeslistazas("http://quizion.hu/admin/questions");
                 }
                 
             }
@@ -537,8 +528,8 @@ namespace Projekt
                 else
                 {
                     ValaszHozzaadasa();
-                    Valaszlistazas("http://127.0.0.1:8000/api/answers");
-                    //Valaszlistazas("http://quizion.hu/api/answers");
+                    Valaszlistazas("http://127.0.0.1:8000/admin/answers");
+                    //Valaszlistazas("http://quizion.hu/admin/answers");
                 }
                 
             }
