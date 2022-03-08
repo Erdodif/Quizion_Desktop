@@ -552,6 +552,8 @@ namespace Projekt
                     tbx_00.IsEnabled = false;
                     string kijelolt = lista.SelectedItem.ToString();
                     string[] st = kijelolt.Split(';');
+                    lb_01.Content = "Header ";
+                    lb_02.Content = "Description ";
                     tbx_01.Text = st[1];
                     tbx_02.Text = st[2];
                 }
@@ -561,6 +563,9 @@ namespace Projekt
                     tbx_00.IsEnabled = true;
                     string kijelolt = lista.SelectedItem.ToString();
                     string[] st = kijelolt.Split(';');
+                    lb_00.Content = "QuizId ";
+                    lb_01.Content = "Content ";
+                    lb_02.Content = "Point ";
                     tbx_00.Text = st[1];
                     tbx_01.Text = st[2];
                     tbx_02.Text = st[3];
@@ -571,6 +576,9 @@ namespace Projekt
                     tbx_00.IsEnabled = true;
                     string kijelolt = lista.SelectedItem.ToString();
                     string[] st = kijelolt.Split(';');
+                    lb_00.Content = "QuestionId ";
+                    lb_01.Content = "Content ";
+                    lb_02.Content = "IsRight ";
                     tbx_00.Text = st[1];
                     tbx_01.Text = st[2];
                     tbx_02.Text = st[3];
