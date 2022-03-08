@@ -28,32 +28,25 @@ namespace Projekt
     /// </summary>
     public partial class DatabaseView : Window
     {
-        static string url = "";
         static HttpClient client = new HttpClient();
         static Szinek szinek = new Szinek();
-
         string token;
 
         public string Token { get => token; set => token = value; }
         public DatabaseView()
         {
-            
             InitializeComponent();
             btn_adminjog.Visibility = Visibility.Hidden;
-
         }
 
        
         private async Task Kvizlistazas(string url)
-
         {
             try
             {
                 lista.Columns.Clear();
-                string[] st = token.Split(',');
-                string[] m = st[1].Split(':');
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 string valasz = await client.GetStringAsync(url);
                 List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
                 lista.ItemsSource = quiz;
@@ -61,54 +54,39 @@ namespace Projekt
             catch (Exception e) {
                 Console.WriteLine(e.StackTrace);
             }
-            
-
-           
-
-
-
-
 
         }
 
-
         private async Task Kerdeslistazas(string url)
-
         {
-            lista.Columns.Clear();
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
-            string valasz = await client.GetStringAsync(url);
-            List<Question> question = JsonConvert.DeserializeObject<List<Question>>(valasz);
-            lista.ItemsSource = question;
-            
-
-
+            try
+            {
+                lista.Columns.Clear();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                string valasz = await client.GetStringAsync(url);
+                List<Question> question = JsonConvert.DeserializeObject<List<Question>>(valasz);
+                lista.ItemsSource = question;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
 
         }
 
         private async Task Valaszlistazas(string url)
-
         {
             lista.Columns.Clear();
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             string valasz = await client.GetStringAsync(url);
             List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(valasz);
             lista.ItemsSource = answer;
-            
-
-
         }
 
         private async Task UserListazas(string url)
         {
             lista.Columns.Clear();
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             string valasz = await client.GetStringAsync(url);
             List<User> user = JsonConvert.DeserializeObject<List<User>>(valasz);
             lista.ItemsSource = user;
@@ -158,7 +136,6 @@ namespace Projekt
             string kijelolt = lista.SelectedItem.ToString();
             string[] st = kijelolt.Split(';');
             int index = Int32.Parse(st[0]);
-            //int index = lista.Items.IndexOf(lista.SelectedItem);
             if (lista.SelectedIndex == -1)
             {
                 MessageBox.Show("Nincsen kiválasztva elem a listából a módosítás előtt", "Érvénytelen módosítás", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -166,8 +143,6 @@ namespace Projekt
             }
             else
             {
-                
-
                 MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy módosítani szeretnéd az alábbi elemet: {lista.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -247,8 +222,6 @@ namespace Projekt
                         tbl_status.Text = "Hiba, nem sikerült a módosítást végrehajtani!";
                     }
 
-
-
                 }
                 else
                 {
@@ -261,9 +234,7 @@ namespace Projekt
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             //string url = "http://quizion.hu/admin/quizzes";
             JObject jObject = new JObject();
             jObject.Add("header", tbx_01.Text);
@@ -280,9 +251,7 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             //string url = "http://quizion.hu/admin/questions";
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             JObject jObject = new JObject();
             jObject.Add("quiz_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
@@ -298,9 +267,7 @@ namespace Projekt
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             //string url = "http://quizion.hu/admin/answers";
             JObject jObject = new JObject();
             jObject.Add("question_id", tbx_00.Text);
@@ -317,9 +284,7 @@ namespace Projekt
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             //string url = "http://quizion.hu/admin/users";
             JObject jObject = new JObject();
             jObject.Add("user_id", tbx_00.Text);
@@ -393,7 +358,6 @@ namespace Projekt
                     }
 
                     MessageBox.Show("A kiválasztott elem sikeresen törölve", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
-                    //lista.Items.RemoveAt(lista.Items.IndexOf(lista.SelectedItem));
 
                 }
                 else
@@ -405,15 +369,11 @@ namespace Projekt
 
         }
 
-
-
         private async Task KvizTorlese(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             //client.BaseAddress = new Uri("http://quizion.hu/");
             var response = await client.DeleteAsync($"admin/quizzes/{id}");
             tbl_status.Text = response.ToString();
@@ -424,9 +384,7 @@ namespace Projekt
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             //client.BaseAddress = new Uri("http://quizion.hu/");
             var response = await client.DeleteAsync($"admin/questions/{id}");
             tbl_status.Text = response.ToString();
@@ -438,9 +396,7 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             //client.BaseAddress = new Uri("http://quizion.hu/");
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.DeleteAsync($"admin/answers/{id}");
             tbl_status.Text = response.ToString();
 
@@ -451,14 +407,11 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             //client.BaseAddress = new Uri("http://quizion.hu/");
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.DeleteAsync($"admin/users/{id}");
             tbl_status.Text = response.ToString();
 
         }
-
 
         private void ToAdmin(object sender, RoutedEventArgs e)
         {
@@ -471,9 +424,7 @@ namespace Projekt
             string url = "/admin/quizzes/";
             // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             JObject jObject = new JObject();
             jObject.Add("header", tbx_01.Text);
             jObject.Add("description", tbx_02.Text);
@@ -489,9 +440,7 @@ namespace Projekt
             string url = "/admin/questions/";
             // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             JObject jObject = new JObject();
             jObject.Add("quiz_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
@@ -508,9 +457,7 @@ namespace Projekt
             string url = "/admin/answers/";
             // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
-            string[] st = token.Split(',');
-            string[] m = st[1].Split(':');
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", m[1].Replace("\"", ""));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             JObject jObject = new JObject();
             jObject.Add("question_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
@@ -576,10 +523,6 @@ namespace Projekt
                 tbl_status.Text = "Hiba, nem sikerült a hozzáadást végrehajtani!";
             }
 
-            
-            
-
-
         }
 
         private void cbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -587,23 +530,16 @@ namespace Projekt
             if (cbx.SelectedItem == cbx_quiz)
             {
                 tbx_00.IsEnabled = false;
-              
-                
             }
 
             else if (cbx.SelectedItem == cbx_question)
             {
-                
-                tbx_00.IsEnabled = true;
-               
-                
+                tbx_00.IsEnabled = true;  
             }
 
             else if (cbx.SelectedItem == cbx_answer)
             {
-               
                 tbx_00.IsEnabled = true;
-               
             }
         }
 
@@ -651,13 +587,6 @@ namespace Projekt
                 }
             }
 
-                
-
             }
         }
     }
-
-    // /api/quiz/1/question/1/answer/1
-    // /api/quiz/1/question/1/answers
-    // /api/quiz/1/questions
-

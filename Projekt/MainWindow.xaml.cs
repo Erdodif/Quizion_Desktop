@@ -47,10 +47,13 @@ namespace Projekt
             if (response.StatusCode == HttpStatusCode.Created)
             {
                 token = response.Content.ReadAsStringAsync().Result;
+                string[] segedBonto = token.Split(',');
+                string[] masikSegedBonto = segedBonto[1].Split(':');
+                string atadoToken = masikSegedBonto[1].Replace("\"", "");
                 DatabaseView adatbazisNezet = new DatabaseView();
                 this.Visibility = Visibility.Hidden;
                 this.Close();
-                adatbazisNezet.Token = token;
+                adatbazisNezet.Token = atadoToken;
                 adatbazisNezet.Show();
             }
             else
