@@ -37,6 +37,7 @@ namespace Projekt
         {
             InitializeComponent();
             btn_adminjog.Visibility = Visibility.Hidden;
+
         }
 
        
@@ -98,6 +99,8 @@ namespace Projekt
         {
             //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
             Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
+            tbx_01.Text = "";
+            tbx_02.Text = "";
             btn_hozzaado.IsEnabled = true;
             btn_adminjog.Visibility = Visibility.Hidden;
         }
@@ -106,6 +109,9 @@ namespace Projekt
         {
             //Kerdeslistazas("http://quizion.hu/admin/questions");
             Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
+            tbx_00.Text = "";
+            tbx_01.Text = "";
+            tbx_02.Text = "";
             btn_hozzaado.IsEnabled = true;
             btn_adminjog.Visibility = Visibility.Hidden;
 
@@ -115,6 +121,9 @@ namespace Projekt
         {
             //Valaszlistazas("http://quizion.hu/admin/answers");
             Valaszlistazas("http://127.0.0.1:8000/admin/answers");
+            tbx_00.Text = "";
+            tbx_01.Text = "";
+            tbx_02.Text = "";
             btn_hozzaado.IsEnabled = true;
             btn_adminjog.Visibility = Visibility.Hidden;
         }
@@ -128,14 +137,14 @@ namespace Projekt
         {
             //UserListazas("http://quizion.hu/admin/users");
             UserListazas("http://127.0.0.1:8000/admin/users");
+            tbx_00.Text = "";
+            tbx_01.Text = "";
+            tbx_02.Text = "";
             btn_adminjog.Visibility = Visibility.Visible;
         }
 
         private void ModositasClick(object sender, RoutedEventArgs e)
         {
-            string kijelolt = lista.SelectedItem.ToString();
-            string[] st = kijelolt.Split(';');
-            int index = Int32.Parse(st[0]);
             if (lista.SelectedIndex == -1)
             {
                 MessageBox.Show("Nincsen kiválasztva elem a listából a módosítás előtt", "Érvénytelen módosítás", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -143,6 +152,9 @@ namespace Projekt
             }
             else
             {
+                string kijelolt = lista.SelectedItem.ToString();
+                string[] st = kijelolt.Split(';');
+                int index = Convert.ToInt32(st[0]);
                 MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy módosítani szeretnéd az alábbi elemet: {lista.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -163,6 +175,8 @@ namespace Projekt
                         else
                         {
                             ModositasQuiz(index);
+                            tbx_01.Text = "";
+                            tbx_02.Text = "";
                             Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
                             //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
                         }
@@ -179,6 +193,9 @@ namespace Projekt
                         else
                         {
                             ModositasQuestion(index);
+                            tbx_00.Text = "";
+                            tbx_01.Text = "";
+                            tbx_02.Text = "";
                             Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
                             //Kerdeslistazas("http://quizion.hu/admin/questions");
                         }
@@ -195,6 +212,9 @@ namespace Projekt
                         else
                         {
                             ModositasAnswer(index);
+                            tbx_00.Text = "";
+                            tbx_01.Text = "";
+                            tbx_02.Text = "";
                             Valaszlistazas("http://127.0.0.1:8000/admin/answers");
                             //Valaszlistazas("http://quizion.hu/admin/answers");
                         }
@@ -212,6 +232,9 @@ namespace Projekt
                         else
                         {
                             ModositasUser(index);
+                            tbx_00.Text = "";
+                            tbx_01.Text = "";
+                            tbx_02.Text = "";
                             UserListazas("http://127.0.0.1:8000/admin/users");
                             //UserListazas("http://quizion.hu/admin/users");
                         }
@@ -299,17 +322,18 @@ namespace Projekt
 
         private void Torles(object sender, RoutedEventArgs e)
         {
-            string kijelolt = lista.SelectedItem.ToString();
-            string[] st = kijelolt.Split(';');
-
-            int index = Convert.ToInt32(st[0]);
             if (lista.SelectedIndex == -1)
             {
+               
+                
                 MessageBox.Show("Nincsen kiválasztva elem a listából a törlés előtt", "Érvénytelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
             else
             {
+                string kijelolt = lista.SelectedItem.ToString();
+                string[] st = kijelolt.Split(';');
+                int index = Convert.ToInt32(st[0]);
                 MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy törölni szeretnéd az alábbi elemet: {lista.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -482,7 +506,9 @@ namespace Projekt
                 else
                 {
                     KvizHozzaadasa();
-                    Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/");
+                    tbx_01.Text = "";
+                    tbx_02.Text = "";
+                    Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
                     //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
                 }
                 
@@ -497,6 +523,9 @@ namespace Projekt
                 else
                 {
                     KerdesHozzaadasa();
+                    tbx_00.Text = "";
+                    tbx_01.Text = "";
+                    tbx_02.Text = "";
                     Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
                     //Kerdeslistazas("http://quizion.hu/admin/questions");
                 }
@@ -512,6 +541,9 @@ namespace Projekt
                 else
                 {
                     ValaszHozzaadasa();
+                    tbx_00.Text = "";
+                    tbx_01.Text = "";
+                    tbx_02.Text = "";
                     Valaszlistazas("http://127.0.0.1:8000/admin/answers");
                     //Valaszlistazas("http://quizion.hu/admin/answers");
                 }
