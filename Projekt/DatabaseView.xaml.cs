@@ -36,10 +36,31 @@ namespace Projekt
         public DatabaseView()
         {
             InitializeComponent();
+            SzinBeallito();
             btn_adminjog.Visibility = Visibility.Hidden;
+
 
         }
 
+        private void SzinBeallito()
+        {
+            
+            btn_quiz.BorderBrush = szinek.OnSecondary;
+            btn_quiz.Foreground = szinek.OnPrimary;
+            btn_quiz.Background = szinek.Primary;
+            btn_question.Background = szinek.Primary;
+            btn_question.Foreground = szinek.OnPrimary;
+            btn_question.BorderBrush = szinek.OnSecondary;
+            btn_answer.Background = szinek.Primary;
+            btn_answer.BorderBrush = szinek.OnSecondary;
+            btn_answer.Foreground = szinek.OnPrimary;
+            btn_user.Background = szinek.Primary;
+            btn_user.BorderBrush = szinek.OnSecondary;
+            btn_user.Foreground = szinek.OnPrimary;
+            btn_admin.Background = szinek.Primary;
+            btn_admin.BorderBrush = szinek.OnSecondary;
+            btn_admin.Foreground = szinek.OnPrimary;
+        }
        
         private async Task Kvizlistazas(string url)
         {
