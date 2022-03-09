@@ -63,16 +63,16 @@
                     </ScrollViewer>
 
                     <TextBlock x:Name="tbl_status" HorizontalAlignment="Left" Margin="357,0,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="-0.918,0" Height="61" Width="163"/>
-                    <TextBox x:Name="tbx_01"  TextWrapping="Wrap" Grid.Column="1" Margin="248,71,23,197" Grid.Row="1" MaxWidth="205" MaxHeight="43" RenderTransformOrigin="0.505,0.51" FontSize="14">
+                    <TextBox x:Name="tbx_01"  TextWrapping="Wrap" Grid.Column="1" Margin="249,77,22,185" Grid.Row="1" MaxWidth="205" MaxHeight="43" RenderTransformOrigin="0.505,0.51" FontSize="14">
                     </TextBox>
-                    <TextBox x:Name="tbx_02"  TextWrapping="Wrap" Grid.Column="1" Margin="248,124,23,138" Grid.Row="1" MaxWidth="205" MaxHeight="43" FontSize="14"/>
-                    <Button x:Name="btn_hozzaado" Content="Hozzáadás"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="248,180,0,0" VerticalAlignment="Top" Width="200" Click="HozzaadasClick" FontSize="20" Grid.Row="1" Grid.Column="1" Height="50" BorderThickness="2" FontWeight="Bold">
+                    <TextBox x:Name="tbx_02"  TextWrapping="Wrap" Grid.Column="1" Margin="249,139,22,123" Grid.Row="1" MaxWidth="205" MaxHeight="43" FontSize="14"/>
+                    <Button x:Name="btn_hozzaado" Content="Hozzáadás"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="249,204,0,0" VerticalAlignment="Top" Width="200" Click="HozzaadasClick" FontSize="20" Grid.Row="1" Grid.Column="1" Height="50" BorderThickness="2" FontWeight="Bold">
 
                     </Button>
                     <TextBox x:Name="tbx_00"  TextWrapping="Wrap" Margin="249,23,121,247" Grid.Column="1" Grid.Row="1" Height="30" FontSize="14" />
-                    <Label x:Name="lb_00" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="163,27,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                    <Label x:Name="lb_01" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="163,77,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                    <Label x:Name="lb_02" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="163,124,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.458"/>
+                    <Label x:Name="lb_00" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="163,27,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="14"/>
+                    <Label x:Name="lb_01" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="163,77,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="14"/>
+                    <Label x:Name="lb_02" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="163,124,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.458" FontSize="14"/>
 
 
 
