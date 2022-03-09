@@ -91,7 +91,7 @@ namespace Projekt
             string valasz = await client.GetStringAsync(url);
             List<User> user = JsonConvert.DeserializeObject<List<User>>(valasz);
             lista.ItemsSource = user;
-            btn_hozzaado.IsEnabled = false;
+            btn_hozzaado.Visibility = Visibility.Hidden;
             
         }
 
@@ -101,7 +101,7 @@ namespace Projekt
             Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
             tbx_01.Text = "";
             tbx_02.Text = "";
-            btn_hozzaado.IsEnabled = true;
+            btn_hozzaado.Visibility = Visibility.Visible;
             btn_adminjog.Visibility = Visibility.Hidden;
         }
 
@@ -112,7 +112,7 @@ namespace Projekt
             tbx_00.Text = "";
             tbx_01.Text = "";
             tbx_02.Text = "";
-            btn_hozzaado.IsEnabled = true;
+            btn_hozzaado.Visibility = Visibility.Visible;
             btn_adminjog.Visibility = Visibility.Hidden;
 
         }
@@ -124,7 +124,7 @@ namespace Projekt
             tbx_00.Text = "";
             tbx_01.Text = "";
             tbx_02.Text = "";
-            btn_hozzaado.IsEnabled = true;
+            btn_hozzaado.Visibility = Visibility.Visible;
             btn_adminjog.Visibility = Visibility.Hidden;
         }
 
