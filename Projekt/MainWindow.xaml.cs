@@ -40,7 +40,7 @@ namespace Projekt
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             JObject jObject = new JObject();
             jObject.Add("userID", tbx_name.Text);
-            jObject.Add("password", tbx_pass.Text);
+            jObject.Add("password", tbx_pass.Password);
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(url, stringContent);

@@ -16,10 +16,10 @@
         <Image Source="fejlec.png" Grid.ColumnSpan="3" Margin="0,-160,-87,424" Width="1000" Height="235"/>
         <Image Source="quizion_logo.png" Margin="24,109.216,0,174" UseLayoutRounding="False" HorizontalAlignment="Left" Width="319.375" />
         <Label x:Name="lbl_nev"  Style="{StaticResource MontserratFont}"  Content="Név: " HorizontalAlignment="Left" Margin="400,147,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.622,0.046"/>
-        <Button x:Name="btn_login" Style="{StaticResource MontserratFont}" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="455,411,0,45" VerticalAlignment="Center" Width="285" FontSize="24" Click="btn_login_Click" FontStyle="Italic" Grid.ColumnSpan="2" Height="43"/>
+        <Button x:Name="btn_login" Style="{StaticResource MontserratFont}" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="455,411,0,45" VerticalAlignment="Center" Width="285" FontSize="24" Click="btn_login_Click" FontStyle="Italic" Grid.ColumnSpan="2" Height="50" BorderThickness="2" FontWeight="Bold"/>
         <Label x:Name="lbl_jelszo" Style="{StaticResource MontserratFont}" Content="Jelszó: " HorizontalAlignment="Left" Margin="400,220,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.412,-0.124" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="tbx_name" Height="23" Margin="54,150,0,0" Style="{StaticResource MontserratFont}" TextWrapping="Wrap" Width="220" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox x:Name="tbx_pass"   Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Height="23" Margin="54,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Grid.Column="1"/>
+        <PasswordBox x:Name="tbx_pass"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Height="23" Margin="54,223,0,0" VerticalAlignment="Top" Width="220" Grid.Column="1"/>
     
 
 
