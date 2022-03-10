@@ -67,7 +67,10 @@ namespace Projekt
         }
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
+            
             LoginAsync();
+            System.Threading.Thread.Sleep(2000);
+            btn_login.IsEnabled = false;
             btn_login.Background = szinek.OnPrimary;
             
         }

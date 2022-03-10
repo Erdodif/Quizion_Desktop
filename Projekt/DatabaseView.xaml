@@ -47,7 +47,7 @@
                     <ScrollViewer Height="210" Margin="10,44,10,0" VerticalAlignment="Top" Grid.Row="1">
                         <!-- <ListBox x:Name="lista" Style="{StaticResource MontserratFont}"   HorizontalAlignment="Left" VerticalAlignment="Top" Width="437" Height="200" RenderTransformOrigin="0.5,0.5" Grid.Column="0" Grid.Row="1" SelectionChanged="lista_SelectionChanged" />
                        -->
-                        <DataGrid x:Name="lista" ItemsSource="{Binding}" Style="{StaticResource MontserratFont}"  FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Width="480" Height="210" RenderTransformOrigin="0.5,0.5" Grid.Column="0" Grid.Row="1" SelectionChanged="lista_SelectionChanged" >
+                        <DataGrid x:Name="lista" ItemsSource="{Binding}" Style="{StaticResource MontserratFont}"  FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="480" Height="210" RenderTransformOrigin="0.5,0.5" Grid.Column="0" Grid.Row="1" SelectionChanged="lista_SelectionChanged" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn>
                                     <DataGridTextColumn.ElementStyle>
