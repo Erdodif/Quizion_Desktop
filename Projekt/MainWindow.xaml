@@ -24,7 +24,7 @@
 
 
 
-        <TextBlock x:Name="tbl_message"  Style="{StaticResource MontserratFont}" FontSize="14" HorizontalAlignment="Left" Margin="377,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468" Height="61" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="tbl_message"  Style="{StaticResource MontserratFont}" FontSize="14" TextAlignment="Center" HorizontalAlignment="Left" Margin="377,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468" Height="61" Grid.ColumnSpan="2"/>
         
 
 
