@@ -116,6 +116,20 @@ namespace Projekt
             
         }
 
+        /*
+        private async Task AdminListazas(string url)
+        {
+            lista.Columns.Clear();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string valasz = await client.GetStringAsync(url);
+            List<Admin> admin = JsonConvert.DeserializeObject<List<Admin>>(valasz);
+            lista.ItemsSource = admin;
+            btn_hozzaado.Visibility = Visibility.Hidden;
+
+        }
+        */
+
+
         private void QuizClick(object sender, RoutedEventArgs e)
         {
             //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
@@ -151,7 +165,10 @@ namespace Projekt
 
         private void AdminClick(object sender, RoutedEventArgs e)
         {
+            //AdminListazas("http://127.0.0.1:8000/admin/admins");
+            //AdminListazas("http://quizion.hu/admin/admins");
             btn_adminjog.Visibility = Visibility.Visible;
+            btn_adminjog.Content = "Remove admin privilege";
         }
 
         private void UserClick(object sender, RoutedEventArgs e)
@@ -161,6 +178,7 @@ namespace Projekt
             tbx_00.Text = "";
             tbx_01.Text = "";
             tbx_02.Text = "";
+            btn_adminjog.Content = "Admin privilege";
             btn_adminjog.Visibility = Visibility.Visible;
         }
 
@@ -646,6 +664,18 @@ namespace Projekt
                     tbx_01.Text = st[1];
                     tbx_02.Text = st[2];
                 }
+
+                else if (lista.SelectedItem is Admin)
+                {
+                    tbx_00.IsEnabled = true;
+                    string kijelolt = lista.SelectedItem.ToString();
+                    string[] st = kijelolt.Split(';');
+                    lb_00.Content = "Id ";
+                    lb_01.Content = "UserId";
+                    lb_02.Content = "";
+                    tbx_00.Text = st[0];
+                    tbx_01.Text = st[1];
+                }
             }
 
             }
@@ -659,10 +689,24 @@ namespace Projekt
             else
             {
                 string kijelolt = lista.SelectedItem.ToString();
-            string[] st = kijelolt.Split(';');
-            int index = Convert.ToInt32(st[0]);
-            AdminJogHozzaado(index);
+                string[] st = kijelolt.Split(';');
+                int index = Convert.ToInt32(st[0]);
+                AdminJogHozzaado(index);
+                //AdminListazas("http://127.0.0.1:8000/admin/admins");
             }
+                /*
+                else if (lista.SelectedItem is Admin)
+                {
+                    string kijelolt = lista.SelectedItem.ToString();
+                    string[] st = kijelolt.Split(';');
+                    int index = Convert.ToInt32(st[0]);
+                    AdminJogElvetel(index);
+                    AdminListazas("http://127.0.0.1:8000/admin/admins");
+                    
+                }
+                */
+            
+            
             
         }
 
@@ -675,6 +719,18 @@ namespace Projekt
             string content = "Admin privilege addition";
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync($"admin/users/grant/{id}", stringContent);
+            tbl_status.Text = response.ToString();
+        }
+
+        private async Task AdminJogElvetel(int id)
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            //string url = "http://quizion.hu/admin/users";
+            string content = "Not admin privilege";
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync($"admin/users/revoke/{id}", stringContent);
             tbl_status.Text = response.ToString();
         }
 
