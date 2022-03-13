@@ -18,7 +18,7 @@
                 <Button Content="Update"  Style="{StaticResource MontserratFont}"  HorizontalAlignment="Left" Margin="-47,469,0,0" VerticalAlignment="Top" Width="192" Click="ModositasClick" FontSize="20" Height="50" BorderThickness="2" FontWeight="Bold">
                 </Button>
                 <Button x:Name="btn_torol" Content="Delete"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="232,469,0,0" VerticalAlignment="Top" Width="192" RenderTransformOrigin="0.348,0.793" Click="Torles" FontSize="20" Height="50" BorderThickness="2" FontWeight="Bold"/>
-                <Button x:Name="btn_adminjog" Content="Add admin privilege"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="684,469,-43.6,0" VerticalAlignment="Top" Width="242" Click="ToAdmin" FontSize="20" Height="50" BorderThickness="2" ClipToBounds="True" FontWeight="Bold"/>
+                <Button x:Name="btn_adminjog" Content="Admin privilege" Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="684,469,-43.6,0" VerticalAlignment="Top" Width="242" Click="GetAdminPrivilege" FontSize="20" Height="50" BorderThickness="2" ClipToBounds="True" FontWeight="Bold"/>
                 <Grid x:Name="grid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-63,13,-66.6,-4">
 
 
@@ -79,9 +79,9 @@
 
                 </Grid>
                 <ComboBox x:Name="cbx" HorizontalAlignment="Left" Margin="836,119,-43.6,0" VerticalAlignment="Top" Width="90" SelectionChanged="cbx_SelectionChanged" Height="30">
-                    <ComboBoxItem x:Name="cbx_quiz">Quiz</ComboBoxItem>
-                    <ComboBoxItem x:Name="cbx_question">Question</ComboBoxItem>
-                    <ComboBoxItem x:Name="cbx_answer">Answer</ComboBoxItem>
+                    <ComboBoxItem x:Name="cbx_quiz" FontSize="14">Quiz</ComboBoxItem>
+                    <ComboBoxItem x:Name="cbx_question" FontSize="14">Question</ComboBoxItem>
+                    <ComboBoxItem x:Name="cbx_answer" FontSize="14">Answer</ComboBoxItem>
                 </ComboBox>
 
 

@@ -458,10 +458,7 @@ namespace Projekt
 
         }
 
-        private void ToAdmin(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
 
         private async Task KvizHozzaadasa()
         {
@@ -642,6 +639,9 @@ namespace Projekt
                     tbx_00.IsEnabled = true;
                     string kijelolt = lista.SelectedItem.ToString();
                     string[] st = kijelolt.Split(';');
+                    lb_00.Content = "UserId ";
+                    lb_01.Content = "Name ";
+                    lb_02.Content = "XP ";
                     tbx_00.Text = st[0];
                     tbx_01.Text = st[1];
                     tbx_02.Text = st[2];
@@ -649,5 +649,35 @@ namespace Projekt
             }
 
             }
+
+        private void GetAdminPrivilege(object sender, RoutedEventArgs e)
+        {
+            if (lista.SelectedIndex == -1)
+            {
+                MessageBox.Show("Nincsen kiválasztva elem a listából az admin jog hozzáadása előtt", "Nem sikerült admin jog hozzáadás", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                string kijelolt = lista.SelectedItem.ToString();
+            string[] st = kijelolt.Split(';');
+            int index = Convert.ToInt32(st[0]);
+            AdminJogHozzaado(index);
+            }
+            
         }
+
+        private async Task AdminJogHozzaado(int id)
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            //string url = "http://quizion.hu/admin/users";
+            string content = "Admin privilege addition";
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync($"admin/users/grant/{id}", stringContent);
+            tbl_status.Text = response.ToString();
+        }
+
+
     }
+}
