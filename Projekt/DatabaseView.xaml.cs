@@ -168,7 +168,7 @@ namespace Projekt
             //AdminListazas("http://127.0.0.1:8000/admin/admins");
             //AdminListazas("http://quizion.hu/admin/admins");
             btn_adminjog.Visibility = Visibility.Visible;
-            btn_adminjog.Content = "Remove admin privilege";
+            btn_adminjog.Content = "No admin privilege";
         }
 
         private void UserClick(object sender, RoutedEventArgs e)
