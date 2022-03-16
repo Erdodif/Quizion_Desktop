@@ -116,7 +116,7 @@ namespace Projekt
             
         }
 
-        /*
+        
         private async Task AdminListazas(string url)
         {
             lista.Columns.Clear();
@@ -127,7 +127,7 @@ namespace Projekt
             btn_hozzaado.Visibility = Visibility.Hidden;
 
         }
-        */
+        
 
 
         private void QuizClick(object sender, RoutedEventArgs e)
@@ -165,10 +165,13 @@ namespace Projekt
 
         private void AdminClick(object sender, RoutedEventArgs e)
         {
-            //AdminListazas("http://127.0.0.1:8000/admin/admins");
+            AdminListazas("http://127.0.0.1:8000/admin/admins");
             //AdminListazas("http://quizion.hu/admin/admins");
+            tbx_00.Text = "";
+            tbx_01.Text = "";
+            tbx_02.Text = "";
             btn_adminjog.Visibility = Visibility.Visible;
-            btn_adminjog.Content = "No admin privilege";
+            btn_adminjog.Content = "Remove privilege";
         }
 
         private void UserClick(object sender, RoutedEventArgs e)
@@ -680,7 +683,7 @@ namespace Projekt
 
             }
 
-        private void GetAdminPrivilege(object sender, RoutedEventArgs e)
+        private void AdminPrivilege(object sender, RoutedEventArgs e)
         {
             if (lista.SelectedIndex == -1)
             {
@@ -688,25 +691,28 @@ namespace Projekt
             }
             else
             {
-                string kijelolt = lista.SelectedItem.ToString();
-                string[] st = kijelolt.Split(';');
-                int index = Convert.ToInt32(st[0]);
-                AdminJogHozzaado(index);
-                //AdminListazas("http://127.0.0.1:8000/admin/admins");
-            }
-                /*
-                else if (lista.SelectedItem is Admin)
+               
+                if (lista.SelectedItem is User)
                 {
                     string kijelolt = lista.SelectedItem.ToString();
                     string[] st = kijelolt.Split(';');
                     int index = Convert.ToInt32(st[0]);
+                    AdminJogHozzaado(index);
+                    AdminListazas("http://127.0.0.1:8000/admin/admins");
+                }
+                else
+                {
+                    string kijelolt = lista.SelectedItem.ToString();
+                    string[] st = kijelolt.Split(';');
+                    int index = Convert.ToInt32(st[1]);
                     AdminJogElvetel(index);
                     AdminListazas("http://127.0.0.1:8000/admin/admins");
-                    
+
                 }
-                */
-            
-            
+
+            }
+                
+                
             
         }
 
@@ -724,6 +730,7 @@ namespace Projekt
 
         private async Task AdminJogElvetel(int id)
         {
+           
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
@@ -732,6 +739,7 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync($"admin/users/revoke/{id}", stringContent);
             tbl_status.Text = response.ToString();
+            Console.WriteLine(client.DefaultRequestHeaders);
         }
 
 

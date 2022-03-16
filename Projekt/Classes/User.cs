@@ -8,18 +8,11 @@ namespace Projekt
 {
     class User
     {
-        private Int64 id;
+        private int id;
         private string name;
         private string email;
         private string  password;
-        private Int64 xp;
-
-        public long Id { get => id; set => id = value; }
-        public string Name { get => name; set => name = value; }
-        public string Email { get => email; set => email = value; }
-        public string Password { get => password; set => password = value; }
-        public long Xp { get => xp; set => xp = value; }
-
+        private int xp;
 
         public User(int id, string name, string email, string password, int xp)
         {
@@ -30,6 +23,11 @@ namespace Projekt
             this.xp = xp;
         }
 
+        public int Id { get => id; set => id = value; }
+        public string Name { get => name; set => name = value; }
+        public string Email { get => email; set => email = value; }
+        public string Password { get => password; set => password = value; }
+        public int Xp { get => xp; set => xp = value; }
 
         public override string ToString()
         {

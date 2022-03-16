@@ -19,7 +19,6 @@ namespace Projekt
 
         public int Id { get => id; set => id = value; }
         public int UserId { get => userId; set => userId = value; }
-        
 
         public override string ToString()
         {
