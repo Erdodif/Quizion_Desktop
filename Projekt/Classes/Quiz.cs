@@ -30,18 +30,6 @@ namespace Projekt
             this.active = active;
             this.secondsPerQuiz = secondsPerQuiz;
         }
-
-       /* public Quiz(string q)
-        {
-            JsonSerializer.Create();
-            JObject tartalom = JObject.Parse(q);
-            IList<JToken> results = tartalom["data"].Children().ToList();
-
-
-        }
-       */
-
-
         public override string ToString()
         {
             return $"{id};{header};{description};{active};{secondsPerQuiz}";
