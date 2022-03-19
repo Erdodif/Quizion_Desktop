@@ -29,16 +29,6 @@ namespace Projekt
             this.isRight = isRight;
         }
 
-        /*public Answer(string q)
-        {
-            JsonSerializer.Create();
-            JObject tartalom = JObject.Parse(q);
-            IList<JToken> results = tartalom["data"].Children().ToList();
-
-
-        }
-        */
-
         public override string ToString()
         {
             return $"{id};{questionId};{content,25};{isRight}";
