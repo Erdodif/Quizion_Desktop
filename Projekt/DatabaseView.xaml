@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
-        Title="Adatbázis nézet"  Height="500" Width="900" Background="#7985C1" >
+        Title="Database view"  Height="500" Width="900" Background="#7985C1" >
     <Viewbox Stretch="Uniform">
         <Grid>
             <Grid.ColumnDefinitions>

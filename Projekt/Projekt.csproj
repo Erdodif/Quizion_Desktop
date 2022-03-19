@@ -93,13 +93,12 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Admin.cs" />
     <Compile Include="Classes\ApiAnswer.cs" />
-    <Compile Include="Classes\Data.cs" />
-    <Compile Include="Classes\Szin.cs" />
+    <Compile Include="Classes\QuizionColor.cs" />
     <Compile Include="DatabaseView.xaml.cs">
       <DependentUpon>DatabaseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MLExtension.cs" />
-    <Compile Include="Classes\Szinek.cs" />
+    <Compile Include="Classes\ColorsOfQuizion.cs" />
     <Compile Include="Classes\User.cs" />
     <Page Include="DatabaseView.xaml">
       <SubType>Designer</SubType>

@@ -26,7 +26,7 @@ namespace Projekt
     /// </summary>
     public partial class MainWindow : Window
     {
-        static Szinek szinek = new Szinek();
+        static ColorsOfQuizion quizionColors = new ColorsOfQuizion();
         static HttpClient client = new HttpClient();
         string token;
 
@@ -60,7 +60,7 @@ namespace Projekt
             {
                 string hiba = Convert.ToString(response.Content.ReadAsStringAsync().Result);
                 tbl_message.Text = hiba.Replace(hiba, "Invalid userID or password!");
-                tbl_message.Foreground = szinek.Warning;
+                tbl_message.Foreground = quizionColors.Warning;
                 btn_login.IsEnabled = true;
             }
             
@@ -70,7 +70,7 @@ namespace Projekt
             LoginAsync();
             System.Threading.Thread.Sleep(2000);
             btn_login.IsEnabled = false;
-            btn_login.Background = szinek.OnPrimary;
+            btn_login.Background = quizionColors.OnPrimary;
         }
 
         

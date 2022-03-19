@@ -29,7 +29,7 @@ namespace Projekt
     public partial class DatabaseView : Window
     {
         static HttpClient client = new HttpClient();
-        static Szinek szinek = new Szinek();
+        static ColorsOfQuizion quizionColors = new ColorsOfQuizion();
         string token;
 
         public string Token { get => token; set => token = value; }
@@ -45,21 +45,21 @@ namespace Projekt
         private void SzinBeallito()
         {
             
-            btn_quiz.BorderBrush = szinek.OnSecondary;
-            btn_quiz.Foreground = szinek.OnPrimary;
-            btn_quiz.Background = szinek.Primary;
-            btn_question.Background = szinek.Primary;
-            btn_question.Foreground = szinek.OnPrimary;
-            btn_question.BorderBrush = szinek.OnSecondary;
-            btn_answer.Background = szinek.Primary;
-            btn_answer.BorderBrush = szinek.OnSecondary;
-            btn_answer.Foreground = szinek.OnPrimary;
-            btn_user.Background = szinek.Primary;
-            btn_user.BorderBrush = szinek.OnSecondary;
-            btn_user.Foreground = szinek.OnPrimary;
-            btn_admin.Background = szinek.Primary;
-            btn_admin.BorderBrush = szinek.OnSecondary;
-            btn_admin.Foreground = szinek.OnPrimary;
+            btn_quiz.BorderBrush = quizionColors.OnSecondary;
+            btn_quiz.Foreground = quizionColors.OnPrimary;
+            btn_quiz.Background = quizionColors.Primary;
+            btn_question.Background = quizionColors.Primary;
+            btn_question.Foreground = quizionColors.OnPrimary;
+            btn_question.BorderBrush = quizionColors.OnSecondary;
+            btn_answer.Background = quizionColors.Primary;
+            btn_answer.BorderBrush = quizionColors.OnSecondary;
+            btn_answer.Foreground = quizionColors.OnPrimary;
+            btn_user.Background = quizionColors.Primary;
+            btn_user.BorderBrush = quizionColors.OnSecondary;
+            btn_user.Foreground = quizionColors.OnPrimary;
+            btn_admin.Background = quizionColors.Primary;
+            btn_admin.BorderBrush = quizionColors.OnSecondary;
+            btn_admin.Foreground = quizionColors.OnPrimary;
         }
        
         private async Task Kvizlistazas(string url)
@@ -134,8 +134,7 @@ namespace Projekt
         {
             //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
             Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
-            tbx_01.Text = "";
-            tbx_02.Text = "";
+            EmptyInputs();
             btn_hozzaado.Visibility = Visibility.Visible;
             btn_adminjog.Visibility = Visibility.Hidden;
         }
@@ -144,9 +143,7 @@ namespace Projekt
         {
             //Kerdeslistazas("http://quizion.hu/admin/questions");
             Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
-            tbx_00.Text = "";
-            tbx_01.Text = "";
-            tbx_02.Text = "";
+            EmptyInputs();
             btn_hozzaado.Visibility = Visibility.Visible;
             btn_adminjog.Visibility = Visibility.Hidden;
 
@@ -156,9 +153,7 @@ namespace Projekt
         {
             //Valaszlistazas("http://quizion.hu/admin/answers");
             Valaszlistazas("http://127.0.0.1:8000/admin/answers");
-            tbx_00.Text = "";
-            tbx_01.Text = "";
-            tbx_02.Text = "";
+            EmptyInputs();
             btn_hozzaado.Visibility = Visibility.Visible;
             btn_adminjog.Visibility = Visibility.Hidden;
         }
@@ -167,9 +162,7 @@ namespace Projekt
         {
             AdminListazas("http://127.0.0.1:8000/admin/admins");
             //AdminListazas("http://quizion.hu/admin/admins");
-            tbx_00.Text = "";
-            tbx_01.Text = "";
-            tbx_02.Text = "";
+            EmptyInputs();
             btn_adminjog.Visibility = Visibility.Visible;
             btn_adminjog.Content = "Remove privilege";
         }
@@ -178,9 +171,7 @@ namespace Projekt
         {
             //UserListazas("http://quizion.hu/admin/users");
             UserListazas("http://127.0.0.1:8000/admin/users");
-            tbx_00.Text = "";
-            tbx_01.Text = "";
-            tbx_02.Text = "";
+            EmptyInputs();
             btn_adminjog.Content = "Admin privilege";
             btn_adminjog.Visibility = Visibility.Visible;
         }
@@ -217,8 +208,7 @@ namespace Projekt
                         else
                         {
                             ModositasQuiz(index);
-                            tbx_01.Text = "";
-                            tbx_02.Text = "";
+                            EmptyInputs();
                             Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
                             //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
                         }
@@ -235,9 +225,7 @@ namespace Projekt
                         else
                         {
                             ModositasQuestion(index);
-                            tbx_00.Text = "";
-                            tbx_01.Text = "";
-                            tbx_02.Text = "";
+                            EmptyInputs();
                             Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
                             //Kerdeslistazas("http://quizion.hu/admin/questions");
                         }
@@ -254,9 +242,7 @@ namespace Projekt
                         else
                         {
                             ModositasAnswer(index);
-                            tbx_00.Text = "";
-                            tbx_01.Text = "";
-                            tbx_02.Text = "";
+                            EmptyInputs();
                             Valaszlistazas("http://127.0.0.1:8000/admin/answers");
                             //Valaszlistazas("http://quizion.hu/admin/answers");
                         }
@@ -274,9 +260,7 @@ namespace Projekt
                         else
                         {
                             ModositasUser(index);
-                            tbx_00.Text = "";
-                            tbx_01.Text = "";
-                            tbx_02.Text = "";
+                            EmptyInputs();
                             UserListazas("http://127.0.0.1:8000/admin/users");
                             //UserListazas("http://quizion.hu/admin/users");
                         }
@@ -383,8 +367,7 @@ namespace Projekt
                     if (lista.SelectedItem is Quiz)
                     {
                         KvizTorlese(index);
-                        tbx_01.Text = "";
-                        tbx_02.Text = "";
+                        EmptyInputs();
                         Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
                         //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
 
@@ -393,27 +376,21 @@ namespace Projekt
                     else if (lista.SelectedItem is Question)
                     {
                         KerdesTorlese(index);
-                        tbx_00.Text = "";
-                        tbx_01.Text = "";
-                        tbx_02.Text = "";
+                        EmptyInputs();
                         Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
                         //Kerdeslistazas("http://quizion.hu/admin/questions");
                     }
                     else if (lista.SelectedItem is Answer)
                     {
                         ValaszTorlese(index);
-                        tbx_00.Text = "";
-                        tbx_01.Text = "";
-                        tbx_02.Text = "";
+                        EmptyInputs();
                         Valaszlistazas("http://127.0.0.1:8000/admin/answers");
                         //Valaszlistazas("http://quizion.hu/admin/answers");
                     }
                     else if (lista.SelectedItem is User)
                     {
                         UserTorlese(index);
-                        tbx_00.Text = "";
-                        tbx_01.Text = "";
-                        tbx_02.Text = "";
+                        EmptyInputs();
                         UserListazas("http://127.0.0.1:8000/admin/users");
                         //UserListazas("http://quizion.hu/admin/users");
 
@@ -545,8 +522,7 @@ namespace Projekt
                 else
                 {
                     KvizHozzaadasa();
-                    tbx_01.Text = "";
-                    tbx_02.Text = "";
+                    EmptyInputs();
                     Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
                     //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
                 }
@@ -562,9 +538,7 @@ namespace Projekt
                 else
                 {
                     KerdesHozzaadasa();
-                    tbx_00.Text = "";
-                    tbx_01.Text = "";
-                    tbx_02.Text = "";
+                    EmptyInputs();
                     Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
                     //Kerdeslistazas("http://quizion.hu/admin/questions");
                 }
@@ -580,9 +554,7 @@ namespace Projekt
                 else
                 {
                     ValaszHozzaadasa();
-                    tbx_00.Text = "";
-                    tbx_01.Text = "";
-                    tbx_02.Text = "";
+                    EmptyInputs();
                     Valaszlistazas("http://127.0.0.1:8000/admin/answers");
                     //Valaszlistazas("http://quizion.hu/admin/answers");
                 }
@@ -712,8 +684,7 @@ namespace Projekt
 
             }
                 
-                
-            
+  
         }
 
         private async Task AdminJogHozzaado(int id)
@@ -730,7 +701,6 @@ namespace Projekt
 
         private async Task AdminJogElvetel(int id)
         {
-           
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
@@ -742,6 +712,11 @@ namespace Projekt
             Console.WriteLine(client.DefaultRequestHeaders);
         }
 
-
+        private void EmptyInputs()
+        {
+            tbx_00.Text = "";
+            tbx_01.Text = "";
+            tbx_02.Text = "";
+        }
     }
 }
