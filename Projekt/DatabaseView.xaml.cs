@@ -36,15 +36,12 @@ namespace Projekt
         public DatabaseView()
         {
             InitializeComponent();
-            SzinBeallito();
-            btn_adminjog.Visibility = Visibility.Hidden;
-
-
+            ColorSetter();
+            btn_adminPrivilege.Visibility = Visibility.Hidden;
         }
 
-        private void SzinBeallito()
+        private void ColorSetter()
         {
-            
             btn_quiz.BorderBrush = quizionColors.OnSecondary;
             btn_quiz.Foreground = quizionColors.OnPrimary;
             btn_quiz.Background = quizionColors.Primary;
@@ -62,141 +59,134 @@ namespace Projekt
             btn_admin.Foreground = quizionColors.OnPrimary;
         }
        
-        private async Task Kvizlistazas(string url)
+        private async Task QuizListing(string url)
         {
             try
             {
-                lista.Columns.Clear();
+                datagrid.Columns.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                string valasz = await client.GetStringAsync(url);
-                List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(valasz);
-                lista.ItemsSource = quiz;
+                string reply = await client.GetStringAsync(url);
+                List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(reply);
+                datagrid.ItemsSource = quiz;
             }
             catch (Exception e) {
                 Console.WriteLine(e.StackTrace);
             }
-
         }
 
-        private async Task Kerdeslistazas(string url)
+        private async Task QuestionListing(string url)
         {
             try
             {
-                lista.Columns.Clear();
+                datagrid.Columns.Clear();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                string valasz = await client.GetStringAsync(url);
-                List<Question> question = JsonConvert.DeserializeObject<List<Question>>(valasz);
-                lista.ItemsSource = question;
+                string reply = await client.GetStringAsync(url);
+                List<Question> question = JsonConvert.DeserializeObject<List<Question>>(reply);
+                datagrid.ItemsSource = question;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.StackTrace);
             }
-
         }
 
-        private async Task Valaszlistazas(string url)
+        private async Task AnswerListing(string url)
         {
-            lista.Columns.Clear();
+            datagrid.Columns.Clear();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            string valasz = await client.GetStringAsync(url);
-            List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(valasz);
-            lista.ItemsSource = answer;
+            string reply = await client.GetStringAsync(url);
+            List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(reply);
+            datagrid.ItemsSource = answer;
         }
 
-        private async Task UserListazas(string url)
+        private async Task UserListing(string url)
         {
-            lista.Columns.Clear();
+            datagrid.Columns.Clear();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            string valasz = await client.GetStringAsync(url);
-            List<User> user = JsonConvert.DeserializeObject<List<User>>(valasz);
-            lista.ItemsSource = user;
-            btn_hozzaado.Visibility = Visibility.Hidden;
-            
+            string reply = await client.GetStringAsync(url);
+            List<User> user = JsonConvert.DeserializeObject<List<User>>(reply);
+            datagrid.ItemsSource = user;
+            btn_create.Visibility = Visibility.Hidden;
         }
 
         
-        private async Task AdminListazas(string url)
+        private async Task AdminListing(string url)
         {
-            lista.Columns.Clear();
+            datagrid.Columns.Clear();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            string valasz = await client.GetStringAsync(url);
-            List<Admin> admin = JsonConvert.DeserializeObject<List<Admin>>(valasz);
-            lista.ItemsSource = admin;
-            btn_hozzaado.Visibility = Visibility.Hidden;
-
+            string reply = await client.GetStringAsync(url);
+            List<Admin> admin = JsonConvert.DeserializeObject<List<Admin>>(reply);
+            datagrid.ItemsSource = admin;
+            btn_create.Visibility = Visibility.Hidden;
         }
         
 
 
         private void QuizClick(object sender, RoutedEventArgs e)
         {
-            //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
-            Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
+            //QuizListing("http://quizion.hu/admin/quizzes/all");
+            QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
             EmptyInputs();
-            btn_hozzaado.Visibility = Visibility.Visible;
-            btn_adminjog.Visibility = Visibility.Hidden;
+            btn_create.Visibility = Visibility.Visible;
+            btn_adminPrivilege.Visibility = Visibility.Hidden;
         }
 
         private void QuestionClick(object sender, RoutedEventArgs e)
         {
-            //Kerdeslistazas("http://quizion.hu/admin/questions");
-            Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
+            //QuestionListing("http://quizion.hu/admin/questions");
+            QuestionListing("http://127.0.0.1:8000/admin/questions");
             EmptyInputs();
-            btn_hozzaado.Visibility = Visibility.Visible;
-            btn_adminjog.Visibility = Visibility.Hidden;
+            btn_create.Visibility = Visibility.Visible;
+            btn_adminPrivilege.Visibility = Visibility.Hidden;
 
         }
 
         private void AnswerClick(object sender, RoutedEventArgs e)
         {
-            //Valaszlistazas("http://quizion.hu/admin/answers");
-            Valaszlistazas("http://127.0.0.1:8000/admin/answers");
+            //AnswerListing("http://quizion.hu/admin/answers");
+            AnswerListing("http://127.0.0.1:8000/admin/answers");
             EmptyInputs();
-            btn_hozzaado.Visibility = Visibility.Visible;
-            btn_adminjog.Visibility = Visibility.Hidden;
+            btn_create.Visibility = Visibility.Visible;
+            btn_adminPrivilege.Visibility = Visibility.Hidden;
         }
 
         private void AdminClick(object sender, RoutedEventArgs e)
         {
-            AdminListazas("http://127.0.0.1:8000/admin/admins");
-            //AdminListazas("http://quizion.hu/admin/admins");
+            AdminListing("http://127.0.0.1:8000/admin/admins");
+            //AdminListing("http://quizion.hu/admin/admins");
             EmptyInputs();
-            btn_adminjog.Visibility = Visibility.Visible;
-            btn_adminjog.Content = "Remove privilege";
+            btn_adminPrivilege.Visibility = Visibility.Visible;
+            btn_adminPrivilege.Content = "Remove privilege";
         }
 
         private void UserClick(object sender, RoutedEventArgs e)
         {
-            //UserListazas("http://quizion.hu/admin/users");
-            UserListazas("http://127.0.0.1:8000/admin/users");
+            //UserListing("http://quizion.hu/admin/users");
+            UserListing("http://127.0.0.1:8000/admin/users");
             EmptyInputs();
-            btn_adminjog.Content = "Admin privilege";
-            btn_adminjog.Visibility = Visibility.Visible;
+            btn_adminPrivilege.Content = "Admin privilege";
+            btn_adminPrivilege.Visibility = Visibility.Visible;
         }
 
-        private void ModositasClick(object sender, RoutedEventArgs e)
+        private void UpdateClick(object sender, RoutedEventArgs e)
         {
-            if (lista.SelectedIndex == -1)
+            if (datagrid.SelectedIndex == -1)
             {
                 MessageBox.Show("Nincsen kiválasztva elem a listából a módosítás előtt", "Érvénytelen módosítás", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
             else
             {
-                string kijelolt = lista.SelectedItem.ToString();
-                string[] st = kijelolt.Split(';');
+                string selected = datagrid.SelectedItem.ToString();
+                string[] st = selected.Split(';');
                 int index = Convert.ToInt32(st[0]);
-                MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy módosítani szeretnéd az alábbi elemet: {lista.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy módosítani szeretnéd az alábbi elemet: {datagrid.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-
-                    if (lista.SelectedItem is Quiz)
+                    if (datagrid.SelectedItem is Quiz)
                     {
                         tbx_00.IsEnabled = false;
-                        
-
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "Nem megfelelő karakter hosszúságú a Quiz headerje!";
@@ -207,15 +197,13 @@ namespace Projekt
                         }
                         else
                         {
-                            ModositasQuiz(index);
+                            UpdateQuiz(index);
                             EmptyInputs();
-                            Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
-                            //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
+                            QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
+                            //QuizListing("http://quizion.hu/admin/quizzes/all");
                         }
-                        
-
                     }
-                    else if (lista.SelectedItem is Question)
+                    else if (datagrid.SelectedItem is Question)
                     {
                         tbx_00.IsEnabled = true;
                         if (tbx_01.Text.Length < 3)
@@ -224,53 +212,47 @@ namespace Projekt
                         }
                         else
                         {
-                            ModositasQuestion(index);
+                            UpdateQuestion(index);
                             EmptyInputs();
-                            Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
-                            //Kerdeslistazas("http://quizion.hu/admin/questions");
+                            QuestionListing("http://127.0.0.1:8000/admin/questions");
+                            //QuestionListing("http://quizion.hu/admin/questions");
                         }
-                        
                     }
-                    else if (lista.SelectedItem is Answer)
+                    else if (datagrid.SelectedItem is Answer)
                     {
                         tbx_00.IsEnabled = true;
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "Nem megfelelő karakter hosszúságú az Answer contente!";
                         }
-                       
                         else
                         {
-                            ModositasAnswer(index);
+                            UpdateAnswer(index);
                             EmptyInputs();
-                            Valaszlistazas("http://127.0.0.1:8000/admin/answers");
-                            //Valaszlistazas("http://quizion.hu/admin/answers");
-                        }
-                        
+                            AnswerListing("http://127.0.0.1:8000/admin/answers");
+                            //AnswerListing("http://quizion.hu/admin/answers");
+                        }                      
                     }
 
-                    else if (lista.SelectedItem is User)
+                    else if (datagrid.SelectedItem is User)
                     {
                         tbx_00.IsEnabled = true;
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "Nem megfelelő karakter hosszúságú a User neve!";
                         }
-
                         else
                         {
-                            ModositasUser(index);
+                            UpdateUser(index);
                             EmptyInputs();
-                            UserListazas("http://127.0.0.1:8000/admin/users");
-                            //UserListazas("http://quizion.hu/admin/users");
+                            UserListing("http://127.0.0.1:8000/admin/users");
+                            //UserListing("http://quizion.hu/admin/users");
                         }
-
                     }
                     else
                     {
                         tbl_status.Text = "Hiba, nem sikerült a módosítást végrehajtani!";
                     }
-
                 }
                 else
                 {
@@ -279,7 +261,7 @@ namespace Projekt
             }
         }
 
-        private async Task ModositasQuiz(int id)
+        private async Task UpdateQuiz(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
@@ -292,10 +274,9 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/quizzes/{id}", stringContent);
             tbl_status.Text = response.ToString();
-
         }
 
-        private async Task ModositasQuestion(int id)
+        private async Task UpdateQuestion(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
@@ -309,10 +290,9 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/questions/{id}", stringContent);
             tbl_status.Text = response.ToString();
-
         }
 
-        private async Task ModositasAnswer(int id)
+        private async Task UpdateAnswer(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
@@ -326,10 +306,9 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/answers/{id}", stringContent);
             tbl_status.Text = response.ToString();
-
         }
 
-        private async Task ModositasUser(int id)
+        private async Task UpdateUser(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
@@ -343,76 +322,65 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/users/{id}", stringContent);
             tbl_status.Text = response.ToString();
-
         }
 
-        private void Torles(object sender, RoutedEventArgs e)
+        private void Delete(object sender, RoutedEventArgs e)
         {
-            if (lista.SelectedIndex == -1)
+            if (datagrid.SelectedIndex == -1)
             {
-               
-                
                 MessageBox.Show("Nincsen kiválasztva elem a listából a törlés előtt", "Érvénytelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
             else
             {
-                string kijelolt = lista.SelectedItem.ToString();
-                string[] st = kijelolt.Split(';');
+                string selected = datagrid.SelectedItem.ToString();
+                string[] st = selected.Split(';');
                 int index = Convert.ToInt32(st[0]);
-                MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy törölni szeretnéd az alábbi elemet: {lista.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy törölni szeretnéd az alábbi elemet: {datagrid.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-
-                    if (lista.SelectedItem is Quiz)
+                    if (datagrid.SelectedItem is Quiz)
                     {
-                        KvizTorlese(index);
+                        DeleteQuiz(index);
                         EmptyInputs();
-                        Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
-                        //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
-
-
+                        QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
+                        //QuizListing("http://quizion.hu/admin/quizzes/all");
                     }
-                    else if (lista.SelectedItem is Question)
+                    else if (datagrid.SelectedItem is Question)
                     {
-                        KerdesTorlese(index);
+                        DeleteQuestion(index);
                         EmptyInputs();
-                        Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
-                        //Kerdeslistazas("http://quizion.hu/admin/questions");
+                        QuestionListing("http://127.0.0.1:8000/admin/questions");
+                        //QuestionListing("http://quizion.hu/admin/questions");
                     }
-                    else if (lista.SelectedItem is Answer)
+                    else if (datagrid.SelectedItem is Answer)
                     {
                         ValaszTorlese(index);
                         EmptyInputs();
-                        Valaszlistazas("http://127.0.0.1:8000/admin/answers");
-                        //Valaszlistazas("http://quizion.hu/admin/answers");
+                        AnswerListing("http://127.0.0.1:8000/admin/answers");
+                        //AnswerListing("http://quizion.hu/admin/answers");
                     }
-                    else if (lista.SelectedItem is User)
+                    else if (datagrid.SelectedItem is User)
                     {
                         UserTorlese(index);
                         EmptyInputs();
-                        UserListazas("http://127.0.0.1:8000/admin/users");
-                        //UserListazas("http://quizion.hu/admin/users");
-
+                        UserListing("http://127.0.0.1:8000/admin/users");
+                        //UserListing("http://quizion.hu/admin/users");
                     }
                     else
                     {
                         tbl_status.Text = "Hiba, nem sikerült a törlést végrehajtani!";
                     }
-
                     MessageBox.Show("A kiválasztott elem sikeresen törölve", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
-
                 }
                 else
                 {
                     //Nem történik semmi, ha nem szeretnénk törölni!
                 }
-
             }
 
         }
 
-        private async Task KvizTorlese(int id)
+        private async Task DeleteQuiz(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
@@ -420,10 +388,9 @@ namespace Projekt
             //client.BaseAddress = new Uri("http://quizion.hu/");
             var response = await client.DeleteAsync($"admin/quizzes/{id}");
             tbl_status.Text = response.ToString();
-
         }
 
-        private async Task KerdesTorlese(int id)
+        private async Task DeleteQuestion(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
@@ -431,7 +398,6 @@ namespace Projekt
             //client.BaseAddress = new Uri("http://quizion.hu/");
             var response = await client.DeleteAsync($"admin/questions/{id}");
             tbl_status.Text = response.ToString();
-
         }
 
         private async Task ValaszTorlese(int id)
@@ -442,7 +408,6 @@ namespace Projekt
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.DeleteAsync($"admin/answers/{id}");
             tbl_status.Text = response.ToString();
-
         }
 
         private async Task UserTorlese(int id)
@@ -453,10 +418,7 @@ namespace Projekt
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.DeleteAsync($"admin/users/{id}");
             tbl_status.Text = response.ToString();
-
         }
-
-      
 
         private async Task KvizHozzaadasa()
         {
@@ -474,7 +436,7 @@ namespace Projekt
             tbl_status.Text = response.ToString();
         }
 
-        private async Task KerdesHozzaadasa()
+        private async Task InsertQuestion()
         {
             client = new HttpClient();
             string url = "/admin/questions/";
@@ -491,7 +453,7 @@ namespace Projekt
             tbl_status.Text = response.ToString();
         }
 
-        private async Task ValaszHozzaadasa()
+        private async Task InsertAnswer()
         {
             client = new HttpClient();
             string url = "/admin/answers/";
@@ -507,7 +469,7 @@ namespace Projekt
             var response = await client.PostAsync(url, stringContent);
             tbl_status.Text = response.ToString();
         }
-        private void HozzaadasClick(object sender, RoutedEventArgs e)
+        private void CreateClick(object sender, RoutedEventArgs e)
         {
             if (cbx.SelectedItem == cbx_quiz)
             {
@@ -523,10 +485,9 @@ namespace Projekt
                 {
                     KvizHozzaadasa();
                     EmptyInputs();
-                    Kvizlistazas("http://127.0.0.1:8000/admin/quizzes/all");
-                    //Kvizlistazas("http://quizion.hu/admin/quizzes/all");
+                    QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
+                    //QuizListing("http://quizion.hu/admin/quizzes/all");
                 }
-                
             }
 
             else if (cbx.SelectedItem == cbx_question)
@@ -537,12 +498,11 @@ namespace Projekt
                 }
                 else
                 {
-                    KerdesHozzaadasa();
+                    InsertQuestion();
                     EmptyInputs();
-                    Kerdeslistazas("http://127.0.0.1:8000/admin/questions");
-                    //Kerdeslistazas("http://quizion.hu/admin/questions");
+                    QuestionListing("http://127.0.0.1:8000/admin/questions");
+                    //QuestionListing("http://quizion.hu/admin/questions");
                 }
-                
             }
 
             else if (cbx.SelectedItem == cbx_answer)
@@ -553,19 +513,16 @@ namespace Projekt
                 }
                 else
                 {
-                    ValaszHozzaadasa();
+                    InsertAnswer();
                     EmptyInputs();
-                    Valaszlistazas("http://127.0.0.1:8000/admin/answers");
-                    //Valaszlistazas("http://quizion.hu/admin/answers");
-                }
-                
+                    AnswerListing("http://127.0.0.1:8000/admin/answers");
+                    //AnswerListing("http://quizion.hu/admin/answers");
+                }                
             }
-
             else
             {
                 tbl_status.Text = "Hiba, nem sikerült a hozzáadást végrehajtani!";
             }
-
         }
 
         private void cbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -574,38 +531,35 @@ namespace Projekt
             {
                 tbx_00.IsEnabled = false;
             }
-
             else if (cbx.SelectedItem == cbx_question)
             {
                 tbx_00.IsEnabled = true;  
             }
-
             else if (cbx.SelectedItem == cbx_answer)
             {
                 tbx_00.IsEnabled = true;
             }
         }
 
-        private void lista_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (lista.SelectedIndex != -1)
+            if (datagrid.SelectedIndex != -1)
             {
-                if (lista.SelectedItem is Quiz)
+                if (datagrid.SelectedItem is Quiz)
                 {
                     tbx_00.IsEnabled = false;
-                    string kijelolt = lista.SelectedItem.ToString();
-                    string[] st = kijelolt.Split(';');
+                    string selected = datagrid.SelectedItem.ToString();
+                    string[] st = selected.Split(';');
                     lb_01.Content = "Header ";
                     lb_02.Content = "Description ";
                     tbx_01.Text = st[1];
                     tbx_02.Text = st[2];
                 }
-
-                else if (lista.SelectedItem is Question)
+                else if (datagrid.SelectedItem is Question)
                 {
                     tbx_00.IsEnabled = true;
-                    string kijelolt = lista.SelectedItem.ToString();
-                    string[] st = kijelolt.Split(';');
+                    string selected = datagrid.SelectedItem.ToString();
+                    string[] st = selected.Split(';');
                     lb_00.Content = "QuizId ";
                     lb_01.Content = "Content ";
                     lb_02.Content = "Point ";
@@ -613,12 +567,11 @@ namespace Projekt
                     tbx_01.Text = st[2];
                     tbx_02.Text = st[3];
                 }
-
-                else if (lista.SelectedItem is Answer)
+                else if (datagrid.SelectedItem is Answer)
                 {
                     tbx_00.IsEnabled = true;
-                    string kijelolt = lista.SelectedItem.ToString();
-                    string[] st = kijelolt.Split(';');
+                    string selected = datagrid.SelectedItem.ToString();
+                    string[] st = selected.Split(';');
                     lb_00.Content = "QuestionId ";
                     lb_01.Content = "Content ";
                     lb_02.Content = "IsRight ";
@@ -626,12 +579,11 @@ namespace Projekt
                     tbx_01.Text = st[2];
                     tbx_02.Text = st[3];
                 }
-
-                else if (lista.SelectedItem is User)
+                else if (datagrid.SelectedItem is User)
                 {
                     tbx_00.IsEnabled = true;
-                    string kijelolt = lista.SelectedItem.ToString();
-                    string[] st = kijelolt.Split(';');
+                    string selected = datagrid.SelectedItem.ToString();
+                    string[] st = selected.Split(';');
                     lb_00.Content = "UserId ";
                     lb_01.Content = "Name ";
                     lb_02.Content = "XP ";
@@ -639,12 +591,11 @@ namespace Projekt
                     tbx_01.Text = st[1];
                     tbx_02.Text = st[2];
                 }
-
-                else if (lista.SelectedItem is Admin)
+                else if (datagrid.SelectedItem is Admin)
                 {
                     tbx_00.IsEnabled = true;
-                    string kijelolt = lista.SelectedItem.ToString();
-                    string[] st = kijelolt.Split(';');
+                    string selected = datagrid.SelectedItem.ToString();
+                    string[] st = selected.Split(';');
                     lb_00.Content = "Id ";
                     lb_01.Content = "UserId";
                     lb_02.Content = "";
@@ -652,42 +603,36 @@ namespace Projekt
                     tbx_01.Text = st[1];
                 }
             }
-
-            }
+        }
 
         private void AdminPrivilege(object sender, RoutedEventArgs e)
         {
-            if (lista.SelectedIndex == -1)
+            if (datagrid.SelectedIndex == -1)
             {
-                MessageBox.Show("Nincsen kiválasztva elem a listából az admin jog hozzáadása előtt", "Nem sikerült admin jog hozzáadás", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No items are selected from the list before the admin operation!" , "Not succesful admin operation", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
-            {
-               
-                if (lista.SelectedItem is User)
+            {              
+                if (datagrid.SelectedItem is User)
                 {
-                    string kijelolt = lista.SelectedItem.ToString();
-                    string[] st = kijelolt.Split(';');
+                    string selected = datagrid.SelectedItem.ToString();
+                    string[] st = selected.Split(';');
                     int index = Convert.ToInt32(st[0]);
-                    AdminJogHozzaado(index);
-                    AdminListazas("http://127.0.0.1:8000/admin/admins");
+                    GrantAdminPrivilege(index);
+                    AdminListing("http://127.0.0.1:8000/admin/admins");
                 }
                 else
                 {
-                    string kijelolt = lista.SelectedItem.ToString();
-                    string[] st = kijelolt.Split(';');
+                    string selected = datagrid.SelectedItem.ToString();
+                    string[] st = selected.Split(';');
                     int index = Convert.ToInt32(st[1]);
-                    AdminJogElvetel(index);
-                    AdminListazas("http://127.0.0.1:8000/admin/admins");
-
+                    RevokeAdminPrivilege(index);
+                    AdminListing("http://127.0.0.1:8000/admin/admins");
                 }
-
-            }
-                
-  
+            }               
         }
 
-        private async Task AdminJogHozzaado(int id)
+        private async Task GrantAdminPrivilege(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
@@ -699,13 +644,13 @@ namespace Projekt
             tbl_status.Text = response.ToString();
         }
 
-        private async Task AdminJogElvetel(int id)
+        private async Task RevokeAdminPrivilege(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             //string url = "http://quizion.hu/admin/users";
-            string content = "Not admin privilege";
+            string content = "Revoke admin privilege";
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync($"admin/users/revoke/{id}", stringContent);
             tbl_status.Text = response.ToString();
