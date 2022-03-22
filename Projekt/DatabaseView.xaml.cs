@@ -689,8 +689,6 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");*/
             var response = await client.PostAsync($"admin/users/revoke/{id}",new StringContent("")/* stringContent*/);
             tbl_status.Text = response.ToString();
-            Console.WriteLine(id);
-            Console.WriteLine(client.DefaultRequestHeaders);
         }
 
         private void EmptyInputs()
