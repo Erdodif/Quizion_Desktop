@@ -683,10 +683,11 @@ namespace Projekt
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             //string url = "http://quizion.hu/admin/users";
-            string content = "Revoke admin privilege";
-            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync($"admin/users/revoke/{id}", stringContent);
+            /*string content = "Revoke admin privilege";
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");*/
+            var response = await client.PostAsync($"admin/users/revoke/{id}",new StringContent("")/* stringContent*/);
             tbl_status.Text = response.ToString();
+            Console.WriteLine(id);
             Console.WriteLine(client.DefaultRequestHeaders);
         }
 

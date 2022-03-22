@@ -9,20 +9,20 @@ namespace Projekt
     class Admin
     {
         private int id;
-        private int userId;
+        private int user_id;
 
-        public Admin(int id, int userId)
+        public Admin(int id, int user_id)
         {
             this.id = id;
-            this.userId = userId;
+            this.user_id = user_id;
         }
 
         public int Id { get => id; set => id = value; }
-        public int UserId { get => userId; set => userId = value; }
+        public int User_id { get => user_id; set => user_id = value; }
 
         public override string ToString()
         {
-            return $"{id};{userId}";
+            return $"{id};{User_id}";
         }
     }
 }
