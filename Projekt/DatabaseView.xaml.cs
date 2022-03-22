@@ -93,32 +93,53 @@ namespace Projekt
 
         private async Task AnswerListing(string url)
         {
-            datagrid.Columns.Clear();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            string reply = await client.GetStringAsync(url);
-            List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(reply);
-            datagrid.ItemsSource = answer;
+            try
+            {
+                datagrid.Columns.Clear();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                string reply = await client.GetStringAsync(url);
+                List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(reply);
+                datagrid.ItemsSource = answer;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }           
         }
 
         private async Task UserListing(string url)
         {
-            datagrid.Columns.Clear();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            string reply = await client.GetStringAsync(url);
-            List<User> user = JsonConvert.DeserializeObject<List<User>>(reply);
-            datagrid.ItemsSource = user;
-            btn_create.Visibility = Visibility.Hidden;
+            try
+            {
+                datagrid.Columns.Clear();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                string reply = await client.GetStringAsync(url);
+                List<User> user = JsonConvert.DeserializeObject<List<User>>(reply);
+                datagrid.ItemsSource = user;
+                btn_create.Visibility = Visibility.Hidden;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }           
         }
 
         
         private async Task AdminListing(string url)
         {
-            datagrid.Columns.Clear();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            string reply = await client.GetStringAsync(url);
-            List<Admin> admin = JsonConvert.DeserializeObject<List<Admin>>(reply);
-            datagrid.ItemsSource = admin;
-            btn_create.Visibility = Visibility.Hidden;
+            try
+            {
+                datagrid.Columns.Clear();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                string reply = await client.GetStringAsync(url);
+                List<Admin> admin = JsonConvert.DeserializeObject<List<Admin>>(reply);
+                datagrid.ItemsSource = admin;
+                btn_create.Visibility = Visibility.Hidden;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }           
         }
         
 
@@ -173,7 +194,7 @@ namespace Projekt
         {
             if (datagrid.SelectedIndex == -1)
             {
-                MessageBox.Show("Nincsen kiválasztva elem a listából a módosítás előtt", "Érvénytelen módosítás", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No items are selected from the list before the update!", "Invalid update", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
             else
@@ -181,7 +202,7 @@ namespace Projekt
                 string selected = datagrid.SelectedItem.ToString();
                 string[] st = selected.Split(';');
                 int index = Convert.ToInt32(st[0]);
-                MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy módosítani szeretnéd az alábbi elemet: {datagrid.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show($"Are you sure to update this item: {datagrid.SelectedItem} ", "Warning", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
                     if (datagrid.SelectedItem is Quiz)
@@ -189,11 +210,11 @@ namespace Projekt
                         tbx_00.IsEnabled = false;
                         if (tbx_01.Text.Length < 3)
                         {
-                            tbl_status.Text = "Nem megfelelő karakter hosszúságú a Quiz headerje!";
+                            tbl_status.Text = "The header of Quiz is not correct character length!";
                         }
                         else if (tbx_02.Text.Length < 4)
                         {
-                            tbl_status.Text = "Nem megfelelő karakter hosszúságú a Quiz descriptionje!";
+                            tbl_status.Text = "The description of Quiz is not correct character length!";
                         }
                         else
                         {
@@ -208,7 +229,7 @@ namespace Projekt
                         tbx_00.IsEnabled = true;
                         if (tbx_01.Text.Length < 3)
                         {
-                            tbl_status.Text = "Nem megfelelő karakter hosszúságú a Question contente!";
+                            tbl_status.Text = "The content of Question is not correct character length!";
                         }
                         else
                         {
@@ -223,7 +244,7 @@ namespace Projekt
                         tbx_00.IsEnabled = true;
                         if (tbx_01.Text.Length < 3)
                         {
-                            tbl_status.Text = "Nem megfelelő karakter hosszúságú az Answer contente!";
+                            tbl_status.Text = "The content of Answer is not correct character length!";
                         }
                         else
                         {
@@ -239,7 +260,7 @@ namespace Projekt
                         tbx_00.IsEnabled = true;
                         if (tbx_01.Text.Length < 3)
                         {
-                            tbl_status.Text = "Nem megfelelő karakter hosszúságú a User neve!";
+                            tbl_status.Text = "The name of User is not correct character length!";
                         }
                         else
                         {
@@ -251,7 +272,7 @@ namespace Projekt
                     }
                     else
                     {
-                        tbl_status.Text = "Hiba, nem sikerült a módosítást végrehajtani!";
+                        tbl_status.Text = "Error, the implementation of update is not successful!";
                     }
                 }
                 else
@@ -328,14 +349,14 @@ namespace Projekt
         {
             if (datagrid.SelectedIndex == -1)
             {
-                MessageBox.Show("Nincsen kiválasztva elem a listából a törlés előtt", "Érvénytelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No items are selected from the list before the delete!", "Invalid delete", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
                 string selected = datagrid.SelectedItem.ToString();
                 string[] st = selected.Split(';');
                 int index = Convert.ToInt32(st[0]);
-                MessageBoxResult result = MessageBox.Show($"Biztos vagy benne, hogy törölni szeretnéd az alábbi elemet: {datagrid.SelectedItem} ", "Figyelmeztetés", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show($"Are you sure to delete this item: {datagrid.SelectedItem} ", "Warning", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
                     if (datagrid.SelectedItem is Quiz)
@@ -354,23 +375,23 @@ namespace Projekt
                     }
                     else if (datagrid.SelectedItem is Answer)
                     {
-                        ValaszTorlese(index);
+                        DeleteAnswer(index);
                         EmptyInputs();
                         AnswerListing("http://127.0.0.1:8000/admin/answers");
                         //AnswerListing("http://quizion.hu/admin/answers");
                     }
                     else if (datagrid.SelectedItem is User)
                     {
-                        UserTorlese(index);
+                        DeleteUser(index);
                         EmptyInputs();
                         UserListing("http://127.0.0.1:8000/admin/users");
                         //UserListing("http://quizion.hu/admin/users");
                     }
                     else
                     {
-                        tbl_status.Text = "Hiba, nem sikerült a törlést végrehajtani!";
+                        tbl_status.Text = "Error, the implementation of delete is not successful!";
                     }
-                    MessageBox.Show("A kiválasztott elem sikeresen törölve", "Sikeres törlés a listából", MessageBoxButton.OK, MessageBoxImage.Question);
+                    MessageBox.Show("The delete of selected item is successful!", "Successful delete", MessageBoxButton.OK, MessageBoxImage.Question);
                 }
                 else
                 {
@@ -400,7 +421,7 @@ namespace Projekt
             tbl_status.Text = response.ToString();
         }
 
-        private async Task ValaszTorlese(int id)
+        private async Task DeleteAnswer(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
@@ -410,7 +431,7 @@ namespace Projekt
             tbl_status.Text = response.ToString();
         }
 
-        private async Task UserTorlese(int id)
+        private async Task DeleteUser(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
@@ -420,7 +441,7 @@ namespace Projekt
             tbl_status.Text = response.ToString();
         }
 
-        private async Task KvizHozzaadasa()
+        private async Task InsertQuiz()
         {
             client = new HttpClient();
             string url = "/admin/quizzes/";
@@ -475,15 +496,15 @@ namespace Projekt
             {
                 if (tbx_01.Text.Length < 3)
                 {
-                    tbl_status.Text = "Nem megfelelő karakter hosszúságú a Quiz headerje!";
+                    tbl_status.Text = "The header of Quiz is not correct character length!";
                 }
                 else if (tbx_02.Text.Length < 4)
                 {
-                    tbl_status.Text = "Nem megfelelő karakter hosszúságú a Quiz descriptionje!";
+                    tbl_status.Text = "The description of Quz is not correct character length!";
                 }
                 else
                 {
-                    KvizHozzaadasa();
+                    InsertQuiz();
                     EmptyInputs();
                     QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
                     //QuizListing("http://quizion.hu/admin/quizzes/all");
@@ -494,7 +515,7 @@ namespace Projekt
             {
                 if (tbx_01.Text.Length < 3)
                 {
-                    tbl_status.Text = "Nem megfelelő karakter hosszúságú a Question contente!";
+                    tbl_status.Text = "The content of Question is not correct character length!";
                 }
                 else
                 {
@@ -509,7 +530,7 @@ namespace Projekt
             {
                 if (tbx_01.Text.Length < 3)
                 {
-                    tbl_status.Text = "Nem megfelelő karakter hosszúságú az Answer contente!";
+                    tbl_status.Text = " The content of Answer is not correct character length!";
                 }
                 else
                 {
@@ -521,7 +542,7 @@ namespace Projekt
             }
             else
             {
-                tbl_status.Text = "Hiba, nem sikerült a hozzáadást végrehajtani!";
+                tbl_status.Text = "Error, the implementation of addition is not successful";
             }
         }
 
