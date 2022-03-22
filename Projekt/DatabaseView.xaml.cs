@@ -211,10 +211,12 @@ namespace Projekt
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "The header of Quiz is not correct character length!";
+                            RedErrorMessage();
                         }
                         else if (tbx_02.Text.Length < 4)
                         {
                             tbl_status.Text = "The description of Quiz is not correct character length!";
+                            RedErrorMessage();
                         }
                         else
                         {
@@ -230,6 +232,7 @@ namespace Projekt
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "The content of Question is not correct character length!";
+                            RedErrorMessage();
                         }
                         else
                         {
@@ -245,6 +248,7 @@ namespace Projekt
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "The content of Answer is not correct character length!";
+                            RedErrorMessage();
                         }
                         else
                         {
@@ -261,6 +265,7 @@ namespace Projekt
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "The name of User is not correct character length!";
+                            RedErrorMessage();
                         }
                         else
                         {
@@ -273,6 +278,7 @@ namespace Projekt
                     else
                     {
                         tbl_status.Text = "Error, the implementation of update is not successful!";
+                        RedErrorMessage();
                     }
                 }
                 else
@@ -390,6 +396,7 @@ namespace Projekt
                     else
                     {
                         tbl_status.Text = "Error, the implementation of delete is not successful!";
+                        RedErrorMessage();
                     }
                     MessageBox.Show("The delete of selected item is successful!", "Successful delete", MessageBoxButton.OK, MessageBoxImage.Question);
                 }
@@ -497,10 +504,12 @@ namespace Projekt
                 if (tbx_01.Text.Length < 3)
                 {
                     tbl_status.Text = "The header of Quiz is not correct character length!";
+                    RedErrorMessage();
                 }
                 else if (tbx_02.Text.Length < 4)
                 {
                     tbl_status.Text = "The description of Quz is not correct character length!";
+                    RedErrorMessage();
                 }
                 else
                 {
@@ -516,6 +525,7 @@ namespace Projekt
                 if (tbx_01.Text.Length < 3)
                 {
                     tbl_status.Text = "The content of Question is not correct character length!";
+                    RedErrorMessage();
                 }
                 else
                 {
@@ -531,6 +541,7 @@ namespace Projekt
                 if (tbx_01.Text.Length < 3)
                 {
                     tbl_status.Text = " The content of Answer is not correct character length!";
+                    RedErrorMessage();
                 }
                 else
                 {
@@ -543,6 +554,7 @@ namespace Projekt
             else
             {
                 tbl_status.Text = "Error, the implementation of addition is not successful";
+                RedErrorMessage();
             }
         }
 
@@ -683,6 +695,11 @@ namespace Projekt
             tbx_00.Text = "";
             tbx_01.Text = "";
             tbx_02.Text = "";
+        }
+
+        private void RedErrorMessage()
+        {
+            tbl_status.Foreground = quizionColors.Warning;
         }
     }
 }
