@@ -47,19 +47,19 @@ namespace Projekt
             if (response.StatusCode == HttpStatusCode.Created)
             {
                 token = response.Content.ReadAsStringAsync().Result;
-                string[] segedBonto = token.Split(',');
-                string[] masikSegedBonto = segedBonto[1].Split(':');
-                string atadoToken = masikSegedBonto[1].Replace("\"", "");
-                DatabaseView adatbazisNezet = new DatabaseView();
+                string[] helperSplit = token.Split(',');
+                string[] otherHelperSplit = helperSplit[1].Split(':');
+                string givenToken = otherHelperSplit[1].Replace("\"", "");
+                DatabaseView databaseView = new DatabaseView();
                 this.Visibility = Visibility.Hidden;
                 this.Close();
-                adatbazisNezet.Token = atadoToken;
-                adatbazisNezet.Show();
+                databaseView.Token = givenToken;
+                databaseView.Show();
             }
             else
             {
-                string hiba = Convert.ToString(response.Content.ReadAsStringAsync().Result);
-                tbl_message.Text = hiba.Replace(hiba, "Invalid userID or password!");
+                string error = Convert.ToString(response.Content.ReadAsStringAsync().Result);
+                tbl_message.Text = error.Replace(error, "Invalid userID or password!");
                 tbl_message.Foreground = quizionColors.Warning;
                 btn_login.IsEnabled = true;
             }
@@ -71,8 +71,6 @@ namespace Projekt
             System.Threading.Thread.Sleep(2000);
             btn_login.IsEnabled = false;
             btn_login.Background = quizionColors.OnPrimary;
-        }
-
-        
+        }       
     }
 }
