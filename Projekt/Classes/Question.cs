@@ -11,36 +11,26 @@ namespace Projekt
     class Question
     {
         private int id;
-        private int quizId;
+        private int quiz_id;
         private string content;
         private int point;
 
-        public int Id { get => id; set => id = value; }
-        public int QuizId { get => quizId; set => quizId = value; }
-        public string Content { get => content; set => content = value; }
-       
-        public int Point { get => point; set => point = value; }
-       
-
-        public Question(int id, int quizId, string content, int point)
+        public Question(int id, int quiz_id, string content, int point)
         {
             this.id = id;
-            this.quizId = quizId;
+            this.quiz_id = quiz_id;
             this.content = content;
             this.point = point;
         }
 
-        /*public Question(string q)
-        {
-            JsonSerializer.Create();
-            JObject tartalom = JObject.Parse(q);
-            IList<JToken> results = tartalom["data"].Children().ToList();
-        }
-        */
+        public int Id { get => id; set => id = value; }
+        public int Quiz_id { get => quiz_id; set => quiz_id = value; }
+        public string Content { get => content; set => content = value; }
+        public int Point { get => point; set => point = value; }
 
         public override string ToString()
         {
-            return $"{id};{quizId};{content};{point}";
+            return $"{id};{Quiz_id};{content};{point}";
         }
     }
 }
