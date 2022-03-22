@@ -22,7 +22,7 @@ namespace Projekt
 
         public override string ToString()
         {
-            return $"{id};{User_id}";
+            return $"{id};{user_id}";
         }
     }
 }
