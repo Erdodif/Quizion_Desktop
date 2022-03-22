@@ -11,27 +11,26 @@ namespace Projekt
     class Answer
     {
         private int id;
-        private int questionId;
+        private int question_id;
         private string content;
-        private bool isRight;
+        private bool is_right;
 
-        public int Id { get => id; set => id = value; }
-        public int QuestionId { get => questionId; set => questionId = value; }
-        public string Content { get => content; set => content = value; }
-        public bool IsRight { get => isRight; set => isRight = value; }
-
-
-        public Answer(int id, int questionId, string content, bool isRight)
+        public Answer(int id, int question_id, string content, bool is_right)
         {
             this.id = id;
-            this.questionId = questionId;
+            this.question_id = question_id;
             this.content = content;
-            this.isRight = isRight;
+            this.is_right = is_right;
         }
+
+        public int Id { get => id; set => id = value; }
+        public int Question_id { get => question_id; set => question_id = value; }
+        public string Content { get => content; set => content = value; }
+        public bool Is_right { get => is_right; set => is_right = value; }
 
         public override string ToString()
         {
-            return $"{id};{questionId};{content,25};{isRight}";
+            return $"{id};{question_id};{content,25};{is_right}";
         }
     }
 }
