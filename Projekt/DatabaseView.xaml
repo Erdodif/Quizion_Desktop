@@ -13,7 +13,7 @@
                 <ColumnDefinition Width="170*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
-                <Image Source="fejlec.png" Margin="-212,-166,-188.6,468" Height="235"/>
+                <Image Source="kicsi_felso_fejlec (1).png" Margin="-201,-178,-199.6,480" Height="235"/>
                 <Image Source="quizion_logo.png" Margin="-47,-40.075,0,446.581" UseLayoutRounding="False" HorizontalAlignment="Left" Width="135" />
                 <Button Content="Update"  Style="{StaticResource MontserratFont}"  HorizontalAlignment="Left" Margin="-47,469,0,0" VerticalAlignment="Top" Width="192" Click="UpdateClick" FontSize="20" Height="50" BorderThickness="2" FontWeight="Bold">
                 </Button>
@@ -47,7 +47,7 @@
                     <ScrollViewer Height="210" Margin="10,44,10,0" VerticalAlignment="Top" Grid.Row="1">
                         <!-- <ListBox x:Name="lista" Style="{StaticResource MontserratFont}"   HorizontalAlignment="Left" VerticalAlignment="Top" Width="437" Height="200" RenderTransformOrigin="0.5,0.5" Grid.Column="0" Grid.Row="1" SelectionChanged="lista_SelectionChanged" />
                        -->
-                        <DataGrid x:Name="datagrid" ItemsSource="{Binding}" Style="{StaticResource MontserratFont}"  FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="480" Height="210" RenderTransformOrigin="0.5,0.5" Grid.Column="0" Grid.Row="1" SelectionChanged="datagrid_SelectionChanged" >
+                        <DataGrid x:Name="datagrid" ItemsSource="{Binding}" Style="{StaticResource MontserratFont}"  FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="494" Height="210" RenderTransformOrigin="0.5,0.5" Grid.Column="0" Grid.Row="1" SelectionChanged="datagrid_SelectionChanged" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn>
                                     <DataGridTextColumn.ElementStyle>
@@ -62,7 +62,7 @@
 
                     </ScrollViewer>
 
-                    <TextBlock x:Name="tbl_status" HorizontalAlignment="Left" Margin="357,0,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="-0.918,0" Height="61" Width="163"/>
+                    <TextBlock x:Name="tbl_status" HorizontalAlignment="Left" Margin="298,0,0,0" Grid.Row="2" TextWrapping="Wrap" FontSize="14"  VerticalAlignment="Top" RenderTransformOrigin="-0.918,0" Height="56" Width="189"/>
                     <TextBox x:Name="tbx_01"  TextWrapping="Wrap" Grid.Column="1" Margin="249,77,22,185" Grid.Row="1" MaxWidth="205" MaxHeight="43" RenderTransformOrigin="0.505,0.51" FontSize="14">
                     </TextBox>
                     <TextBox x:Name="tbx_02"  TextWrapping="Wrap" Grid.Column="1" Margin="249,139,22,123" Grid.Row="1" MaxWidth="205" MaxHeight="43" FontSize="14"/>
