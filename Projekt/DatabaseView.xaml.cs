@@ -151,6 +151,10 @@ namespace Projekt
             EmptyInputs();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
+            tbx_00.IsEnabled = false;
+            lb_00.Content = "";
+            lb_01.Content = "Header ";
+            lb_02.Content = "Description ";
         }
 
         private void QuestionClick(object sender, RoutedEventArgs e)
@@ -160,6 +164,10 @@ namespace Projekt
             EmptyInputs();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
+            TextBoxEnabled();
+            lb_00.Content = "QuizId ";
+            lb_01.Content = "Content ";
+            lb_02.Content = "Point ";
 
         }
 
@@ -170,6 +178,10 @@ namespace Projekt
             EmptyInputs();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
+            TextBoxEnabled();
+            lb_00.Content = "QuestionId ";
+            lb_01.Content = "Content ";
+            lb_02.Content = "IsRight ";
         }
 
         private void AdminClick(object sender, RoutedEventArgs e)
@@ -179,6 +191,9 @@ namespace Projekt
             EmptyInputs();
             btn_adminPrivilege.Visibility = Visibility.Visible;
             btn_adminPrivilege.Content = "Remove privilege";
+            TextBoxEnabled();
+            lb_00.Content = "Id ";
+            lb_01.Content = "UserId";
         }
 
         private void UserClick(object sender, RoutedEventArgs e)
@@ -188,6 +203,10 @@ namespace Projekt
             EmptyInputs();
             btn_adminPrivilege.Content = "Admin privilege";
             btn_adminPrivilege.Visibility = Visibility.Visible;
+            TextBoxEnabled();
+            lb_00.Content = "UserId ";
+            lb_01.Content = "Name ";
+            lb_02.Content = "XP ";
         }
 
         private void UpdateClick(object sender, RoutedEventArgs e)
@@ -228,7 +247,7 @@ namespace Projekt
                     }
                     else if (datagrid.SelectedItem is Question)
                     {
-                        tbx_00.IsEnabled = true;
+                        TextBoxEnabled();
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "The content of Question is not correct character length!";
@@ -244,7 +263,7 @@ namespace Projekt
                     }
                     else if (datagrid.SelectedItem is Answer)
                     {
-                        tbx_00.IsEnabled = true;
+                        TextBoxEnabled();
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "The content of Answer is not correct character length!";
@@ -261,7 +280,7 @@ namespace Projekt
 
                     else if (datagrid.SelectedItem is User)
                     {
-                        tbx_00.IsEnabled = true;
+                        TextBoxEnabled();
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "The name of User is not correct character length!";
@@ -566,11 +585,11 @@ namespace Projekt
             }
             else if (cbx.SelectedItem == cbx_question)
             {
-                tbx_00.IsEnabled = true;  
+                TextBoxEnabled();
             }
             else if (cbx.SelectedItem == cbx_answer)
             {
-                tbx_00.IsEnabled = true;
+                TextBoxEnabled();
             }
         }
 
@@ -590,7 +609,7 @@ namespace Projekt
                 }
                 else if (datagrid.SelectedItem is Question)
                 {
-                    tbx_00.IsEnabled = true;
+                    TextBoxEnabled();
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
                     lb_00.Content = "QuizId ";
@@ -602,7 +621,7 @@ namespace Projekt
                 }
                 else if (datagrid.SelectedItem is Answer)
                 {
-                    tbx_00.IsEnabled = true;
+                    TextBoxEnabled();
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
                     lb_00.Content = "QuestionId ";
@@ -614,7 +633,7 @@ namespace Projekt
                 }
                 else if (datagrid.SelectedItem is User)
                 {
-                    tbx_00.IsEnabled = true;
+                    TextBoxEnabled();
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
                     lb_00.Content = "UserId ";
@@ -626,7 +645,7 @@ namespace Projekt
                 }
                 else if (datagrid.SelectedItem is Admin)
                 {
-                    tbx_00.IsEnabled = true;
+                    TextBoxEnabled();
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
                     lb_00.Content = "Id ";
@@ -701,6 +720,11 @@ namespace Projekt
         private void RedErrorMessage()
         {
             tbl_status.Foreground = quizionColors.Warning;
+        }
+
+        private void TextBoxEnabled()
+        {
+            tbx_00.IsEnabled = true;
         }
     }
 }
