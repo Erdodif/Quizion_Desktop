@@ -652,6 +652,7 @@ namespace Projekt
                     string[] st = selected.Split(';');
                     int index = Convert.ToInt32(st[0]);
                     GrantAdminPrivilege(index);
+                    EmptyInputs();
                     AdminListing("http://127.0.0.1:8000/admin/admins");
                 }
                 else
@@ -660,6 +661,7 @@ namespace Projekt
                     string[] st = selected.Split(';');
                     int index = Convert.ToInt32(st[1]);
                     RevokeAdminPrivilege(index);
+                    EmptyInputs();
                     AdminListing("http://127.0.0.1:8000/admin/admins");
                 }
             }               
