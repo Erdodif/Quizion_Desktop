@@ -149,6 +149,8 @@ namespace Projekt
             //QuizListing("http://quizion.hu/admin/quizzes/all");
             QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
             EmptyInputs();
+            UpdateDeleteButtonVisibled();
+            ComboBoxEnable();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
             tbx_00.IsEnabled = false;
@@ -162,6 +164,8 @@ namespace Projekt
             //QuestionListing("http://quizion.hu/admin/questions");
             QuestionListing("http://127.0.0.1:8000/admin/questions");
             EmptyInputs();
+            UpdateDeleteButtonVisibled();
+            ComboBoxEnable();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
             TextBoxEnabled();
@@ -176,6 +180,8 @@ namespace Projekt
             //AnswerListing("http://quizion.hu/admin/answers");
             AnswerListing("http://127.0.0.1:8000/admin/answers");
             EmptyInputs();
+            UpdateDeleteButtonVisibled();
+            ComboBoxEnable();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
             TextBoxEnabled();
@@ -189,6 +195,9 @@ namespace Projekt
             AdminListing("http://127.0.0.1:8000/admin/admins");
             //AdminListing("http://quizion.hu/admin/admins");
             EmptyInputs();
+            btn_update.Visibility = Visibility.Hidden;
+            btn_delete.Visibility = Visibility.Hidden;
+            cbx.IsEnabled = false;
             btn_adminPrivilege.Visibility = Visibility.Visible;
             btn_adminPrivilege.Content = "Remove privilege";
             TextBoxEnabled();
@@ -201,6 +210,8 @@ namespace Projekt
             //UserListing("http://quizion.hu/admin/users");
             UserListing("http://127.0.0.1:8000/admin/users");
             EmptyInputs();
+            UpdateDeleteButtonVisibled();
+            cbx.IsEnabled = false;
             btn_adminPrivilege.Content = "Admin privilege";
             btn_adminPrivilege.Visibility = Visibility.Visible;
             TextBoxEnabled();
@@ -722,9 +733,20 @@ namespace Projekt
             tbl_status.Foreground = quizionColors.Warning;
         }
 
+        private void ComboBoxEnable()
+        {
+            cbx.IsEnabled = true;
+        }
+
         private void TextBoxEnabled()
         {
             tbx_00.IsEnabled = true;
+        }
+
+        private void UpdateDeleteButtonVisibled()
+        {
+            btn_update.Visibility = Visibility.Visible;
+            btn_delete.Visibility = Visibility.Visible;
         }
     }
 }

@@ -15,7 +15,7 @@
             <Grid Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
                 <Image Source="kicsi_felso_fejlec (1).png" Margin="-201,-178,-199.6,480" Height="235"/>
                 <Image Source="quizion_logo.png" Margin="-47,-40.075,0,446.581" UseLayoutRounding="False" HorizontalAlignment="Left" Width="135" />
-                <Button Content="Update"  Style="{StaticResource MontserratFont}"  HorizontalAlignment="Left" Margin="-47,469,0,0" VerticalAlignment="Top" Width="192" Click="UpdateClick" FontSize="20" Height="50" BorderThickness="2" FontWeight="Bold">
+                <Button x:Name="btn_update" Content="Update"  Style="{StaticResource MontserratFont}"  HorizontalAlignment="Left" Margin="-47,469,0,0" VerticalAlignment="Top" Width="192" Click="UpdateClick" FontSize="20" Height="50" BorderThickness="2" FontWeight="Bold">
                 </Button>
                 <Button x:Name="btn_delete" Content="Delete"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="232,469,0,0" VerticalAlignment="Top" Width="192" RenderTransformOrigin="0.348,0.793" Click="Delete" FontSize="20" Height="50" BorderThickness="2" FontWeight="Bold"/>
                 <Button x:Name="btn_adminPrivilege" Content="Admin privilege" Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="684,469,-43.6,0" VerticalAlignment="Top" Width="242" Click="AdminPrivilege" FontSize="20" Height="50" BorderThickness="2" ClipToBounds="True" FontWeight="Bold"/>
