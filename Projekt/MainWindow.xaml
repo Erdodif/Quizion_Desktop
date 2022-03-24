@@ -34,8 +34,8 @@
             <Label x:Name="lbl_user" Style="{StaticResource MontserratFont}" Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center" FontSize="22" Content="Username:" FontWeight="Bold"/>
             <Button x:Name="btn_login" Style="{StaticResource MontserratFont}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" FontSize="22" Content="Login" FontWeight="Bold" Width="285" Height="50" BorderThickness="2" Click="btn_login_Click"/>
             <Label x:Name="lbl_password" Style="{StaticResource MontserratFont}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="22" Content="Password:" FontWeight="Bold"/>
-            <TextBox x:Name="tbx_name" Style="{StaticResource MontserratFont}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="14" VerticalContentAlignment="Center" Width="220" Height="38" TextWrapping="Wrap"/>
-            <PasswordBox x:Name="tbx_pass" Style="{StaticResource MontserratFont}" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="14" VerticalContentAlignment="Center" Width="220" Height="38"/>
+            <TextBox x:Name="tbx_name" Style="{StaticResource MontserratFont}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="14" VerticalContentAlignment="Center" Width="220" Height="38" Padding="4" TextWrapping="Wrap"/>
+            <PasswordBox x:Name="tbx_pass" Style="{StaticResource MontserratFont}" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="14" VerticalContentAlignment="Center" Width="220" Height="38" Padding="4"/>
             <TextBlock x:Name="tbl_message" Style="{StaticResource MontserratFont}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" FontSize="14" TextAlignment="Center" Width="468" Height="61" TextWrapping="Wrap"/>
         </Grid>
     </Grid>

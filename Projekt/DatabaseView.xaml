@@ -5,89 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
-        Title="Database view"  Height="500" Width="900" Background="#7985C1" MaxWidth="900" MaxHeight="500" MinWidth="900" MinHeight="500" >
-    <Viewbox Stretch="Uniform">
-        <Grid>
+        Title="Database view"  Height="500" Width="900" Background="#7985C1" MinWidth="900" MinHeight="500">
+    <Grid>
+        <Grid Height="50" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="690*"/>
-                <ColumnDefinition Width="170*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
-                <Image Source="kicsi_felso_fejlec (1).png" Margin="-201,-178,-199.6,480" Height="235"/>
-                <Image Source="quizion_logo.png" Margin="-47,-40.075,0,446.581" UseLayoutRounding="False" HorizontalAlignment="Left" Width="135" />
-                <Button x:Name="btn_update" Content="Update"  Style="{StaticResource MontserratFont}"  HorizontalAlignment="Left" Margin="-47,469,0,0" VerticalAlignment="Top" Width="192" Click="UpdateClick" FontSize="20" Height="50" BorderThickness="2" FontWeight="Bold">
-                </Button>
-                <Button x:Name="btn_delete" Content="Delete"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="232,469,0,0" VerticalAlignment="Top" Width="192" RenderTransformOrigin="0.348,0.793" Click="Delete" FontSize="20" Height="50" BorderThickness="2" FontWeight="Bold"/>
-                <Button x:Name="btn_adminPrivilege" Content="Admin privilege" Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="684,469,-43.6,0" VerticalAlignment="Top" Width="242" Click="AdminPrivilege" FontSize="20" Height="50" BorderThickness="2" ClipToBounds="True" FontWeight="Bold"/>
-                <Grid x:Name="grid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-63,13,-66.6,-4">
-
-
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="83"/>
-                        <RowDefinition Height="300"/>
-                        <RowDefinition Height="145"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="230*"/>
-                        <ColumnDefinition Width="200*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid HorizontalAlignment="Left" Height="46" Margin="10,79,0,0" VerticalAlignment="Top" Width="513" Grid.RowSpan="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="215*"/>
-                            <ColumnDefinition Width="298*"/>
-                        </Grid.ColumnDefinitions>
-                        <Button   x:Name="btn_quiz" Content="Quiz"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Background="{x:Null}" BorderThickness="2" Height="40" Click="QuizClick" FontSize="16" FontWeight="Bold" Foreground="Black" />
-                        <Button x:Name="btn_question" Content="Question"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Top" Width="95" Background="{x:Null}" RenderTransformOrigin="0.243,0.529" Height="40" Click="QuestionClick" FontSize="16" FontWeight="Bold" Foreground="Black" BorderThickness="2"/>
-                        <Button  x:Name="btn_answer" Content="Answer"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.442,-1.436" Background="{x:Null}" Height="40" Click="AnswerClick" FontSize="16" FontWeight="Bold" Foreground="Black" Grid.ColumnSpan="2" BorderThickness="2"/>
-                        <Button  x:Name="btn_user" Content="User"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="85,0,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.442,-1.436" Background="{x:Null}" Height="40" Click="UserClick" FontSize="16" FontWeight="Bold" Foreground="Black" Grid.Column="1" BorderThickness="2"/>
-                        <Button  x:Name="btn_admin" Content="Admin"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="185,0,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.442,-1.436" Background="{x:Null}" Height="40" Click="AdminClick" FontSize="16" FontWeight="Bold" Foreground="Black" Grid.Column="1" BorderThickness="2"/>
-                    </Grid>
-
-                    <ScrollViewer Height="210" Margin="10,44,10,0" VerticalAlignment="Top" Grid.Row="1">
-                        <!-- <ListBox x:Name="lista" Style="{StaticResource MontserratFont}"   HorizontalAlignment="Left" VerticalAlignment="Top" Width="437" Height="200" RenderTransformOrigin="0.5,0.5" Grid.Column="0" Grid.Row="1" SelectionChanged="lista_SelectionChanged" />
-                       -->
-                        <DataGrid x:Name="datagrid" ItemsSource="{Binding}" Style="{StaticResource MontserratFont}"  FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="494" Height="210" RenderTransformOrigin="0.5,0.5" Grid.Column="0" Grid.Row="1" SelectionChanged="datagrid_SelectionChanged" >
-                            <DataGrid.Columns>
-                                <DataGridTextColumn>
-                                    <DataGridTextColumn.ElementStyle>
-                                        <Style>
-                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
-                                        </Style>
-                                    </DataGridTextColumn.ElementStyle>
-                                </DataGridTextColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
-
-                    </ScrollViewer>
-
-                    <TextBlock x:Name="tbl_status" HorizontalAlignment="Left" Margin="298,0,0,0" Grid.Row="2" TextWrapping="Wrap" FontSize="14"  VerticalAlignment="Top" RenderTransformOrigin="-0.918,0" Height="56" Width="189"/>
-                    <TextBox x:Name="tbx_01"  TextWrapping="Wrap" Grid.Column="1" Margin="249,77,22,185" Grid.Row="1" MaxWidth="205" MaxHeight="43" RenderTransformOrigin="0.505,0.51" FontSize="14">
-                    </TextBox>
-                    <TextBox x:Name="tbx_02"  TextWrapping="Wrap" Grid.Column="1" Margin="249,139,22,123" Grid.Row="1" MaxWidth="205" MaxHeight="43" FontSize="14"/>
-                    <Button x:Name="btn_create" Content="Create"  Style="{StaticResource MontserratFont}" HorizontalAlignment="Left" Margin="249,204,0,0" VerticalAlignment="Top" Width="200" Click="CreateClick" FontSize="20" Grid.Row="1" Grid.Column="1" Height="50" BorderThickness="2" FontWeight="Bold">
-
-                    </Button>
-                    <TextBox x:Name="tbx_00"  TextWrapping="Wrap" Margin="249,23,121,247" Grid.Column="1" Grid.Row="1" Height="30" FontSize="14" />
-                    <Label x:Name="lb_00" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="163,27,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="14"/>
-                    <Label x:Name="lb_01" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="163,77,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="14"/>
-                    <Label x:Name="lb_02" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="163,124,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.458" FontSize="14"/>
-
-
-
-
-                </Grid>
-                <ComboBox x:Name="cbx" HorizontalAlignment="Left" Margin="836,119,-43.6,0" VerticalAlignment="Top" Width="90" SelectionChanged="cbx_SelectionChanged" Height="30">
-                    <ComboBoxItem x:Name="cbx_quiz" FontSize="14">Quiz</ComboBoxItem>
-                    <ComboBoxItem x:Name="cbx_question" FontSize="14">Question</ComboBoxItem>
-                    <ComboBoxItem x:Name="cbx_answer" FontSize="14">Answer</ComboBoxItem>
-                </ComboBox>
-
-
-            </Grid>
-
-
+            <Image Source="header.png"/>
         </Grid>
-    </Viewbox>
+        <Grid HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Image Source="quizion_logo.png" Grid.Row="0" Width="130" VerticalAlignment="Top" Margin="10,5,525,0" />
+            <Button x:Name="btn_quiz" Content="Quiz" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,565,0" Style="{StaticResource MontserratFont}" Width="95" Height="40" Background="{x:Null}" BorderThickness="2" Click="QuizClick" FontSize="16" FontWeight="Bold" Foreground="Black" />
+            <Button x:Name="btn_question" Content="Question" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,365,0" Style="{StaticResource MontserratFont}" Width="95" Height="40" Background="{x:Null}" BorderThickness="2" Click="QuestionClick" FontSize="16" FontWeight="Bold" Foreground="Black"/>
+            <Button  x:Name="btn_answer" Content="Answer" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,165,0" Style="{StaticResource MontserratFont}" Width="95" Height="40" Background="{x:Null}" BorderThickness="2" Click="AnswerClick" FontSize="16" FontWeight="Bold" Foreground="Black" />
+            <Button  x:Name="btn_user" Content="User" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,-35,0" Style="{StaticResource MontserratFont}" Width="95" Height="40" Background="{x:Null}" BorderThickness="2" Click="UserClick" FontSize="16" FontWeight="Bold" Foreground="Black" />
+            <Button  x:Name="btn_admin" Content="Admin" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,-235,0" Style="{StaticResource MontserratFont}" Width="95" Height="40" Background="{x:Null}" BorderThickness="2" Click="AdminClick" FontSize="16" FontWeight="Bold" Foreground="Black" />
+            <ScrollViewer  Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Margin="10,9.6,144.4,0" Height="210">
+                <DataGrid x:Name="datagrid" ItemsSource="{Binding}" Grid.Column="0" VerticalAlignment="Top" Style="{StaticResource MontserratFont}" Width="495" Height="210" FontSize="16" SelectionChanged="datagrid_SelectionChanged" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                    <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+            <TextBlock x:Name="tbl_status" Grid.Row="3" Grid.Column="0" VerticalAlignment="Bottom" Margin="150,0,0,0" Width="189" Height="56" TextWrapping="Wrap" FontSize="14"/>
+            <Button x:Name="btn_update" Grid.Row="4" Grid.Column="0" Content="Update" VerticalAlignment="Center" Style="{StaticResource MontserratFont}" Margin="10,25,467,0" Width="192" Height="50" FontSize="20" Click="UpdateClick" BorderThickness="2" FontWeight="Bold"/>
+            <Button x:Name="btn_delete" Content="Delete" Grid.Row="4" VerticalAlignment="Center" Style="{StaticResource MontserratFont}" Margin="243,25,0,0"  Width="192" Click="Delete" FontSize="20" Height="50" BorderThickness="2" FontWeight="Bold"/>
+            <Button x:Name="btn_adminPrivilege" Content="Admin privilege" Grid.Row="4"  Style="{StaticResource MontserratFont}"  Margin="0,25,0,0"  Width="205" Click="AdminPrivilege" FontSize="20" Height="50" BorderThickness="2" ClipToBounds="True" FontWeight="Bold" Grid.Column="1"/>
+            <TextBox x:Name="tbx_01"  TextWrapping="Wrap" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" FontSize="14" Width="205" Height="40" >
+            </TextBox>
+            <TextBox x:Name="tbx_02"  TextWrapping="Wrap" Grid.Column="1" VerticalAlignment="Bottom" Grid.Row="2" Width="205" Height="40" FontSize="14"/>
+            <Button x:Name="btn_create" Content="Create"  Style="{StaticResource MontserratFont}" VerticalAlignment="Center" Width="205" Click="CreateClick" FontSize="20" Grid.Row="3" Grid.Column="1" Height="50" BorderThickness="2" FontWeight="Bold">
+            </Button>
+            <TextBox x:Name="tbx_00" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="10,45,118,18" FontSize="14" Height="30" />
+            <Label x:Name="lb_00" Content=""  Grid.Row="1" Grid.Column="0" Margin="560,47,0,0" Height="30" Width="90" VerticalAlignment="Top" FontSize="14"/>
+            <Label x:Name="lb_01" Content="" Margin="560,93,0,0" MaxWidth="90" Grid.Row="1" Height="30" Grid.Column="0" VerticalAlignment="Top" FontSize="14" Grid.RowSpan="2"/>
+            <Label x:Name="lb_02" Content="" Margin="560,56,0,0" Width="90" Grid.Row="2" Height="30" VerticalAlignment="Top" FontSize="14"/>
+            <ComboBox x:Name="cbx" Margin="124,28,10,0" VerticalAlignment="Center" Width="90" SelectionChanged="cbx_SelectionChanged" Height="30" Grid.Column="1" Grid.Row="1">
+                <ComboBoxItem x:Name="cbx_quiz" FontSize="14">Quiz</ComboBoxItem>
+                <ComboBoxItem x:Name="cbx_question" FontSize="14">Question</ComboBoxItem>
+                <ComboBoxItem x:Name="cbx_answer" FontSize="14">Answer</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+    </Grid>
 </Window>
