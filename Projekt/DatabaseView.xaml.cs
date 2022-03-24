@@ -150,10 +150,10 @@ namespace Projekt
             QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
-            ComboBoxEnable();
+            ComboBoxVisible();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
-            tbx_00.IsEnabled = false;
+            tbx_00.Visibility = Visibility.Hidden;
             lb_00.Content = "";
             lb_01.Content = "Header ";
             lb_02.Content = "Description ";
@@ -165,10 +165,10 @@ namespace Projekt
             QuestionListing("http://127.0.0.1:8000/admin/questions");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
-            ComboBoxEnable();
+            ComboBoxVisible();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
-            TextBoxEnabled();
+            TextBoxVisibled();
             lb_00.Content = "QuizId ";
             lb_01.Content = "Content ";
             lb_02.Content = "Point ";
@@ -181,10 +181,10 @@ namespace Projekt
             AnswerListing("http://127.0.0.1:8000/admin/answers");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
-            ComboBoxEnable();
+            ComboBoxVisible();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
-            TextBoxEnabled();
+            TextBoxVisibled();
             lb_00.Content = "QuestionId ";
             lb_01.Content = "Content ";
             lb_02.Content = "IsRight ";
@@ -197,10 +197,10 @@ namespace Projekt
             EmptyInputs();
             btn_update.Visibility = Visibility.Hidden;
             btn_delete.Visibility = Visibility.Hidden;
-            cbx.IsEnabled = false;
+            cbx.Visibility = Visibility.Hidden;
             btn_adminPrivilege.Visibility = Visibility.Visible;
             btn_adminPrivilege.Content = "Remove privilege";
-            tbx_00.IsEnabled = false;
+            tbx_00.Visibility = Visibility.Hidden;
             lb_00.Content = "";
             lb_01.Content = "Id ";
             lb_02.Content = "UserId";
@@ -212,10 +212,10 @@ namespace Projekt
             UserListing("http://127.0.0.1:8000/admin/users");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
-            cbx.IsEnabled = false;
+            cbx.Visibility = Visibility.Hidden;
             btn_adminPrivilege.Content = "Admin privilege";
             btn_adminPrivilege.Visibility = Visibility.Visible;
-            TextBoxEnabled();
+            TextBoxVisibled();
             lb_00.Content = "UserId ";
             lb_01.Content = "Name ";
             lb_02.Content = "XP ";
@@ -238,7 +238,7 @@ namespace Projekt
                 {
                     if (datagrid.SelectedItem is Quiz)
                     {
-                        tbx_00.IsEnabled = false;
+                        tbx_00.Visibility = Visibility.Hidden;
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "The header of Quiz is not correct character length!";
@@ -259,7 +259,7 @@ namespace Projekt
                     }
                     else if (datagrid.SelectedItem is Question)
                     {
-                        TextBoxEnabled();
+                        TextBoxVisibled();
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "The content of Question is not correct character length!";
@@ -275,7 +275,7 @@ namespace Projekt
                     }
                     else if (datagrid.SelectedItem is Answer)
                     {
-                        TextBoxEnabled();
+                        TextBoxVisibled();
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "The content of Answer is not correct character length!";
@@ -292,7 +292,7 @@ namespace Projekt
 
                     else if (datagrid.SelectedItem is User)
                     {
-                        TextBoxEnabled();
+                        TextBoxVisibled();
                         if (tbx_01.Text.Length < 3)
                         {
                             tbl_status.Text = "The name of User is not correct character length!";
@@ -593,15 +593,15 @@ namespace Projekt
         {
             if (cbx.SelectedItem == cbx_quiz)
             {
-                tbx_00.IsEnabled = false;
+                tbx_00.Visibility = Visibility.Hidden;
             }
             else if (cbx.SelectedItem == cbx_question)
             {
-                TextBoxEnabled();
+                TextBoxVisibled();
             }
             else if (cbx.SelectedItem == cbx_answer)
             {
-                TextBoxEnabled();
+                TextBoxVisibled();
             }
         }
 
@@ -611,7 +611,7 @@ namespace Projekt
             {
                 if (datagrid.SelectedItem is Quiz)
                 {
-                    tbx_00.IsEnabled = false;
+                    tbx_00.Visibility = Visibility.Hidden;
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
                     lb_01.Content = "Header ";
@@ -621,7 +621,7 @@ namespace Projekt
                 }
                 else if (datagrid.SelectedItem is Question)
                 {
-                    TextBoxEnabled();
+                    TextBoxVisibled();
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
                     lb_00.Content = "QuizId ";
@@ -633,7 +633,7 @@ namespace Projekt
                 }
                 else if (datagrid.SelectedItem is Answer)
                 {
-                    TextBoxEnabled();
+                    TextBoxVisibled();
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
                     lb_00.Content = "QuestionId ";
@@ -645,7 +645,7 @@ namespace Projekt
                 }
                 else if (datagrid.SelectedItem is User)
                 {
-                    TextBoxEnabled();
+                    TextBoxVisibled();
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
                     lb_00.Content = "UserId ";
@@ -657,7 +657,7 @@ namespace Projekt
                 }
                 else if (datagrid.SelectedItem is Admin)
                 {
-                    tbx_00.IsEnabled = false;
+                    tbx_00.Visibility = Visibility.Hidden;
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
                     lb_00.Content = "";
@@ -734,14 +734,14 @@ namespace Projekt
             tbl_status.Foreground = quizionColors.Warning;
         }
 
-        private void ComboBoxEnable()
+        private void ComboBoxVisible()
         {
-            cbx.IsEnabled = true;
+            cbx.Visibility = Visibility.Visible;
         }
 
-        private void TextBoxEnabled()
+        private void TextBoxVisibled()
         {
-            tbx_00.IsEnabled = true;
+            tbx_00.Visibility = Visibility.Visible;
         }
 
         private void UpdateDeleteButtonVisibled()

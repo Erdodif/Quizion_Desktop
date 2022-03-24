@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
-        Title="Login" Height="500" Width="900" Background="#7985C1">
+        Title="Login" Height="500" Width="900" Background="#7985C1" MinWidth="900" MinHeight="500" MaxWidth="900" MaxHeight="500">
     <Viewbox Stretch="Uniform">
     <Grid RenderTransformOrigin="0.485,0.501" Margin="0,0,-21.4,-30">
         <Grid.ColumnDefinitions>
