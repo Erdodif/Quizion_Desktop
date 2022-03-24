@@ -657,14 +657,14 @@ namespace Projekt
                 }
                 else if (datagrid.SelectedItem is Admin)
                 {
-                    TextBoxEnabled();
+                    tbx_00.IsEnabled = false;
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
-                    lb_00.Content = "Id ";
-                    lb_01.Content = "UserId";
-                    lb_02.Content = "";
-                    tbx_00.Text = st[0];
-                    tbx_01.Text = st[1];
+                    lb_00.Content = "";
+                    lb_01.Content = "Id";
+                    lb_02.Content = "UserId";
+                    tbx_01.Text = st[0];
+                    tbx_02.Text = st[1];
                 }
             }
         }
