@@ -200,9 +200,10 @@ namespace Projekt
             cbx.IsEnabled = false;
             btn_adminPrivilege.Visibility = Visibility.Visible;
             btn_adminPrivilege.Content = "Remove privilege";
-            TextBoxEnabled();
-            lb_00.Content = "Id ";
-            lb_01.Content = "UserId";
+            tbx_00.IsEnabled = false;
+            lb_00.Content = "";
+            lb_01.Content = "Id ";
+            lb_02.Content = "UserId";
         }
 
         private void UserClick(object sender, RoutedEventArgs e)
