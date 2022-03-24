@@ -29,9 +29,7 @@ namespace Projekt
         static ColorsOfQuizion quizionColors = new ColorsOfQuizion();
         static HttpClient client = new HttpClient();
         string token;
-
         public string Token { get => token; set => token = value; }
-
         private async Task LoginAsync()
         {
             client = new HttpClient();
