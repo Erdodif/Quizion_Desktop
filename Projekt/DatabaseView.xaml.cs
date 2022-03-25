@@ -150,13 +150,17 @@ namespace Projekt
             QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
-            ComboBoxVisible();
+            ComboBoxInvisible();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
             tbx_00.Visibility = Visibility.Hidden;
             lb_00.Content = "";
             lb_01.Content = "Header ";
             lb_02.Content = "Description ";
+            cbx_quiz.IsSelected = true;
+            cbx_quiz.Visibility = Visibility.Hidden;
+            cbx.Visibility = Visibility.Hidden;
+
         }
 
         private void QuestionClick(object sender, RoutedEventArgs e)
@@ -165,13 +169,17 @@ namespace Projekt
             QuestionListing("http://127.0.0.1:8000/admin/questions");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
-            ComboBoxVisible();
+            ComboBoxInvisible();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
             TextBoxVisibled();
             lb_00.Content = "QuizId ";
             lb_01.Content = "Content ";
             lb_02.Content = "Point ";
+            cbx_question.IsSelected = true;
+            cbx_question.Visibility = Visibility.Hidden;
+            cbx.Visibility = Visibility.Hidden;
+
 
         }
 
@@ -181,13 +189,17 @@ namespace Projekt
             AnswerListing("http://127.0.0.1:8000/admin/answers");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
-            ComboBoxVisible();
+            ComboBoxInvisible();
             btn_create.Visibility = Visibility.Visible;
             btn_adminPrivilege.Visibility = Visibility.Hidden;
             TextBoxVisibled();
             lb_00.Content = "QuestionId ";
             lb_01.Content = "Content ";
             lb_02.Content = "IsRight ";
+            cbx_answer.IsSelected = true;
+            cbx_answer.Visibility = Visibility.Hidden;
+          
+
         }
 
         private void AdminClick(object sender, RoutedEventArgs e)
@@ -530,8 +542,9 @@ namespace Projekt
         }
         private void CreateClick(object sender, RoutedEventArgs e)
         {
-            if (cbx.SelectedItem == cbx_quiz)
+            if (cbx_quiz.IsSelected == true)
             {
+               
                 if (tbx_01.Text.Length < 3)
                 {
                     tbl_status.Text = "The header of Quiz is not correct character length!";
@@ -551,7 +564,7 @@ namespace Projekt
                 }
             }
 
-            else if (cbx.SelectedItem == cbx_question)
+            else if (cbx_question.IsSelected == true)
             {
                 if (tbx_01.Text.Length < 3)
                 {
@@ -567,7 +580,7 @@ namespace Projekt
                 }
             }
 
-            else if (cbx.SelectedItem == cbx_answer)
+            else if (cbx_answer.IsSelected == true)
             {
                 if (tbx_01.Text.Length < 3)
                 {
@@ -734,9 +747,9 @@ namespace Projekt
             tbl_status.Foreground = quizionColors.Warning;
         }
 
-        private void ComboBoxVisible()
+        private void ComboBoxInvisible()
         {
-            cbx.Visibility = Visibility.Visible;
+            cbx.Visibility = Visibility.Hidden;
         }
 
         private void TextBoxVisibled()
