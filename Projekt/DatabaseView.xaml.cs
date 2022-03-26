@@ -159,7 +159,6 @@ namespace Projekt
             lb_02.Content = "Description ";
             cbx_quiz.IsSelected = true;
             cbx_quiz.Visibility = Visibility.Hidden;
-            cbx.Visibility = Visibility.Hidden;
 
         }
 
@@ -178,7 +177,6 @@ namespace Projekt
             lb_02.Content = "Point ";
             cbx_question.IsSelected = true;
             cbx_question.Visibility = Visibility.Hidden;
-            cbx.Visibility = Visibility.Hidden;
 
 
         }
@@ -198,9 +196,7 @@ namespace Projekt
             lb_02.Content = "IsRight ";
             cbx_answer.IsSelected = true;
             cbx_answer.Visibility = Visibility.Hidden;
-            cbx.Visibility = Visibility.Hidden;
           
-
         }
 
         private void AdminClick(object sender, RoutedEventArgs e)
@@ -210,7 +206,7 @@ namespace Projekt
             EmptyInputs();
             btn_update.Visibility = Visibility.Hidden;
             btn_delete.Visibility = Visibility.Hidden;
-            cbx.Visibility = Visibility.Hidden;
+            ComboBoxInvisible();
             btn_adminPrivilege.Visibility = Visibility.Visible;
             btn_adminPrivilege.Content = "Remove privilege";
             tbx_00.Visibility = Visibility.Hidden;
@@ -225,7 +221,7 @@ namespace Projekt
             UserListing("http://127.0.0.1:8000/admin/users");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
-            cbx.Visibility = Visibility.Hidden;
+            ComboBoxInvisible();
             btn_adminPrivilege.Content = "Admin privilege";
             btn_adminPrivilege.Visibility = Visibility.Visible;
             TextBoxVisibled();
