@@ -58,10 +58,10 @@
             </Button>
             <TextBox x:Name="tbx_00" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Margin="5,45,118,18" FontSize="14" Height="30" Width="90" />
             <Label x:Name="lb_00" Content=""  Grid.Row="1" Grid.Column="1" Height="30" Width="90" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Right" Margin="0,45.6,0,18.8"/>
-            <Label x:Name="lb_01" Content="" MaxWidth="90" Grid.Row="2" Height="30" Grid.Column="1" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="95">
+            <Label x:Name="lb_01" Content="" MaxWidth="90" Grid.Row="2" Height="30" Grid.Column="1" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="90" Margin="0,0.2,0,0">
                 
             </Label>
-            <Label x:Name="lb_02" Content="" Width="90" Grid.Row="2" Height="30" VerticalAlignment="Bottom" FontSize="14" HorizontalAlignment="Right" RenderTransformOrigin="0.732,0.05" Grid.Column="1"/>
+            <Label x:Name="lb_02" Content="" Width="90" Grid.Row="2" Height="30" VerticalAlignment="Bottom" FontSize="14" HorizontalAlignment="Right" Grid.Column="1" RenderTransformOrigin="0.504,0.5"/>
             <ComboBox x:Name="cbx" Margin="124,28,10,0" VerticalAlignment="Center" Width="90" SelectionChanged="cbx_SelectionChanged" Height="30" Grid.Column="2" Grid.Row="1">
                 <ComboBoxItem x:Name="cbx_quiz" FontSize="14" Background="#7985C1">Quiz</ComboBoxItem>
                 <ComboBoxItem x:Name="cbx_question" FontSize="14" Background="#7985C1">Question</ComboBoxItem>
