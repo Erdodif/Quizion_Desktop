@@ -198,6 +198,7 @@ namespace Projekt
             lb_02.Content = "IsRight ";
             cbx_answer.IsSelected = true;
             cbx_answer.Visibility = Visibility.Hidden;
+            cbx.Visibility = Visibility.Hidden;
           
 
         }
