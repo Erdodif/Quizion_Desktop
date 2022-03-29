@@ -110,7 +110,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Admin.cs" />
-    <Compile Include="Classes\ApiAnswer.cs" />
     <Compile Include="Classes\QuizionColor.cs" />
     <Compile Include="DatabaseView.xaml.cs">
       <DependentUpon>DatabaseView.xaml</DependentUpon>
