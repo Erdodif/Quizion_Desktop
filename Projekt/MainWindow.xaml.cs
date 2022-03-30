@@ -30,8 +30,6 @@ namespace Projekt
         static HttpClient client = new HttpClient();
         string token;
         public string Token { get => token; set => token = value; }
-
-      
         private async Task LoginAsync()
         {
             client = new HttpClient();
@@ -61,7 +59,6 @@ namespace Projekt
                 string error = Convert.ToString(response.Content.ReadAsStringAsync().Result);
                 tbl_message.Text = error.Replace(error, "Invalid userID or password!");
                 tbl_message.Foreground = quizionColors.Warning;
-                tbl_message.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(QuizionColor.Warning);
                 btn_login.IsEnabled = true;
             }
             
@@ -72,9 +69,7 @@ namespace Projekt
             LoginAsync();
             System.Threading.Thread.Sleep(2000);
             btn_login.IsEnabled = false;
-            //btn_login.Background = quizionColors.OnPrimary;
-            //btn_login.Background = (SolidColorBrush)new BrushConverter().ConvertFrom(QuizionColor.OnSecondary);
-            
+            btn_login.Background = quizionColors.OnPrimary;           
         }       
     }
 }

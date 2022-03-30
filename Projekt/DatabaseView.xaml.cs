@@ -141,9 +141,6 @@ namespace Projekt
                 Console.WriteLine(e.StackTrace);
             }           
         }
-        
-
-
         private void QuizClick(object sender, RoutedEventArgs e)
         {
             //QuizListing("http://quizion.hu/admin/quizzes/all");
@@ -341,6 +338,7 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/quizzes/{id}", stringContent);
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private async Task UpdateQuestion(int id)
@@ -357,6 +355,7 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/questions/{id}", stringContent);
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private async Task UpdateAnswer(int id)
@@ -373,6 +372,7 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/answers/{id}", stringContent);
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private async Task UpdateUser(int id)
@@ -389,6 +389,7 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/users/{id}", stringContent);
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private void Delete(object sender, RoutedEventArgs e)
@@ -456,6 +457,7 @@ namespace Projekt
             //client.BaseAddress = new Uri("http://quizion.hu/");
             var response = await client.DeleteAsync($"admin/quizzes/{id}");
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private async Task DeleteQuestion(int id)
@@ -466,6 +468,7 @@ namespace Projekt
             //client.BaseAddress = new Uri("http://quizion.hu/");
             var response = await client.DeleteAsync($"admin/questions/{id}");
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private async Task DeleteAnswer(int id)
@@ -476,6 +479,7 @@ namespace Projekt
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.DeleteAsync($"admin/answers/{id}");
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private async Task DeleteUser(int id)
@@ -486,6 +490,7 @@ namespace Projekt
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.DeleteAsync($"admin/users/{id}");
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private async Task InsertQuiz()
@@ -502,6 +507,7 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(url, stringContent);
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private async Task InsertQuestion()
@@ -519,6 +525,7 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(url, stringContent);
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private async Task InsertAnswer()
@@ -536,6 +543,7 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(url, stringContent);
             tbl_status.Text = response.ToString();
+            Message();
         }
         private void CreateClick(object sender, RoutedEventArgs e)
         {
@@ -718,6 +726,7 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync($"admin/users/grant/{id}", stringContent);
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private async Task RevokeAdminPrivilege(int id)
@@ -730,6 +739,7 @@ namespace Projekt
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");*/
             var response = await client.PostAsync($"admin/users/revoke/{id}",new StringContent("")/* stringContent*/);
             tbl_status.Text = response.ToString();
+            Message();
         }
 
         private void EmptyInputs()
@@ -744,6 +754,11 @@ namespace Projekt
             tbl_status.Foreground = quizionColors.Warning;
         }
 
+        private void Message()
+        {
+            tbl_status.Foreground = quizionColors.Black;
+        }
+
         private void ComboBoxInvisible()
         {
             cbx.Visibility = Visibility.Hidden;
@@ -753,7 +768,6 @@ namespace Projekt
         {
             tbx_00.Visibility = Visibility.Visible;
         }
-
         private void UpdateDeleteButtonVisibled()
         {
             btn_update.Visibility = Visibility.Visible;
