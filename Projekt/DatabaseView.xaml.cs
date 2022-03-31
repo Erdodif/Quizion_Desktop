@@ -30,6 +30,7 @@ namespace Projekt
     {
         static HttpClient client = new HttpClient();
         static ColorsOfQuizion quizionColors = new ColorsOfQuizion();
+        static string baseURL = "http://127.0.0.1:8000";
         string token;
 
         public string Token { get => token; set => token = value; }
@@ -59,16 +60,21 @@ namespace Projekt
             btn_admin.Foreground = quizionColors.OnPrimary;
         }
        
+        private async Task<string> GetClientConnection(string url)
+        {
+            datagrid.Columns.Clear();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client.GetStringAsync(url);
+            return reply;
+        }
+
         private async Task QuizListing(string url)
         {
             try
             {
-                datagrid.Columns.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                string reply = await client.GetStringAsync(url);
+                string reply = await GetClientConnection(url);
                 List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(reply);
-                datagrid.ItemsSource = quiz;
+                datagrid.ItemsSource = quiz;               
             }
             catch (Exception e) {
                 Console.WriteLine(e.StackTrace);
@@ -79,9 +85,7 @@ namespace Projekt
         {
             try
             {
-                datagrid.Columns.Clear();
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                string reply = await client.GetStringAsync(url);
+                string reply = await GetClientConnection(url);
                 List<Question> question = JsonConvert.DeserializeObject<List<Question>>(reply);
                 datagrid.ItemsSource = question;
             }
@@ -95,9 +99,7 @@ namespace Projekt
         {
             try
             {
-                datagrid.Columns.Clear();
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                string reply = await client.GetStringAsync(url);
+                string reply = await GetClientConnection(url);
                 List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(reply);
                 datagrid.ItemsSource = answer;
             }
@@ -111,9 +113,7 @@ namespace Projekt
         {
             try
             {
-                datagrid.Columns.Clear();
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                string reply = await client.GetStringAsync(url);
+                string reply = await GetClientConnection(url);
                 List<User> user = JsonConvert.DeserializeObject<List<User>>(reply);
                 datagrid.ItemsSource = user;
                 btn_create.Visibility = Visibility.Hidden;
@@ -124,14 +124,11 @@ namespace Projekt
             }           
         }
 
-        
         private async Task AdminListing(string url)
         {
             try
             {
-                datagrid.Columns.Clear();
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                string reply = await client.GetStringAsync(url);
+                string reply = await GetClientConnection(url);
                 List<Admin> admin = JsonConvert.DeserializeObject<List<Admin>>(reply);
                 datagrid.ItemsSource = admin;
                 btn_create.Visibility = Visibility.Hidden;
@@ -141,10 +138,10 @@ namespace Projekt
                 Console.WriteLine(e.StackTrace);
             }           
         }
+
         private void QuizClick(object sender, RoutedEventArgs e)
         {
-            //QuizListing("http://quizion.hu/admin/quizzes/all");
-            QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
+            QuizListing(baseURL + "/admin/quizzes/all");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
             ComboBoxInvisible();
@@ -156,13 +153,11 @@ namespace Projekt
             lb_02.Content = "Description ";
             cbx_quiz.IsSelected = true;
             cbx_quiz.Visibility = Visibility.Hidden;
-
         }
 
         private void QuestionClick(object sender, RoutedEventArgs e)
         {
-            //QuestionListing("http://quizion.hu/admin/questions");
-            QuestionListing("http://127.0.0.1:8000/admin/questions");
+            QuestionListing(baseURL + "/admin/questions");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
             ComboBoxInvisible();
@@ -180,8 +175,7 @@ namespace Projekt
 
         private void AnswerClick(object sender, RoutedEventArgs e)
         {
-            //AnswerListing("http://quizion.hu/admin/answers");
-            AnswerListing("http://127.0.0.1:8000/admin/answers");
+            AnswerListing(baseURL + "/admin/answers");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
             ComboBoxInvisible();
@@ -198,8 +192,12 @@ namespace Projekt
 
         private void AdminClick(object sender, RoutedEventArgs e)
         {
-            AdminListing("http://127.0.0.1:8000/admin/admins");
-            //AdminListing("http://quizion.hu/admin/admins");
+            AdminClickMethod();            
+        }
+
+        private void AdminClickMethod()
+        {
+            AdminListing(baseURL + "/admin/admins");
             EmptyInputs();
             btn_update.Visibility = Visibility.Hidden;
             btn_delete.Visibility = Visibility.Hidden;
@@ -214,8 +212,7 @@ namespace Projekt
 
         private void UserClick(object sender, RoutedEventArgs e)
         {
-            //UserListing("http://quizion.hu/admin/users");
-            UserListing("http://127.0.0.1:8000/admin/users");
+            UserListing(baseURL + "/admin/users");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
             ComboBoxInvisible();
@@ -232,7 +229,6 @@ namespace Projekt
             if (datagrid.SelectedIndex == -1)
             {
                 MessageBox.Show("No items are selected from the list before the update!", "Invalid update", MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
             else
             {
@@ -259,8 +255,7 @@ namespace Projekt
                         {
                             UpdateQuiz(index);
                             EmptyInputs();
-                            QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
-                            //QuizListing("http://quizion.hu/admin/quizzes/all");
+                            QuizListing(baseURL + "/admin/quizzes/all");
                         }
                     }
                     else if (datagrid.SelectedItem is Question)
@@ -275,8 +270,7 @@ namespace Projekt
                         {
                             UpdateQuestion(index);
                             EmptyInputs();
-                            QuestionListing("http://127.0.0.1:8000/admin/questions");
-                            //QuestionListing("http://quizion.hu/admin/questions");
+                            QuestionListing(baseURL + "/admin/questions");
                         }
                     }
                     else if (datagrid.SelectedItem is Answer)
@@ -291,8 +285,7 @@ namespace Projekt
                         {
                             UpdateAnswer(index);
                             EmptyInputs();
-                            AnswerListing("http://127.0.0.1:8000/admin/answers");
-                            //AnswerListing("http://quizion.hu/admin/answers");
+                            AnswerListing(baseURL + "/admin/answers");
                         }                      
                     }
 
@@ -308,8 +301,7 @@ namespace Projekt
                         {
                             UpdateUser(index);
                             EmptyInputs();
-                            UserListing("http://127.0.0.1:8000/admin/users");
-                            //UserListing("http://quizion.hu/admin/users");
+                            UserListing(baseURL + "/admin/users");
                         }
                     }
                     else
@@ -330,7 +322,6 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            //string url = "http://quizion.hu/admin/quizzes";
             JObject jObject = new JObject();
             jObject.Add("header", tbx_01.Text);
             jObject.Add("description", tbx_02.Text);
@@ -345,7 +336,6 @@ namespace Projekt
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            //string url = "http://quizion.hu/admin/questions";
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             JObject jObject = new JObject();
             jObject.Add("quiz_id", tbx_00.Text);
@@ -363,7 +353,6 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            //string url = "http://quizion.hu/admin/answers";
             JObject jObject = new JObject();
             jObject.Add("question_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
@@ -380,7 +369,6 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            //string url = "http://quizion.hu/admin/users";
             JObject jObject = new JObject();
             jObject.Add("user_id", tbx_00.Text);
             jObject.Add("name", tbx_01.Text);
@@ -410,29 +398,25 @@ namespace Projekt
                     {
                         DeleteQuiz(index);
                         EmptyInputs();
-                        QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
-                        //QuizListing("http://quizion.hu/admin/quizzes/all");
+                        QuizListing(baseURL + "/admin/quizzes/all");
                     }
                     else if (datagrid.SelectedItem is Question)
                     {
                         DeleteQuestion(index);
                         EmptyInputs();
-                        QuestionListing("http://127.0.0.1:8000/admin/questions");
-                        //QuestionListing("http://quizion.hu/admin/questions");
+                        QuestionListing(baseURL + "/admin/questions");
                     }
                     else if (datagrid.SelectedItem is Answer)
                     {
                         DeleteAnswer(index);
                         EmptyInputs();
-                        AnswerListing("http://127.0.0.1:8000/admin/answers");
-                        //AnswerListing("http://quizion.hu/admin/answers");
+                        AnswerListing(baseURL + "/admin/answers");
                     }
                     else if (datagrid.SelectedItem is User)
                     {
                         DeleteUser(index);
                         EmptyInputs();
-                        UserListing("http://127.0.0.1:8000/admin/users");
-                        //UserListing("http://quizion.hu/admin/users");
+                        UserListing(baseURL + "/admin/users");
                     }
                     else
                     {
@@ -454,7 +438,6 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            //client.BaseAddress = new Uri("http://quizion.hu/");
             var response = await client.DeleteAsync($"admin/quizzes/{id}");
             tbl_status.Text = response.ToString();
             Message();
@@ -465,7 +448,6 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            //client.BaseAddress = new Uri("http://quizion.hu/");
             var response = await client.DeleteAsync($"admin/questions/{id}");
             tbl_status.Text = response.ToString();
             Message();
@@ -475,7 +457,6 @@ namespace Projekt
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            //client.BaseAddress = new Uri("http://quizion.hu/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.DeleteAsync($"admin/answers/{id}");
             tbl_status.Text = response.ToString();
@@ -486,7 +467,6 @@ namespace Projekt
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            //client.BaseAddress = new Uri("http://quizion.hu/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.DeleteAsync($"admin/users/{id}");
             tbl_status.Text = response.ToString();
@@ -497,7 +477,6 @@ namespace Projekt
         {
             client = new HttpClient();
             string url = "/admin/quizzes/";
-            // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             JObject jObject = new JObject();
@@ -514,7 +493,6 @@ namespace Projekt
         {
             client = new HttpClient();
             string url = "/admin/questions/";
-            // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             JObject jObject = new JObject();
@@ -532,7 +510,6 @@ namespace Projekt
         {
             client = new HttpClient();
             string url = "/admin/answers/";
-            // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             JObject jObject = new JObject();
@@ -564,8 +541,7 @@ namespace Projekt
                 {
                     InsertQuiz();
                     EmptyInputs();
-                    QuizListing("http://127.0.0.1:8000/admin/quizzes/all");
-                    //QuizListing("http://quizion.hu/admin/quizzes/all");
+                    QuizListing(baseURL + "/admin/quizzes/all");
                 }
             }
 
@@ -580,8 +556,7 @@ namespace Projekt
                 {
                     InsertQuestion();
                     EmptyInputs();
-                    QuestionListing("http://127.0.0.1:8000/admin/questions");
-                    //QuestionListing("http://quizion.hu/admin/questions");
+                    QuestionListing(baseURL + "/admin/questions");
                 }
             }
 
@@ -596,8 +571,7 @@ namespace Projekt
                 {
                     InsertAnswer();
                     EmptyInputs();
-                    AnswerListing("http://127.0.0.1:8000/admin/answers");
-                    //AnswerListing("http://quizion.hu/admin/answers");
+                    AnswerListing(baseURL + "/admin/answers");
                 }                
             }
             else
@@ -697,23 +671,25 @@ namespace Projekt
             {              
                 if (datagrid.SelectedItem is User)
                 {
-                    string selected = datagrid.SelectedItem.ToString();
-                    string[] st = selected.Split(';');
-                    int index = Convert.ToInt32(st[0]);
+                    int index = IndexSearch(0);
                     GrantAdminPrivilege(index);
-                    EmptyInputs();
-                    AdminListing("http://127.0.0.1:8000/admin/admins");
+                    AdminClickMethod();
                 }
                 else
                 {
-                    string selected = datagrid.SelectedItem.ToString();
-                    string[] st = selected.Split(';');
-                    int index = Convert.ToInt32(st[1]);
+                    int index = IndexSearch(1);
                     RevokeAdminPrivilege(index);
                     EmptyInputs();
-                    AdminListing("http://127.0.0.1:8000/admin/admins");
+                    AdminListing(baseURL + "/admin/admins");
                 }
             }               
+        }
+
+        private int IndexSearch(int id)
+        {
+            string selected = datagrid.SelectedItem.ToString();
+            string[] st = selected.Split(';');
+            return Convert.ToInt32(st[id]);
         }
 
         private async Task GrantAdminPrivilege(int id)
@@ -721,7 +697,6 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            //string url = "http://quizion.hu/admin/users";
             string content = "Admin privilege addition";
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync($"admin/users/grant/{id}", stringContent);
@@ -734,10 +709,7 @@ namespace Projekt
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            //string url = "http://quizion.hu/admin/users";
-            /*string content = "Revoke admin privilege";
-            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");*/
-            var response = await client.PostAsync($"admin/users/revoke/{id}",new StringContent("")/* stringContent*/);
+            var response = await client.PostAsync($"admin/users/revoke/{id}",new StringContent(""));
             tbl_status.Text = response.ToString();
             Message();
         }
