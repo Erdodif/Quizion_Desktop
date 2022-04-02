@@ -27,14 +27,13 @@ namespace Projekt
     public partial class MainWindow : Window
     {
         static ColorsOfQuizion quizionColors = new ColorsOfQuizion();
-        static HttpClient client = new HttpClient();
+        static HttpClient client;
         string token;
         public string Token { get => token; set => token = value; }
         private async Task LoginAsync()
         {
             client = new HttpClient();
             string url = "/api/users/login";
-           // client.BaseAddress = new Uri("http://quizion.hu");
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             JObject jObject = new JObject();
             jObject.Add("userID", tbx_name.Text);
@@ -59,17 +58,19 @@ namespace Projekt
                 string error = Convert.ToString(response.Content.ReadAsStringAsync().Result);
                 tbl_message.Text = error.Replace(error, "Invalid userID or password!");
                 tbl_message.Foreground = quizionColors.Warning;
+                Sleep(1000);
                 btn_login.IsEnabled = true;
-            }
-            
+            }            
         }
         private void btn_login_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {            
             LoginAsync();
-            System.Threading.Thread.Sleep(2000);
-            btn_login.IsEnabled = false;
-            btn_login.Background = quizionColors.OnPrimary;           
+            Sleep(2000);                
         }       
+        private void Sleep(int sleepTime)
+        {
+            System.Threading.Thread.Sleep(sleepTime);
+            btn_login.IsEnabled = false;
+        }
     }
 }
