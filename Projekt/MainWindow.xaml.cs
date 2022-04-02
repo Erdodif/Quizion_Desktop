@@ -58,7 +58,7 @@ namespace Projekt
                 string error = Convert.ToString(response.Content.ReadAsStringAsync().Result);
                 tbl_message.Text = error.Replace(error, "Invalid userID or password!");
                 tbl_message.Foreground = quizionColors.Warning;
-                Sleep(1000);
+                Sleep(5000);
                 btn_login.IsEnabled = true;
             }            
         }
