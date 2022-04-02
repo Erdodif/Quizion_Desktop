@@ -32,34 +32,12 @@ namespace Projekt
         static ColorsOfQuizion quizionColors = new ColorsOfQuizion();
         static string baseURL = "http://127.0.0.1:8000";
         string token;
-
         public string Token { get => token; set => token = value; }
         public DatabaseView()
         {
             InitializeComponent();
-            ColorSetter();
-            btn_adminPrivilege.Visibility = Visibility.Hidden;
+            AdminPrivilegeButtonHidden();
         }
-
-        private void ColorSetter()
-        {
-            btn_quiz.BorderBrush = quizionColors.OnSecondary;
-            btn_quiz.Foreground = quizionColors.OnPrimary;
-            btn_quiz.Background = quizionColors.Primary;
-            btn_question.Background = quizionColors.Primary;
-            btn_question.Foreground = quizionColors.OnPrimary;
-            btn_question.BorderBrush = quizionColors.OnSecondary;
-            btn_answer.Background = quizionColors.Primary;
-            btn_answer.BorderBrush = quizionColors.OnSecondary;
-            btn_answer.Foreground = quizionColors.OnPrimary;
-            btn_user.Background = quizionColors.Primary;
-            btn_user.BorderBrush = quizionColors.OnSecondary;
-            btn_user.Foreground = quizionColors.OnPrimary;
-            btn_admin.Background = quizionColors.Primary;
-            btn_admin.BorderBrush = quizionColors.OnSecondary;
-            btn_admin.Foreground = quizionColors.OnPrimary;
-        }
-       
         private async Task<string> GetClientConnection(string url)
         {
             datagrid.Columns.Clear();
@@ -76,7 +54,8 @@ namespace Projekt
                 List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(reply);
                 datagrid.ItemsSource = quiz;               
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 Console.WriteLine(e.StackTrace);
             }
         }
@@ -138,19 +117,22 @@ namespace Projekt
                 Console.WriteLine(e.StackTrace);
             }           
         }
-
+         private void LabelContent(string lb1, string lb2, string lb3)
+        {
+            lb_00.Content = lb1;
+            lb_01.Content = lb2;
+            lb_02.Content = lb3;
+        }
         private void QuizClick(object sender, RoutedEventArgs e)
         {
             QuizListing(baseURL + "/admin/quizzes/all");
             EmptyInputs();
             UpdateDeleteButtonVisibled();
             ComboBoxInvisible();
+            LabelContent("", "Header ", "Description ");
+            AdminPrivilegeButtonHidden();
             btn_create.Visibility = Visibility.Visible;
-            btn_adminPrivilege.Visibility = Visibility.Hidden;
             tbx_00.Visibility = Visibility.Hidden;
-            lb_00.Content = "";
-            lb_01.Content = "Header ";
-            lb_02.Content = "Description ";
             cbx_quiz.IsSelected = true;
             cbx_quiz.Visibility = Visibility.Hidden;
         }
@@ -161,16 +143,12 @@ namespace Projekt
             EmptyInputs();
             UpdateDeleteButtonVisibled();
             ComboBoxInvisible();
-            btn_create.Visibility = Visibility.Visible;
-            btn_adminPrivilege.Visibility = Visibility.Hidden;
             TextBoxVisibled();
-            lb_00.Content = "QuizId ";
-            lb_01.Content = "Content ";
-            lb_02.Content = "Point ";
+            LabelContent("QuizId ", "Content ", "Point ");
+            AdminPrivilegeButtonHidden();
+            btn_create.Visibility = Visibility.Visible;
             cbx_question.IsSelected = true;
             cbx_question.Visibility = Visibility.Hidden;
-
-
         }
 
         private void AnswerClick(object sender, RoutedEventArgs e)
@@ -179,15 +157,12 @@ namespace Projekt
             EmptyInputs();
             UpdateDeleteButtonVisibled();
             ComboBoxInvisible();
-            btn_create.Visibility = Visibility.Visible;
-            btn_adminPrivilege.Visibility = Visibility.Hidden;
             TextBoxVisibled();
-            lb_00.Content = "QuestionId ";
-            lb_01.Content = "Content ";
-            lb_02.Content = "IsRight ";
+            LabelContent("QuestionId ", "Content ", "IsRight ");
+            AdminPrivilegeButtonHidden();
+            btn_create.Visibility = Visibility.Visible;
             cbx_answer.IsSelected = true;
-            cbx_answer.Visibility = Visibility.Hidden;
-          
+            cbx_answer.Visibility = Visibility.Hidden;          
         }
 
         private void AdminClick(object sender, RoutedEventArgs e)
@@ -199,15 +174,13 @@ namespace Projekt
         {
             AdminListing(baseURL + "/admin/admins");
             EmptyInputs();
+            ComboBoxInvisible();
+            LabelContent("", "Id ", "UserId ");
             btn_update.Visibility = Visibility.Hidden;
             btn_delete.Visibility = Visibility.Hidden;
-            ComboBoxInvisible();
             btn_adminPrivilege.Visibility = Visibility.Visible;
             btn_adminPrivilege.Content = "Remove privilege";
             tbx_00.Visibility = Visibility.Hidden;
-            lb_00.Content = "";
-            lb_01.Content = "Id ";
-            lb_02.Content = "UserId";
         }
 
         private void UserClick(object sender, RoutedEventArgs e)
@@ -216,12 +189,17 @@ namespace Projekt
             EmptyInputs();
             UpdateDeleteButtonVisibled();
             ComboBoxInvisible();
-            btn_adminPrivilege.Content = "Admin privilege";
-            btn_adminPrivilege.Visibility = Visibility.Visible;
             TextBoxVisibled();
-            lb_00.Content = "UserId ";
-            lb_01.Content = "Name ";
-            lb_02.Content = "XP ";
+            LabelContent("UserId ", "Name ", "XP ");
+            btn_adminPrivilege.Content = "Admin privilege";
+            btn_adminPrivilege.Visibility = Visibility.Visible;         
+        }
+
+        private int IndexSearch(int id)
+        {
+            string selected = datagrid.SelectedItem.ToString();
+            string[] st = selected.Split(';');
+            return Convert.ToInt32(st[id]);
         }
 
         private void UpdateClick(object sender, RoutedEventArgs e)
@@ -232,9 +210,7 @@ namespace Projekt
             }
             else
             {
-                string selected = datagrid.SelectedItem.ToString();
-                string[] st = selected.Split(';');
-                int index = Convert.ToInt32(st[0]);
+                int index = IndexSearch(0);
                 MessageBoxResult result = MessageBox.Show($"Are you sure to update this item: {datagrid.SelectedItem} ", "Warning", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -288,7 +264,6 @@ namespace Projekt
                             AnswerListing(baseURL + "/admin/answers");
                         }                      
                     }
-
                     else if (datagrid.SelectedItem is User)
                     {
                         TextBoxVisibled();
@@ -317,11 +292,16 @@ namespace Projekt
             }
         }
 
-        private async Task UpdateQuiz(int id)
+        private async Task<HttpClient> PutClientConnection()
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            return client;
+        }
+        private async Task UpdateQuiz(int id)
+        {
+            PutClientConnection();
             JObject jObject = new JObject();
             jObject.Add("header", tbx_01.Text);
             jObject.Add("description", tbx_02.Text);
@@ -331,12 +311,9 @@ namespace Projekt
             tbl_status.Text = response.ToString();
             Message();
         }
-
         private async Task UpdateQuestion(int id)
         {
-            client = new HttpClient();
-            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            PutClientConnection();
             JObject jObject = new JObject();
             jObject.Add("quiz_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
@@ -350,9 +327,7 @@ namespace Projekt
 
         private async Task UpdateAnswer(int id)
         {
-            client = new HttpClient();
-            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            PutClientConnection();
             JObject jObject = new JObject();
             jObject.Add("question_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
@@ -363,12 +338,9 @@ namespace Projekt
             tbl_status.Text = response.ToString();
             Message();
         }
-
         private async Task UpdateUser(int id)
         {
-            client = new HttpClient();
-            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            PutClientConnection();
             JObject jObject = new JObject();
             jObject.Add("user_id", tbx_00.Text);
             jObject.Add("name", tbx_01.Text);
@@ -388,9 +360,7 @@ namespace Projekt
             }
             else
             {
-                string selected = datagrid.SelectedItem.ToString();
-                string[] st = selected.Split(';');
-                int index = Convert.ToInt32(st[0]);
+                int index = IndexSearch(0);
                 MessageBoxResult result = MessageBox.Show($"Are you sure to delete this item: {datagrid.SelectedItem} ", "Warning", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -430,14 +400,18 @@ namespace Projekt
                     //Nem történik semmi, ha nem szeretnénk törölni!
                 }
             }
-
         }
-
-        private async Task DeleteQuiz(int id)
+        private async Task<HttpClient> DeleteClientConnection()
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            return client;
+        }
+
+        private async Task DeleteQuiz(int id)
+        {
+            DeleteClientConnection();
             var response = await client.DeleteAsync($"admin/quizzes/{id}");
             tbl_status.Text = response.ToString();
             Message();
@@ -445,9 +419,7 @@ namespace Projekt
 
         private async Task DeleteQuestion(int id)
         {
-            client = new HttpClient();
-            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            DeleteClientConnection();
             var response = await client.DeleteAsync($"admin/questions/{id}");
             tbl_status.Text = response.ToString();
             Message();
@@ -455,9 +427,7 @@ namespace Projekt
 
         private async Task DeleteAnswer(int id)
         {
-            client = new HttpClient();
-            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            DeleteClientConnection();
             var response = await client.DeleteAsync($"admin/answers/{id}");
             tbl_status.Text = response.ToString();
             Message();
@@ -465,60 +435,56 @@ namespace Projekt
 
         private async Task DeleteUser(int id)
         {
-            client = new HttpClient();
-            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await client.DeleteAsync($"admin/users/{id}");
+            DeleteClientConnection();
+            var response = await client.DeleteAsync($"admin/users/{id}"); 
             tbl_status.Text = response.ToString();
             Message();
         }
 
-        private async Task InsertQuiz()
+        private async Task<HttpClient> PostClientConnection(string url)
         {
             client = new HttpClient();
-            string url = "/admin/quizzes/";
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            return client;
+        }
+        private async Task InsertQuiz()
+        {
+            PostClientConnection("/admin/quizzes/");
             JObject jObject = new JObject();
             jObject.Add("header", tbx_01.Text);
             jObject.Add("description", tbx_02.Text);
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync(url, stringContent);
+            var response = await client.PostAsync("/admin/quizzes/", stringContent);
             tbl_status.Text = response.ToString();
             Message();
         }
 
         private async Task InsertQuestion()
         {
-            client = new HttpClient();
-            string url = "/admin/questions/";
-            client.BaseAddress = new Uri("http://127.0.0.1:8000");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            PostClientConnection("/admin/questions/");
             JObject jObject = new JObject();
             jObject.Add("quiz_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
             jObject.Add("point", tbx_02.Text);
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync(url, stringContent);
+            var response = await client.PostAsync("admin/questions/", stringContent);
             tbl_status.Text = response.ToString();
             Message();
         }
 
         private async Task InsertAnswer()
         {
-            client = new HttpClient();
-            string url = "/admin/answers/";
-            client.BaseAddress = new Uri("http://127.0.0.1:8000");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            PostClientConnection("/admin/answers/");
             JObject jObject = new JObject();
             jObject.Add("question_id", tbx_00.Text);
             jObject.Add("content", tbx_01.Text);
             jObject.Add("is_right", tbx_02.Text);
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync(url, stringContent);
+            var response = await client.PostAsync("/admin/answers/", stringContent);
             tbl_status.Text = response.ToString();
             Message();
         }
@@ -544,7 +510,6 @@ namespace Projekt
                     QuizListing(baseURL + "/admin/quizzes/all");
                 }
             }
-
             else if (cbx_question.IsSelected == true)
             {
                 if (tbx_01.Text.Length < 3)
@@ -559,7 +524,6 @@ namespace Projekt
                     QuestionListing(baseURL + "/admin/questions");
                 }
             }
-
             else if (cbx_answer.IsSelected == true)
             {
                 if (tbx_01.Text.Length < 3)
@@ -606,8 +570,7 @@ namespace Projekt
                     tbx_00.Visibility = Visibility.Hidden;
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
-                    lb_01.Content = "Header ";
-                    lb_02.Content = "Description ";
+                    LabelContent("", "Header ", "Description ");
                     tbx_01.Text = st[1];
                     tbx_02.Text = st[2];
                 }
@@ -616,9 +579,7 @@ namespace Projekt
                     TextBoxVisibled();
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
-                    lb_00.Content = "QuizId ";
-                    lb_01.Content = "Content ";
-                    lb_02.Content = "Point ";
+                    LabelContent("QuizId ", "Content ", "Point ");
                     tbx_00.Text = st[1];
                     tbx_01.Text = st[2];
                     tbx_02.Text = st[3];
@@ -628,9 +589,7 @@ namespace Projekt
                     TextBoxVisibled();
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
-                    lb_00.Content = "QuestionId ";
-                    lb_01.Content = "Content ";
-                    lb_02.Content = "IsRight ";
+                    LabelContent("QuestionId ", "Content ", "IsRight ");
                     tbx_00.Text = st[1];
                     tbx_01.Text = st[2];
                     tbx_02.Text = st[3];
@@ -640,9 +599,7 @@ namespace Projekt
                     TextBoxVisibled();
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
-                    lb_00.Content = "UserId ";
-                    lb_01.Content = "Name ";
-                    lb_02.Content = "XP ";
+                    LabelContent("UserId ", "Name ", "XP ");
                     tbx_00.Text = st[0];
                     tbx_01.Text = st[1];
                     tbx_02.Text = st[2];
@@ -652,15 +609,12 @@ namespace Projekt
                     tbx_00.Visibility = Visibility.Hidden;
                     string selected = datagrid.SelectedItem.ToString();
                     string[] st = selected.Split(';');
-                    lb_00.Content = "";
-                    lb_01.Content = "Id";
-                    lb_02.Content = "UserId";
+                    LabelContent("", "Id ", "UserId ");
                     tbx_01.Text = st[0];
                     tbx_02.Text = st[1];
                 }
             }
         }
-
         private void AdminPrivilege(object sender, RoutedEventArgs e)
         {
             if (datagrid.SelectedIndex == -1)
@@ -674,6 +628,8 @@ namespace Projekt
                     int index = IndexSearch(0);
                     GrantAdminPrivilege(index);
                     AdminClickMethod();
+                    Sleep(500);
+                    btn_adminPrivilege.IsEnabled = true;
                 }
                 else
                 {
@@ -681,25 +637,23 @@ namespace Projekt
                     RevokeAdminPrivilege(index);
                     EmptyInputs();
                     AdminListing(baseURL + "/admin/admins");
+                    Sleep(500);
+                    btn_adminPrivilege.IsEnabled = true;
                 }
             }               
         }
 
-        private int IndexSearch(int id)
+        private void Sleep(int sleepTime)
         {
-            string selected = datagrid.SelectedItem.ToString();
-            string[] st = selected.Split(';');
-            return Convert.ToInt32(st[id]);
+            System.Threading.Thread.Sleep(sleepTime);
+            btn_adminPrivilege.IsEnabled = false;
         }
-
         private async Task GrantAdminPrivilege(int id)
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            string content = "Admin privilege addition";
-            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync($"admin/users/grant/{id}", stringContent);
+            var response = await client.PostAsync($"admin/users/grant/{id}", new StringContent(""));
             tbl_status.Text = response.ToString();
             Message();
         }
@@ -744,6 +698,10 @@ namespace Projekt
         {
             btn_update.Visibility = Visibility.Visible;
             btn_delete.Visibility = Visibility.Visible;
+        }
+        private void AdminPrivilegeButtonHidden()
+        {
+            btn_adminPrivilege.Visibility = Visibility.Hidden;
         }
     }
 }
