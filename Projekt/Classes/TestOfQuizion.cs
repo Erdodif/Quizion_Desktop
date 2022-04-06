@@ -190,7 +190,7 @@ namespace Projekt
             HttpClient client3 = new HttpClient();
             client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response2 = await client3.PostAsync($"admin/users/grant/6", new StringContent(""));
+            var response2 = await client3.PostAsync($"admin/users/grant/7", new StringContent(""));
             Assert.IsTrue(Convert.ToInt32(response2.StatusCode) != 204);
         }
 
@@ -226,7 +226,7 @@ namespace Projekt
             HttpClient client3 = new HttpClient();
             client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response2 = await client3.PostAsync($"admin/users/revoke/6", new StringContent(""));
+            var response2 = await client3.PostAsync($"admin/users/revoke/7", new StringContent(""));
             Assert.IsTrue(Convert.ToInt32(response2.StatusCode) != 204);
         }
 
@@ -255,7 +255,7 @@ namespace Projekt
             string url = "/api/users/login";
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             JObject jObject = new JObject();
-            jObject.Add("userID", "test");
+            jObject.Add("userID", "testadmin");
             jObject.Add("password", "test");
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
