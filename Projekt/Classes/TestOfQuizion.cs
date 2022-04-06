@@ -14,10 +14,10 @@ namespace Projekt
     [TestFixture]
     class TestOfQuizion
     {
-        
 
-         [TestCase]
-         public void BeginTest()
+
+        [TestCase]
+        public void BeginTest()
         {
             ColorsOfQuizion c = new ColorsOfQuizion();
             Assert.IsFalse(c.Black == c.OnSecondary);
@@ -28,27 +28,23 @@ namespace Projekt
         public async Task TokenTest()
         {
             HttpResponseMessage response = await Login();
-            string token = "4a337678464a70633031747072757964426b46786b645244446952364871695237466555356166453359476d3475523635526b4d66775a484d7539534c6d5234";
+            string token = "459476d3475523635526b4d66775a484d7539534c6d5234";
             string token2 = await Token();
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            string reply = await client.GetStringAsync("http://127.0.0.1:8000/admin/quizzes");
-            List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(reply);
             Assert.AreNotEqual(token2, token);
         }
 
         [TestCase]
         public async Task QuestionTest()
         {
-            string token = "4a337678464a70633031747072757964426b46786b645244446952364871695237466555356166453359476d3475523635526b4d66775a484d7539534c6d5234";
             HttpClient client = new HttpClient();
+            string token = await Token();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             string reply = await client.GetStringAsync("http://127.0.0.1:8000/admin/questions");
             List<Question> question = JsonConvert.DeserializeObject<List<Question>>(reply);
             Assert.IsTrue(question is List<Question>);
         }
 
-       
+
 
         [TestCase]
         public async Task LoginTest()
@@ -98,6 +94,160 @@ namespace Projekt
             Assert.IsTrue(Convert.ToInt32(response.StatusCode) == 500);
         }
 
+        [TestCase]
+        public async Task UpdateTestThirdQuiz()
+        {
+            HttpResponseMessage response = await Login();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            string token = await Token();
+            HttpClient client2 = new HttpClient();
+            client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client2.GetStringAsync("http://127.0.0.1:8000/admin/quizzes");
+            List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(reply);
+            HttpClient client3 = new HttpClient();
+            client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            JObject jObject = new JObject();
+            jObject.Add("header", "Harmadik kvíz");
+            jObject.Add("description","Harmadik kvíz leírása");
+            string content = JsonConvert.SerializeObject(jObject);
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response2 = await client3.PutAsync($"admin/quizzes/3", stringContent);
+            Assert.IsTrue(Convert.ToInt32(response2.StatusCode) == 200);
+        }
+
+        [TestCase]
+        public async Task UpdateTestNoRealQuiz()
+        {
+            HttpResponseMessage response = await Login();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            string token = await Token();
+            HttpClient client2 = new HttpClient();
+            client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client2.GetStringAsync("http://127.0.0.1:8000/admin/questions");
+            List<Quiz> quiz = JsonConvert.DeserializeObject<List<Quiz>>(reply);
+            HttpClient client3 = new HttpClient();
+            client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            JObject jObject = new JObject();
+            jObject.Add("header", "Harmadik kvíz");
+            jObject.Add("description", "Harmadik kvíz leírása");
+            string content = JsonConvert.SerializeObject(jObject);
+            var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response2 = await client3.PutAsync($"admin/quizzes/0", stringContent);
+            Assert.IsTrue(Convert.ToInt32(response2.StatusCode) != 200);
+        }
+
+        [TestCase]
+        public async Task DeleteQuestionTest()
+        {
+            HttpResponseMessage response = await Login();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            string token = await Token();
+            HttpClient client2 = new HttpClient();
+            client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client2.GetStringAsync("http://127.0.0.1:8000/admin/questions");
+            List<Question> question = JsonConvert.DeserializeObject<List<Question>>(reply);
+            HttpClient client3 = new HttpClient();
+            client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var response2 = await client3.DeleteAsync($"admin/questions/4");
+            Assert.IsTrue(Convert.ToInt32(response2.StatusCode) == 204);
+        }
+
+        [TestCase]
+        public async Task DeleteNoRealQuestionTest()
+        {
+            HttpResponseMessage response = await Login();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            string token = await Token();
+            HttpClient client2 = new HttpClient();
+            client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client2.GetStringAsync("http://127.0.0.1:8000/admin/questions");
+            List<Question> quiz = JsonConvert.DeserializeObject<List<Question>>(reply);
+            HttpClient client3 = new HttpClient();
+            client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var response2 = await client3.DeleteAsync($"admin/questions/0");
+            Assert.IsTrue(Convert.ToInt32(response2.StatusCode) != 204);
+        }
+
+        [TestCase]
+        public async Task AdminGrantPrivilegeMyUserTest()
+        {
+            HttpResponseMessage response = await Login();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            string token = await Token();
+            HttpClient client2 = new HttpClient();
+            client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client2.GetStringAsync("http://127.0.0.1:8000/admin/users");
+            List<User> user = JsonConvert.DeserializeObject<List<User>>(reply);
+            HttpClient client3 = new HttpClient();
+            client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var response2 = await client3.PostAsync($"admin/users/grant/6", new StringContent(""));
+            Assert.IsTrue(Convert.ToInt32(response2.StatusCode) != 204);
+        }
+
+        [TestCase]
+        public async Task AdminGrantPrivilegeNoRealUserTest()
+        {
+            HttpResponseMessage response = await Login();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            string token = await Token();
+            HttpClient client2 = new HttpClient();
+            client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client2.GetStringAsync("http://127.0.0.1:8000/admin/users");
+            List<User> user = JsonConvert.DeserializeObject<List<User>>(reply);
+            HttpClient client3 = new HttpClient();
+            client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var response2 = await client3.PostAsync($"admin/users/grant/10", new StringContent(""));
+            Assert.IsTrue(Convert.ToInt32(response2.StatusCode) != 204);
+        }
+
+        [TestCase]
+        public async Task AdminRevokePrivilegeMyUserTest()
+        {
+            HttpResponseMessage response = await Login();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            string token = await Token();
+            HttpClient client2 = new HttpClient();
+            client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client2.GetStringAsync("http://127.0.0.1:8000/admin/users");
+            List<User> user = JsonConvert.DeserializeObject<List<User>>(reply);
+            HttpClient client3 = new HttpClient();
+            client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var response2 = await client3.PostAsync($"admin/users/revoke/6", new StringContent(""));
+            Assert.IsTrue(Convert.ToInt32(response2.StatusCode) != 204);
+        }
+
+        [TestCase]
+        public async Task AdminRevokePrivilegeTest()
+        {
+            HttpResponseMessage response = await Login();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            string token = await Token();
+            HttpClient client2 = new HttpClient();
+            client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client2.GetStringAsync("http://127.0.0.1:8000/admin/users");
+            List<User> user = JsonConvert.DeserializeObject<List<User>>(reply);
+            HttpClient client3 = new HttpClient();
+            client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var response2 = await client3.PostAsync($"admin/users/revoke/5", new StringContent(""));
+            Assert.IsTrue(Convert.ToInt32(response2.StatusCode) == 204);
+        }
+
 
         private async Task<HttpResponseMessage> Login()
         {
@@ -105,8 +255,8 @@ namespace Projekt
             string url = "/api/users/login";
             client.BaseAddress = new Uri("http://127.0.0.1:8000");
             JObject jObject = new JObject();
-            jObject.Add("userID", "somass");
-            jObject.Add("password", "123456789");
+            jObject.Add("userID", "test");
+            jObject.Add("password", "test");
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(url, stringContent);
