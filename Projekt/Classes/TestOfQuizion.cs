@@ -44,6 +44,29 @@ namespace Projekt
             Assert.IsTrue(question is List<Question>);
         }
 
+        [TestCase]
+        public async Task GetAnswersTest()
+        {
+            HttpClient client = new HttpClient();
+            string token = await Token();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client.GetStringAsync("http://127.0.0.1:8000/admin/answers");
+            HttpResponseMessage response = await client.GetAsync("http://127.0.0.1:8000/admin/answers");
+            List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(reply);
+            Assert.IsTrue((Convert.ToInt32(response.StatusCode) == 200));
+        }
+
+        [TestCase]
+        public async Task GetAnswersWrongURLTest()
+        {
+            HttpClient client = new HttpClient();
+            string token = await Token();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client.GetStringAsync("http://127.0.0.1:8000/admin/answers");
+            HttpResponseMessage response = await client.GetAsync("http://127.0.0.1:8000/admin/answersssssssssssssssss");
+            List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(reply);
+            Assert.IsTrue((Convert.ToInt32(response.StatusCode) != 200));
+        }
 
 
         [TestCase]
@@ -177,6 +200,24 @@ namespace Projekt
         }
 
         [TestCase]
+        public async Task AdminGrantPrivilegeTest()
+        {
+            HttpResponseMessage response = await Login();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            string token = await Token();
+            HttpClient client2 = new HttpClient();
+            client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client2.GetStringAsync("http://127.0.0.1:8000/admin/users");
+            List<User> user = JsonConvert.DeserializeObject<List<User>>(reply);
+            HttpClient client3 = new HttpClient();
+            client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var response2 = await client3.PostAsync($"admin/users/grant/3", new StringContent(""));
+            Assert.IsTrue(Convert.ToInt32(response2.StatusCode) == 204);
+        }
+
+        [TestCase]
         public async Task AdminGrantPrivilegeMyUserTest()
         {
             HttpResponseMessage response = await Login();
@@ -227,6 +268,23 @@ namespace Projekt
             client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response2 = await client3.PostAsync($"admin/users/revoke/7", new StringContent(""));
+            Assert.IsTrue(Convert.ToInt32(response2.StatusCode) != 204);
+        }
+        [TestCase]
+        public async Task AdminRevokePrivilegeNoAdminTest()
+        {
+            HttpResponseMessage response = await Login();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            string token = await Token();
+            HttpClient client2 = new HttpClient();
+            client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string reply = await client2.GetStringAsync("http://127.0.0.1:8000/admin/users");
+            List<User> user = JsonConvert.DeserializeObject<List<User>>(reply);
+            HttpClient client3 = new HttpClient();
+            client3.BaseAddress = new Uri("http://127.0.0.1:8000/");
+            client3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var response2 = await client3.PostAsync($"admin/users/revoke/6", new StringContent(""));
             Assert.IsTrue(Convert.ToInt32(response2.StatusCode) != 204);
         }
 
