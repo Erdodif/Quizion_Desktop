@@ -14,16 +14,6 @@ namespace Projekt
     [TestFixture]
     class TestOfQuizion
     {
-
-
-        [TestCase]
-        public void BeginTest()
-        {
-            ColorsOfQuizion c = new ColorsOfQuizion();
-            Assert.IsFalse(c.Black == c.OnSecondary);
-        }
-
-
         [TestCase]
         public async Task TokenTest()
         {
@@ -67,7 +57,6 @@ namespace Projekt
             List<Answer> answer = JsonConvert.DeserializeObject<List<Answer>>(reply);
             Assert.IsTrue((Convert.ToInt32(response.StatusCode) != 200));
         }
-
 
         [TestCase]
         public async Task LoginTest()
