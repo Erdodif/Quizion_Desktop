@@ -188,7 +188,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="quizion_logo.png" />
+    <Resource Include="Images\quizion_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="Projekt_ml.xml" />
@@ -206,7 +206,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="header.png" />
+    <Resource Include="Images\header.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

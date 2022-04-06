@@ -14,7 +14,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Image Source="header.png"/>
+            <Image Source="Images/header.png"/>
         </Grid>
         <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
@@ -29,7 +29,7 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <Image Source="quizion_logo.png" Grid.Row="0" Width="130" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,4,0,0" />
+            <Image Source="Images/quizion_logo.png" Grid.Row="0" Width="130" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,4,0,0" />
             <Button x:Name="btn_quiz" Content="Quiz" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="6,0,350,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#50508E" BorderThickness="2" Click="QuizClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
             <Button x:Name="btn_question" Content="Question" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,177,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#50508E" BorderThickness="2" Click="QuestionClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
             <Button  x:Name="btn_answer" Content="Answer" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,2,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#50508E" BorderThickness="2" Click="AnswerClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>

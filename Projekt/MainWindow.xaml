@@ -15,7 +15,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Image Source="header.png"/>
+            <Image Source="Images/header.png"/>
         </Grid>
         <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
@@ -30,7 +30,7 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <Image Source="quizion_logo.png" Margin="5,0,0,0" Grid.Row="0" Grid.RowSpan="4" Width="325"/>
+            <Image Source="Images/quizion_logo.png" Margin="5,0,0,0" Grid.Row="0" Grid.RowSpan="4" Width="325"/>
             <Label x:Name="lbl_user" Style="{StaticResource MontserratFont}" Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center" FontSize="22" Content="Username:" FontWeight="Bold" HorizontalAlignment="Right" Width="150"/>
             <Button x:Name="btn_login" Style="{StaticResource MontserratFont}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" Content="Login" FontWeight="Bold" Width="285" Height="50" BorderThickness="2" Click="btn_login_Click"/>
             <Label x:Name="lbl_password" Style="{StaticResource MontserratFont}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="22" Content="Password:" FontWeight="Bold" HorizontalAlignment="Right" Width="150"/>
