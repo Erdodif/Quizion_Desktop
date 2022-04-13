@@ -15,8 +15,9 @@ Az asztali alkalmazás segítségével az adminisztrátori felületet lehet elé
 
 
 # Rendszerkövetelmények
->
-## Minimum rendszerkövetelmény
+
+
+>## Minimum rendszerkövetelmény
 •	Windows 7 vagy 8
 •	2GB RAM memória
 •	1.8 GHZ processzor
@@ -24,7 +25,7 @@ Az asztali alkalmazás segítségével az adminisztrátori felületet lehet elé
 •	Internetkapcsolat
 
 >
-## Ajánlott rendszerkövetelmény
+>## Ajánlott rendszerkövetelmény
 •	Windows 10
 •	8GB RAM memória
 •	2.50 GHZ processzor
