@@ -19,17 +19,25 @@ Az asztali alkalmazás segítségével az adminisztrátori felületet lehet elé
 
 >## Minimum rendszerkövetelmény
 •	Windows 7 vagy 8
+
 •	2GB RAM memória
+
 •	1.8 GHZ processzor
+
 •	Videokártya, ami támogatja a minimális (720p) képernyő felbontást
+
 •	Internetkapcsolat
 
 >
 >## Ajánlott rendszerkövetelmény
 •	Windows 10
+
 •	8GB RAM memória
+
 •	2.50 GHZ processzor
+
 •	Videokártya, ami támogatja az ajánlott (1080p) képernyő felbontást
+
 •	Internetkapcsolat
 
 
