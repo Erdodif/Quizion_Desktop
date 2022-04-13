@@ -1,4 +1,3 @@
-# Quizion_Desktop
 
 <p align="center"><img src="Projekt/Images/quizion_logo.png" width="400"></p>
 
