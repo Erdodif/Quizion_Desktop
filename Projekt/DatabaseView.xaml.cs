@@ -36,6 +36,7 @@ namespace Projekt
         public DatabaseView()
         {
             InitializeComponent();
+            datagrid.IsReadOnly = true;
             AdminPrivilegeButtonHidden();
         }
         private async Task<string> GetClientConnection(string url)
