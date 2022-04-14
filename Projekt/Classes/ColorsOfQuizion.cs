@@ -32,8 +32,8 @@ namespace Projekt
             this.warning = (SolidColorBrush)new BrushConverter().ConvertFrom("#BA0100");
             this.alert = (SolidColorBrush)new BrushConverter().ConvertFrom("#BAA100");
             this.fine = (SolidColorBrush)new BrushConverter().ConvertFrom("#1CBA00");
-            this.white = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF000000");
-            this.black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
+            this.white = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
+            this.black = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF000000");
             
            
         }
