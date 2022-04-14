@@ -31,9 +31,15 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
             <Image Source="Images/quizion_logo.png" Margin="5,0,0,0" Grid.Row="0" Grid.RowSpan="4" Width="325"/>
-            <Label x:Name="lbl_user" Style="{StaticResource MontserratFont}" Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center" FontSize="22" Content="Username:" FontWeight="Bold" HorizontalAlignment="Right" Width="150"/>
-            <Button x:Name="btn_login" Style="{StaticResource MontserratFont}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" Content="Login" FontWeight="Bold" Width="285" Height="50" BorderThickness="2" Click="btn_login_Click" Background="#5B6AB0"/>
-            <Label x:Name="lbl_password" Style="{StaticResource MontserratFont}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="22" Content="Password:" FontWeight="Bold" HorizontalAlignment="Right" Width="150"/>
+            <Label x:Name="lbl_user" Style="{StaticResource MontserratFont}" Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center" FontSize="22" Content="Username:" FontWeight="Bold" HorizontalAlignment="Right" Width="150" Foreground="#FFFFFFFF"/>
+            <Button x:Name="btn_login" Style="{StaticResource MontserratFont}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" Content="Login" FontWeight="Bold" Width="285" Height="50" BorderThickness="0" Click="btn_login_Click" Foreground="#FFFFFFFF" Background="#4053A0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Label x:Name="lbl_password" Style="{StaticResource MontserratFont}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="22" Content="Password:" FontWeight="Bold" HorizontalAlignment="Right" Width="150" Foreground="#FFFFFFFF"/>
             <TextBox x:Name="tbx_name" Style="{StaticResource MontserratFont}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="14" VerticalContentAlignment="Center" Width="220" Height="38" Padding="4" TextWrapping="Wrap"/>
             <PasswordBox x:Name="tbx_pass" Style="{StaticResource MontserratFont}" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="14" VerticalContentAlignment="Center" Width="220" Height="38" Padding="4"/>
             <TextBlock x:Name="tbl_message" Style="{StaticResource MontserratFont}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" FontSize="22" TextAlignment="Center" Width="400" Height="61" TextWrapping="Wrap"/>

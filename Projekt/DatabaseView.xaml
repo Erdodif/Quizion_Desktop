@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="Database view" Height="500" Width="900" Background="#7985C1" MinWidth="900" MinHeight="500">
     <Grid>
-        <Grid Height="50" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="347*"/>
+            <RowDefinition Height="123*"/>
+        </Grid.RowDefinitions>
+        <Grid Height="50" VerticalAlignment="Top" Margin="0,0,-0.4,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -16,7 +20,7 @@
             </Grid.ColumnDefinitions>
             <Image Source="Images/header.png"/>
         </Grid>
-        <Grid HorizontalAlignment="Stretch">
+        <Grid HorizontalAlignment="Stretch" Margin="0,0,-0.4,0.4" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="1*"/>
@@ -30,12 +34,12 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Image Source="Images/quizion_logo.png" Grid.Row="0" Width="130" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,4,0,0" />
-            <Button x:Name="btn_quiz" Content="Quiz" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="6,0,350,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#50508E" BorderThickness="2" Click="QuizClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
-            <Button x:Name="btn_question" Content="Question" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,177,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#50508E" BorderThickness="2" Click="QuestionClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
-            <Button  x:Name="btn_answer" Content="Answer" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,2,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#50508E" BorderThickness="2" Click="AnswerClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
-            <Button  x:Name="btn_user" Content="User" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,-175,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#50508E" BorderThickness="2" Click="UserClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
-            <Button  x:Name="btn_admin" Content="Admin" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,-350,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#50508E" BorderThickness="2" Click="AdminClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
-            <DataGrid x:Name="datagrid" ItemsSource="{Binding}" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Margin="6,15.6,0.2,0" Style="{StaticResource MontserratFont}" Width="440" Height="210" FontSize="16" SelectionChanged="datagrid_SelectionChanged" Grid.ColumnSpan="1">
+            <Button x:Name="btn_quiz" Content="Quiz" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="6,0,350,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#4053A0" Click="QuizClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
+            <Button x:Name="btn_question" Content="Question" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,177,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#4053A0" Click="QuestionClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
+            <Button  x:Name="btn_answer" Content="Answer" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,2,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#4053A0" Click="AnswerClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
+            <Button  x:Name="btn_user" Content="User" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,-175,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#4053A0" Click="UserClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
+            <Button  x:Name="btn_admin" Content="Admin" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Margin="10,0,-350,0" Style="{StaticResource MontserratFont}" Width="85" Height="40" Background="#4053A0"  Click="AdminClick" FontSize="16" FontWeight="Bold" Foreground="#E8E7F5" BorderBrush="#4053A0"/>
+            <DataGrid x:Name="datagrid" ItemsSource="{Binding}" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Margin="6,15.6,0,0" Style="{StaticResource MontserratFont}" Width="440" Height="250" FontSize="16" SelectionChanged="datagrid_SelectionChanged" Grid.ColumnSpan="1">
                 <DataGrid.Columns>
                     <DataGridTextColumn>
                         <DataGridTextColumn.ElementStyle>
@@ -47,20 +51,43 @@
                     </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <TextBlock x:Name="tbl_status" Grid.Row="3" Grid.Column="0" VerticalAlignment="Bottom" Margin="150,0,0,0" Style="{StaticResource MontserratFont}" Width="189" Height="52" TextWrapping="Wrap" FontSize="14"/>
-            <Button x:Name="btn_update" Content="Update" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="10,34,245.2,10.4" Style="{StaticResource MontserratFont}" Width="192" Height="50" FontSize="22" Click="UpdateClick" BorderThickness="2" FontWeight="Bold" Background="#5B6AB0"/>
-            <Button x:Name="btn_delete" Content="Delete" Grid.Row="4" VerticalAlignment="Center" Margin="243,25,0,0" Style="{StaticResource MontserratFont}" Width="192" Click="Delete" FontSize="22" Height="50" BorderThickness="2" FontWeight="Bold" Background="#5B6AB0"/>
-            <Button x:Name="btn_adminPrivilege" Content="Admin privilege" Grid.Row="4" Grid.Column="2" Margin="0,25,0,0" Style="{StaticResource MontserratFont}" Width="205" Click="AdminPrivilege" FontSize="20" Height="50" BorderThickness="2" ClipToBounds="True" FontWeight="Bold" Background="#5B6AB0"/>
-            <TextBox x:Name="tbx_01" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" Style="{StaticResource MontserratFont}" Width="205" Height="40" FontSize="14" TextWrapping="Wrap" >
-            </TextBox>
-            <TextBox x:Name="tbx_02" Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" Style="{StaticResource MontserratFont}" Width="205" Height="40" FontSize="14" TextWrapping="Wrap"/>
-            <Button x:Name="btn_create" Content="Create" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource MontserratFont}" Width="205" Height="50" Click="CreateClick" FontSize="22" BorderThickness="2" FontWeight="Bold" Background="#5B6AB0">
+            <TextBlock x:Name="tbl_status" Grid.Row="3" Grid.Column="2"  VerticalAlignment="Center" Style="{StaticResource MontserratFont}" Width="300" Height="60" TextWrapping="Wrap" FontSize="14" TextAlignment="Center"/>
+            <Button x:Name="btn_update" Content="Update" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="10,25,243,0" Style="{StaticResource MontserratFont}" Width="192" Height="50" FontSize="22" Click="UpdateClick" BorderThickness="0" FontWeight="Bold" Foreground="#FFFFFFFF" Background="#4053A0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
             </Button>
-            <TextBox x:Name="tbx_00" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="5,45,118,18" Style="{StaticResource MontserratFont}" Width="90" Height="30" FontSize="14"/>
-            <Label x:Name="lb_00" Content="" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,45.6,0,18.8" Style="{StaticResource MontserratFont}" Width="90" Height="30" FontSize="14"/>
-            <Label x:Name="lb_01" Content="" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0.2,0,0" Style="{StaticResource MontserratFont}" Width="90" Height="30" MaxWidth="90" FontSize="14"/>
-            <Label x:Name="lb_02" Content="" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource MontserratFont}" Width="90" Height="30" FontSize="14"/>
-            <ComboBox x:Name="cbx" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="124,28,10,0" Style="{StaticResource MontserratFont}" Width="90" Height="30" SelectionChanged="cbx_SelectionChanged">
+            <Button x:Name="btn_delete" Content="Delete" Grid.Row="4" VerticalAlignment="Center" Margin="243,25,10,0" Style="{StaticResource MontserratFont}" Width="192" Click="Delete" FontSize="22" Height="50" FontWeight="Bold" Foreground="#FFFFFFFF" Background="#4053A0" BorderThickness="0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn_adminPrivilege" Content="Admin privilege" Grid.Row="4" Grid.Column="2" Margin="0,25,0,0" Style="{StaticResource MontserratFont}" Width="205" Click="AdminPrivilege" FontSize="20" Height="50" ClipToBounds="True" FontWeight="Bold" Foreground="#FFFFFFFF" Background="#4053A0" BorderThickness="0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBox x:Name="tbx_01" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" Style="{StaticResource MontserratFont}" Width="205" Height="40" FontSize="14" TextWrapping="Wrap" Margin="46,15,46,0" >
+            </TextBox>
+            <TextBox x:Name="tbx_02" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" VerticalAlignment="Center" Style="{StaticResource MontserratFont}" Width="205" Height="40" FontSize="14" TextWrapping="Wrap"/>
+            <Button x:Name="btn_create" Content="Create" Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" Style="{StaticResource MontserratFont}" Width="205" Height="50" Click="CreateClick" FontSize="22"  FontWeight="Bold" Foreground="#FFFFFFFF" Background="#4053A0" BorderThickness="0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="12"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBox x:Name="tbx_00" Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Margin="5,40,118,7" Style="{StaticResource MontserratFont}" Width="90" Height="30" FontSize="14"/>
+            <Label x:Name="lb_00" Content="" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,45.6,0,0" Style="{StaticResource MontserratFont}" Width="90" Height="30" FontSize="14"/>
+            <Label x:Name="lb_01" Content="" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,15,0,0" Style="{StaticResource MontserratFont}" Width="90" Height="30" MaxWidth="90" FontSize="14"/>
+            <Label x:Name="lb_02" Content="" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource MontserratFont}" Width="90" Height="30" FontSize="14"/>
+            <ComboBox x:Name="cbx" Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Margin="124,28,10,7" Style="{StaticResource MontserratFont}" Width="90" Height="30" SelectionChanged="cbx_SelectionChanged">
                 <ComboBoxItem x:Name="cbx_quiz" FontSize="14" Background="#7985C1">Quiz</ComboBoxItem>
                 <ComboBoxItem x:Name="cbx_question" FontSize="14" Background="#7985C1">Question</ComboBoxItem>
                 <ComboBoxItem x:Name="cbx_answer" FontSize="14" Background="#7985C1">Answer</ComboBoxItem>

@@ -309,7 +309,8 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/quizzes/{id}", stringContent);
-            tbl_status.Text = response.ToString();
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
         private async Task UpdateQuestion(int id)
@@ -322,7 +323,8 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/questions/{id}", stringContent);
-            tbl_status.Text = response.ToString();
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
 
@@ -336,7 +338,8 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/answers/{id}", stringContent);
-            tbl_status.Text = response.ToString();
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
         private async Task UpdateUser(int id)
@@ -349,7 +352,8 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/users/{id}", stringContent);
-            tbl_status.Text = response.ToString();
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
 
@@ -414,7 +418,8 @@ namespace Projekt
         {
             DeleteClientConnection();
             var response = await client.DeleteAsync($"admin/quizzes/{id}");
-            tbl_status.Text = response.ToString();
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
 
@@ -422,7 +427,8 @@ namespace Projekt
         {
             DeleteClientConnection();
             var response = await client.DeleteAsync($"admin/questions/{id}");
-            tbl_status.Text = response.ToString();
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
 
@@ -430,15 +436,17 @@ namespace Projekt
         {
             DeleteClientConnection();
             var response = await client.DeleteAsync($"admin/answers/{id}");
-            tbl_status.Text = response.ToString();
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
 
         private async Task DeleteUser(int id)
         {
             DeleteClientConnection();
-            var response = await client.DeleteAsync($"admin/users/{id}"); 
-            tbl_status.Text = response.ToString();
+            var response = await client.DeleteAsync($"admin/users/{id}");
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
 
@@ -458,7 +466,8 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync("/admin/quizzes/", stringContent);
-            tbl_status.Text = response.ToString();
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
 
@@ -472,7 +481,8 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync("admin/questions/", stringContent);
-            tbl_status.Text = response.ToString();
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
 
@@ -486,7 +496,8 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync("/admin/answers/", stringContent);
-            tbl_status.Text = response.ToString();
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
         private void CreateClick(object sender, RoutedEventArgs e)
@@ -655,7 +666,8 @@ namespace Projekt
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.PostAsync($"admin/users/grant/{id}", new StringContent(""));
-            tbl_status.Text = response.ToString();
+            string[] statusText = response.ToString().Split(',');
+            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
             Message();
         }
 
@@ -665,7 +677,7 @@ namespace Projekt
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.PostAsync($"admin/users/revoke/{id}",new StringContent(""));
-            tbl_status.Text = response.ToString();
+            
             Message();
         }
 
