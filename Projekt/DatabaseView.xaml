@@ -48,13 +48,13 @@
                 </DataGrid.Columns>
             </DataGrid>
             <TextBlock x:Name="tbl_status" Grid.Row="3" Grid.Column="0" VerticalAlignment="Bottom" Margin="150,0,0,0" Style="{StaticResource MontserratFont}" Width="189" Height="52" TextWrapping="Wrap" FontSize="14"/>
-            <Button x:Name="btn_update" Content="Update" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="10,34,245.2,10.4" Style="{StaticResource MontserratFont}" Width="192" Height="50" FontSize="22" Click="UpdateClick" BorderThickness="2" FontWeight="Bold"/>
-            <Button x:Name="btn_delete" Content="Delete" Grid.Row="4" VerticalAlignment="Center" Margin="243,25,0,0" Style="{StaticResource MontserratFont}" Width="192" Click="Delete" FontSize="22" Height="50" BorderThickness="2" FontWeight="Bold"/>
-            <Button x:Name="btn_adminPrivilege" Content="Admin privilege" Grid.Row="4" Grid.Column="2" Margin="0,25,0,0" Style="{StaticResource MontserratFont}" Width="205" Click="AdminPrivilege" FontSize="20" Height="50" BorderThickness="2" ClipToBounds="True" FontWeight="Bold"/>
+            <Button x:Name="btn_update" Content="Update" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="10,34,245.2,10.4" Style="{StaticResource MontserratFont}" Width="192" Height="50" FontSize="22" Click="UpdateClick" BorderThickness="2" FontWeight="Bold" Background="#5B6AB0"/>
+            <Button x:Name="btn_delete" Content="Delete" Grid.Row="4" VerticalAlignment="Center" Margin="243,25,0,0" Style="{StaticResource MontserratFont}" Width="192" Click="Delete" FontSize="22" Height="50" BorderThickness="2" FontWeight="Bold" Background="#5B6AB0"/>
+            <Button x:Name="btn_adminPrivilege" Content="Admin privilege" Grid.Row="4" Grid.Column="2" Margin="0,25,0,0" Style="{StaticResource MontserratFont}" Width="205" Click="AdminPrivilege" FontSize="20" Height="50" BorderThickness="2" ClipToBounds="True" FontWeight="Bold" Background="#5B6AB0"/>
             <TextBox x:Name="tbx_01" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" Style="{StaticResource MontserratFont}" Width="205" Height="40" FontSize="14" TextWrapping="Wrap" >
             </TextBox>
             <TextBox x:Name="tbx_02" Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" Style="{StaticResource MontserratFont}" Width="205" Height="40" FontSize="14" TextWrapping="Wrap"/>
-            <Button x:Name="btn_create" Content="Create" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource MontserratFont}" Width="205" Height="50" Click="CreateClick" FontSize="22" BorderThickness="2" FontWeight="Bold">
+            <Button x:Name="btn_create" Content="Create" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource MontserratFont}" Width="205" Height="50" Click="CreateClick" FontSize="22" BorderThickness="2" FontWeight="Bold" Background="#5B6AB0">
             </Button>
             <TextBox x:Name="tbx_00" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="5,45,118,18" Style="{StaticResource MontserratFont}" Width="90" Height="30" FontSize="14"/>
             <Label x:Name="lb_00" Content="" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,45.6,0,18.8" Style="{StaticResource MontserratFont}" Width="90" Height="30" FontSize="14"/>
