@@ -220,13 +220,12 @@ namespace Projekt
                         tbx_00.Visibility = Visibility.Hidden;
                         if (tbx_01.Text.Length < 3)
                         {
-                            tbl_status.Text = "The header of Quiz is not correct character length!";
-                            RedErrorMessage();
+                            MessageBox.Show($"The header of Quiz is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            
                         }
                         else if (tbx_02.Text.Length < 4)
                         {
-                            tbl_status.Text = "The description of Quiz is not correct character length!";
-                            RedErrorMessage();
+                            MessageBox.Show($"The description of Quiz is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
                         }
                         else
                         {
@@ -240,8 +239,7 @@ namespace Projekt
                         TextBoxVisibled();
                         if (tbx_01.Text.Length < 3)
                         {
-                            tbl_status.Text = "The content of Question is not correct character length!";
-                            RedErrorMessage();
+                            MessageBox.Show($"The content of Question is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);                            
                         }
                         else
                         {
@@ -255,8 +253,7 @@ namespace Projekt
                         TextBoxVisibled();
                         if (tbx_01.Text.Length < 3)
                         {
-                            tbl_status.Text = "The content of Answer is not correct character length!";
-                            RedErrorMessage();
+                            MessageBox.Show($"The content of Answer is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
                         }
                         else
                         {
@@ -270,8 +267,7 @@ namespace Projekt
                         TextBoxVisibled();
                         if (tbx_01.Text.Length < 3)
                         {
-                            tbl_status.Text = "The name of User is not correct character length!";
-                            RedErrorMessage();
+                            MessageBox.Show($"The name of User is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);                           
                         }
                         else
                         {
@@ -282,8 +278,7 @@ namespace Projekt
                     }
                     else
                     {
-                        tbl_status.Text = "Error, the implementation of update is not successful!";
-                        RedErrorMessage();
+                        MessageBox.Show($"Error, the implementation of update is not successful!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);                        
                     }
                 }
                 else
@@ -309,9 +304,15 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/quizzes/{id}", stringContent);
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            if (response.StatusCode.ToString().Equals("OK"))
+            {
+                MessageBox.Show("Successful update!", "Success", MessageBoxButton.OK, MessageBoxImage.None);
+            }
+            else
+            {
+                MessageBox.Show("The update is not successful!", "Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+                       
         }
         private async Task UpdateQuestion(int id)
         {
@@ -323,9 +324,14 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/questions/{id}", stringContent);
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            if (response.StatusCode.ToString().Equals("OK"))
+            {
+                MessageBox.Show("Successful update!", "Success", MessageBoxButton.OK, MessageBoxImage.None);
+            }
+            else
+            {
+                MessageBox.Show("The update is not successful!", "Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private async Task UpdateAnswer(int id)
@@ -338,9 +344,14 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/answers/{id}", stringContent);
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            if (response.StatusCode.ToString().Equals("OK"))
+            {
+                MessageBox.Show("Successful update!", "Success", MessageBoxButton.OK, MessageBoxImage.None);
+            }
+            else
+            {
+                MessageBox.Show("The update is not successful!", "Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
         private async Task UpdateUser(int id)
         {
@@ -352,9 +363,14 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"admin/users/{id}", stringContent);
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            if (response.StatusCode.ToString().Equals("OK"))
+            {
+                MessageBox.Show("Successful update!", "Success", MessageBoxButton.OK, MessageBoxImage.None);
+            }
+            else
+            {
+                MessageBox.Show("The update is not successful!", "Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void Delete(object sender, RoutedEventArgs e)
@@ -395,10 +411,9 @@ namespace Projekt
                     }
                     else
                     {
-                        tbl_status.Text = "Error, the implementation of delete is not successful!";
-                        RedErrorMessage();
+                        MessageBox.Show($"Error, the implementation of delete is not successful!", "Failed", MessageBoxButton.OK, MessageBoxImage.Warning);                       
                     }
-                    MessageBox.Show("The delete of selected item is successful!", "Successful delete", MessageBoxButton.OK, MessageBoxImage.Question);
+                    MessageBox.Show("The delete of selected item is successful!", "Success", MessageBoxButton.OK, MessageBoxImage.None);
                 }
                 else
                 {
@@ -417,37 +432,25 @@ namespace Projekt
         private async Task DeleteQuiz(int id)
         {
             DeleteClientConnection();
-            var response = await client.DeleteAsync($"admin/quizzes/{id}");
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            await client.DeleteAsync($"admin/quizzes/{id}");          
         }
 
         private async Task DeleteQuestion(int id)
         {
             DeleteClientConnection();
-            var response = await client.DeleteAsync($"admin/questions/{id}");
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            await client.DeleteAsync($"admin/questions/{id}");
         }
 
         private async Task DeleteAnswer(int id)
         {
             DeleteClientConnection();
-            var response = await client.DeleteAsync($"admin/answers/{id}");
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            await client.DeleteAsync($"admin/answers/{id}");
         }
 
         private async Task DeleteUser(int id)
         {
             DeleteClientConnection();
-            var response = await client.DeleteAsync($"admin/users/{id}");
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            await client.DeleteAsync($"admin/users/{id}");           
         }
 
         private async Task<HttpClient> PostClientConnection(string url)
@@ -466,9 +469,14 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync("/admin/quizzes/", stringContent);
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            if (response.StatusCode.ToString().Equals("Created"))
+            {
+                MessageBox.Show("Successful addition!", "Success", MessageBoxButton.OK, MessageBoxImage.None);
+            }
+            else
+            {
+                MessageBox.Show("The addition is not successful!", "Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private async Task InsertQuestion()
@@ -481,9 +489,14 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync("admin/questions/", stringContent);
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            if (response.StatusCode.ToString().Equals("Created"))
+            {
+                MessageBox.Show("Successful addition!", "Success", MessageBoxButton.OK, MessageBoxImage.None);
+            }
+            else
+            {
+                MessageBox.Show("The addition is not successful!", "Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private async Task InsertAnswer()
@@ -496,9 +509,14 @@ namespace Projekt
             string content = JsonConvert.SerializeObject(jObject);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await client.PostAsync("/admin/answers/", stringContent);
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            if (response.StatusCode.ToString().Equals("Created"))
+            {
+                MessageBox.Show("Successful addition!", "Success", MessageBoxButton.OK, MessageBoxImage.None);
+            }
+            else
+            {
+                MessageBox.Show("The addition is not successful!", "Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
         private void CreateClick(object sender, RoutedEventArgs e)
         {
@@ -507,13 +525,12 @@ namespace Projekt
                
                 if (tbx_01.Text.Length < 3)
                 {
-                    tbl_status.Text = "The header of Quiz is not correct character length!";
-                    RedErrorMessage();
+                    MessageBox.Show($"The header of Quiz is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    
                 }
                 else if (tbx_02.Text.Length < 4)
                 {
-                    tbl_status.Text = "The description of Quz is not correct character length!";
-                    RedErrorMessage();
+                    MessageBox.Show($"The description of Quz is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning); 
                 }
                 else
                 {
@@ -526,8 +543,7 @@ namespace Projekt
             {
                 if (tbx_01.Text.Length < 3)
                 {
-                    tbl_status.Text = "The content of Question is not correct character length!";
-                    RedErrorMessage();
+                    MessageBox.Show($"The content of Question is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);                    
                 }
                 else
                 {
@@ -540,8 +556,7 @@ namespace Projekt
             {
                 if (tbx_01.Text.Length < 3)
                 {
-                    tbl_status.Text = " The content of Answer is not correct character length!";
-                    RedErrorMessage();
+                    MessageBox.Show($"The content of Answer is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 else
                 {
@@ -552,8 +567,7 @@ namespace Projekt
             }
             else
             {
-                tbl_status.Text = "Error, the implementation of addition is not successful";
-                RedErrorMessage();
+                MessageBox.Show($"Error, the implementation of addition is not successful!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);               
             }
         }
 
@@ -666,9 +680,14 @@ namespace Projekt
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.PostAsync($"admin/users/grant/{id}", new StringContent(""));
-            string[] statusText = response.ToString().Split(',');
-            tbl_status.Text = $"{statusText[0]}\n{statusText[1]}";
-            Message();
+            if (response.StatusCode.ToString().Equals("NoContent"))
+            {
+                MessageBox.Show("Successful grant admin privilege!", "Success", MessageBoxButton.OK, MessageBoxImage.None);
+            }
+            else
+            {
+                MessageBox.Show("The grant privilege is not successful!", "Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private async Task RevokeAdminPrivilege(int id)
@@ -677,8 +696,14 @@ namespace Projekt
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await client.PostAsync($"admin/users/revoke/{id}",new StringContent(""));
-            
-            Message();
+            if (response.StatusCode.ToString().Equals("NoContent"))
+            {
+                MessageBox.Show("Successful revoke admin privilege!", "Success", MessageBoxButton.OK, MessageBoxImage.None);
+            }
+            else
+            {
+                MessageBox.Show("The revoke privilege is not successful!", "Failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void EmptyInputs()
@@ -686,16 +711,6 @@ namespace Projekt
             tbx_00.Text = "";
             tbx_01.Text = "";
             tbx_02.Text = "";
-        }
-
-        private void RedErrorMessage()
-        {
-            tbl_status.Foreground = quizionColors.Warning;
-        }
-
-        private void Message()
-        {
-            tbl_status.Foreground = quizionColors.Black;
         }
 
         private void ComboBoxInvisible()
@@ -718,3 +733,4 @@ namespace Projekt
         }
     }
 }
+
