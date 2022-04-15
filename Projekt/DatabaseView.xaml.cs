@@ -220,8 +220,7 @@ namespace Projekt
                         tbx_00.Visibility = Visibility.Hidden;
                         if (tbx_01.Text.Length < 3)
                         {
-                            MessageBox.Show($"The header of Quiz is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
-                            
+                            MessageBox.Show($"The header of Quiz is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);                           
                         }
                         else if (tbx_02.Text.Length < 4)
                         {
@@ -521,12 +520,10 @@ namespace Projekt
         private void CreateClick(object sender, RoutedEventArgs e)
         {
             if (cbx_quiz.IsSelected == true)
-            {
-               
+            {              
                 if (tbx_01.Text.Length < 3)
                 {
-                    MessageBox.Show($"The header of Quiz is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    
+                    MessageBox.Show($"The header of Quiz is not correct character length!", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);                    
                 }
                 else if (tbx_02.Text.Length < 4)
                 {
