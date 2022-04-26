@@ -46,4 +46,4 @@ Az asztali alkalmazás segítségével az adminisztrátori felületet lehet elé
 >A Visual Studion belül a Clone a repository fülre kattintva egy üres mappába másoljuk be az alábbi repository linkjét: https://github.com/Erdodif/Quizion_Desktop.git . Az előbbi utasítás egy másolatot készít az asztali alkalmazásból. A program elindítása a Start gomb megnyomásával a MainWindowban valósul meg, amely automatikusan van beállítva.
 
 ## Készítő
-> Az asztali alkalmazás Solti Soma saját munkájának eredménye
+> Az asztali alkalmazás Solti Soma saját munkájának eredménye.
